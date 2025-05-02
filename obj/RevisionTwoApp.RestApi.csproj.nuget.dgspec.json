@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steven.houglum\\source\\repo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {}
+    "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steven.houglum\\source\\repo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {
+    "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steven.houglum\\source\\repo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+        "projectUniqueName": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
         "projectName": "RevisionTwoApp.RestApi",
-        "projectPath": "C:\\Users\\steven.houglum\\source\\repo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+        "projectPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
         "packagesPath": "C:\\Users\\steven.houglum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steven.houglum\\source\\repo\\RevisionTwoRestApi-2025_3\\obj\\",
+        "outputPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
