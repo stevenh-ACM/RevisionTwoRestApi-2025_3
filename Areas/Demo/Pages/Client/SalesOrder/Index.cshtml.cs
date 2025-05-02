@@ -40,7 +40,9 @@ public class IndexModel(AppDbContext context,ILogger<IndexModel> logger) : PageM
 
     public List<object> Parms { get; set; } = [];
     public string Message { get; private set; }
+    #endregion
 
+    #region methods
     public void OnGet()
     {
         Message = $"Main: OnGet";

@@ -1,6 +1,7 @@
 ﻿#nullable disable
 
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Eventing.Reader;
 
 using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.AuthApi;
@@ -11,10 +12,11 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
+using Microsoft.Extensions.Options;
 
 using Newtonsoft.Json;
 
+using RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.DTOs.Conversions;
@@ -36,19 +38,18 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// <summary>
     /// Credentials list of creds in db
     /// </summary>
-    public List<Credential> Creds { get; set; } = [];  //URL information to ERP site
     public List<Acumatica.Default_24_200_001.Model.SalesOrder> salesOrders { get; set; } // salesOrder ERP data set
     public List<SalesOrderShipment> salesOrderShipment { get; set; } = [];
-    public List<SalesOrder_App> salesOrder_app { get; set; } = []; // salesOrder_app data set
+    public List<SalesOrder_App> SalesOrders_App { get; set; } = []; //SalesOrders data set
 
     public List<object> Parms { get; set; } = [new()];
-    public string Message { get; set; }
-
+    public Site_Credential SiteCredential { get; set; } // site object to hold credentials for Acumatica ERP connection
+    
     public BusinessAccount BAccount { get; set; }
-
+    public int Id { get; set; } // parameter to pass to Edit or Delete
+    public Boolean RefreshFlag { get; set; } = false; // is the page simply being refreshed
+    
     // Model parameters from Index or Filter to retrieve ERP records or filter already retrieved records
-    [BindProperty]
-    public List<SalesOrder_App> salesOrders_App { get; set; } = [new()]; //salesOrder_App context
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
     public DateTime FromDate { get; set; }
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
@@ -57,10 +58,6 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     public int NumRecords { get; set; }
     [BindProperty]
     public string Selected_SalesOrder_Type { get; set; }
-
-    public int id { get; set; } // parameter to pass to Edit or Delete
-    public Boolean refreshFlag { get; set; } = false; // is the page simply being refreshed
-
 
     #endregion
 
@@ -77,15 +74,15 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
         if((bool)TempData["EditFlag"]) //|| (bool)TempData["DeleteFlag"])
         {
             // refresh cache with any changes made in Edit or Delete
-            salesOrder_app = await _context.SalesOrders.ToListAsync();
-            refreshFlag = true;
+           SalesOrders_App = await _context.SalesOrders.ToListAsync();
+           RefreshFlag = true;
 
-            if(salesOrder_app.Count == 0)
+            if(SalesOrders_App.Count == 0)
             {
-                Message = $"Details: No SalesOrders found in the cache!";
+                var Message = $"Details: No SalesOrders found in the cache!";
                 _logger.LogError(Message);
 
-                return RedirectToPage("Pages/Home/Index");
+                return RedirectToPage("/Index");
             }
         }
         else
@@ -93,37 +90,16 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
             // clear out dB from previous retrievals
             _context.SalesOrders.RemoveRange();
             _context.SaveChanges();
-
-            //Retrieve Credentials from dB for ERP retrieval
-            Creds = await _context.Credentials.ToListAsync();
-
-            if(Creds is null)
-            {
-                Message = "Details: No Credentials exist. Please create at least one Credential!";
-                _logger.LogError(Message);
-
-                return RedirectToPage("Pages/Home/Index");
-            }
-            else
-            {
-                //Get the selected creds to access Acumatica ERP with
-                int id = new AuthId().getAuthId(Creds) - 1;
-                if(id is < 0)
-                {
-                    Message = "Details: No Credentials exist.Please create at least one Credential!";
-                    _logger.LogError(Message);
-
-                    return RedirectToPage("Pages/Credentials/Index");
-                }
-                Message = $"Details: Credential secured. SiteURL is {Creds[id].SiteUrl} and id is {id}";
-                _logger.LogInformation(Message);
-            }
         }
-
-        if(!refreshFlag) // not a refresh then retrieve records
+       
+        if(!RefreshFlag) // not a refresh then retrieve records
         {
-            //httpClient RestClient created with baseURL assigned
-            var client = new ApiClient(Creds[id].SiteUrl,
+            Site_Credential SiteCredential = new(_context, _logger);
+
+            Credential credential = SiteCredential.GetSiteCredential().Result;
+
+            // httpClient RestClient created with baseURL assigned
+            var client = new ApiClient(credential.SiteUrl,
                                                requestInterceptor: RequestLogger.LogRequest,
                                                responseInterceptor: RequestLogger.LogResponse,
                                                ignoreSslErrors: true // this is here to allow testing with self-signed certificates
@@ -131,29 +107,28 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
 
             if(client is null)
             {
-                Message = $"Details: Failure to create an client context. SiteURL is {Creds[id].SiteUrl} and id is {id}";
+                var Message = $"Details: Failure to create an client context. SiteURL is {credential.SiteUrl}";
                 _logger.LogError(message: Message);
                 throw new NullReferenceException(nameof(client));
             }
-
             try
             {
                 //RestClient Log In (on) using Credentials retrieved
                 //authApi.LogIn( Credentials[id].UserName, Credentials[id].Password, "", "", "" );
-                client.Login(Creds[id].UserName,Creds[id].Password,"","","");
+                client.Login(credential.UserName,credential.Password,"","","");
 
                 if(client.RequestInterceptor is null)
                 {
-                    Message = $"Details: Failure to create an configuration context. client login has UserName of " +
-                              $"{Creds[id].UserName} and Password of {Creds[id].Password}";
-                    _logger.LogError(Message);
+                    var Message2 = $"Details: Failure to create an configuration context. client login has UserName of " +
+                                $"{credential.UserName} and Password of {credential.Password}";
+                    _logger.LogError(Message2);
                     throw new NullReferenceException(nameof(client));
                 }
                 else
                 {
                     Console.WriteLine("Reading Accounts...");
-                    Message = "Details: Reading Accounts for parameters chosen";
-                    _logger.LogInformation(Message);
+                    var Message3 = "Details: Reading Accounts for parameters chosen";
+                    _logger.LogInformation(Message3);
                 }
 
                 //Rest parameters for API methods
@@ -184,8 +159,8 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                     var baAccount = client.GetByKeys<BusinessAccount>(customerID);
                     if(baAccount is null)
                     {
-                        Message = $"Details: Failure to create an salesOrderApi using {client.ToString}";
-                        _logger.LogError(Message);
+                        var Message2 = $"Details: Failure to create an salesOrderApi using {client.ToString}";
+                        _logger.LogError(Message2);
                         throw new NullReferenceException(nameof(baAccount));
                     }
 
@@ -193,11 +168,11 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                     var _so = new ConvertToSO(salesOrders[idx],baAccount,salesOrders[idx].Shipments[0].ShipmentDate);
 
                     //Add data model record list
-                    _context.SalesOrders.Add(_so);
-                    salesOrder_app.Add(_so);
+                    await _context.SalesOrders.AddAsync(_so);
+                   SalesOrders_App.Add(_so);
                 }
 
-                Message = $"Details: salesOrder_app has {salesOrder_app.Count} records";
+                var Message = $"Details:SalesOrders has {SalesOrders_App.Count} records";
                 _logger.LogInformation(Message);
 
                 //Write list of records accumulated to dB
@@ -205,7 +180,7 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
             }
             catch(Exception e)
             {
-                Message = $"Details: Exception caught {e.Message}";
+                var Message = $"Details: Exception caught {e.Message}";
                 _logger.LogError(Message);
             }
             finally
@@ -213,27 +188,24 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                 //we use logout in finally block because we need to always log out, even if the request failed for some reason
                 if(client.TryLogout())
                 {
-                    Message = $"Details: Logged out Successfully {client.RequestInterceptor}";
-                    _logger.LogInformation(message:Message);
+                    var Message = $"Details: Logged out Successfully {client.RequestInterceptor}";
+                    _logger.LogInformation(message: Message);
                 }
                 else
                 {
-                    Message = $"Details: Error {client.RequestInterceptor} while logging out";
+                    var Message = $"Details: Error {client.RequestInterceptor} while logging out";
                     _logger.LogError(Message);
                 }
             }
         }
-        // set Model to current result set salesOrder_app for display
-        if(ModelState.IsValid)
+        // set Model to current result setSalesOrders for display
+        if(!ModelState.IsValid)
         {
-            salesOrders_App = salesOrder_app;
-            if(salesOrders_App is null)
-            {
-                Message = $"Details: No SalesOrders found in the cache!";
-                _logger.LogError(Message);
-                throw new NullReferenceException(nameof(salesOrders_App));
-            }
+             var Message = $"Details: No SalesOrders found in the cache!";
+            _logger.LogError(Message);
+            throw new NullReferenceException(nameof(SalesOrders_App));
         }
+
         SetParms();
 
         return Page();
@@ -241,10 +213,10 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
 
     public async Task<IActionResult> OnPostAsync()
     {
-        Message = $"Details: From Date is {FromDate}: To Date is {ToDate}";
+        var Message = $"Details: From Date is {FromDate}: To Date is {ToDate}";
         _logger.LogInformation(Message);
 
-        salesOrders_App = await _context.SalesOrders.Where(x => x.Date >= FromDate && x.Date <= ToDate).ToListAsync();
+        SalesOrders_App = await _context.SalesOrders.Where(x => x.Date >= FromDate && x.Date <= ToDate).ToListAsync();
 
         SetParms();
 
@@ -259,8 +231,8 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
         Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
         if(Parms is null)
         {
-            Message = $"Details: No parameters exist. Please check your parameters!";
-            _logger.LogError(Message);
+            var Message4 = $"Details: No parameters exist. Please check your parameters!";
+            _logger.LogError(Message4);
             throw new NullReferenceException(nameof(Parms));
         }
 
@@ -269,13 +241,12 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
         NumRecords = Convert.ToInt32(Parms[2]);
         Selected_SalesOrder_Type = (string)Parms[3];
 
-        Message = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var Message = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
         _logger.LogInformation(Message);
 
         return;
     }
-
     private void SetParms()
     {
         Parms = [ FromDate,
@@ -284,18 +255,18 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                                   Selected_SalesOrder_Type ];
         if(Parms is null)
         {
-            Message = $"Details: No parameters exist. Please check your parameters!";
-            _logger.LogError(Message);
+            var Message5 = $"Details: No parameters exist. Please check your parameters!";
+            _logger.LogError(Message5);
             throw new NullReferenceException(nameof(Parms));
         }
 
-        refreshFlag = false;
+        RefreshFlag = false;
 
         TempData["parms"] = JsonConvert.SerializeObject(Parms);
         TempData["EditFlag"] = false;
         TempData["DeleteFlag"] = false;
 
-        Message = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var Message = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
         _logger.LogInformation(Message);
 

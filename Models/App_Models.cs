@@ -269,6 +269,9 @@ public class Contact_App
 
     #endregion
 }
+#endregion
+
+#region Opportunity_App
 /// <summary>
 ///  mapping class for standard output form
 /// </summary>

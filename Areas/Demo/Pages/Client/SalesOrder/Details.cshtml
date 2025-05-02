@@ -57,22 +57,22 @@
             <tr><td>Order Type is <b><a>@Model.Selected_SalesOrder_Type</a></b></td></tr>
             <tr><td> <b><a> </a></b></td></tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderNbr)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].Status)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].Date)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].CustomerID)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].CustomerName)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderedQty)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderTotal)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].ShipmentDate)</th>
-                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].LastModified)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].OrderNbr)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].Status)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].Date)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].CustomerID)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].CustomerName)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].OrderedQty)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].OrderTotal)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].ShipmentDate)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOrders_App[0].LastModified)</th>
                 <th></th>
             </tr>
         </thead>
         <tbody style="white-space: nowrap; width:100%;">
-            @if (Model.salesOrders_App.Count() > 0) 
+            @if (Model.SalesOrders_App.Count() > 0) 
             {
-                @foreach (var item in Model.salesOrders_App)
+                @foreach (var item in Model.SalesOrders_App)
                 { 
                     <tr>
                             @Html.HiddenFor(modelItem  => item.Id) @*Id of record for editing*@
@@ -81,8 +81,8 @@
                         <td>@Html.DisplayFor(modelItem => item.Date)</td>
                         <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
                         <td>@Html.DisplayFor(modelItem => item.CustomerName)</td>
-                        <td>@Html.FormatValue(            item.OrderedQty.Value, "{0:N0}")</td>
-                        <td>@Html.FormatValue(            item.OrderTotal.Value, "{0:C2}")</td>
+                        <td>@Html.FormatValue(            item.OrderedQty.HasValue ? item.OrderedQty.Value : 0,"{0:N0}")</td>
+                        <td>@Html.FormatValue(            item.OrderTotal.HasValue ? item.OrderTotal.Value : 0,"{0:C2}")</td>
                         <td>@Html.DisplayFor(modelItem => item.ShipmentDate)</td>
                         <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
 

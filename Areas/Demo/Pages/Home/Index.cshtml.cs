@@ -11,40 +11,37 @@ using RevisionTwoApp.RestApi.Models;
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 
 //[Authorize]
-public class IndexModel:PageModel
+public class IndexModel(AppDbContext context,ILogger<IndexModel> logger):PageModel
 {
     #region ctor
-    private readonly ILogger<IndexModel> _logger;
-    private readonly AppDbContext _context;
 
-    public IndexModel(AppDbContext context,ILogger<IndexModel> logger)
-    {
-        _context = context;
-        _logger = logger;
-    }
+    public readonly ILogger<IndexModel> _logger = logger;
+    public readonly AppDbContext _context = context;
+
     #endregion
-
-    public List<Credential> Credentials { get; set; }
 
     [BindProperty]
     public string SiteUrl { get; set; } = default;
+    public Site_Credential SiteCredential { get; set; }// site object to hold credentials for Acumatica ERP connection
 
-    public async Task<IActionResult> OnGetAsync()
+
+    public IActionResult OnGet()
     {
-        Credentials = await _context.Credentials.ToListAsync();
+        // Get the selected connection credentials to access Acumatica ERP
+        Site_Credential SiteCredential = new Site_Credential(_context,_logger);
 
-        if(Credentials is null)
+        Credential credential = SiteCredential.GetSiteCredential().Result;
+
+        if(credential is null)
         {
             _logger.LogError($"No Credentials exist. Please create at least one Credential!");
             return RedirectToPage("Pages/Home/Index");
         }
         else
         {
-            //Get the selected credentials to access Acumatica ERP with
-            var id = new AuthId().getAuthId(Credentials) - 1;
-            _logger.LogInformation($"Credential secured. SiteURL is {Credentials[id].SiteUrl} and id is {id}");
+            _logger.LogInformation($"Credential secured. SiteURL is {credential.SiteUrl}");
 
-            SiteUrl = Credentials[id].SiteUrl;
+            SiteUrl = credential.SiteUrl;
 
             _logger.LogInformation("Home/Index Page");
         }
