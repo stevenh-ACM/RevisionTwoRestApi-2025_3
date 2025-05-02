@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<partial name="/Pages/Banner.cshtml" />
+
+<hr />
+
+<div class="container-fluid p-3 card-group">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Getting Started</h3>
+                    <p class="card-text text-wrap" style="width: auto">Details on What and How to use this Demo Application</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" asp-area="Demo" asp-page="/Home/GettingStarted"><i class="bi bi-lightbulb"></i> Learn More &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body ">
+                    <h3 class=card-title>About Revision Two</h3>
+                    <p class="card-text text-wrap" style="width: auto">This ASP.Net Core Web App is a front-end to an Acumatica ERP system using Rest Open API web services.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" asp-area="Demo" asp-page="/Home/About"><i class="bi bi-lightbulb"></i> Learn More &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>About Acumatica</h3>
+                    <p class="card-text text-break" card-text text-wrap" style="width: auto">Acumatica was born in the cloud, built to meet the ever-evolving needs of midmarket companies and their customers.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" href="https://www.acumatica.com" target="_blank"><i class="bi bi-lightbulb"></i> Learn More &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Partner Portal</h3>
+                    <p class="card-text text-wrap" style="width: auto">Get the RevisionTwo demo data from the Sales -> Demo Materials section of the Acumatica Partner Portal.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" href="https://portal.acumatica.com/Frames/Login.aspx?ReturnUrl=%2f" target="_blank"><i class="bi bi-search"></i> Explore More &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

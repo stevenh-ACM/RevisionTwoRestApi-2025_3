@@ -1,0 +1,49 @@
+﻿namespace RevisionTwoApp.RestApi.Auxiliary;
+
+public static class RequestLogger
+{
+    private const string _requestsLogPath = "RequestsLog.txt";
+
+    public static void LogResponse(HttpResponseMessage responseMessage)
+    {
+        try
+        {
+            using(var writer = new StreamWriter(_requestsLogPath,true))
+            {
+                writer.WriteLine(DateTime.Now.ToString());
+                writer.WriteLine("Response");
+                writer.WriteLine("\tStatus code: " + responseMessage.StatusCode);
+                writer.WriteLine("\tContent: " + responseMessage?.Content.ReadAsStringAsync().Result);
+                writer.WriteLine("-----------------------------------------");
+                writer.WriteLine();
+                writer.Flush();
+                writer.Close();
+            }
+        }
+        catch { }
+    }
+
+    /// <summary>
+    /// Logs request to RequestsLog.txt file.
+    /// </summary>
+    public static void LogRequest(HttpRequestMessage request)
+    {
+        try
+        {
+            using var writer = new StreamWriter(_requestsLogPath,true);
+            writer.WriteLine(DateTime.Now.ToString());
+            writer.WriteLine("Request");
+            writer.WriteLine("\tMethod: " + request.Method);
+            string body = request.Content?.ReadAsStringAsync().Result;
+
+            writer.WriteLine("\tURL: " + request.RequestUri);
+            if(!String.IsNullOrEmpty(body))
+                writer.WriteLine("\tBody: " + body);
+            writer.WriteLine("-----------------------------------------");
+            writer.WriteLine();
+            writer.Flush();
+            writer.Close();
+        }
+        catch { }
+    }
+}

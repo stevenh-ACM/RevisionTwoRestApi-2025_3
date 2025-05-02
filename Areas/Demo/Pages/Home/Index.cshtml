@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Demo Client";
+}
+
+<partial name="/Pages/Banner.cshtml"/>
+
+<p class="p-4">
+    <a class="btn btn-primary" asp-area="Demo" asp-page="/Credentials/Index"><i class="bi bi-lock"></i>Setup &raquo;</a>&nbsp;
+    Site set to:&nbsp;<b>@Html.DisplayFor(model => model.SiteUrl)</b>&nbsp;&nbsp;<u>Click Setup</u> to change or modify Url.
+</p>
+
+<hr />
+
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ERP Functional Area Demos</h4>
+
+<div class="container-fluid p-4 card-group">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Sales Orders</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with a SalesOrder using Rest Open APIs.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" asp-area="Demo" asp-page="/Client/SalesOrder/Index"><i class="bi bi-card-list"></i> Get Sales Orders &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Contacts</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with Contacts using Rest Open APIs.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" asp-area="Demo" asp-page="/Client/Contact/Index"><i class="bi bi-person-rolodex"></i> Get Contacts &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Opportunities</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with Opportunities using Rest Open APIs.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <p><a class="btn btn-primary" asp-area="Demo" asp-page="/Client/Opportunity/Index"><i class="bi bi-headset"></i> Get Opportunities &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Cases</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with Cases using Rest Open APIs.</p>
+                </div>
+                <div>
+                    <p class="card-footer bg-transparent border-0"><a class="btn btn-primary" asp-area="Demo" asp-page="/Client/Case/Index"><i class="bi bi-briefcase"></i> Get Cases &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Bills</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with Bills using Rest Open APIs.</p>
+                </div>
+                <div>
+                    <p class="card-footer bg-transparent border-0"><a class="btn btn-primary" asp-route-id="1" asp-area="Demo" asp-page="/Client/Bill/Index"><i class="bi bi-cash"></i> Get Bills &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow" id="mycard">
+                <div class="card-body">
+                    <h3 class=card-title>Shipments</h3>
+                    <p class="card-text text-wrap" style="width: auto">The following demo shows how to work with Shipments using Rest Open APIs.</p>
+                </div>
+                <div>
+                    <p class="card-footer bg-transparent border-0"><a class="btn btn-primary" asp-area="Demo" asp-page="/Client/Shipment/Index"><i class="bi bi-truck"></i> Get Shipments &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

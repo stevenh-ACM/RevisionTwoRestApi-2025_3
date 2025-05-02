@@ -1,0 +1,88 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Sales Orders";
+}
+
+<h4 class="align-text-top text-muted m-2">@ViewData["Title"] - Main</h4>
+<hr />
+
+<div class="container pagetop p-2 m-2" >
+    <p>
+        <a asp-area="Demo" asp-page="/Home/Index"><i class="bi bi-house-up" title="Demo Home"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Index"><i class="bi bi-arrow-return-left" title="SalesOrder Main"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Create"><i class="bi bi-plus-square" title="Create Sales Order"></i></a>
+
+        <img src="~/img/sales-order-icon-24.jpg" class="img-fluid" style="float:right;height:auto; width:100px;" title="Sales Orders" />
+    </p>
+    <p class="text-muted">Defaults: all dates, @Model.NumRecords orders, @Model.Selected_SalesOrder_Type type or change as required</p>
+</div>
+<br/>
+
+@*Date Range for selection results*@
+<div class="container pagemiddle p-2 m-2" >
+    <div class="container-fluid p-2 m-2">
+        <form method="post">
+
+    @*Row two*@
+            <div class="row p-1">
+                <div class="col-auto col-md-4">
+                    <label asp-for="FromDate" class="col-form-label">From Date</label>
+                    <div class="input-group date" id="from-datepicker">
+                        <input type="text" asp-for="FromDate" class="form-control" placeholder="From Date"  />
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-auto col-md-4">
+                    <label asp-for="ToDate" class="col-form-label">To Date</label>
+                    <div class="input-group date" id="to-datepicker">
+                        <input type="text" asp-for="ToDate" class="form-control" placeholder="To Date" />
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                    </div>          
+                </div>
+            </div>
+    @*Row two*@
+            <div class="row p-1">
+                <div class="col-auto col-md-4">
+                    <label asp-for="NumRecords" class="col-form-label">Records to Retrieve</label>
+                    <div class="input-group">
+                        <input asp-for="NumRecords" class="form-control" placeholder="Number of Records" />
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                                <i class="bi bi-card-list"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-auto col-md-4">
+                        <label asp-for="Selected_SalesOrder_Type" class="col-form-label">Order Type</label>
+                        <div class="input-group">
+                            <select asp-for="Selected_SalesOrder_Type" asp-items=@Model.Selected_SalesOrder_Types class="form-select select" ></select>
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-light d-block">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                </span>
+                            </span>
+                        </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Retrieve</button>
+        </form>
+    </div>
+</div>
+ 
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js" integrity="sha256-iZp9dyOMJKPFdn1UMra9ZMhPZAlSGZUzdhqqEgijE+Q=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="\js\datePicker.js"></script>
+}

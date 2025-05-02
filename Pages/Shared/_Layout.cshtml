@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - RevisionTwoApp RestApi Demo</title>
+
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/RevisionTwo_DemoApp.styles.css" />
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui@1.13.3/themes/base/theme.min.css" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/css/bootstrap-datepicker3.min.css" integrity="sha256-bZRrQVK1rYvxccX8WACyWguD6Ba0h4h/Qs6vmJP2Pws=" crossorigin="anonymous" >
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light" >
+                    <a class="navbar-brand" asp-area="" asp-page="/Index" ><img src="~/img/acumatica-2024-logo.png" height="35vw" title="Acumatica Logo" ></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" >
+                            <span class="navbar-toggler-icon" ></span>
+                        </button>
+                    <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between" >
+                        <ul class="navbar-nav flex-grow-1" >
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index"><i class="bi bi-house" ></i> Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Demo" asp-page="/Home/Index"><i class="bi bi-terminal" ></i> Demo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Demo" asp-page="/Home/About"><i class="bi bi-bookmark"></i> About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container" >
+            <main role="main" >
+                @RenderBody()
+            </main>
+        </div>
+        <footer class="container footer mt-auto text-muted text-center pt-4" >
+            <p>
+                <small>
+                    Acumatica,&nbsp;Inc.&nbsp;&copy;2008-2025&nbsp;&nbsp;&nbsp;All rights reserved<br />&nbsp;&nbsp;<a asp-area="" asp-page="/Terms" >Terms</a>&nbsp;&nbsp;&nbsp;<a asp-area="" asp-page="/Privacy">Privacy</a>&nbsp;&nbsp;
+                    <a href="https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp" target="_blank" alt="Acumatica ERP RestAPI Repository">Acumatica ERP RestAPI Repository&nbsp; <img src="~/img/abrx6-vri7x-006.png" /></a>
+                </small>
+            </p>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/49c5887ad3.js" crossorigin="anonymous" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-ui@1.13.3/dist/jquery-ui.min.js" integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js" integrity="sha256-iZp9dyOMJKPFdn1UMra9ZMhPZAlSGZUzdhqqEgijE+Q=" crossorigin="anonymous" ></script>
+        @await RenderSectionAsync( "Scripts", required: false )
+    </body>
+</html>

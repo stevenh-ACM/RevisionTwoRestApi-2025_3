@@ -1,0 +1,106 @@
+﻿@page
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Sales Orders";
+}
+
+<h4 class="align-text-top text-muted m-2" >@ViewData["Title"] - Details</h4>
+<hr />
+
+<div class="container pagetop p-2 m-2" >
+    <p>
+        <a asp-area="Demo" asp-page="/Home/Index"><i class="bi bi-house-up" title="Demo Home"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Index"><i class="bi bi-arrow-return-left" title="SalesOrder Main"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Create"><i class="bi bi-plus-square" title="Create Sales Order"></i></a>
+
+        <img src="~/img/sales-order-icon-24.jpg" class="img-fluid" style="float:right;height:auto; width:100px;" title="Sales Orders" />
+    </p>
+</div>
+ <br />
+
+@*Date Range for filtering results*@
+<div class="container pagemiddle p-2 m-2" >
+    <form method="post">
+        <div class="row p-1">
+            <div class="col-auto col-md-4">
+                <label asp-for="FromDate" class="col-form-label">From Date</label>
+                <div class="input-group date" id="from-datepicker">
+                    <input type="text" asp-for="FromDate" class="form-control" placeholder="From Date" />
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-light d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-auto col-md-4">
+                <label asp-for="ToDate" class="col-form-label">To Date</label>
+                <div class="input-group date" id="to-datepicker">
+                    <input type="text" asp-for="ToDate" class="form-control" placeholder="To Date" />
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-light d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div><br/>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+</div>
+<hr/>
+<div class="container pagedetail m-2 p-2" >
+    <table class="table table-striped table-hover table-sm">
+
+        <thead style="white-space: nowrap; width:100%">
+            <tr><td>Order Type is <b><a>@Model.Selected_SalesOrder_Type</a></b></td></tr>
+            <tr><td> <b><a> </a></b></td></tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderNbr)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].Status)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].Date)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].CustomerID)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].CustomerName)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderedQty)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].OrderTotal)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].ShipmentDate)</th>
+                <th>@Html.DisplayNameFor(model => model.salesOrders_App[0].LastModified)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody style="white-space: nowrap; width:100%;">
+            @if (Model.salesOrders_App.Count() > 0) 
+            {
+                @foreach (var item in Model.salesOrders_App)
+                { 
+                    <tr>
+                            @Html.HiddenFor(modelItem  => item.Id) @*Id of record for editing*@
+                        <td>@Html.DisplayFor(modelItem => item.OrderNbr)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CustomerName)</td>
+                        <td>@Html.FormatValue(            item.OrderedQty.Value, "{0:N0}")</td>
+                        <td>@Html.FormatValue(            item.OrderTotal.Value, "{0:C2}")</td>
+                        <td>@Html.DisplayFor(modelItem => item.ShipmentDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
+
+                        <td>
+                            <span style="white-space: nowrap; color:blue">
+                                <a asp-page="./Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square" title="Edit"></i></a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id"><i class="bi bi-trash" title="Delete"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody> 
+    </table>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js" integrity="sha256-iZp9dyOMJKPFdn1UMra9ZMhPZAlSGZUzdhqqEgijE+Q=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="\js\datePicker.js"></script>
+}

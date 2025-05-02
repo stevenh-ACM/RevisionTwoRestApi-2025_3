@@ -1,0 +1,21 @@
+﻿ <div class="container-fluid p-3">
+    <h4 class="align-text-top text-muted m-2">@ViewData["Title"]</h4>
+    <div class="card h100 shadow" id="mycard">
+        <div class="card-body">
+            <h3 class="card-title">RevisionTwo</h3>
+            <div class="card-img">
+                <picture>
+                    <source media="(max-width:960px)" srcset="~/img/Designer_1024_576.jpeg">
+                    <source media="(min-width:1200px)" srcset="~/img/Designer_1024_576.jpeg">
+                    <img id="mybanner" src="~/img/Designer_1024_576.jpeg">
+                </picture>
+            </div>
+            <div class="card-text text-wrap">
+                <p style="width:35%"> is a fictional company<wbr> used for learning about Acumatica and <wbr>demonstrating Acumatica ERP API features.</p>
+                <div class="card-footer bg-transparent border-0">
+                    <a class="btn btn-primary" asp-area="Demo" asp-page="/Home/Background"><i class="bi bi-lightbulb"></i> Learn More &raquo;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

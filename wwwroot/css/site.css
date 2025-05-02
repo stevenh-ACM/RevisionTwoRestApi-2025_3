@@ -1,0 +1,74 @@
+/* default css */
+
+html {
+    font-size       : 16px;
+    min-height      : 100%;
+}
+
+body {
+    margin-bottom   : 60px;
+    margin          : auto;
+}
+
+footer {
+    position        : relative;
+}
+
+#mycard {
+    border-radius   : 12px;
+    background-color: #f4f4f4;
+}
+#mybanner {
+    border-radius   : 12px;
+    float           : right;
+    width           : 60%;
+    object-fit      : contain;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size   : 11px;
+    }
+}
+
+@media (min-width: 769px) {
+    html {
+        font-size   : 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size   : 13px;
+    }
+}
+
+@media (min-width:1200px) {
+    html {
+        font-size   : 15px;
+    }
+}
+
+@media (min-width:1400px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+.pagetop {
+    background-color: #f4f4f4;
+    box-shadow      : 5px 5px 10px 5px #e1e1e1;
+}
+
+.pagemiddle {
+    background-color: #E8F6FD;
+    box-shadow      : 5px 5px 10px 5px #e1e1e1;
+}
+
+.pagedetail {
+    background-color: #f2f2f2;
+    box-shadow      : 5px 5px 10px 5px #e1e1e1;
+    overflow-x      : auto;
+}
+
+

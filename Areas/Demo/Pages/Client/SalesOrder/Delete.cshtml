@@ -1,0 +1,158 @@
+﻿@page
+@model DeleteModel
+
+@{
+    ViewData["Title"] = "Sales Order - Delete";
+}
+
+<h4 class="align-text-top text-muted">@ViewData["Title"] - Delete</h4>
+<hr />
+
+<div class="container-fluid p-1 m-2" style="background-color:#f4f4f4; box-shadow: 5px 5px 10px 5px #e1e1e1;">
+    <p>
+        <a asp-area="Demo" asp-page="/Home/Index"><i class="bi bi-house-up" title="Demo Home"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Index"><i class="bi bi-arrow-return-left" title="SalesOrder Main"></i></a>&nbsp;&nbsp;&nbsp;
+        <a asp-area="Demo" asp-page="/Client/SalesOrder/Create"><i class="bi bi-plus-square" title="Create Sales Order"></i></a>
+
+        <img src="~/img/sales-order-icon-24.jpg" class="img-fluid" style="float:right;height:auto; width:100px;" title="Sales Orders" />
+    </p>
+</div>
+<br />
+<div class="container pagemiddle p-3 m-1" >
+    <input type="hidden" asp-for="salesOrder_App.CurrencyID" class="form-control" />
+
+@*Top Row*@
+    <div class="row p-1">
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.Status" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.Status" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-list-check"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.OrderType" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.OrderType" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-clipboard2-check"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+@*Second Row*@
+    <div class="row p-1">
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.Date" class="control-label"></label>
+            <div class="input-group">
+                <input type="text" asp-for="salesOrder_App.Date" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-calendar3"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.OrderNbr" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.OrderNbr" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-bag"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+@*Third Row*@
+    <div class="row p-1">
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.CustomerID" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.CustomerID" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-card-list"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.CustomerName" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.CustomerName" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-card-list"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+@*Fourth Row*@
+    <div class="row p-1">
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.OrderTotal" class="control-label"></label>
+            <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                    </div>
+                <input asp-for="salesOrder_App.OrderTotal" asp-format="{0:N2}" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-credit-card"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.OrderedQty" class="control-label"></label>
+            <div class="input-group">
+                <input asp-for="salesOrder_App.OrderedQty" asp-format="{0:N0}" class="form-control" readonly/>
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-cart4"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+@*Fifth Row*@
+    <div class="row p-1">
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.ShipmentDate" class="control-label"></label>
+            <div class="input-group date" id="datepicker">
+                <input type="text" asp-for="salesOrder_App.ShipmentDate" class="form-control" />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-truck"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-auto col-md-4">
+            <label asp-for="salesOrder_App.LastModified" class="control-label"></label>
+            <div class="input-group date" id="datepicker">
+                <input type="text" asp-for="salesOrder_App.LastModified" class="form-control" readonly />
+                <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block">
+                        <i class="bi bi-calendar3"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <br/>
+        <input type="hidden" asp-for="salesOrder_App.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" asp-route="./Details" value="Cancel" class="btn btn-warning" />
+    </form>
+</div>
