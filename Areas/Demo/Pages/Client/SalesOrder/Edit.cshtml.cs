@@ -15,6 +15,11 @@ using RevisionTwoApp.RestApi.Models.App;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+/// <summary>
+/// Edit a new Sales Order
+/// </summary>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageModel
 {
     #region ctor
@@ -22,45 +27,81 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
     private readonly ILogger<EditModel> _logger = logger;
     private readonly AppDbContext _context = context;
 
-    #endregion
-
-    #region properties
-
+    /// <summary>
+    /// Gets or sets the data associated with the EditModel.
+    /// </summary>
     public string Data { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the parameters associated with the EditModel.
+    /// </summary>
     public List<object> Parms { get; set; } = [new()];
+
+    /// <summary>
+    /// Gets or sets the starting date for the sales order.
+    /// </summary>
     public DateTime FromDate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the ending date for the sales order.
+    /// </summary>
     public DateTime ToDate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the number of records associated with the sales order.
+    /// </summary>
     public int NumRecords { get; set; }
+
+    /// <summary>
+    /// Gets or sets the selected sales order type.
+    /// </summary>
     public string Selected_SalesOrder_Type { get; set; }
 
     [BindProperty]
     public SalesOrder_App salesOrder_App { get; set; }
 
+    /// <summary>
+    /// Gets the list of selectable sales order types.
+    /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Types { get; } = new Combo_Boxes().ComboBox_SalesOrder_Types;
-    public List<SelectListItem> Selected_SalesOrder_Statuses { get;  } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
+
+    /// <summary>
+    /// Gets the list of selectable sales order statuses.
+    /// </summary>
+    public List<SelectListItem> Selected_SalesOrder_Statuses { get; } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
+
+    /// <summary>
+    /// Gets or sets the message associated with the EditModel.
+    /// </summary>
     public string Message { get; private set; }
 
-    #endregion
+    /// <summary>
+    /// Gets or sets the sales order application data.
+    /// </summary>
+    [BindProperty]
+    public SalesOrder_App SalesOrderApp { get; set; }
 
-    #region methods
+    /// <summary>
+    /// Handles the GET request for editing a sales order.
+    /// </summary>
+    /// <param name="id">The ID of the sales order to edit.</param>
+    /// <returns>An <see cref="IActionResult"/> representing the result of the operation.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
         GetParms();
 
-        if(id == null || _context.SalesOrders == null)
+        if (id == null || _context.SalesOrders == null)
         {
             Message = $"Edit: Id {id} or SalesOrder context {_context.ContextId} is null";
             _logger.LogError(message: Message);
             return NotFound();
         }
-
         SalesOrder_App salesOrder_app = await _context.SalesOrders.FirstOrDefaultAsync(m => m.Id == id);
 
-        if(salesOrder_app == null)
+        if (salesOrder_app == null)
         {
             Message = $"Edit: Edit of id {id} failed";
             _logger.LogError(message: Message);
-
             return NotFound();
         }
         else
@@ -69,18 +110,14 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         }
         salesOrder_App.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Text == salesOrder_App.Status)?.Value ?? string.Empty;
         salesOrder_App.LastModified = DateTime.Now;
-
         SetParms();
-
         return Page();
-    }
-
+    }
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync(int? id)
     {
         GetParms();
-
         if(!ModelState.IsValid)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
@@ -88,16 +125,13 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
             _logger.LogError($"Edit: ModelState Values are:{errors}");
             return Page();
         }
-
         _context.Attach(salesOrder_App).State = EntityState.Modified;
-        
         var status = salesOrder_App.Status;
 
         Message = $"Edit: salesOrder_App.Status is {status}";
         _logger.LogInformation(message: Message);
 
         salesOrder_App.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Value == salesOrder_App.Status)?.Text ?? string.Empty;
-        
         var status1 = salesOrder_App.Status;
 
         Message = $"Edit: salesOrder_App.Status is {status1}";
@@ -118,9 +152,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
                 throw;
             }
         }
-
         SetParms();
-
         return RedirectToPage("./Details");
     }
 

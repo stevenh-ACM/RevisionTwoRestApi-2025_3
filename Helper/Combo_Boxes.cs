@@ -11,15 +11,30 @@ public class Combo_Boxes
     /// Combo boxes for Bill creation
     /// </summary>
     public IEnumerable<string> Bill_Types { get; set; }
+    /// <summary>
+    /// Gets or sets the statuses for bills.
+    /// </summary>
     public IEnumerable<string> Bill_Statuses { get; set; }
 
     /// <summary>
     /// Combo boxes for Case creation
     /// </summary>
     public IEnumerable<string> Case_Statuses { get; set; }
+    /// <summary>
+    /// Gets or sets the reasons for cases.
+    /// </summary>
     public IEnumerable<string> Case_Reasons { get; set; }
+    /// <summary>
+    /// Gets or sets the severity levels for cases.
+    /// </summary>
     public IEnumerable<string> Case_Severity { get; set; }
+    /// <summary>
+    /// Gets or sets the priorities for cases.
+    /// </summary>
     public IEnumerable<string> Case_Priorities { get; set; }
+    /// <summary>
+    /// Gets or sets the class IDs for cases.
+    /// </summary>
     public IEnumerable<string> Case_ClassIDs { get; set; }
 
     /// <summary>
@@ -31,21 +46,36 @@ public class Combo_Boxes
     /// Combo boxes for Opportunity
     /// </summary>
     public IEnumerable<string> Opportunity_Statuses { get; set; }
+    /// <summary>
+    /// Gets or sets the stages for opportunities.
+    /// </summary>
     public IEnumerable<string> Opportunity_Stages { get; set; }
+    /// <summary>
+    /// Gets or sets the class IDs for opportunities.
+    /// </summary>
     public IEnumerable<string> Opportunity_ClassIDs { get; set; }
 
     /// <summary>
     /// Combo Boxes for SalesOrder
     /// </summary>
     public IEnumerable<string> SalesOrder_Types { get; set; }
+    /// <summary>
+    /// Combo Boxes for SalesOrder
+    /// </summary>
     public IEnumerable<string> SalesOrder_Statuses { get; set; }
 
     /// <summary>
     /// Combo Boxes for Shipments
     /// </summary>
     public IEnumerable<string> Shipment_Types { get; set; }
+    /// <summary>
+    /// Gets or sets the statuses for shipments.
+    /// </summary>
     public IEnumerable<string> Shipment_Statuses { get; set; }
 
+    /// <summary>
+    /// Gets the combo box items for bill types.
+    /// </summary>
     public List<SelectListItem> ComboBox_Bill_Types { get; } =
     [
         new SelectListItem { Value = "INV", Text = "Bill" },
@@ -53,7 +83,10 @@ public class Combo_Boxes
         new SelectListItem { Value = "ADR", Text = "Debit Adj."},
         new SelectListItem { Value = "PPM", Text = "Prepayment"}
     ];
-    public List<SelectListItem> ComboBox_Bill_Statuses { get; } = 
+    /// <summary>
+    /// Gets the combo box items for bill statuses.
+    /// </summary>
+    public List<SelectListItem> ComboBox_Bill_Statuses { get; } =
     [
         new SelectListItem { Value = "H", Text = "On Hold" },
         new SelectListItem { Value = "B", Text = "Balanced" },
@@ -69,6 +102,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "G", Text = "Pending Print" },
         new SelectListItem { Value = "X", Text = "Under Reclassification"}
     ];
+    /// <summary>
+    /// Gets the combo box items for case statuses.
+    /// </summary>
     public List<SelectListItem> ComboBox_Case_Statuses { get; } =
     [
         new SelectListItem { Value = "N", Text = "New" },
@@ -77,6 +113,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "R", Text = "Released"},
         new SelectListItem { Value = "P", Text = "Pending Customer"}
     ];
+    /// <summary>
+    /// Gets the combo box items for case reasons.
+    /// </summary>
     public List<SelectListItem> ComboBox_Case_Reasons { get; } =
     [
         new SelectListItem { Value = "RJ", Text = "Rejected" },
@@ -97,6 +136,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "PC", Text = "Closed on Portal"},
         new SelectListItem { Value = "PO", Text = "Opened on Portal"}
     ];
+    /// <summary>
+    /// Gets the combo box items for case severities.
+    /// </summary>
     public List<SelectListItem> ComboBox_Case_Severities { get; } =
     [
         new SelectListItem { Value = "L", Text = "Low" },
@@ -104,12 +146,18 @@ public class Combo_Boxes
         new SelectListItem { Value = "H", Text = "High"},
         new SelectListItem { Value = "U", Text = "Urgent"}
     ];
+    /// <summary>
+    /// Gets the combo box items for case priorities.
+    /// </summary>
     public List<SelectListItem> ComboBox_Case_Priorities { get; } =
     [
         new SelectListItem { Value = "L", Text = "Low" },
         new SelectListItem { Value = "M", Text = "Medium" },
-        new SelectListItem { Value = "H", Text = "High"}
+        new SelectListItem { Value = "H", Text = "High" }
     ];
+    /// <summary>
+    /// Gets the combo box items for case class IDs.
+    /// </summary>
     public List<SelectListItem> ComboBox_Case_ClassIDs { get; } =
     [
         new SelectListItem { Value = "BILLING", Text = "Billing" },
@@ -118,6 +166,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "PRODSUP", Text = "Product Support with Contract"},
         new SelectListItem { Value = "PRODSUPINC", Text = "Product Support - Incident"}
     ];
+    /// <summary>
+    /// Gets the combo box items for contact classes.
+    /// </summary>
     public List<SelectListItem> ComboBox_Contact_Classes { get; } =
     [
         new SelectListItem { Value = "LEADBUS", Text = "Sales Lead - Business" },
@@ -125,6 +176,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "LEADCON", Text = "Sales Lead - Customer"},
         new SelectListItem { Value = "LEADIMP", Text = "Sales Lead - Imported or External"}
     ];
+    /// <summary>
+    /// Gets the combo box items for opportunity statuses.
+    /// </summary>
     public List<SelectListItem> ComboBox_Opportunity_Statuses { get; } =
     [
         new SelectListItem { Value = "N", Text = "New" },
@@ -132,6 +186,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "W", Text = "Won"},
         new SelectListItem { Value = "L", Text = "Lost"}
     ];
+    /// <summary>
+    /// Gets the combo box items for opportunity stages.
+    /// </summary>
     public List<SelectListItem> ComboBox_Opportunity_Stages { get; } =
     [
         new SelectListItem { Value = "L", Text = "Prospect" },
@@ -143,12 +200,18 @@ public class Combo_Boxes
         new SelectListItem { Value = "R", Text = "Negotiation" },
         new SelectListItem { Value = "W", Text = "Won" }
     ];
+    /// <summary>
+    /// Gets the combo box items for opportunity class IDs.
+    /// </summary>
     public List<SelectListItem> ComboBox_Opportunity_ClassIDs { get; } =
     [
         new SelectListItem { Value = "PARTNER", Text = "Partner Sales" },
         new SelectListItem { Value = "PRODUCT", Text = "Product Sales Opportunity" },
         new SelectListItem { Value = "SERVICE", Text = "Service Opportunity"}
     ];
+    /// <summary>
+    /// Gets the combo box items for sales order types.
+    /// </summary>
     public List<SelectListItem> ComboBox_SalesOrder_Types { get; } =
     [
         new SelectListItem { Value = "CM", Text = "(CM) Credit Memo" },
@@ -171,6 +234,9 @@ public class Combo_Boxes
         new SelectListItem { Value = "SS", Text = "(SS) Shopify POS To Ship Order"},
         new SelectListItem { Value = "TR", Text = "(TR) Transfer"}
     ];
+    /// <summary>
+    /// Gets the combo box items for sales order statuses.
+    /// </summary>
     public List<SelectListItem> ComboBox_SalesOrder_Statuses { get; } =
     [
         new SelectListItem { Value = "N", Text = "Open" },
@@ -187,11 +253,17 @@ public class Combo_Boxes
         new SelectListItem { Value = "I", Text = "Invoiced" },
         new SelectListItem { Value = "D", Text = "Expired"}
     ];
+    /// <summary>
+    /// Gets the combo box items for shipment types.
+    /// </summary>
     public List<SelectListItem> ComboBox_Shipment_Types { get; } =
     [
         new SelectListItem { Value = "I", Text = "Shipment" },
         new SelectListItem { Value = "T", Text = "Transfer" }
     ];
+    /// <summary>
+    /// Gets the combo box items for shipment statuses.
+    /// </summary>
     public List<SelectListItem> ComboBox_Shipment_Statuses { get; } =
     [
         new SelectListItem { Value = "N", Text = "Open" },

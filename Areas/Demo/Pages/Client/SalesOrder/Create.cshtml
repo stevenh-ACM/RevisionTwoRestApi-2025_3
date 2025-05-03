@@ -24,12 +24,11 @@
     <span asp-validation-Summary="All" class="text-danger"></span>
     <form method="post">
 
-    <input type="hidden" asp-for="salesOrder.Id" />
 @*Top Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
                 <label asp-for="salesOrder.Date" class="control-label"></label>
-                <div class="input-group date" id="datepicker">2
+                <div class="input-group date" id="datepicker">
                     <input type="text" asp-for="salesOrder.Date" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
@@ -44,7 +43,7 @@
             <div class="col-auto col-md-4">
                 <label asp-for="salesOrder.Status" class="control-label"></label>
                 <div class="input-group">
-                    <input type="text" asp-for="salesOrder.Status" value="New" class="form-control" readonly />
+                    <input type="text" asp-for="salesOrder.Status" value="New" class="form-control dark" readonly />
                     <input type="hidden" asp-for="salesOrder.CustomerID" />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
@@ -56,7 +55,8 @@
             <div class="col-auto col-md-4">
                 <label asp-for="salesOrder.CustomerName" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="salesOrder.CustomerName" asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"></select>
+                    <select asp-for="salesOrder.CustomerName"
+                            asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"></select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>
@@ -67,17 +67,6 @@
         </div>    
 @*Row Three*@
         <div class="row p-1">
-            <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderType" class="control-label"></label>
-                <div class="input-group">
-                    <select asp-for="salesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"></select>
-                    <span class="input-group-append">
-                        <span class="input-group-text bg-light d-block">
-                            <i class="bi bi-clipboard2-check"></i>
-                        </span>
-                    </span>
-                </div>
-            </div>
             <div class="col-auto col-md-4">
                 <label name="InventoryID" class="control-label">InventoryID</label>
                 <div class="input-group">
@@ -105,6 +94,18 @@
 @*Row Four*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
+                <label asp-for="salesOrder.OrderType" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="salesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"><option selected="">Select a Tyoe</option></select>
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-light d-block">
+                            <i class="bi bi-clipboard2-check"></i>
+                        </span>
+                    </span>
+                </div>
+                <span asp-validation-for="salesOrder.OrderType" class="text-danger"></span>
+            </div>
+            <div class="col-auto col-md-4">
                 <label asp-for="salesOrder.ShipmentDate" class="control-label"></label>
                 <div class="input-group date" id="sd-datepicker">
                     <input type="text" asp-for="salesOrder.ShipmentDate" class="form-control"  />
@@ -114,17 +115,7 @@
                         </span>
                     </span>
                 </div>
-            </div>
-            <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.LastModified" class="control-label"></label>
-                <div class="input-group date">
-                    <input type="text" asp-for="salesOrder.LastModified" value="@Model.lastModified" class="form-control" readonly />
-                    <span class="input-group-append">
-                        <span class="input-group-text bg-light d-block">
-                            <i class="bi bi-calendar3"></i>
-                        </span>
-                    </span>
-                </div>
+                <span asp-validation-for="salesOrder.ShipmentDate" class="text-danger"></span>
             </div>
         </div>
         <br />

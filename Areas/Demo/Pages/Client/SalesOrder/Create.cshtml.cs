@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
@@ -41,13 +40,14 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     public List<SelectListItem> Selected_SalesOrder_Types { get; } = new Combo_Boxes().ComboBox_SalesOrder_Types;
     public List<SelectListItem> Selected_SalesOrder_Statuses { get; } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
     public List<SelectListItem> Selected_SalesOrder_Customers { get; } = [];
-
-    [BindProperty]
-    public SalesOrder_App SalesOrder_App { get; set; } = default!; // SalesOrder_App is the model for the Sales Order Razor Model
+    public List<SalesOrder_App> SalesOrders { get; set; } = default!;
+    
     [BindProperty]
     public SalesOrder_App salesOrder { get; set; } = new();
     [BindProperty]
     public Combo_Boxes Combo_Boxes { get; set; } = new();
+
+    // default values for new Sales Order 
     [BindProperty]
     public DateTime Date { get; set; } = DateTime.Now;
     [BindProperty]
@@ -61,10 +61,9 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
     public async Task<IActionResult> OnGetAsync()
     {
-        int cnt = 0;
         // Get current SalesOrders from database
-        List<SalesOrder_App> SalesOrders_App = await _context.SalesOrders.ToListAsync();
-        if (SalesOrders_App is null)
+        SalesOrders = await _context.SalesOrders.ToListAsync();
+        if (SalesOrders is null)
         {
             _logger.LogError("Create-OnGetAsync: No Sales Orders exist. Please create at least one Sales Order!");
             return Page();
@@ -72,19 +71,18 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
         // Populate Selected_SalesOrder_Customers
         Selected_SalesOrder_Customers.Clear();
-        foreach (var salesOrder in SalesOrders_App)
+        foreach (var salesOrder in SalesOrders)
         {
-            cnt++;
             if (!string.IsNullOrEmpty(salesOrder.CustomerID))
             {
                 Selected_SalesOrder_Customers.Add(new SelectListItem
                 {
                     Value = salesOrder.CustomerID,
-                    Text  = salesOrder.CustomerName ?? salesOrder.CustomerID
+                    Text  = salesOrder.CustomerName
                 });
             }
         }
-        salesOrder.Id = cnt;
+
         salesOrder.Date = Date.AddDays(-1);
         salesOrder.ShipmentDate = Date;
 
@@ -97,20 +95,26 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// <returns></returns>
     public async Task<IActionResult> OnPostAsync()
     {
-
-        DateTimeValue defaultDate = DateTime.Parse("2010-01-01T00:00:01.000");
-
         // Get current SalesOrders from database
-        List<SalesOrder_App> SalesOrders_App = await _context.SalesOrders.ToListAsync();
-
-        _context.Attach(SalesOrder_App).State = EntityState.Modified;
-
-        if (!ModelState.IsValid || _context.SalesOrders == null || SalesOrders_App is null)
+        SalesOrders = await _context.SalesOrders.ToListAsync();
+ 
+        if (!ModelState.IsValid || _context.SalesOrders == null || SalesOrders == null)
         {
             _logger.LogError("Create-OnGetAsync: No Sales Orders exist. Please create at least one Sales Order!");
             return Page();
         }
 
+        _context.Attach(salesOrder).State = EntityState.Added;
+        
+        // adjust values not captured on Screen or are not sensible for a create screen
+        salesOrder.CustomerID = salesOrder.CustomerName;
+        salesOrder.CustomerName = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CustomerName;
+        salesOrder.CurrencyID = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CurrencyID;
+        salesOrder.LastModified = DateTime.Now;
+
+        // add adjusted salesOrder or the SalesOrder_App cache
+        SalesOrders.Add(salesOrder);
+        
         // get current Acumatcia ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
 
@@ -149,11 +153,14 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             }
             else
             {
-                var CustomerID = SalesOrder_App.CustomerID;
+                var CustomerID = salesOrder.CustomerID;
 
                 _logger.LogInformation($"Create: Retrieve customer using Customer ID {CustomerID}.");
 
-                var customer = client.GetList<Customer>(top: 1,filter: "Status eq 'Active'",select: "CustomerID").Single();
+                //var customer = client.GetList<Customer>(top: 1,filter: "Status eq 'Active'",select: "CustomerID").Single();
+                var customer = client.GetByKeys<Customer>([CustomerID]);
+
+                _logger.LogInformation($"Create: Customer Retrie Customer details {customer}.");
 
                 var so = client.Put(new Acumatica.Default_24_200_001.Model.SalesOrder()
                 {
@@ -164,11 +171,13 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                         new SalesOrderDetail()
                         {
                             InventoryID = InventoryID,
-                            OrderQty = SalesOrder_App.OrderedQty,
+                            OrderQty = salesOrder.OrderedQty,
 
                         }
                     }
                 },expand: "Details");
+
+                _logger.LogInformation($"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}.");
 
                 var shipment = client.Put(new Shipment()
                 {
@@ -184,7 +193,9 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                         }
                     }
                 });
-                
+
+                _logger.LogInformation($"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.");
+
                 var baAccount = client.GetByKeys<BusinessAccount>([CustomerID]);
                 if(baAccount is null)
                 {
@@ -193,10 +204,16 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                     throw new NullReferenceException(nameof(baAccount));
                 }
 
+                _logger.LogInformation($"Create: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.");
+
                 var _so = new ConvertToSO(so,baAccount,shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
+                _logger.LogInformation($"Create: Newly created SalesOrder_App record to be added {_so}.");
+
                 await _context.SalesOrders.AddAsync(_so);
-                await _context.SaveChangesAsync();  
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation($"Create: Sales Order Created and posted and added to SalesOrder_App cache.");
 
                 return RedirectToPage("./Index");
             }

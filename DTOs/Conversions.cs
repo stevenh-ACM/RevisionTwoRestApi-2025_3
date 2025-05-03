@@ -7,15 +7,16 @@ using RevisionTwoApp.RestApi.Models.App;
 
 namespace RevisionTwoApp.RestApi.DTOs.Conversions;
 
-#region classes
-/// <summary>
-/// API Model to App Model (Screen and Storage) conversion
-/// Conversion classes using inheritance of custom models
-/// </summary>
-
 #region ConvertToAddr
+/// <summary>
+/// Converts an Address object to an Addr object.
+/// </summary>
 public class ConvertToAddr:Addr
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToAddr"/> class.
+    /// </summary>
+    /// <param name="ad">The Address object to convert.</param>
     public ConvertToAddr(Address ad)
     {
         AddressLine1 = ad.AddressLine1.Value;
@@ -29,16 +30,23 @@ public class ConvertToAddr:Addr
 #endregion
 
 #region ConvertToAddress
+/// <summary>
+/// Converts an Addr object to an Address object.
+/// </summary>
 public class ConvertToAddress:Address
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToAddress"/> class.
+    /// </summary>
+    /// <param name="ad">The Addr object to convert.</param>
     public ConvertToAddress(Addr ad)
     {
         AddressLine1 = ad.AddressLine1;
-        AddressLine2 = ad.AddressLine1;
-        City = ad.AddressLine1;
-        Country = ad.AddressLine1;
-        PostalCode = ad.AddressLine1;
-        State = ad.AddressLine1;
+        AddressLine2 = ad.AddressLine2;
+        City = ad.City;
+        Country = ad.Country;
+        PostalCode = ad.PostalCode;
+        State = ad.State;
     }
 }
 #endregion
@@ -49,6 +57,10 @@ public class ConvertToAddress:Address
 /// </summary>
 public class ConvertToAR_Bill:Bill_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToAR_Bill"/> class.
+    /// </summary>
+    /// <param name="bill">The Bill object to convert.</param>
     public ConvertToAR_Bill(Bill bill)
     {
         Type = bill.Type.Value;
@@ -95,6 +107,10 @@ public class ConvertToBill:Bill
 /// </summary>
 public class ConvertToAR_BillDetail:BillDetail_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToAR_BillDetail"/> class.
+    /// </summary>
+    /// <param name="bill">The BillDetail object to convert.</param>
     public ConvertToAR_BillDetail(BillDetail bill)
     {
         Branch = bill.Branch.Value;
@@ -111,13 +127,16 @@ public class ConvertToAR_BillDetail:BillDetail_App
 }
 #endregion
 
-#region ConverttoBillDetail
+#region ConvertToBillDetail
 /// <summary>
-/// Conversion to Default model from App model using inheritance
+/// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToBillDetail:BillDetail
+public class ConvertToBillDetail:BillDetail_App
 {
-
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToBillDetail"/> class.
+    /// </summary>
+    /// <param name="bill">The BillDetail_App object to convert.</param>
     public ConvertToBillDetail(BillDetail_App bill)
     {
         Branch = bill.Branch;
@@ -140,6 +159,10 @@ public class ConvertToBillDetail:BillDetail
 /// </summary>
 public class ConvertToCase_App:Case_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToCase_App"/> class.
+    /// </summary>
+    /// <param name="cr">The Case object to convert.</param>
     public ConvertToCase_App(Case cr)
     {
         CaseID = cr.CaseID.Value;
@@ -166,6 +189,10 @@ public class ConvertToCase_App:Case_App
 /// </summary>
 public class ConvertToCase:Case
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToCase"/> class.
+    /// </summary>
+    /// <param name="cr">The Case_App object to convert.</param>
     public ConvertToCase(Case_App cr)
     {
         CaseID = cr.CaseID;
@@ -192,6 +219,10 @@ public class ConvertToCase:Case
 /// </summary>
 public class ConvertToCO:Contact_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToCO"/> class.
+    /// </summary>
+    /// <param name="co">The Contact object to convert.</param>
     public ConvertToCO(Contact co)
     {
         Active = (bool)co.Active.Value;
@@ -213,6 +244,10 @@ public class ConvertToCO:Contact_App
 /// </summary>
 public class ConvertToContact:Contact
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToContact"/> class.
+    /// </summary>
+    /// <param name="co">The Contact_App object to convert.</param>
     public ConvertToContact(Contact_App co)
     {
         Active = (bool)co.Active;
@@ -234,6 +269,10 @@ public class ConvertToContact:Contact
 /// </summary>
 public class ConvertToOP:Opportunity_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToOP"/> class.
+    /// </summary>
+    /// <param name="op">The Opportunity object to convert.</param>
     public ConvertToOP(Opportunity op)
     {
         OpportunityID = op.OpportunityID.Value;
@@ -257,6 +296,10 @@ public class ConvertToOP:Opportunity_App
 /// </summary>
 public class ConvertToOpportunity:Opportunity
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToOpportunity"/> class.
+    /// </summary>
+    /// <param name="op">The Opportunity_App object to convert.</param>
     public ConvertToOpportunity(Opportunity_App op)
     {
         OpportunityID = op.OpportunityID;
@@ -280,6 +323,12 @@ public class ConvertToOpportunity:Opportunity
 /// </summary>
 public class ConvertToSO:SalesOrder_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToSO"/> class.
+    /// </summary>
+    /// <param name="so">The SalesOrder object to convert.</param>
+    /// <param name="ba">The BusinessAccount object to use for customer name.</param>
+    /// <param name="sp">The DateTimeValue object representing the shipment date.</param>
     public ConvertToSO(SalesOrder so,BusinessAccount ba,DateTimeValue sp)
     {
         OrderType = so.OrderType.Value;
@@ -303,6 +352,10 @@ public class ConvertToSO:SalesOrder_App
 /// </summary>
 public class ConvertToSalesOrder:SalesOrder
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToSalesOrder"/> class.
+    /// </summary>
+    /// <param name="so">The SalesOrder_App object to convert.</param>
     public ConvertToSalesOrder(SalesOrder_App so)
     {
         OrderType = so.OrderType;
@@ -317,6 +370,7 @@ public class ConvertToSalesOrder:SalesOrder
     }
 }
 #endregion
+
 #region ConvertToSP
 
 /// <summary>
@@ -324,6 +378,10 @@ public class ConvertToSalesOrder:SalesOrder
 /// </summary>
 public class ConvertToSP:Shipment_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToSP"/> class.
+    /// </summary>
+    /// <param name="sp">The Shipment object to convert.</param>
     public ConvertToSP(Shipment sp)
     {
         @Type = sp.Type.Value;
@@ -346,6 +404,10 @@ public class ConvertToSP:Shipment_App
 /// </summary>
 public class ConvertToShipment:Shipment
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToShipment"/> class.
+    /// </summary>
+    /// <param name="sp">The Shipment_App object to convert.</param>
     public ConvertToShipment(Shipment_App sp)
     {
         @Type = sp.Type;
@@ -368,6 +430,10 @@ public class ConvertToShipment:Shipment
 /// </summary>
 public class ConvertToSPDetail:ShipmentDetail_App
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToSPDetail"/> class.
+    /// </summary>
+    /// <param name="sp">The ShipmentDetail object to convert.</param>
     public ConvertToSPDetail(ShipmentDetail sp)
     {
         OrderType = sp.OrderType.Value;
@@ -387,6 +453,10 @@ public class ConvertToSPDetail:ShipmentDetail_App
 /// </summary>
 public class ConvertToShipmentDetail:ShipmentDetail
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConvertToShipmentDetail"/> class.
+    /// </summary>
+    /// <param name="sp">The ShipmentDetail_App object to convert.</param>
     public ConvertToShipmentDetail(ShipmentDetail_App sp)
     {
         OrderType = sp.OrderType;
@@ -398,5 +468,4 @@ public class ConvertToShipmentDetail:ShipmentDetail
         Description = sp.Description;
     }
 }
-#endregion
 #endregion

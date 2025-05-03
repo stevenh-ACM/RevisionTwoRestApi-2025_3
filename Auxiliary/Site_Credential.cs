@@ -2,12 +2,12 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models;
 
 namespace RevisionTwoApp.RestApi.Auxiliary;
 
+#region Site_Credential
 /// <summary>
 /// Returns the site credential to be used for the connection
 /// </summary>
@@ -19,11 +19,13 @@ public class Site_Credential(AppDbContext context, ILogger<object> logger )
 
     private readonly AppDbContext  _context = context;
     private readonly ILogger<object> _logger = logger;
-    
     #endregion
 
     #region properties
 
+    /// <summary>
+    /// List of site credentials retrieved from the database.
+    /// </summary>
     public List<Credential> SiteCredentials = [];
 
     #endregion
@@ -102,5 +104,6 @@ public class Site_Credential(AppDbContext context, ILogger<object> logger )
         return -1;
     }
 
-#endregion
+    #endregion
 }
+#endregion

@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Cache.cs" />
+    <Compile Remove="Models\InMemoryDbContext.cs" />
     <Compile Remove="Models\TempData.cs" />
+    <Compile Remove="Pages\DemoMenu.cshtml.cs" />
     <Compile Remove="RESTExample.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\DemoMenu.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,4 +38,10 @@
     <PackageReference Include="System.Text.Json" Version="9.0.4" />
   </ItemGroup>
 
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<EnablePreviewFeatures>True</EnablePreviewFeatures>
+		<GenerateRequiresPreviewFeaturesAttribute>False</GenerateRequiresPreviewFeaturesAttribute>
+	</PropertyGroup>
+	
 </Project>

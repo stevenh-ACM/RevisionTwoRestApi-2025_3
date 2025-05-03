@@ -25,6 +25,11 @@ using RevisionTwoApp.RestApi.Models.App;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+/// <summary>
+/// Details a new Sales Order
+/// </summary>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : PageModel
 {
     #region ctor
@@ -39,25 +44,67 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// Credentials list of creds in db
     /// </summary>
     public List<Acumatica.Default_24_200_001.Model.SalesOrder> salesOrders { get; set; } // salesOrder ERP data set
-    public List<SalesOrderShipment> salesOrderShipment { get; set; } = [];
-    public List<SalesOrder_App> SalesOrders_App { get; set; } = []; //SalesOrders data set
 
+    public List<SalesOrderShipment> salesOrderShipment { get; set; } = [];
+
+    /// <summary>
+    /// Gets or sets the list of sales orders retrieved from the database or API.
+    /// </summary>
+    public List<SalesOrder_App> SalesOrders_App { get; set; } = []; // SalesOrders data set
+
+    /// <summary>
+    /// Gets or sets the parameters used for filtering or other operations.
+    /// </summary>
     public List<object> Parms { get; set; } = [new()];
+
+    /// <summary>
+    /// Gets or sets the site credentials object used to hold credentials for Acumatica ERP connection.
+    /// </summary>
     public Site_Credential SiteCredential { get; set; } // site object to hold credentials for Acumatica ERP connection
-    
+
+    /// <summary>
+    /// Business Account ID 
+    /// </summary>
     public BusinessAccount BAccount { get; set; }
+
+    /// <summary>
+    /// Variable
+    /// </summary>
     public int Id { get; set; } // parameter to pass to Edit or Delete
+
+    /// <summary>
+    /// Indicates whether the page is simply being refreshed.
+    /// </summary>
     public Boolean RefreshFlag { get; set; } = false; // is the page simply being refreshed
-    
-    // Model parameters from Index or Filter to retrieve ERP records or filter already retrieved records
+
+    /// <summary>
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
     public DateTime FromDate { get; set; }
-    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
+
+    /// <summary>
+    /// Gets or sets the end date for filtering sales orders.
+    /// </summary>
     public DateTime ToDate { get; set; } = DateTime.Now;
-    [BindProperty]
+
+    /// <summary>
+    /// Gets or sets the number of records to retrieve.
+    /// </summary>
     public int NumRecords { get; set; }
-    [BindProperty]
+
+    /// <summary>
+    /// Gets or sets the selected sales order type.
+    /// </summary>
     public string Selected_SalesOrder_Type { get; set; }
+
+    /// <summary>
+    /// List of sales order shipments
+    /// </summary>
+    public List<SalesOrderShipment> SalesOrderShipment { get; set; } = new List<SalesOrderShipment>();
+
+    /// <summary>
+    /// List of sales order shipments
+    /// </summary>
+    public List<SalesOrderShipment> SalesOrderShipments { get; set; } = new List<SalesOrderShipment>();
 
     #endregion
 
@@ -211,6 +258,11 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
         return Page();
     }
 
+    /// <summary>
+    /// Handles the POST request for the Details page.
+    /// Retrieves sales orders filtered by the specified date range and updates the model.
+    /// </summary>
+    /// <returns>An IActionResult representing the result of the POST operation.</returns>
     public async Task<IActionResult> OnPostAsync()
     {
         var Message = $"Details: From Date is {FromDate}: To Date is {ToDate}";
@@ -272,6 +324,5 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
 
         return;
     }
-    
     #endregion
 }

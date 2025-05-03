@@ -11,6 +11,11 @@ using RevisionTwoApp.RestApi.Models.App;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+/// <summary>
+/// Delete a new Sales Order
+/// </summary>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : PageModel
 {
     #region ctor
@@ -24,20 +29,50 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
 
     [BindProperty]
     public SalesOrder_App salesOrder_App { get; set; } = default!;
+
+    /// <summary>
+    /// Gets or sets the message for the current operation.
+    /// </summary>
     public string Message { get; private set; }
+    /// <summary>
+    /// Gets or sets the parameters used for processing or filtering.
+    /// </summary>
     public List<object> Parms { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the start date for filtering or processing.
+    /// </summary>
     public DateTime FromDate { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the end date for filtering or processing.
+    /// </summary>
     public DateTime ToDate { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the number of records.
+    /// </summary>
     public int NumRecords { get; private set; }
+
+    /// <summary>
+    /// Gets the selected sales order type.
+    /// </summary>
     public string Selected_SalesOrder_Type { get; private set; }
 
-    #endregion
+    /// <summary>
+    /// Represents a SalesOrder entity to be deleted.
+    /// </summary>
+    [BindProperty]
+    public SalesOrder_App SalesOrderApp { get; set; } = default!;
 
-    #region methods
-
+    /// <summary>
+    /// Handles the GET request to retrieve a SalesOrder by its ID for deletion.
+    /// </summary>
+    /// <param name="id">The ID of the SalesOrder to retrieve.</param>
+    /// <returns>An IActionResult that renders the page if successful, or NotFound if the ID is invalid.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if(id == null || _context.SalesOrders == null)
+        if (id == null || _context.SalesOrders == null)
         {
             Message = $"Delete: Id {id} or SalesOrder context {_context.ContextId} is null";
             _logger.LogError(message: Message);
@@ -46,7 +81,7 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
 
         var salesOrder_app = await _context.SalesOrders.FirstOrDefaultAsync(m => m.Id == id);
 
-        if(salesOrder_app == null)
+        if (salesOrder_app == null)
         {
             Message = $"Delete: deletion of id {id} failed";
             _logger.LogError(message: Message);
@@ -59,11 +94,15 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         return Page();
     }
 
+    /// <summary>
+    /// Handles the POST request to delete a SalesOrder by its ID.
+    /// </summary>
+    /// <param name="id">The ID of the SalesOrder to delete.</param>
+    /// <returns>An IActionResult that redirects to the Details page if successful, or NotFound if the ID is invalid.</returns>
     public async Task<IActionResult> OnPostAsync(int? id)
     {
         GetParms();
-
-        if(id == null || _context.SalesOrders == null)
+        if (id == null || _context.SalesOrders == null)
         {
             Message = $"Delete: Id {id} or SalesOrder context {_context.ContextId} is null";
             _logger.LogError(message: Message);
@@ -72,14 +111,13 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         }
         var salesOrder_app = await _context.SalesOrders.FindAsync(id);
 
-        if(salesOrder_app != null)
+        if (salesOrder_app != null)
         {
             salesOrder_App = salesOrder_app;
             _context.SalesOrders.Remove(salesOrder_App);
 
             await _context.SaveChangesAsync();
         }
-
         SetParms();
 
         return RedirectToPage("./Details");

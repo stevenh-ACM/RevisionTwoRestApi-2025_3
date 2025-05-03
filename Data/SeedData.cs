@@ -6,26 +6,35 @@ using RevisionTwoApp.RestApi.Models;
 
 namespace RevisionTwoApp.RestApi.Data;
 
+#region SeedData
+/// <summary>
+/// Provides methods to seed initial data into the database.
+/// </summary>
 public static class SeedData
 {
+    #region SeedData
+    /// <summary>
+    /// Initializes the database with seed data.
+    /// </summary>
+    /// <param name="serviceProvider">The service provider to resolve dependencies.</param>
+    /// <exception cref="ArgumentNullException">Thrown when the AppDbContext or its properties are null.</exception>
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using(AppDbContext context = new AppDbContext(
+        using (AppDbContext context = new AppDbContext(
             serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
         {
-            if(context == null || context.Credentials == null)
+            if (context == null || context.Credentials == null)
             {
-                throw new ArgumentNullException("Null  AppDbContext");
+                throw new ArgumentNullException("Null AppDbContext");
             }
 
             context.Database.EnsureDeleted();
-
             context.Database.EnsureCreated();
 
             // Look for any entries.
-            if(context.Credentials.Any())
+            if (context.Credentials.Any())
             {
-                return;   // DB has been seeded
+                return; // DB has been seeded
             }
 
             context.Credentials.AddRange(
@@ -38,10 +47,11 @@ public static class SeedData
                     Tenant = "Company",
                     Branch = "",
                     Locale = "en-US"
-
                 }
             );
             context.SaveChanges();
         }
     }
+    #endregion
 }
+#endregion

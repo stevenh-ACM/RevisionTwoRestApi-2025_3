@@ -8,9 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 using RevisionTwoApp.RestApi.Data;
 
+/// <summary>
+/// Version 3.0.0
+/// This initializes a WebApplicationBuilder object, which is used to configure the application and its services.
+/// </summary>
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 var connectionString = builder.Configuration.GetConnectionString("ConnectionString")
     ?? throw new InvalidOperationException("Connection string 'ConnectionString' not found.");
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;
@@ -15,10 +16,11 @@ namespace RevisionTwoApp.RestApi.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-            builder.Entity<SalesOrder_App>()
-                    .Property(x => x.Id)
-                    .ValueGeneratedOnAdd();
+            //base.OnModelCreating(builder);
+            //builder.Entity<SalesOrder_App>()
+            //        .Property(p => p.Id)
+            //        .ValueGeneratedOnAdd()
+            //        .Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
