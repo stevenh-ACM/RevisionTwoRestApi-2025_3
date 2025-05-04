@@ -12,25 +12,25 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// <summary>
 /// Represents the model for editing credentials in the Razor Page.
 /// </summary>
-public class EditModel:PageModel
+/// <param name="context">The database context.</param>
+public class EditModel(AppDbContext context):PageModel
 {
-    private readonly AppDbContext _context;
-
+    #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="EditModel"/> class.
     /// </summary>
-    /// <param name="context">The database context.</param>
-    public EditModel(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
+    #endregion
 
+    #region properties
     /// <summary>
     /// Gets or sets the credential being edited.
     /// </summary>
     [BindProperty]
     public Credential Credentials { get; set; } = default!;
+    #endregion
 
+    #region methods
     /// <summary>
     /// Handles the GET request to retrieve the credential for editing.
     /// </summary>
@@ -93,4 +93,5 @@ public class EditModel:PageModel
     {
         return _context.Credentials.Any(e => e.Id == id);
     }
+    #endregion
 }

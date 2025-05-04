@@ -5,6 +5,7 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using RevisionTwoApp.RestApi.Models.App;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.DTOs.Conversions;
 
 #region ConvertToAddr

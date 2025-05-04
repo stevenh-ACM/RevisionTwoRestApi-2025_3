@@ -1,6 +1,4 @@
 #nullable disable
-using System;
-using System.ComponentModel.DataAnnotations;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,6 +11,7 @@ using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Helper;
 using RevisionTwoApp.RestApi.Models.App;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 /// <summary>
@@ -112,7 +111,8 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         salesOrder_App.LastModified = DateTime.Now;
         SetParms();
         return Page();
-    }
+    }
+
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync(int? id)

@@ -6,13 +6,15 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 using RevisionTwoApp.RestApi.Models.App;
 using RevisionTwoApp.RestApi.Models.Default;
 
-namespace RevisionTwoApp.RestApi.Models.Conversion;
-
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
+#pragma warning disable IDE0290 // Use primary constructor
+#pragma warning disable IDE0060 // Use primary constructor
+namespace RevisionTwoApp.RestApi.Models;
 
 /// <summary>
 /// Conversion classes using inheritance of custom models
 /// </summary>
-
 #region classes
 
 /// <summary>
@@ -115,9 +117,13 @@ public class ToCase_App:Case_App
 public class ToCase_Model:Case_Model
 {
     #region toCase_Model
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ToCase_Model"/> class.
+    /// </summary>
+    /// <param name="Case_App">The SalesOrder_App instance. Currently unused.</param>
     public ToCase_Model(SalesOrder_App Case_App)
     {
-
+        // Parameter 'Case_App' is currently unused. If it is not required, consider removing it.
     }
     #endregion
 }

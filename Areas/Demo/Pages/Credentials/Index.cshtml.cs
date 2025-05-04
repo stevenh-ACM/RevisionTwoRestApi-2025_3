@@ -1,5 +1,6 @@
 ﻿#nullable disable
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,28 +8,28 @@ using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
+
+[Authorize]
 
 /// <summary>
 /// Represents the model for the Credentials Index page.
 /// </summary>
-public class IndexModel:PageModel
+/// <param name="context">The database context.</param>
+/// <param name="logger">The logger instance.</param>
+public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
+#pragma warning restore CS1587 // XML comment is not placed on a valid language element
 {
-    #region ctor
-    private readonly ILogger<IndexModel> _logger;
-    private readonly AppDbContext _context;
-
+    #region ctor   
     /// <summary>
     /// Initializes a new instance of the <see cref="IndexModel"/> class.
     /// </summary>
-    /// <param name="context">The database context.</param>
-    /// <param name="logger">The logger instance.</param>
-    public IndexModel(AppDbContext context,ILogger<IndexModel> logger)
-    {
-        _context = context;
-        _logger = logger;
-    }
+    private readonly ILogger<IndexModel> _logger = logger;
+    private readonly AppDbContext _context = context;
     #endregion
 
+    #region methods
     /// <summary>
     /// Gets or sets the list of credentials.
     /// </summary>
@@ -43,4 +44,5 @@ public class IndexModel:PageModel
         Credentials = await _context.Credentials.ToListAsync();
         _logger.LogInformation("Credentials/Index Page");
     }
+    #endregion
 }

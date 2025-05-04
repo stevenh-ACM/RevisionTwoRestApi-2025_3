@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\model_conversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\model_conversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +43,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Model_Conversion.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Model_Conversion.cs",
+              "RelativeDocumentMoniker": "Models\\Model_Conversion.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Model_Conversion.cs",
+              "RelativeToolTip": "Models\\Model_Conversion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:21:51.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAgwB0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:14:40.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:12:56.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:10:15.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:08:14.44Z",
+              "EditorCaption": ""
             }
           ]
         }

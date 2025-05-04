@@ -1,0 +1,3744 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RevisionTwoApp.RestApi</name>
+    </assembly>
+    <members>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel">
+            <summary>
+            Create a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel})">
+            <summary>
+            Create a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.OnPostAsync">
+            <summary>
+            To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel">
+            <summary>
+            Delete a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel})">
+            <summary>
+            Delete a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Message">
+            <summary>
+            Gets or sets the message for the current operation.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Parms">
+            <summary>
+            Gets or sets the parameters used for processing or filtering.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.FromDate">
+            <summary>
+            Gets or sets the start date for filtering or processing.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.ToDate">
+            <summary>
+            Gets or sets the end date for filtering or processing.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.NumRecords">
+            <summary>
+            Gets or sets the number of records.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Selected_SalesOrder_Type">
+            <summary>
+            Gets the selected sales order type.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.SalesOrderApp">
+            <summary>
+            Represents a SalesOrder entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.OnGetAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the GET request to retrieve a SalesOrder by its ID for deletion.
+            </summary>
+            <param name="id">The ID of the SalesOrder to retrieve.</param>
+            <returns>An IActionResult that renders the page if successful, or NotFound if the ID is invalid.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.OnPostAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the POST request to delete a SalesOrder by its ID.
+            </summary>
+            <param name="id">The ID of the SalesOrder to delete.</param>
+            <returns>An IActionResult that redirects to the Details page if successful, or NotFound if the ID is invalid.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel">
+            <summary>
+            Details a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel})">
+            <summary>
+            Details a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.salesOrders">
+            <summary>
+            Credentials list of creds in db
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrders_App">
+            <summary>
+            Gets or sets the list of sales orders retrieved from the database or API.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Parms">
+            <summary>
+            Gets or sets the parameters used for filtering or other operations.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SiteCredential">
+            <summary>
+            Gets or sets the site credentials object used to hold credentials for Acumatica ERP connection.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.BAccount">
+            <summary>
+            Business Account ID 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Id">
+            <summary>
+            Variable
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.RefreshFlag">
+            <summary>
+            Indicates whether the page is simply being refreshed.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.FromDate">
+            <summary>
+            Gets or sets the starting date for the operation or range.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.ToDate">
+            <summary>
+            Gets or sets the end date for filtering sales orders.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.NumRecords">
+            <summary>
+            Gets or sets the number of records to retrieve.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Selected_SalesOrder_Type">
+            <summary>
+            Gets or sets the selected sales order type.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrderShipment">
+            <summary>
+            List of sales order shipments
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrderShipments">
+            <summary>
+            List of sales order shipments
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.OnGetAsync">
+            <summary>
+            Retrieve list of the most recent 10 Orders, type SO
+            </summary>
+            
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.OnPostAsync">
+            <summary>
+            Handles the POST request for the Details page.
+            Retrieves sales orders filtered by the specified date range and updates the model.
+            </summary>
+            <returns>An IActionResult representing the result of the POST operation.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel">
+            <summary>
+            Edit a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel})">
+            <summary>
+            Edit a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Data">
+            <summary>
+            Gets or sets the data associated with the EditModel.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Parms">
+            <summary>
+            Gets or sets the parameters associated with the EditModel.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.FromDate">
+            <summary>
+            Gets or sets the starting date for the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.ToDate">
+            <summary>
+            Gets or sets the ending date for the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.NumRecords">
+            <summary>
+            Gets or sets the number of records associated with the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Type">
+            <summary>
+            Gets or sets the selected sales order type.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Types">
+            <summary>
+            Gets the list of selectable sales order types.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Statuses">
+            <summary>
+            Gets the list of selectable sales order statuses.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Message">
+            <summary>
+            Gets or sets the message associated with the EditModel.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.SalesOrderApp">
+            <summary>
+            Gets or sets the sales order application data.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.OnGetAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the GET request for editing a sales order.
+            </summary>
+            <param name="id">The ID of the sales order to edit.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel">
+            <summary>
+            Index a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel})">
+            <summary>
+            Index a new Sales Order
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel._logger">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel"/> class.
+            </summary>
+            <param name="context">The database context used for data access.</param>
+            <param name="logger">The logger used for logging information and errors.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.FromDate">
+            <summary>
+            Search fields
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.ToDate">
+            <summary>
+            Gets or sets the end date for the search range. Defaults to today.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.NumRecords">
+            <summary>
+            Gets or sets the number of records to retrieve. Defaults to 10.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Selected_SalesOrder_Type">
+            <summary>
+            Gets or sets the selected sales order type. Defaults to "SO".
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Selected_SalesOrder_Types">
+            <summary>
+            Gets or sets the list of selectable sales order types.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Parms">
+            <summary>
+            Gets or sets the parameters for the SalesOrder.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Message">
+            <summary>
+            Gets or sets the message for the Index page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.OnGet">
+            <summary>
+            Handles GET requests for the Index page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.OnPost">
+            <summary>
+            Handles POST requests for the Index page.
+            </summary>
+            <returns>A redirection to the Details page.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel">
+            <summary>
+            Represents the model for creating a new credential in the application.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel"/> class.
+            </summary>
+            <param name="context">The database context used to interact with the application's data.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.OnGet">
+            <summary>
+            Handles GET requests to display the create credential page.
+            </summary>
+            <returns>A <see cref="T:Microsoft.AspNetCore.Mvc.RazorPages.PageResult"/> representing the page to be displayed.</returns>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.Credentials">
+            <summary>
+            Gets or sets the credential being created.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.OnPostAsync">
+            <summary>
+            Handles POST requests to create a new credential.
+            </summary>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            Redirects to the index page upon successful creation, or redisplays the page if the model state is invalid.
+            </returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel">
+            <summary>
+            Represents the model for deleting a credential.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.Credentials">
+            <summary>
+            Gets or sets the credential to be deleted.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.OnGetAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the GET request to retrieve the credential for deletion.
+            </summary>
+            <param name="id">The ID of the credential to retrieve.</param>
+            <returns>The page result or a not found result.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.OnPostAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the POST request to delete the credential.
+            </summary>
+            <param name="id">The ID of the credential to delete.</param>
+            <returns>A redirect to the index page or a not found result.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel">
+            <summary>
+            Represents the model for the details page of credentials.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.Credentials">
+            <summary>
+            Gets or sets the credential details.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.OnGetAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the GET request to retrieve credential details by ID.
+            </summary>
+            <param name="id">The ID of the credential.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel">
+            <summary>
+            Represents the model for editing credentials in the Razor Page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.Credentials">
+            <summary>
+            Gets or sets the credential being edited.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.OnGetAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the GET request to retrieve the credential for editing.
+            </summary>
+            <param name="id">The ID of the credential to edit.</param>
+            <returns>The page result or a not found result.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.OnPostAsync">
+            <summary>
+            Handles the POST request to update the credential.
+            </summary>
+            <returns>A redirect to the index page or the current page if validation fails.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.CredentialExists(System.Int32)">
+            <summary>
+            Checks if a credential with the specified ID exists.
+            </summary>
+            <param name="id">The ID of the credential.</param>
+            <returns>True if the credential exists; otherwise, false.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel">
+            <summary>
+            Represents the model for the Credentials Index page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+            <param name="logger">The logger instance.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.Credentials">
+            <summary>
+            Gets or sets the list of credentials.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.OnGetAsync">
+            <summary>
+            Handles the GET request for the Credentials Index page.
+            </summary>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel">
+            <summary>
+            Represents the model for the About page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel"/> class.
+            </summary>
+            <param name="logger">The logger instance.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.DisplayNumOfEmployees">
+            <summary>
+            Gets or sets the number of employees to display.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.DisplayTotalRevenue">
+            <summary>
+            Gets or sets the total revenue to display.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.DisplayStartYear">
+            <summary>
+            Gets or sets the start year to display.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.OnGet">
+            <summary>
+            Handles GET requests for the About page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.YearValue">
+            <summary>
+            Generates a random start year.
+            </summary>
+            <returns>The generated start year as a string.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.EmpValue">
+            <summary>
+            Generates a random number of employees.
+            </summary>
+            <returns>The generated number of employees.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.AboutModel.RevValue">
+            <summary>
+            Generates a random total revenue.
+            </summary>
+            <returns>The generated total revenue.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.BackgroundModel">
+            <summary>
+            Represents the model for the Background page in the Home area.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.BackgroundModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.BackgroundModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.BackgroundModel"/> class.
+            </summary>
+            <param name="logger">The logger instance for logging information.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.BackgroundModel.OnGet">
+            <summary>
+            Handles GET requests to the Background page.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.GettingStartedModel">
+            <summary>
+            Represents the model for the "Getting Started" page.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.GettingStartedModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.GettingStartedModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.GettingStartedModel"/> class.
+            </summary>
+            <param name="logger">The logger instance to log information.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.GettingStartedModel.OnGet">
+            <summary>
+            Handles GET requests for the "Getting Started" page.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel">
+            <summary>
+            Represents the model for the Index page in the Home area of the Demo section.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel})">
+            <summary>
+            Represents the model for the Index page in the Home area of the Demo section.
+            </summary>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel._logger">
+            <summary>
+            Logger instance for logging information and errors.
+            </summary>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel._context">
+            <summary>
+            Database context for accessing application data.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.SiteUrl">
+            <summary>
+            The URL of the site.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.SiteCredential">
+            <summary>
+            Object to hold credentials for Acumatica ERP connection.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.OnGet">
+            <summary>
+            Handles GET requests to the Index page.
+            </summary>
+            <returns>An IActionResult representing the result of the operation.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.AccessDeniedModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.AccessDeniedModel.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ConfirmEmailModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ConfirmEmailChangeModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.ProviderDisplayName">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.ReturnUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.ErrorMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ForgotPasswordModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ForgotPasswordConfirmation">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ForgotPasswordConfirmation.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LockoutModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LockoutModel.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.ExternalLogins">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.ReturnUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.ErrorMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.InputModel.Password">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginModel.InputModel.RememberMe">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.RememberMe">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.ReturnUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel.TwoFactorCode">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel.RememberMachine">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWithRecoveryCodeModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWithRecoveryCodeModel.ReturnUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWithRecoveryCodeModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.LoginWithRecoveryCodeModel.InputModel.RecoveryCode">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.OldPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.NewPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.ConfirmPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel.InputModel.Password">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel.RequirePassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.Disable2faModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.IsEmailConfirmed">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel.NewEmail">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.SharedKey">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.AuthenticatorUri">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.RecoveryCodes">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.EnableAuthenticatorModel.InputModel.Code">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.CurrentLogins">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OtherLogins">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.ShowRemoveButton">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.GenerateRecoveryCodesModel.RecoveryCodes">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.GenerateRecoveryCodesModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.Username">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.PhoneNumber">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.Name">
+            <summary>
+            Gets or sets the full name of the user.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.DOB">
+            <summary>
+            Gets or sets the date of birth of the user.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.Index">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.ChangePassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.DownloadPersonalData">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.DeletePersonalData">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.ExternalLogins">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.PersonalData">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.TwoFactorAuthentication">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.EmailNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.ChangePasswordNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.DownloadPersonalDataNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.DeletePersonalDataNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.ExternalLoginsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.PersonalDataNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.TwoFactorAuthenticationNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.SetPasswordModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.SetPasswordModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel.NewPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel.ConfirmPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ShowRecoveryCodesModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ShowRecoveryCodesModel.RecoveryCodes">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ShowRecoveryCodesModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ShowRecoveryCodesModel.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationModel.HasAuthenticator">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationModel.RecoveryCodesLeft">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationModel.Is2faEnabled">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationModel.IsMachineRemembered">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationModel.StatusMessage">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.ReturnUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.ExternalLogins">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.InputModel.Password">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterModel.InputModel.ConfirmPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterConfirmationModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterConfirmationModel.DisplayConfirmAccountLink">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.RegisterConfirmationModel.EmailConfirmationUrl">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResendEmailConfirmationModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResendEmailConfirmationModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResendEmailConfirmationModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.Input">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Email">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Password">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.ConfirmPassword">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Code">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.ErrorModel">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.ErrorModel.RequestId">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.ErrorModel.ShowRequestId">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Identity.Pages.ErrorModel.OnGet">
+            <summary>
+                This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Auxiliary.AuthId">
+            <summary>
+            Provides methods to retrieve authentication-related information.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.AuthId.getAuthId(System.Collections.Generic.List{RevisionTwoApp.RestApi.Models.Credential})">
+            <summary>
+            Retrieves the ID of the first checked credential from the provided list.
+            </summary>
+            <param name="credentials">A list of credentials to search through.</param>
+            <returns>The ID of the first checked credential, or 0 if none are checked.</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Auxiliary.RequestLogger">
+            <summary>
+            Provides methods to log HTTP requests and responses to a file.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.RequestLogger.LogResponse(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Logs the details of an HTTP response to the RequestsLog.txt file.
+            </summary>
+            <param name="responseMessage">The HTTP response message to log.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.RequestLogger.LogRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Logs the details of an HTTP request to the RequestsLog.txt file.
+            </summary>
+            <param name="request">The HTTP request message to log.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Auxiliary.Site_Credential">
+            <summary>
+            Returns the site credential to be used for the connection
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.Site_Credential.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{System.Object})">
+            <summary>
+            Returns the site credential to be used for the connection
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Auxiliary.Site_Credential.SiteCredentials">
+            <summary>
+            List of site credentials retrieved from the database.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.Site_Credential.GetSiteCredential">
+            <summary>
+            Find the selected site credential from the credentials dbset in the database
+            </summary>
+            <returns>Credential SiteCredential</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Auxiliary.Site_Credential.GetSiteId(System.Collections.Generic.List{RevisionTwoApp.RestApi.Models.Credential})">
+            <summary>
+            etermines the Id for the site credential checked in the credentials dbset in the database
+            </summary>
+            <param name="Credentials"></param>
+            <returns>int Id</returns>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Data.AppDbContext">
+            <summary>
+            Represents the application's database context, providing access to the database tables and entities.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Data.AppDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{RevisionTwoApp.RestApi.Data.AppDbContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Data.AppDbContext"/> class with the specified options.
+            </summary>
+            <param name="options">The options to configure the database context.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Data.AppDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the model for the database context.
+            </summary>
+            <param name="builder">The model builder used to configure the database schema.</param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Credentials">
+            <summary>
+            Gets or sets the credentials table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Addresses">
+            <summary>
+            Gets or sets the addresses table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Bills">
+            <summary>
+            Gets or sets the bills table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.BillDetails">
+            <summary>
+            Gets or sets the bill details table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Contacts">
+            <summary>
+            Gets or sets the contacts table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Cases">
+            <summary>
+            Gets or sets the cases table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Opportunities">
+            <summary>
+            Gets or sets the opportunities table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.SalesOrders">
+            <summary>
+            Gets or sets the sales orders table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Shipments">
+            <summary>
+            Gets or sets the shipments table.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.ShipmentDetails">
+            <summary>
+            Gets or sets the shipment details table.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Data.SeedData">
+            <summary>
+            Provides methods to seed initial data into the database.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Data.SeedData.Initialize(System.IServiceProvider)">
+            <summary>
+            Initializes the database with seed data.
+            </summary>
+            <param name="serviceProvider">The service provider to resolve dependencies.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the AppDbContext or its properties are null.</exception>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddr">
+            <summary>
+            Converts an Address object to an Addr object.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddr.#ctor(Acumatica.Default_24_200_001.Model.Address)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddr"/> class.
+            </summary>
+            <param name="ad">The Address object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddress">
+            <summary>
+            Converts an Addr object to an Address object.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddress.#ctor(RevisionTwoApp.RestApi.Models.App.Addr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddress"/> class.
+            </summary>
+            <param name="ad">The Addr object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_Bill">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_Bill.#ctor(Acumatica.Default_24_200_001.Model.Bill)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_Bill"/> class.
+            </summary>
+            <param name="bill">The Bill object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToBill">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_BillDetail">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_BillDetail.#ctor(Acumatica.Default_24_200_001.Model.BillDetail)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAR_BillDetail"/> class.
+            </summary>
+            <param name="bill">The BillDetail object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToBillDetail">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToBillDetail.#ctor(RevisionTwoApp.RestApi.Models.App.BillDetail_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToBillDetail"/> class.
+            </summary>
+            <param name="bill">The BillDetail_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase_App.#ctor(Acumatica.Default_24_200_001.Model.Case)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase_App"/> class.
+            </summary>
+            <param name="cr">The Case object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase.#ctor(RevisionTwoApp.RestApi.Models.App.Case_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCase"/> class.
+            </summary>
+            <param name="cr">The Case_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCO">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCO.#ctor(Acumatica.Default_24_200_001.Model.Contact)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToCO"/> class.
+            </summary>
+            <param name="co">The Contact object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToContact">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToContact.#ctor(RevisionTwoApp.RestApi.Models.App.Contact_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToContact"/> class.
+            </summary>
+            <param name="co">The Contact_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOP">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOP.#ctor(Acumatica.Default_24_200_001.Model.Opportunity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOP"/> class.
+            </summary>
+            <param name="op">The Opportunity object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOpportunity">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOpportunity.#ctor(RevisionTwoApp.RestApi.Models.App.Opportunity_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToOpportunity"/> class.
+            </summary>
+            <param name="op">The Opportunity_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSO">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSO.#ctor(Acumatica.Default_24_200_001.Model.SalesOrder,Acumatica.Default_24_200_001.Model.BusinessAccount,Acumatica.RESTClient.ContractBasedApi.Model.DateTimeValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSO"/> class.
+            </summary>
+            <param name="so">The SalesOrder object to convert.</param>
+            <param name="ba">The BusinessAccount object to use for customer name.</param>
+            <param name="sp">The DateTimeValue object representing the shipment date.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSalesOrder">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSalesOrder.#ctor(RevisionTwoApp.RestApi.Models.App.SalesOrder_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSalesOrder"/> class.
+            </summary>
+            <param name="so">The SalesOrder_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSP">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSP.#ctor(Acumatica.Default_24_200_001.Model.Shipment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSP"/> class.
+            </summary>
+            <param name="sp">The Shipment object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipment">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipment.#ctor(RevisionTwoApp.RestApi.Models.App.Shipment_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipment"/> class.
+            </summary>
+            <param name="sp">The Shipment_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSPDetail">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSPDetail.#ctor(Acumatica.Default_24_200_001.Model.ShipmentDetail)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToSPDetail"/> class.
+            </summary>
+            <param name="sp">The ShipmentDetail object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipmentDetail">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipmentDetail.#ctor(RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToShipmentDetail"/> class.
+            </summary>
+            <param name="sp">The ShipmentDetail_App object to convert.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.Bill">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Type">
+            <summary>
+            The type of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.ReferenceNbr">
+            <summary>
+            The reference number of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Status">
+            <summary>
+            The status of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Date">
+            <summary>
+            The date of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.PostPeriod">
+            <summary>
+            The posting period of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Vendor">
+            <summary>
+            The vendor associated with the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Description">
+            <summary>
+            The description of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.VendorRef">
+            <summary>
+            The vendor reference for the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.Amount">
+            <summary>
+            The total amount of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.CurrencyID">
+            <summary>
+            The currency ID of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Bill.LastModifiedDateTime">
+            <summary>
+            The last modified date and time of the bill.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.Branch">
+            <summary>
+            The branch associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.InventoryID">
+            <summary>
+            The inventory ID associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.TransactionDescription">
+            <summary>
+            The transaction description for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.Qty">
+            <summary>
+            The quantity of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.UnitCost">
+            <summary>
+            The unit cost of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.Amount">
+            <summary>
+            The total amount of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.Account">
+            <summary>
+            The account associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.Description">
+            <summary>
+            The description of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.CostCode">
+            <summary>
+            The cost code associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.BillDetail.POOrderNbr">
+            <summary>
+            The purchase order number associated with the bill detail.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.Case">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.CaseID">
+            <summary>
+            The unique identifier for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Subject">
+            <summary>
+            The subject of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.BusinessAccount">
+            <summary>
+            The business account associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.BusinessAccountName">
+            <summary>
+            The name of the business account associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Status">
+            <summary>
+            The status of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Reason">
+            <summary>
+            The reason for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Severity">
+            <summary>
+            The severity of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Priority">
+            <summary>
+            The priority of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Owner">
+            <summary>
+            The owner of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Workgroup">
+            <summary>
+            The workgroup associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.ClassID">
+            <summary>
+            The class ID of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.Date">
+            <summary>
+            The date the case was created.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.LastActivityDate">
+            <summary>
+            The date of the last activity on the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Case.LastModifiedDateTime">
+            <summary>
+            The date and time the case was last modified.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.Contact">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.Active">
+            <summary>
+            Indicates whether the contact is active.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.ContactID">
+            <summary>
+            The unique identifier for the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.DisplayName">
+            <summary>
+            The display name of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.BusinessAccount">
+            <summary>
+            The business account associated with the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.JobTitle">
+            <summary>
+            The job title of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.Owner">
+            <summary>
+            The owner of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.CompanyName">
+            <summary>
+            The company name associated with the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.ContactClass">
+            <summary>
+            The contact class of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.Email">
+            <summary>
+            The email address of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.Phone1">
+            <summary>
+            The primary phone number of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Contact.LastModifiedDateTime">
+            <summary>
+            The date and time the contact was last modified.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.OpportunityID">
+            <summary>
+            The unique identifier for the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.Subject">
+            <summary>
+            The subject of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.Status">
+            <summary>
+            The status of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.Stage">
+            <summary>
+            The stage of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.CurrencyID">
+            <summary>
+            The currency ID of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.Total">
+            <summary>
+            The total amount of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.ClassID">
+            <summary>
+            The class ID of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.Owner">
+            <summary>
+            The owner of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.ContactID">
+            <summary>
+            The contact ID associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.ContactDisplayName">
+            <summary>
+            The display name of the contact associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.BusinessAccount">
+            <summary>
+            The business account associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Opportunity.LastModifiedDateTime">
+            <summary>
+            The date and time the opportunity was last modified.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.OrderType">
+            <summary>
+            The type of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.OrderNbr">
+            <summary>
+            The order number of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.Status">
+            <summary>
+            The status of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.Date">
+            <summary>
+            The date of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.CustomerID">
+            <summary>
+            The customer ID associated with the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.CustomerName">
+            <summary>
+            The name of the customer associated with the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.OrderedQty">
+            <summary>
+            The quantity ordered in the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.OrderTotal">
+            <summary>
+            The total amount of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.CurrencyID">
+            <summary>
+            The currency ID of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.LastModified">
+            <summary>
+            The date and time the sales order was last modified.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.SalesOrder.ShipmentDate">
+            <summary>
+            The shipment date of the sales order.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.Shipment">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.Type">
+            <summary>
+            The type of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.ShipmentNbr">
+            <summary>
+            The shipment number.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.Status">
+            <summary>
+            The status of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.ShipmentDate">
+            <summary>
+            The date of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.erID">
+            <summary>
+            The erID associated with the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.erName">
+            <summary>
+            The erName associated with the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.WarehouseID">
+            <summary>
+            The warehouse ID where the shipment is stored.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.ShippedQty">
+            <summary>
+            The quantity shipped.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.ShippedWeight">
+            <summary>
+            The weight of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.CreatedDateTime">
+            <summary>
+            The date and time the shipment was created.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.Shipment.LastModifiedDateTime">
+            <summary>
+            The date and time the shipment was last modified.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.OrderType">
+            <summary>
+            The type of the order associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.OrderNbr">
+            <summary>
+            The order number associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.InventoryID">
+            <summary>
+            The inventory ID associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.WarehouseID">
+            <summary>
+            The warehouse ID associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.ShippedQty">
+            <summary>
+            The quantity shipped in the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.OrderedQty">
+            <summary>
+            The quantity ordered in the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Entity_DTOs.ShipmentDetail.Description">
+            <summary>
+            The description of the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Bill_Types">
+            <summary>
+            Combo boxes for Bill creation
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Bill_Statuses">
+            <summary>
+            Gets or sets the statuses for bills.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Case_Statuses">
+            <summary>
+            Combo boxes for Case creation
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Case_Reasons">
+            <summary>
+            Gets or sets the reasons for cases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Case_Severity">
+            <summary>
+            Gets or sets the severity levels for cases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Case_Priorities">
+            <summary>
+            Gets or sets the priorities for cases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Case_ClassIDs">
+            <summary>
+            Gets or sets the class IDs for cases.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Contact_Classes">
+            <summary>
+            Combo boxes for Contact
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Opportunity_Statuses">
+            <summary>
+            Combo boxes for Opportunity
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Opportunity_Stages">
+            <summary>
+            Gets or sets the stages for opportunities.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Opportunity_ClassIDs">
+            <summary>
+            Gets or sets the class IDs for opportunities.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.SalesOrder_Types">
+            <summary>
+            Combo Boxes for SalesOrder
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.SalesOrder_Statuses">
+            <summary>
+            Combo Boxes for SalesOrder
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Shipment_Types">
+            <summary>
+            Combo Boxes for Shipments
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.Shipment_Statuses">
+            <summary>
+            Gets or sets the statuses for shipments.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Bill_Types">
+            <summary>
+            Gets the combo box items for bill types.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Bill_Statuses">
+            <summary>
+            Gets the combo box items for bill statuses.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Case_Statuses">
+            <summary>
+            Gets the combo box items for case statuses.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Case_Reasons">
+            <summary>
+            Gets the combo box items for case reasons.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Case_Severities">
+            <summary>
+            Gets the combo box items for case severities.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Case_Priorities">
+            <summary>
+            Gets the combo box items for case priorities.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Case_ClassIDs">
+            <summary>
+            Gets the combo box items for case class IDs.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Contact_Classes">
+            <summary>
+            Gets the combo box items for contact classes.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Opportunity_Statuses">
+            <summary>
+            Gets the combo box items for opportunity statuses.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Opportunity_Stages">
+            <summary>
+            Gets the combo box items for opportunity stages.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Opportunity_ClassIDs">
+            <summary>
+            Gets the combo box items for opportunity class IDs.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_SalesOrder_Types">
+            <summary>
+            Gets the combo box items for sales order types.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_SalesOrder_Statuses">
+            <summary>
+            Gets the combo box items for sales order statuses.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Shipment_Types">
+            <summary>
+            Gets the combo box items for shipment types.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Helper.Combo_Boxes.ComboBox_Shipment_Statuses">
+            <summary>
+            Gets the combo box items for shipment statuses.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.initialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.addedProperty">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.addedRegex">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.changedRegEx">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Migrations.addIdentity">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Addr">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.Id">
+            <summary>
+            Gets or sets the unique identifier for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.AddressLine1">
+            <summary>
+            Gets or sets the first line of the address, such as street address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.AddressLine2">
+            <summary>
+            Gets or sets the second line of the address, such as apartment, suite, or building.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.City">
+            <summary>
+            Gets or sets the city of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.Country">
+            <summary>
+            Gets or sets the country of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.PostalCode">
+            <summary>
+            Gets or sets the postal code of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.State">
+            <summary>
+            Gets or sets the state or province of the address.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Bill_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Type">
+            <summary>
+            Gets or sets the type of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.ReferenceNbr">
+            <summary>
+            Gets or sets the reference number of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Status">
+            <summary>
+            Gets or sets the status of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Date">
+            <summary>
+            Gets or sets the date of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.PostPeriod">
+            <summary>
+            Gets or sets the post period of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Vendor">
+            <summary>
+            Gets or sets the vendor associated with the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Description">
+            <summary>
+            Gets or sets the description of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.VendorRef">
+            <summary>
+            Gets or sets the vendor reference number of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Amount">
+            <summary>
+            Gets or sets the amount of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.CurrencyID">
+            <summary>
+            Gets or sets the currency identifier for the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the bill.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.BillDetail_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Branch">
+            <summary>
+            Gets or sets the branch associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.InventoryID">
+            <summary>
+            Gets or sets the inventory ID associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.TransactionDescription">
+            <summary>
+            Gets or sets the transaction description for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Qty">
+            <summary>
+            Gets or sets the quantity for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.UnitCost">
+            <summary>
+            Gets or sets the unit cost for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Amount">
+            <summary>
+            Gets or sets the amount for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Account">
+            <summary>
+            Gets or sets the account associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Description">
+            <summary>
+            Gets or sets the description for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.CostCode">
+            <summary>
+            Gets or sets the cost code for the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.POOrderNbr">
+            <summary>
+            Gets or sets the purchase order number for the bill detail.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Case_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.CaseID">
+            <summary>
+            Gets or sets the case ID.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Subject">
+            <summary>
+            Gets or sets the subject of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.BusinessAccount">
+            <summary>
+            Gets or sets the business account ID associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.BusinessAccountName">
+            <summary>
+            Gets or sets the name of the business account associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Status">
+            <summary>
+            Gets or sets the status of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Reason">
+            <summary>
+            Gets or sets the reason for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Severity">
+            <summary>
+            Gets or sets the severity of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Priority">
+            <summary>
+            Gets or sets the priority of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Owner">
+            <summary>
+            Gets or sets the owner of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.Workgroup">
+            <summary>
+            Gets or sets the workgroup associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.ClassID">
+            <summary>
+            Gets or sets the class ID of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.DateReported">
+            <summary>
+            Gets or sets the date the case was reported.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.LastActivityDate">
+            <summary>
+            Gets or sets the date of the last activity on the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Case_App.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the case.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Contact_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.Active">
+            <summary>
+            Gets or sets a value indicating whether the contact is active.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.ContactID">
+            <summary>
+            Gets or sets the contact ID.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.DisplayName">
+            <summary>
+            Gets or sets the display name of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.ContactClass">
+            <summary>
+            Gets or sets the class of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.BusinessAccount">
+            <summary>
+            Gets or sets the business account associated with the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.JobTitle">
+            <summary>
+            Gets or sets the job title of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.Owner">
+            <summary>
+            Gets or sets the owner of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.Status">
+            <summary>
+            Gets or sets the status of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the contact.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Opportunity_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.OpportunityID">
+            <summary>
+            Gets or sets the opportunity ID.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Subject">
+            <summary>
+            Gets or sets the subject of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Status">
+            <summary>
+            Gets or sets the status of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Stage">
+            <summary>
+            Gets or sets the stage of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Estimation">
+            <summary>
+            Gets or sets the estimated close date of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.CurrencyID">
+            <summary>
+            Gets or sets the currency identifier for the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Total">
+            <summary>
+            Gets or sets the total amount of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.ClassID">
+            <summary>
+            Gets or sets the class ID of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Owner">
+            <summary>
+            Gets or sets the owner of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.ContactID">
+            <summary>
+            Gets or sets the contact ID associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.ContactDisplayName">
+            <summary>
+            Gets or sets the display name of the contact associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.BusinessAccount">
+            <summary>
+            Gets or sets the business account associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the opportunity.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.SalesOrder_App">
+            <summary>
+            Represents a sales order in the application.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.OrderType">
+            <summary>
+            Gets or sets the type of the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.OrderNbr">
+            <summary>
+            Gets or sets the order number.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.Status">
+            <summary>
+            Gets or sets the status of the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.Date">
+            <summary>
+            Gets or sets the date of the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.CustomerID">
+            <summary>
+            Gets or sets the customer ID associated with the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.CustomerName">
+            <summary>
+            Gets or sets the name of the customer associated with the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.OrderedQty">
+            <summary>
+            Gets or sets the quantity of items ordered.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.OrderTotal">
+            <summary>
+            Gets or sets the total amount of the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.CurrencyID">
+            <summary>
+            Gets or sets the currency identifier for the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.ShipmentDate">
+            <summary>
+            Gets or sets the shipment date for the order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.LastModified">
+            <summary>
+            Gets or sets the last modified date of the order.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Shipment_App">
+            <summary>
+            Represents a shipment in the application.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.Type">
+            <summary>
+            Gets or sets the type of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.ShipmentNbr">
+            <summary>
+            Gets or sets the shipment number.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.Status">
+            <summary>
+            Gets or sets the status of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.ShipmentDate">
+            <summary>
+            Gets or sets the shipment date.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.CustomerID">
+            <summary>
+            Gets or sets the customer ID associated with the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.CustomerName">
+            <summary>
+            Gets or sets the customer name associated with the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.WarehouseID">
+            <summary>
+            Gets or sets the warehouse ID associated with the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.ShippedQty">
+            <summary>
+            Gets or sets the quantity shipped.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.ShippedWeight">
+            <summary>
+            Gets or sets the weight of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.CreatedDateTime">
+            <summary>
+            Gets or sets the date the shipment was created.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the shipment.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App">
+            <summary>  
+            Represents the details of a shipment in the application.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.Id">
+            <summary>  
+            Gets or sets the unique identifier for the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.OrderType">
+            <summary>  
+            Gets or sets the type of the order associated with the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.OrderNbr">
+            <summary>  
+            Gets or sets the order number associated with the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.InventoryID">
+            <summary>  
+            Gets or sets the inventory ID associated with the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.WarehouseID">
+            <summary>  
+            Gets or sets the warehouse ID associated with the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.ShippedQty">
+            <summary>  
+            Gets or sets the quantity shipped in the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.OrderedQty">
+            <summary>  
+            Gets or sets the quantity ordered in the shipment detail.  
+            </summary>  
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.Description">
+            <summary>  
+            Gets or sets the description of the shipment detail.  
+            </summary>  
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Address_App">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.AddressLine1">
+            <summary>
+            Gets or sets the first line of the address, such as street address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.AddressLine2">
+            <summary>
+            Gets or sets the second line of the address, such as apartment, suite, or building.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.City">
+            <summary>
+            Gets or sets the city of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.Country">
+            <summary>
+            Gets or sets the country of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.PostalCode">
+            <summary>
+            Gets or sets the postal code of the address.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.State">
+            <summary>
+            Gets or sets the state or province of the address.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Credential">
+            <summary>
+            Represents the credentials required for accessing an ERP system.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.Id">
+            <summary>
+            Gets or sets the unique identifier for the credential.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.IsChecked">
+            <summary>
+            Gets or sets a value indicating whether the credential is selected.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.SiteUrl">
+            <summary>
+            Gets or sets the ERP instance URL.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.UserName">
+            <summary>
+            Gets or sets the ERP user name.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.Password">
+            <summary>
+            Gets or sets the password for the ERP user.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.Tenant">
+            <summary>
+            Gets or sets the tenant associated with the credential.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.Branch">
+            <summary>
+            Gets or sets the branch associated with the credential.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Credential.Locale">
+            <summary>
+            Gets or sets the locale associated with the credential.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Bill_Model">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Type">
+            <summary>
+            Gets or sets the type of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.ReferenceNbr">
+            <summary>
+            Gets or sets the reference number of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Status">
+            <summary>
+            Gets or sets the status of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Date">
+            <summary>
+            Gets or sets the date of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.PostPeriod">
+            <summary>
+            Gets or sets the post period of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Vendor">
+            <summary>
+            Gets or sets the vendor associated with the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Description">
+            <summary>
+            Gets or sets the description of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.VendorRef">
+            <summary>
+            Gets or sets the vendor reference of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.Amount">
+            <summary>
+            Gets or sets the amount of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.CurrencyID">
+            <summary>
+            Gets or sets the currency ID of the bill.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Bill_Model.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the bill.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.Branch">
+            <summary>
+            Gets or sets the branch associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.InventoryID">
+            <summary>
+            Gets or sets the inventory ID associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.TransactionDescription">
+            <summary>
+            Gets or sets the transaction description of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.Qty">
+            <summary>
+            Gets or sets the quantity of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.UnitCost">
+            <summary>
+            Gets or sets the unit cost of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.Amount">
+            <summary>
+            Gets or sets the amount of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.Account">
+            <summary>
+            Gets or sets the account associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.Description">
+            <summary>
+            Gets or sets the description of the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.CostCode">
+            <summary>
+            Gets or sets the cost code associated with the bill detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.BillDetail_Model.POOrderNbr">
+            <summary>
+            Gets or sets the purchase order number associated with the bill detail.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Case_Model">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.CaseID">
+            <summary>
+            Gets or sets the unique identifier for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Subject">
+            <summary>
+            Gets or sets the subject of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.BusinessAccount">
+            <summary>
+            Gets or sets the business account associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.BusinessAccountName">
+            <summary>
+            Gets or sets the name of the business account associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Status">
+            <summary>
+            Gets or sets the status of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Reason">
+            <summary>
+            Gets or sets the reason for the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Severity">
+            <summary>
+            Gets or sets the severity of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Priority">
+            <summary>
+            Gets or sets the priority of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Owner">
+            <summary>
+            Gets or sets the owner of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.Workgroup">
+            <summary>
+            Gets or sets the workgroup associated with the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.ClassID">
+            <summary>
+            Gets or sets the class ID of the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.DateReported">
+            <summary>
+            Gets or sets the date the case was reported.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.LastActivityDate">
+            <summary>
+            Gets or sets the date of the last activity on the case.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Case_Model.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the case.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Contact_Model">
+            <summary>
+             mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.Active">
+            <summary>
+            Gets or sets a value indicating whether the contact is active.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.ContactID">
+            <summary>
+            Gets or sets the unique identifier for the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.ContactClass">
+            <summary>
+            Gets or sets the class of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.DisplayName">
+            <summary>
+            Gets or sets the display name of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.BusinessAccount">
+            <summary>
+            Gets or sets the business account associated with the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.JobTitle">
+            <summary>
+            Gets or sets the job title of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.Owner">
+            <summary>
+            Gets or sets the owner of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.Status">
+            <summary>
+            Gets or sets the status of the contact.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the contact.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.OpportunityID">
+            <summary>
+            Gets or sets the unique identifier for the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Subject">
+            <summary>
+            Gets or sets the subject of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Status">
+            <summary>
+            Gets or sets the status of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Stage">
+            <summary>
+            Gets or sets the stage of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Estimation">
+            <summary>
+            Gets or sets the estimated date for the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.CurrencyID">
+            <summary>
+            Gets or sets the currency ID of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Total">
+            <summary>
+            Gets or sets the total amount of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.ClassID">
+            <summary>
+            Gets or sets the class ID of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.Owner">
+            <summary>
+            Gets or sets the owner of the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.ContactID">
+            <summary>
+            Gets or sets the contact ID associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.ContactDisplayName">
+            <summary>
+            Gets or sets the display name of the contact associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.BusinessAccount">
+            <summary>
+            Gets or sets the business account associated with the opportunity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the opportunity.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.OrderType">
+            <summary>
+            Gets or sets the type of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.OrderNbr">
+            <summary>
+            Gets or sets the number of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.Status">
+            <summary>
+            Gets or sets the status of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.Date">
+            <summary>
+            Gets or sets the date of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.CustomerID">
+            <summary>
+            Gets or sets the customer ID associated with the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.CustomerName">
+            <summary>
+            Gets or sets the name of the customer associated with the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.OrderedQty">
+            <summary>
+            Gets or sets the ordered quantity of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.OrderTotal">
+            <summary>
+            Gets or sets the total amount of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.CurrencyID">
+            <summary>
+            Gets or sets the currency ID of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.LastModified">
+            <summary>
+            Gets or sets the last modified date and time of the sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.SalesOrder_Model.ShipmentDate">
+            <summary>
+            Gets or sets the shipment date of the sales order.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Shipment_Model">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.Type">
+            <summary>
+            Gets or sets the type of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.ShipmentNbr">
+            <summary>
+            Gets or sets the shipment number.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.Status">
+            <summary>
+            Gets or sets the status of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.ShipmentDate">
+            <summary>
+            Gets or sets the shipment date.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.erID">
+            <summary>
+            Gets or sets the erID of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.erName">
+            <summary>
+            Gets or sets the erName of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.WarehouseID">
+            <summary>
+            Gets or sets the warehouse ID of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.ShippedQty">
+            <summary>
+            Gets or sets the shipped quantity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.ShippedWeight">
+            <summary>
+            Gets or sets the shipped weight.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.CreatedDateTime">
+            <summary>
+            Gets or sets the created date and time of the shipment.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Shipment_Model.LastModifiedDateTime">
+            <summary>
+            Gets or sets the last modified date and time of the shipment.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model">
+            <summary>
+             Mapping class for standard output form
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.OrderType">
+            <summary>
+            Gets or sets the type of the order associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.OrderNbr">
+            <summary>
+            Gets or sets the number of the order associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.InventoryID">
+            <summary>
+            Gets or sets the inventory ID associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.WarehouseID">
+            <summary>
+            Gets or sets the warehouse ID associated with the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.ShippedQty">
+            <summary>
+            Gets or sets the shipped quantity of the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.OrderedQty">
+            <summary>
+            Gets or sets the ordered quantity of the shipment detail.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.Description">
+            <summary>
+            Gets or sets the description of the shipment detail.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.DemoUser">
+            <summary>
+                Add profile data for application users by adding properties to the ApiDemoUser class
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.FullName">
+            <summary>
+                Gets or sets the full name of the user.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.EmailAddress">
+            <summary>
+                Gets or sets the email address of the user.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.DOB">
+            <summary>
+                Gets or sets the date of birth of the user.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBill_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBill_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Bill_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBillDetail_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBillDetail_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_BillDetail_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model.#ctor(RevisionTwoApp.RestApi.Models.App.SalesOrder_App)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model"/> class.
+            </summary>
+            <param name="Case_App">The SalesOrder_App instance. Currently unused.</param>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToContact_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToContact_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Contact_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToOpportunity_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToOpportunity_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Opportunity_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToSalesOrder_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToSalesOrder_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance and
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_SalesOrder_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipment_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipment_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Shipment_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipmentDetail_App">
+            <summary>
+            Conversion to App model from Default model using inheritance 
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipmentDetail_Model">
+            <summary>
+            Conversion to Default model from App model using inheritance
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_ShipmentDetail_Model">
+            <summary>
+            Create custom Default model from API Response, add new properties
+            potentially from other Default Models by constructor
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Pages.ErrorModel">
+            <summary>
+            Represents the model for handling error pages in the application.
+            </summary>
+            <remarks>This model is used to display error information, including the request ID, on error pages. It also
+            logs error details for diagnostic purposes.</remarks>
+            <param name="logger"></param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.ErrorModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Pages.ErrorModel})">
+            <summary>
+            Represents the model for handling error pages in the application.
+            </summary>
+            <remarks>This model is used to display error information, including the request ID, on error pages. It also
+            logs error details for diagnostic purposes.</remarks>
+            <param name="logger"></param>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Pages.ErrorModel.RequestId">
+            <summary>
+            Gets or sets the unique identifier for the current request.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Pages.ErrorModel.ShowRequestId">
+            <summary>
+            Indicates whether the current request ID should be displayed.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.ErrorModel.OnGet">
+            <summary>
+            Handles GET requests for the error page.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Pages.IndexModel">
+            <summary>
+            Represents the model for the Index page in an ASP.NET Core Razor Pages application. 
+            </summary>
+            <remarks>This class is responsible for handling the logic and data associated with the Index page. It includes
+            a method to handle GET requests and logs when the page is loaded.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.IndexModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Pages.IndexModel})">
+            <summary>
+            Represents the model for the Index page in an ASP.NET Core Razor Pages application. 
+            </summary>
+            <remarks>This class is responsible for handling the logic and data associated with the Index page. It includes
+            a method to handle GET requests and logs when the page is loaded.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.IndexModel.OnGet">
+            <summary>
+            Handles GET requests for the Index page.
+            </summary>
+            <remarks>This method is invoked when the Index page is accessed via a GET request. It logs a message indicating that the page has been loaded.</remarks>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Pages.PrivacyModel">
+            <summary>
+            Represents the model for the Privacy page in the application.
+            </summary>
+            <remarks>This class is used to handle requests and responses for the Privacy page. It logs an informational
+            message when the page is accessed.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.PrivacyModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Pages.PrivacyModel})">
+            <summary>
+            Represents the model for the Privacy page in the application.
+            </summary>
+            <remarks>This class is used to handle requests and responses for the Privacy page. It logs an informational
+            message when the page is accessed.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.PrivacyModel.OnGet">
+            <summary>
+            Handles GET requests for the Privacy page.
+            </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Pages.TermsModel">
+            <summary>
+            Represents the model for the Terms page in an ASP.NET Core Razor Pages application.
+            </summary>
+            <remarks>This class is responsible for handling the GET requests to the Terms page. It logs an informational
+            message when the page is accessed.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.TermsModel.#ctor(Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Pages.TermsModel})">
+            <summary>
+            Represents the model for the Terms page in an ASP.NET Core Razor Pages application.
+            </summary>
+            <remarks>This class is responsible for handling the GET requests to the Terms page. It logs an informational
+            message when the page is accessed.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Pages.TermsModel.OnGet">
+            <summary>
+            Handles GET requests to the Terms page.
+            </summary>
+        </member>
+    </members>
+</doc>

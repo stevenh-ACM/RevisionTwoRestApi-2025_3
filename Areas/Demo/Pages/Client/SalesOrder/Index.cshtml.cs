@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,9 @@ using Newtonsoft.Json;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Helper;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1572 // XML comment has badly formed XML
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 /// <summary>
@@ -20,10 +24,11 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// <param name="logger"></param>
 #region IndexModel
 
+[Authorize]
 /// <summary>
 /// Represents the Index page model for the SalesOrder in the Demo area.
 /// </summary>
-public class IndexModel(AppDbContext context,ILogger<IndexModel> logger):PageModel
+public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
 {
     #region ctor
 

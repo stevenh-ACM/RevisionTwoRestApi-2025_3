@@ -12,24 +12,26 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// <summary>
 /// Represents the model for deleting a credential.
 /// </summary>
-public class DeleteModel:PageModel
-{
-    private readonly AppDbContext _context;
+/// <param name="context">The database context.</param>
 
+public class DeleteModel(AppDbContext context):PageModel
+{
+    #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="DeleteModel"/> class.
     /// </summary>
-    /// <param name="context">The database context.</param>
-    public DeleteModel(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
+    #endregion
 
+    #region properties
     /// <summary>
     /// Gets or sets the credential to be deleted.
     /// </summary>
     [BindProperty]
     public Credential Credentials { get; set; } = default!;
+    #endregion
+
+    #region methods
 
     /// <summary>
     /// Handles the GET request to retrieve the credential for deletion.
@@ -78,4 +80,5 @@ public class DeleteModel:PageModel
 
         return RedirectToPage("./Index");
     }
+    #endregion
 }

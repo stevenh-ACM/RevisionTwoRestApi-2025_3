@@ -12,24 +12,24 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// <summary>
 /// Represents the model for the details page of credentials.
 /// </summary>
-public class DetailsModel:PageModel
+/// <param name="context">The database context.</param>
+public class DetailsModel(AppDbContext context):PageModel
 {
-    private readonly AppDbContext _context;
-
+    #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="DetailsModel"/> class.
     /// </summary>
-    /// <param name="context">The database context.</param>
-    public DetailsModel(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
+    #endregion
 
+    #region properties
     /// <summary>
     /// Gets or sets the credential details.
     /// </summary>
     public Credential Credentials { get; set; } = default!;
+    #endregion
 
+    #region methods
     /// <summary>
     /// Handles the GET request to retrieve credential details by ID.
     /// </summary>
@@ -53,4 +53,5 @@ public class DetailsModel:PageModel
         }
         return Page();
     }
+    #endregion
 }

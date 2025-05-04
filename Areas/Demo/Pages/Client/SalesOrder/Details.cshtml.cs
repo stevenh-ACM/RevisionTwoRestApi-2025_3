@@ -1,7 +1,6 @@
 ﻿#nullable disable
 
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Eventing.Reader;
 
 using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.AuthApi;
@@ -12,17 +11,16 @@ using Acumatica.RESTClient.ContractBasedApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 using Newtonsoft.Json;
 
-using RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.DTOs.Conversions;
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 /// <summary>
@@ -78,6 +76,8 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     public Boolean RefreshFlag { get; set; } = false; // is the page simply being refreshed
 
     /// <summary>
+    /// Gets or sets the starting date for the operation or range.
+    /// </summary>
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
     public DateTime FromDate { get; set; }
 

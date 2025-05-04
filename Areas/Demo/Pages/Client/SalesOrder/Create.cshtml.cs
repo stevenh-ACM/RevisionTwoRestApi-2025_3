@@ -4,7 +4,6 @@ using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
-using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,6 +17,7 @@ using RevisionTwoApp.RestApi.Helper;
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 /// <summary>

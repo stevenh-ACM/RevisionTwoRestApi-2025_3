@@ -1,8 +1,7 @@
 ﻿#nullable enable
 
-using System.ComponentModel.DataAnnotations;
-
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace RevisionTwoApp.RestApi.Models;
 
@@ -11,12 +10,24 @@ namespace RevisionTwoApp.RestApi.Models;
 /// </summary>
 public class DemoUser:IdentityUser
 {
+    /// <summary>
+    ///     Gets or sets the full name of the user.
+    /// </summary>
     [PersonalData]
+    [StringLength(35)]
     public string? FullName { get; set; }
 
+    /// <summary>
+    ///     Gets or sets the email address of the user.
+    /// </summary>
     [PersonalData]
     [DataType(DataType.EmailAddress)]
     public string? EmailAddress { get; set; }
 
+    /// <summary>
+    ///     Gets or sets the date of birth of the user.
+    /// </summary>
+    [PersonalData]
+    public DateTime DOB { get; set; }
 }
 

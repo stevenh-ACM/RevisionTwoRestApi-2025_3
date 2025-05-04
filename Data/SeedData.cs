@@ -51,7 +51,8 @@ public static class SeedData
             );
             context.SaveChanges();
         }
+
+        #endregion
     }
-    #endregion
 }
 #endregion
