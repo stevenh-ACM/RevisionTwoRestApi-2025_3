@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\cache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\cache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\model_conversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\model_conversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\inmemorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\inmemorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\demouser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\demouser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\default_models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\default_models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\models\\app_models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\app_models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\revisiontwoapp.restapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:revisiontwoapp.restapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,79 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Cache.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Cache.cs",
-              "RelativeDocumentMoniker": "Models\\Cache.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Cache.cs",
-              "RelativeToolTip": "Models\\Cache.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:51:46.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Model_Conversion.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Model_Conversion.cs",
-              "RelativeDocumentMoniker": "Models\\Model_Conversion.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Model_Conversion.cs",
-              "RelativeToolTip": "Models\\Model_Conversion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:51:30.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InMemoryDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\InMemoryDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\InMemoryDbContext.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\InMemoryDbContext.cs",
-              "RelativeToolTip": "Models\\InMemoryDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:51:26.463Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DemoUser.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\DemoUser.cs",
-              "RelativeDocumentMoniker": "Models\\DemoUser.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\DemoUser.cs",
-              "RelativeToolTip": "Models\\DemoUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:51:25.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Default_Models.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Default_Models.cs",
-              "RelativeDocumentMoniker": "Models\\Default_Models.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\Default_Models.cs",
-              "RelativeToolTip": "Models\\Default_Models.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:48:20.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App_Models.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\App_Models.cs",
-              "RelativeDocumentMoniker": "Models\\App_Models.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Models\\App_Models.cs",
-              "RelativeToolTip": "Models\\App_Models.cs",
-              "ViewState": "AgIAAFABAAAAAAAAAAAAAFABAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T00:45:27.136Z",
+              "Title": "RevisionTwoApp.RestApi",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+              "RelativeDocumentMoniker": "RevisionTwoApp.RestApi.csproj",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+              "RelativeToolTip": "RevisionTwoApp.RestApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-03T01:15:51.8Z",
               "EditorCaption": ""
             }
           ]

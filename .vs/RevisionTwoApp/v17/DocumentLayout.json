@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\revisiontwoapp.restapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:revisiontwoapp.restapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,19 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RevisionTwoApp.RestApi",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
-              "RelativeDocumentMoniker": "RevisionTwoApp.RestApi.csproj",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
-              "RelativeToolTip": "RevisionTwoApp.RestApi.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-03T01:15:51.8Z",
-              "EditorCaption": ""
             }
           ]
         }
