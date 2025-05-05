@@ -166,15 +166,15 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                 {
                     CustomerID = customer.CustomerID,
                     Date = DateTime.Now.AddDays(-1),
-                    Details = new List<SalesOrderDetail>()
-                    {
+                    Details =
+                    [
                         new SalesOrderDetail()
                         {
                             InventoryID = InventoryID,
                             OrderQty = salesOrder.OrderedQty,
 
                         }
-                    }
+                    ]
                 },expand: "Details");
 
                 _logger.LogInformation($"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}.");
@@ -183,15 +183,15 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                 {
                     CustomerID = customer.CustomerID,
                     WarehouseID = so.Details!.Single().WarehouseID,
-                    Details = new List<ShipmentDetail>()
-                    {
+                    Details =
+                    [
                         new ShipmentDetail()
                         {
                             OrderNbr = so.OrderNbr,
                             OrderType = so.OrderType,
                             OrderLineNbr = so.Details!.First().LineNbr,
                         }
-                    }
+                    ]
                 });
 
                 _logger.LogInformation($"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.");

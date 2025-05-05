@@ -99,12 +99,12 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// <summary>
     /// List of sales order shipments
     /// </summary>
-    public List<SalesOrderShipment> SalesOrderShipment { get; set; } = new List<SalesOrderShipment>();
+    public List<SalesOrderShipment> SalesOrderShipment { get; set; } = [];
 
     /// <summary>
     /// List of sales order shipments
     /// </summary>
-    public List<SalesOrderShipment> SalesOrderShipments { get; set; } = new List<SalesOrderShipment>();
+    public List<SalesOrderShipment> SalesOrderShipments { get; set; } = [];
 
     #endregion
 

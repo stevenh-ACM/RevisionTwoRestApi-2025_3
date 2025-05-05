@@ -47,7 +47,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// Search fields
     /// </summary>
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-180); //default to 180 days ago
+    public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-90); //default to 180 days ago
 
     /// <summary>
     /// Gets or sets the end date for the search range. Defaults to today.
@@ -108,10 +108,10 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
 
     private void SetParms() 
     {
-        Parms = [ FromDate,
-                                  ToDate,
-                                  NumRecords,
-                                  Selected_SalesOrder_Type ];
+        Parms = [FromDate,
+                            ToDate,
+                            NumRecords,
+                            Selected_SalesOrder_Type ];
         if(Parms is null)
         {
             Message = $"Main: No parameters exist. Please check your parameters!";

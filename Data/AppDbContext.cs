@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;

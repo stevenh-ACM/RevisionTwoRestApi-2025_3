@@ -38,6 +38,16 @@
             <param name="context"></param>
             <param name="logger"></param>
         </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.salesOrder">
+            <summary>
+            Represents a SalesOrder page entity to be deleted.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.SalesOrder">
+            <summary>
+            Represents a SalesOrder entity to be deleted.
+            </summary>
+        </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Message">
             <summary>
             Gets or sets the message for the current operation.
@@ -66,11 +76,6 @@
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Selected_SalesOrder_Type">
             <summary>
             Gets the selected sales order type.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.SalesOrderApp">
-            <summary>
-            Represents a SalesOrder entity to be deleted.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.OnGetAsync(System.Nullable{System.Int32})">
@@ -352,12 +357,18 @@
             <summary>
             Represents the model for deleting a credential.
             </summary>
+            <param name="context">The database context.</param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel"/> class.
+            Represents the model for deleting a credential.
             </summary>
             <param name="context">The database context.</param>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel._context">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel"/> class.
+            </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.Credentials">
             <summary>
@@ -382,12 +393,18 @@
             <summary>
             Represents the model for the details page of credentials.
             </summary>
+            <param name="context">The database context.</param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class.
+            Represents the model for the details page of credentials.
             </summary>
             <param name="context">The database context.</param>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel._context">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class.
+            </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.Credentials">
             <summary>
@@ -405,12 +422,18 @@
             <summary>
             Represents the model for editing credentials in the Razor Page.
             </summary>
+            <param name="context">The database context.</param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel"/> class.
+            Represents the model for editing credentials in the Razor Page.
             </summary>
             <param name="context">The database context.</param>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel._context">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel"/> class.
+            </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.Credentials">
             <summary>
@@ -437,17 +460,10 @@
             <param name="id">The ID of the credential.</param>
             <returns>True if the credential exists; otherwise, false.</returns>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel">
-            <summary>
-            Represents the model for the Credentials Index page.
-            </summary>
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel})">
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel._logger">
             <summary>
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel"/> class.
             </summary>
-            <param name="context">The database context.</param>
-            <param name="logger">The logger instance.</param>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.Credentials">
             <summary>
@@ -3523,129 +3539,129 @@
                 Gets or sets the date of birth of the user.
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBill_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToBill_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBill_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToBill_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Bill_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_Bill_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBillDetail_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToBillDetail_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToBillDetail_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToBillDetail_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_BillDetail_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_BillDetail_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToCase_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToCase_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model.#ctor(RevisionTwoApp.RestApi.Models.App.SalesOrder_App)">
+        <member name="M:RevisionTwoApp.RestApi.Models.ToCase_Model.#ctor(RevisionTwoApp.RestApi.Models.App.SalesOrder_App)">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Models.Conversion.ToCase_Model"/> class.
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Models.ToCase_Model"/> class.
             </summary>
             <param name="Case_App">The SalesOrder_App instance. Currently unused.</param>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToContact_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToContact_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToContact_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToContact_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Contact_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_Contact_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToOpportunity_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToOpportunity_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToOpportunity_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToOpportunity_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Opportunity_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_Opportunity_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToSalesOrder_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToSalesOrder_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToSalesOrder_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToSalesOrder_Model">
             <summary>
             Conversion to Default model from App model using inheritance and
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_SalesOrder_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_SalesOrder_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipment_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToShipment_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipment_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToShipment_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_Shipment_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_Shipment_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipmentDetail_App">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToShipmentDetail_App">
             <summary>
             Conversion to App model from Default model using inheritance 
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.ToShipmentDetail_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.ToShipmentDetail_Model">
             <summary>
             Conversion to Default model from App model using inheritance
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.Conversion.Create_ShipmentDetail_Model">
+        <member name="T:RevisionTwoApp.RestApi.Models.Create_ShipmentDetail_Model">
             <summary>
             Create custom Default model from API Response, add new properties
             potentially from other Default Models by constructor
