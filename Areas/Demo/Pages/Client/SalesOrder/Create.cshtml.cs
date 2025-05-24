@@ -5,6 +5,8 @@ using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
 
+using Humanizer.DateTimeHumanizeStrategy;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -41,7 +43,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     public List<SelectListItem> Selected_SalesOrder_Statuses { get; } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
     public List<SelectListItem> Selected_SalesOrder_Customers { get; } = [];
     public List<SalesOrder_App> SalesOrders { get; set; } = default!;
-    
+
     [BindProperty]
     public SalesOrder_App salesOrder { get; set; } = new();
     [BindProperty]
@@ -179,25 +181,29 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 _logger.LogInformation($"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}.");
 
-                var shipment = client.Put(new Shipment()
-                {
-                    CustomerID = customer.CustomerID,
-                    WarehouseID = so.Details!.Single().WarehouseID,
-                    Details =
-                    [
-                        new ShipmentDetail()
-                        {
-                            OrderNbr = so.OrderNbr,
-                            OrderType = so.OrderType,
-                            OrderLineNbr = so.Details!.First().LineNbr,
-                        }
-                    ]
-                });
+                //var shipment = client.Put(new Shipment()
+                //{
+                //    CustomerID = customer.CustomerID,
+                //    WarehouseID = so.Details!.Single().WarehouseID,
+                //    Details =
+                //    [
+                //        new ShipmentDetail()
+                //        {
+                //            OrderNbr = so.OrderNbr,
+                //            OrderType = so.OrderType,
+                //            OrderLineNbr = so.Details!.First().LineNbr,
+                //        }
+                //    ]
+                //});
+
+               var shipment = new Shipment { 
+                    ShipmentDate = DateTime.Now.AddDays(-1)
+                }; 
 
                 _logger.LogInformation($"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.");
 
-                var baAccount = client.GetByKeys<BusinessAccount>([CustomerID]);
-                if(baAccount is null)
+                var baAccount = client.GetByKeys<BusinessAccount>([ CustomerID ]);
+                if (baAccount is null)
                 {
                     var Message = $"Details: Failure to determine Business Account using {client.ToString} and CustomerID {CustomerID}";
                     _logger.LogError(Message);
@@ -206,7 +212,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 _logger.LogInformation($"Create: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.");
 
-                var _so = new ConvertToSO(so,baAccount,shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
+                var _so = new ConvertToSO(so, baAccount, shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
                 _logger.LogInformation($"Create: Newly created SalesOrder_App record to be added {_so}.");
 

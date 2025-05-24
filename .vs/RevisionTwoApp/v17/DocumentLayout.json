@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\requestslog.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:requestslog.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\helper\\combo_boxes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:helper\\combo_boxes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\steven.houglum\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,21 +41,53 @@
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RequestsLog.txt",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RequestsLog.txt",
-              "RelativeDocumentMoniker": "RequestsLog.txt",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RequestsLog.txt",
-              "RelativeToolTip": "RequestsLog.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-05T01:15:24.45Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0849e941-4665-42e5-8dd0-e4c8da15dbd0}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Combo_Boxes.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Helper\\Combo_Boxes.cs",
+              "RelativeDocumentMoniker": "Helper\\Combo_Boxes.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Helper\\Combo_Boxes.cs",
+              "RelativeToolTip": "Helper\\Combo_Boxes.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAwPEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T20:21:45.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAAAKYAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T20:16:25.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Delete.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
+              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAUwMUAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T23:28:27.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml",
               "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml",
@@ -60,19 +96,6 @@
               "ViewState": "AgIAAGoAAAAAAAAAAAAwwCIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-04T23:29:42.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Delete.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "ToolTip": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAAAK8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T23:28:27.534Z",
-              "EditorCaption": ""
             }
           ]
         }

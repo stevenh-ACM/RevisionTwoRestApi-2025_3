@@ -15,6 +15,8 @@ using RevisionTwoApp.RestApi.Models.App;
 using RevisionTwoApp.RestApi.Models;
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.ContractBasedApi;
+using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.IdentityModel.Tokens;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
@@ -164,16 +166,41 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
             }
             else
             {
-                var OrderNbr = SalesOrder.OrderNbr;
+                
                 IEnumerable<string> Ids = [ ];
+                var OrderNbr = SalesOrder.OrderNbr;
+                var OrderType = SalesOrder.OrderType;
+                var Status = SalesOrder.Status;
+                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Exprired" };
 
-                _logger.LogInformation($"Delete: Deleteing Sales Order {OrderNbr}.");
+                _logger.LogInformation($"Delete: Deleteing Sales Order {OrderType} {OrderNbr}.");
 
-                var so = client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(ids: Ids, select: "OrderNbr");
+                var so = client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(ids: Ids, select: "OrderType, OrderNbr, Status");
+                if (StatusList.Contains(Status)) 
+                {
+                    if (Ids == null || Ids.Any())
+                    {
+                        _logger.LogError($@"Sales Order {OrderType} {OrderNbr} is not in a valid status for deletion. Status is {Status}.");
+                        return Page();
+                    }
+                    else
+                    {
+                        _logger.LogInformation($@"Sales Order {OrderType} {OrderNbr} is in a valid status for deletion. Status is {Status}.");
+                    }
+                }
+                else
+                {
+                    _logger.LogError($@"Sales Order {OrderType} {OrderNbr} is not in a valid status for deletion. Status is {Status}.");
+                    return Page();
+                }
+                var entityish = client.ResponseInterceptor;
 
-                _logger.LogInformation($@"Sales Order retrieved with OrderNbr {OrderNbr} Ids returned are {Ids.ToString()} and so {so.ToString()}");
-
-                var result = client.DeleteByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(ids: Ids);
+                var result = client.DeleteAsync(new Acumatica.Default_24_200_001.Model.SalesOrder
+                                                    {
+                                                        OrderType = OrderType,
+                                                        OrderNbr = OrderNbr
+                                                    });
+                ;
                 if (result == null)
                 {
                     _logger.LogError($"Delete: Failed to delete Sales Order {OrderNbr}.");
