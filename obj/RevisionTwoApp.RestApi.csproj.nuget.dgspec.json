@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {}
+    "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {
+    "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+        "projectUniqueName": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
         "projectName": "RevisionTwoApp.RestApi",
-        "projectPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
-        "packagesPath": "C:\\Users\\steven.houglum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steven.houglum\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\obj\\",
+        "projectPath": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\RevisionTwoApp.RestApi.csproj",
+        "packagesPath": "C:\\Users\\stevenh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\steven.houglum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stevenh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -125,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300-preview.0.25177.5/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

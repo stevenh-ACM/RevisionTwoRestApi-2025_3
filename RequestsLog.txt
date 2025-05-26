@@ -888,3 +888,1139 @@ Request
 	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder/?$select=OrderType%2c+OrderNbr%2c+Status
 -----------------------------------------
 
+5/26/2025 6:38:51 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:38:51 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:38:51 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272025-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a38%3a51%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=22
+-----------------------------------------
+
+5/26/2025 6:38:54 AM
+Response
+	Status code: OK
+	Content: [{"id":"9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:29.993+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000464"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"b9744b4a-9a75-42e4-99bd-8344e8fc1a4d","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:42.28+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000465"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"015b6bec-d9b2-4437-9907-218c14e46e65","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"a7301b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:49.323+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000466"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"24b80f44-8aad-4805-8930-d796f82a436e","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/a7301b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/a7301b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3b311b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:56.787+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000467"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"ffe3b0cb-8156-4330-8d40-41082f3efa01","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3b311b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3b311b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"185f4e0b-2026-f011-b8dd-54e4edd6c91d","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:03.4+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000468"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"68b95411-1c54-4f8d-9211-1c920127efaa","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/185f4e0b-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/185f4e0b-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"1c224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:10.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000469"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"5c35b759-799b-4ef8-a49b-b8af315d1dbf","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/1c224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/1c224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"b1224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:17.96+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000470"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"ec828ef0-aa10-492e-aca7-7f8745f918fd","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b1224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b1224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"4392cc17-2026-f011-b8dd-54e4edd6c91d","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:24.5+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000471"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"60506b64-e5f6-4ecb-a30d-7fc453479f5d","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/4392cc17-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/4392cc17-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"9c8dd61d-2026-f011-b8dd-54e4edd6c91d","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:32.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000472"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"e400a17f-f35a-4d6f-9f07-a69f7ff3aa75","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9c8dd61d-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9c8dd61d-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"beded523-2026-f011-b8dd-54e4edd6c91d","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:38.873+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000473"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"9cbcbb68-10d7-42c3-bf10-2ee84949f81b","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/beded523-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/beded523-2026-f011-b8dd-54e4edd6c91d/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:38:54 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:05 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:07 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:07 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:39:07 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:39:07 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:39:07 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:41:09 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:41:09 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:41:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272025-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a41%3a09%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=22
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Response
+	Status code: OK
+	Content: [{"id":"9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:29.993+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000464"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"10fdc0a8-b670-46f9-bf84-f7d65b9e13bf","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:42.28+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000465"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"91d91f4e-1884-4b9e-86ef-bbaa8880b433","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"a7301b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:49.323+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000466"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"83ce3f44-6bea-4f9e-9159-52c77aa63d25","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/a7301b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/a7301b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3b311b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:56.787+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000467"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"c65e076b-baa8-4a46-b4a4-b9a638646eec","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3b311b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3b311b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"185f4e0b-2026-f011-b8dd-54e4edd6c91d","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:03.4+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000468"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"c05a1700-a577-4293-a1fd-e16f1a982bfc","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/185f4e0b-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/185f4e0b-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"1c224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:10.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000469"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"7936db64-e286-40ff-a4dc-9dacf963096a","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/1c224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/1c224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"b1224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:17.96+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000470"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"d60fa5dc-e83a-4f5f-bef4-a913137e9691","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b1224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b1224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"4392cc17-2026-f011-b8dd-54e4edd6c91d","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:24.5+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000471"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"106ca014-e889-4800-84a4-d24063a75328","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/4392cc17-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/4392cc17-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"9c8dd61d-2026-f011-b8dd-54e4edd6c91d","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:32.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000472"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"e98bffa9-55ad-4e58-8652-edad86232aa7","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9c8dd61d-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9c8dd61d-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"beded523-2026-f011-b8dd-54e4edd6c91d","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:38.873+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000473"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"74c37523-d7e1-4956-ab79-754decfac484","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/beded523-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/beded523-2026-f011-b8dd-54e4edd6c91d/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:12 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:41:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:41:13 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:41:13 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:43:06 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:43:06 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:43:06 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272024-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a43%3a06%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=22
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Response
+	Status code: OK
+	Content: [{"id":"3c2ddd48-a621-ef11-b38d-00155dc1a371","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"FDIAGRI"},"Date":{"value":"2024-06-03T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":4790.000000},"OrderNbr":{"value":"000001"},"OrderTotal":{"value":182940.1000},"OrderType":{"value":"SO"},"Shipments":[{"id":"0f244491-f0d2-4ec8-9857-8c1bece04c7a","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-04T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3c2ddd48-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3c2ddd48-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"ff3d1d4f-a621-ef11-b38d-00155dc1a371","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"MICROCHIP"},"Date":{"value":"2024-06-07T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":26800.000000},"OrderNbr":{"value":"000002"},"OrderTotal":{"value":671773.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"f24a4585-b7de-411c-b84b-7418ebac56e6","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-07T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/ff3d1d4f-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/ff3d1d4f-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"163e1d4f-a621-ef11-b38d-00155dc1a371","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"FDIAGRI"},"Date":{"value":"2024-06-10T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":32730.000000},"OrderNbr":{"value":"000003"},"OrderTotal":{"value":366752.1000},"OrderType":{"value":"SO"},"Shipments":[{"id":"95f6d4f3-6601-4c29-9fd8-9cbf64f89335","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-10T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/163e1d4f-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/163e1d4f-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"2e3e1d4f-a621-ef11-b38d-00155dc1a371","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"FDIAGRI"},"Date":{"value":"2024-06-17T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":6580.000000},"OrderNbr":{"value":"000004"},"OrderTotal":{"value":235484.5000},"OrderType":{"value":"SO"},"Shipments":[{"id":"da4754a1-fd37-461d-acb2-cf925db87ee8","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-17T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/2e3e1d4f-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/2e3e1d4f-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"433e1d4f-a621-ef11-b38d-00155dc1a371","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"EUR"},"CustomerID":{"value":"FDIQVIK"},"Date":{"value":"2024-06-21T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":3260.000000},"OrderNbr":{"value":"000005"},"OrderTotal":{"value":86625.6000},"OrderType":{"value":"SO"},"Shipments":[{"id":"0d6cb0ed-c87b-47e4-a29b-2cc891c48eac","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-21T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/433e1d4f-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/433e1d4f-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"5b3e1d4f-a621-ef11-b38d-00155dc1a371","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ELEIMPORT"},"Date":{"value":"2024-06-30T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":80.000000},"OrderNbr":{"value":"000006"},"OrderTotal":{"value":17958.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"540b7e2e-6668-4ea2-bd73-49ff386aea13","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/5b3e1d4f-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/5b3e1d4f-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"b8794255-a621-ef11-b38d-00155dc1a371","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ELEVATION"},"Date":{"value":"2024-06-06T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":750.000000},"OrderNbr":{"value":"000007"},"OrderTotal":{"value":318254.6000},"OrderType":{"value":"SO"},"Shipments":[{"id":"0b4964bd-380e-481d-89b9-f7247fe206eb","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-06T00:00:00+03:00"},"custom":{}},{"id":"1ef038f6-ebb9-43c3-996e-382ec8b1c1ec","rowNumber":2,"note":null,"ShipmentDate":{"value":"2024-06-06T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b8794255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b8794255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"cf794255-a621-ef11-b38d-00155dc1a371","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ELITEANSW"},"Date":{"value":"2024-06-17T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":80.000000},"OrderNbr":{"value":"000008"},"OrderTotal":{"value":40000.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"2332e204-b3a9-4801-9ebe-b31bf1756247","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-17T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/cf794255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/cf794255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"df794255-a621-ef11-b38d-00155dc1a371","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"INDSACRAME"},"Date":{"value":"2024-06-05T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":3.000000},"OrderNbr":{"value":"000009"},"OrderTotal":{"value":62999.9700},"OrderType":{"value":"SO"},"Shipments":[{"id":"73af7edf-c0a7-43b1-823b-c7e6c4ce8cb9","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-05T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/df794255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/df794255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"ef794255-a621-ef11-b38d-00155dc1a371","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"INDSUPPLY"},"Date":{"value":"2024-06-03T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":9.000000},"OrderNbr":{"value":"000010"},"OrderTotal":{"value":54716.9600},"OrderType":{"value":"SO"},"Shipments":[{"id":"3021fb11-3a13-4b3f-a434-bcb18c75b6c1","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-04T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/ef794255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/ef794255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"037a4255-a621-ef11-b38d-00155dc1a371","rowNumber":11,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"INDSACRAME"},"Date":{"value":"2024-06-30T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":5.000000},"OrderNbr":{"value":"000011"},"OrderTotal":{"value":108305.4400},"OrderType":{"value":"SO"},"Shipments":[{"id":"65af3e42-2c03-4b4a-862c-6952476a77af","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/037a4255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/037a4255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"167a4255-a621-ef11-b38d-00155dc1a371","rowNumber":12,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"TOYONEILL"},"Date":{"value":"2024-06-02T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":730.000000},"OrderNbr":{"value":"000012"},"OrderTotal":{"value":199005.6000},"OrderType":{"value":"SO"},"Shipments":[{"id":"cec4ae19-588f-47a0-9c27-fc2c2c8a16f8","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-04T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/167a4255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/167a4255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"2a7a4255-a621-ef11-b38d-00155dc1a371","rowNumber":13,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"TOYSTAR"},"Date":{"value":"2024-06-10T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":2220.000000},"OrderNbr":{"value":"000013"},"OrderTotal":{"value":261688.4000},"OrderType":{"value":"SO"},"Shipments":[{"id":"a37f52af-987f-451f-9ba5-a571c8f3d4d5","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-10T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/2a7a4255-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/2a7a4255-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"0a0b645b-a621-ef11-b38d-00155dc1a371","rowNumber":14,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"SNOSHORT"},"Date":{"value":"2024-06-11T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":473.000000},"OrderNbr":{"value":"000014"},"OrderTotal":{"value":173400.7000},"OrderType":{"value":"SO"},"Shipments":[{"id":"79289aa4-e447-4b6d-a7bb-08640209c388","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-11T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/0a0b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/0a0b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"210b645b-a621-ef11-b38d-00155dc1a371","rowNumber":15,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"BIBIMBAB"},"Date":{"value":"2024-06-17T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":500.000000},"OrderNbr":{"value":"000015"},"OrderTotal":{"value":61040.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"ba1f6b57-cf11-4178-8db3-f8d831bd5361","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-17T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/210b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/210b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"330b645b-a621-ef11-b38d-00155dc1a371","rowNumber":16,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"WIDGETBUY"},"Date":{"value":"2024-06-21T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":5900.000000},"OrderNbr":{"value":"000016"},"OrderTotal":{"value":5605.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"5423fc36-7c24-4258-878b-07f2dac44a09","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-21T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/330b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/330b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"430b645b-a621-ef11-b38d-00155dc1a371","rowNumber":17,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"WIDGETCC"},"Date":{"value":"2024-06-29T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":848.000000},"OrderNbr":{"value":"000017"},"OrderTotal":{"value":48350.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"1701f5b7-0a2e-40ed-b6ff-3e2f7caa7576","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/430b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/430b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"550b645b-a621-ef11-b38d-00155dc1a371","rowNumber":18,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ABARTENDE"},"Date":{"value":"2024-06-14T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":10100.000000},"OrderNbr":{"value":"000018"},"OrderTotal":{"value":45359.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"51b0d899-6b26-42fb-b73a-6b79313d7fa5","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-07-14T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/550b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/550b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"660b645b-a621-ef11-b38d-00155dc1a371","rowNumber":19,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ABCSTUDIOS"},"Date":{"value":"2024-06-17T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":400.000000},"OrderNbr":{"value":"000019"},"OrderTotal":{"value":153770.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"c600d14f-6ea5-42b2-b0ec-2f3a8c19cafa","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-17T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/660b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/660b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"780b645b-a621-ef11-b38d-00155dc1a371","rowNumber":20,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ELITEANSW"},"Date":{"value":"2024-06-20T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":3.000000},"OrderNbr":{"value":"000020"},"OrderTotal":{"value":316365.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"a9a9098a-35ca-4ec4-a846-21d8c3ed37b6","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/780b645b-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/780b645b-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"99378161-a621-ef11-b38d-00155dc1a371","rowNumber":21,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ABARTENDE"},"Date":{"value":"2024-06-01T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":20.000000},"OrderNbr":{"value":"000021"},"OrderTotal":{"value":160000.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"07b6d057-7d4e-4b68-82cc-ad65aaf1cf03","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/99378161-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/99378161-a621-ef11-b38d-00155dc1a371/{filename}"}},{"id":"c87acc6d-a621-ef11-b38d-00155dc1a371","rowNumber":22,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"ARTCAGES"},"Date":{"value":"2024-06-13T00:00:00+03:00"},"LastModified":{"value":"2024-01-01T02:00:00+02:00"},"OrderedQty":{"value":5.000000},"OrderNbr":{"value":"000022"},"OrderTotal":{"value":53696.9800},"OrderType":{"value":"SO"},"Shipments":[{"id":"abe775ba-1132-4e35-af3f-465dee799b84","rowNumber":1,"note":null,"ShipmentDate":{"value":"2024-06-13T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/c87acc6d-a621-ef11-b38d-00155dc1a371","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/c87acc6d-a621-ef11-b38d-00155dc1a371/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/FDIAGRI
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Response
+	Status code: OK
+	Content: {"id":"f1113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"FDIAGRI"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Agrilink Food"},"NoteID":{"value":"f1113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3241"},"OwnerEmployeeName":{"value":"Kachine Williams"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/f1113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/f1113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/MICROCHIP
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Response
+	Status code: OK
+	Content: {"id":"00123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"MICROCHIP"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Microchip Restaurant"},"NoteID":{"value":"00123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/00123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/00123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/FDIAGRI
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Response
+	Status code: OK
+	Content: {"id":"f1113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"FDIAGRI"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Agrilink Food"},"NoteID":{"value":"f1113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3241"},"OwnerEmployeeName":{"value":"Kachine Williams"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/f1113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/f1113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/FDIAGRI
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Response
+	Status code: OK
+	Content: {"id":"f1113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"FDIAGRI"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Agrilink Food"},"NoteID":{"value":"f1113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3241"},"OwnerEmployeeName":{"value":"Kachine Williams"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/f1113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/f1113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:09 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/FDIQVIK
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"36123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"FDIQVIK"},"ClassID":{},"CurrencyID":{"value":"EUR"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Qvik Process GmbH"},"NoteID":{"value":"36123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3211"},"OwnerEmployeeName":{"value":"Michal Bujacek"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Sales"},"WorkgroupDescription":{"value":"Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/36123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/36123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ELEIMPORT
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"27123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ELEIMPORT"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Electonic Importers"},"NoteID":{"value":"27123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3241"},"OwnerEmployeeName":{"value":"Kachine Williams"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/27123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/27123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ELEVATION
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"54123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ELEVATION"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Elevation Computers"},"NoteID":{"value":"54123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3241"},"OwnerEmployeeName":{"value":"Kachine Williams"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/54123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/54123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ELITEANSW
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"c4113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ELITEANSW"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Elite Answering"},"NoteID":{"value":"c4113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/c4113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/c4113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/INDSACRAME
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"fa113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"INDSACRAME"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Sacramento Industrial Supply"},"NoteID":{"value":"fa113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3236"},"OwnerEmployeeName":{"value":"Theo Valich"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/fa113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/fa113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/INDSUPPLY
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Response
+	Status code: OK
+	Content: {"id":"cd113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"INDSUPPLY"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Industrial Supply Inc"},"NoteID":{"value":"cd113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/cd113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/cd113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:10 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/INDSACRAME
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Response
+	Status code: OK
+	Content: {"id":"fa113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"INDSACRAME"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Sacramento Industrial Supply"},"NoteID":{"value":"fa113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3236"},"OwnerEmployeeName":{"value":"Theo Valich"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/fa113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/fa113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/TOYONEILL
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Response
+	Status code: OK
+	Content: {"id":"24123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"TOYONEILL"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"O'Neill's Trading"},"NoteID":{"value":"24123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3223"},"OwnerEmployeeName":{"value":"Eric Killian"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/24123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/24123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/TOYSTAR
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Response
+	Status code: OK
+	Content: {"id":"51123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"TOYSTAR"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Not Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Star America Toys"},"NoteID":{"value":"51123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/51123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/51123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/SNOSHORT
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Response
+	Status code: OK
+	Content: {"id":"4b123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"SNOSHORT"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Shortstop Sports"},"NoteID":{"value":"4b123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/4b123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/4b123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/BIBIMBAB
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Response
+	Status code: OK
+	Content: {"id":"91113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"BIBIMBAB"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Bibimbab Korean Restaurant"},"NoteID":{"value":"91113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/91113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/91113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:11 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/WIDGETBUY
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Response
+	Status code: OK
+	Content: {"id":"75123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"WIDGETBUY"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Widget Connection"},"NoteID":{"value":"75123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{"value":"WIDPARENT"},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/75123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/75123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/WIDGETCC
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Response
+	Status code: OK
+	Content: {"id":"78123b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"WIDGETCC"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Widget Credit Card"},"NoteID":{"value":"78123b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3236"},"OwnerEmployeeName":{"value":"Theo Valich"},"ParentAccount":{"value":"WIDPARENT"},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/78123b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/78123b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ABARTENDE
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Response
+	Status code: OK
+	Content: {"id":"6a113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ABARTENDE"},"ClassID":{"value":"BUSINESS"},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2014-08-15T00:56:22.173+03:00"},"Name":{"value":"USA Bartending School"},"NoteID":{"value":"6a113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/6a113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/6a113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ABCSTUDIOS
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Response
+	Status code: OK
+	Content: {"id":"6d113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ABCSTUDIOS"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"ABC Studios Inc"},"NoteID":{"value":"6d113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{"value":"ABCHOLDING"},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/6d113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/6d113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ELITEANSW
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Response
+	Status code: OK
+	Content: {"id":"c4113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ELITEANSW"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Elite Answering"},"NoteID":{"value":"c4113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/c4113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/c4113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ABARTENDE
+-----------------------------------------
+
+5/26/2025 6:43:13 AM
+Response
+	Status code: OK
+	Content: {"id":"6a113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ABARTENDE"},"ClassID":{"value":"BUSINESS"},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2014-08-15T00:56:22.173+03:00"},"Name":{"value":"USA Bartending School"},"NoteID":{"value":"6a113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3213"},"OwnerEmployeeName":{"value":"Steve Church"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Product Sales"},"WorkgroupDescription":{"value":"Product Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/6a113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/6a113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/ARTCAGES
+-----------------------------------------
+
+5/26/2025 6:43:13 AM
+Response
+	Status code: OK
+	Content: {"id":"7f113b2c-d87f-e411-beca-00b56d0561c2","rowNumber":1,"note":{"value":""},"AccountRef":{},"BusinessAccountID":{"value":"ARTCAGES"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{},"Name":{"value":"Artcages"},"NoteID":{"value":"7f113b2c-d87f-e411-beca-00b56d0561c2"},"Owner":{"value":"3230"},"OwnerEmployeeName":{"value":"Jay Parker"},"ParentAccount":{},"ShippingAddressOverride":{"value":true},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{"value":"Solution Sales"},"WorkgroupDescription":{"value":"Solution Sales"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/7f113b2c-d87f-e411-beca-00b56d0561c2","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/7f113b2c-d87f-e411-beca-00b56d0561c2/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:43:13 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:43:13 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:47:52 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:47:52 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:47:52 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272025-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a47%3a52%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=10
+-----------------------------------------
+
+5/26/2025 6:47:52 AM
+Response
+	Status code: OK
+	Content: [{"id":"9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:29.993+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000464"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"d14aed12-b362-42d9-9e1b-397e240017ba","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:42.28+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000465"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"ec364af5-e6f4-4148-923b-0be418ab3435","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"a7301b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:49.323+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000466"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"5beaf487-e009-40b0-b114-941e101a6ddc","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/a7301b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/a7301b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3b311b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:56.787+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000467"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"8ace466a-1313-4324-b1e6-055f7ee7e23f","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3b311b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3b311b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"185f4e0b-2026-f011-b8dd-54e4edd6c91d","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:03.4+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000468"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"11dd1177-44d4-4e1f-9b10-4717e55de40b","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/185f4e0b-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/185f4e0b-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"1c224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:10.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000469"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"2a314e80-7937-4e89-9b08-cc22482c33b4","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/1c224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/1c224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"b1224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:17.96+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000470"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"7c9c4f37-348a-4851-b946-e78cb1c11ec9","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b1224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b1224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"4392cc17-2026-f011-b8dd-54e4edd6c91d","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:24.5+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000471"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"20699e82-9ee1-486a-88a7-8dd0b494af9b","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/4392cc17-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/4392cc17-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"9c8dd61d-2026-f011-b8dd-54e4edd6c91d","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:32.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000472"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"eec0aae6-9b53-42fc-b427-5fe0f8a26553","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9c8dd61d-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9c8dd61d-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"beded523-2026-f011-b8dd-54e4edd6c91d","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:38.873+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000473"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"26362a25-eda1-4add-9e58-74d27ef76e52","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/beded523-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/beded523-2026-f011-b8dd-54e4edd6c91d/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:47:52 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:53 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:47:54 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272025-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a48%3a12%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=10
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Response
+	Status code: OK
+	Content: [{"id":"9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:29.993+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000464"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"9412bfd8-fd20-44b8-bb4d-a75c6d161e64","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:42.28+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000465"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"7f4eceb2-081c-4c9a-b39e-8556ff097686","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"a7301b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:49.323+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000466"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"f651d52d-9148-4140-8349-dd5012ec398e","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/a7301b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/a7301b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3b311b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:56.787+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000467"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"606afae6-1eb9-48be-a9f0-b26a47e533f5","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3b311b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3b311b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"185f4e0b-2026-f011-b8dd-54e4edd6c91d","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:03.4+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000468"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"1b4d5185-da27-4030-ac29-43fd76cf1f0d","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/185f4e0b-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/185f4e0b-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"1c224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:10.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000469"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"9bd4f447-44aa-4fd0-815b-95fd6f24e33e","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/1c224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/1c224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"b1224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:17.96+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000470"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"ad6ef202-1aec-4de7-ae65-955378e31992","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b1224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b1224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"4392cc17-2026-f011-b8dd-54e4edd6c91d","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:24.5+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000471"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"19fada1d-58bc-42ab-be9e-adf7747ac883","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/4392cc17-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/4392cc17-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"9c8dd61d-2026-f011-b8dd-54e4edd6c91d","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:32.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000472"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"fc4a83e5-f486-4137-87a9-a5ae516d815d","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9c8dd61d-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9c8dd61d-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"beded523-2026-f011-b8dd-54e4edd6c91d","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:38.873+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000473"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"0c5a8b9b-2a15-494c-8bd6-833c4a4fe79e","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/beded523-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/beded523-2026-f011-b8dd-54e4edd6c91d/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:12 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:13 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:48:14 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:48:14 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:48:14 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:50:21 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:50:21 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:50:21 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/Customer/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:26 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"ApplyOverdueCharges":{"value":true},"AutoApplyPayments":{"value":false},"BAccountID":{"value":7048},"BillingAddressOverride":{"value":false},"BillingContactOverride":{"value":false},"CreatedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"CreditLimit":{"value":0.0000},"CurrencyID":{"value":"USD"},"CurrencyRateType":{},"CustomerCategory":{"value":"I"},"CustomerClass":{"value":"LOCAL"},"CustomerID":{"value":"AACUSTOMER"},"CustomerName":{"value":"Alta Ace"},"Email":{"value":"ap@altaace.con"},"EnableCurrencyOverride":{"value":true},"EnableRateOverride":{"value":false},"EnableWriteOffs":{"value":true},"EntityUsageType":{"value":"Default"},"FOBPoint":{},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LeadTimedays":{},"LocationName":{"value":"Primary Location"},"MultiCurrencyStatements":{"value":false},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"OrderPriority":{"value":5},"ParentRecord":{},"PriceClassID":{},"PrimaryContactID":{"value":100743},"PrintDunningLetters":{"value":false},"PrintInvoices":{"value":false},"PrintStatements":{"value":false},"ResidentialDelivery":{"value":false},"RestrictVisibilityTo":{"value":"PROD"},"SaturdayDelivery":{"value":false},"SendDunningLettersbyEmail":{"value":true},"SendInvoicesbyEmail":{"value":false},"SendStatementsbyEmail":{"value":false},"ShippingAddressOverride":{"value":false},"ShippingBranch":{},"ShippingContactOverride":{"value":false},"ShippingRule":{"value":"Back Order Allowed"},"ShippingTerms":{},"ShippingZoneID":{},"ShipVia":{},"StatementCycleID":{"value":"EOM"},"StatementType":{"value":"Open Item"},"Status":{"value":"Active"},"TaxExemptionNumber":{},"TaxRegistrationID":{},"TaxZone":{},"Terms":{"value":"30D"},"WarehouseID":{},"WriteOffLimit":{"value":10.0000},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/Customer/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.AR.CustomerMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:26 AM
+Request
+	Method: PUT
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$expand=Details
+	Body: {"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-05-25T06:50:26.9134811+03:00"},"Details":[{"InventoryID":{"value":"AACOMPUT01"},"OrderQty":{"value":88.0}}]}
+-----------------------------------------
+
+5/26/2025 6:50:38 AM
+Response
+	Status code: OK
+	Content: {"id":"40d3bb92-e439-f011-b8ec-54e4edd6c91d","rowNumber":1,"note":{"value":""},"Approved":{"value":true},"BaseCurrencyID":{"value":"USD"},"BillToAddressOverride":{"value":false},"BillToContactOverride":{"value":false},"Branch":{"value":"PRODWHOLE"},"CashAccount":{"value":"10200"},"ContactID":{"value":"100743"},"ControlTotal":{"value":41800.00},"CreatedDate":{"value":"2025-05-26T06:50:38.223+03:00"},"CreditHold":{"value":false},"CurrencyID":{"value":"USD"},"CurrencyRate":{"value":1.0},"CurrencyRateTypeID":{"value":"SPOT"},"CustomerID":{"value":"AACUSTOMER"},"CustomerOrder":{},"Date":{"value":"2025-05-25T00:00:00+03:00"},"Description":{},"DestinationWarehouseID":{},"Details":[{"id":"46d3bb92-e439-f011-b8ec-54e4edd6c91d","rowNumber":1,"note":null,"Account":{"value":"40000"},"AlternateID":{},"Amount":{"value":41800.00},"AutoCreateIssue":{"value":false},"AverageCost":{"value":250.0},"Branch":{"value":"PRODWHOLE"},"CalculateDiscountsOnImport":{},"Commissionable":{"value":true},"Completed":{"value":false},"CustomerOrderNbr":{},"DiscountAmount":{"value":0.0},"DiscountCode":{},"DiscountedUnitPrice":{"value":475.00},"DiscountPercent":{"value":0.0},"ExtendedPrice":{"value":41800.00},"FreeItem":{"value":false},"InventoryID":{"value":"AACOMPUT01"},"InvoiceLineNbr":{},"InvoiceNbr":{},"InvoiceType":{},"LastModifiedDate":{"value":"05/26/2025 06:50:38"},"LineDescription":{"value":"Acer Laptop Computer"},"LineNbr":{"value":1},"LineType":{"value":"Goods for Inventory"},"Location":{},"LotSerialNbr":{},"ManualDiscount":{"value":false},"ManualPrice":{"value":false},"MarkForPO":{"value":false},"NoteID":{"value":"46d3bb92-e439-f011-b8ec-54e4edd6c91d"},"OpenQty":{"value":88.0},"Operation":{"value":"Issue"},"OrderQty":{"value":88.0},"OvershipThreshold":{"value":100.000000},"POSource":{},"ProjectTask":{},"PurchaseWarehouse":{},"QtyOnShipments":{"value":0.0},"ReasonCode":{},"RequestedOn":{"value":"2025-05-26T00:00:00+03:00"},"SalespersonID":{"value":"SP0003"},"SchedOrderDate":{"value":"2025-05-26T00:00:00+03:00"},"ShipOn":{"value":"2025-05-26T00:00:00+03:00"},"ShippingRule":{"value":"Back Order Allowed"},"ShipToLocation":{"value":"MAIN"},"TaxCategory":{"value":"EXEMPT"},"TaxZone":{},"UnbilledAmount":{"value":41800.00},"UndershipThreshold":{"value":100.000000},"UnitCost":{"value":250.0},"UnitPrice":{"value":475.00},"UOM":{"value":"EA"},"VendorID":{},"WarehouseID":{"value":"WHOLESALE"},"custom":{},"_links":{"files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Transactions/46d3bb92-e439-f011-b8ec-54e4edd6c91d/{filename}"}}],"DisableAutomaticDiscountUpdate":{"value":false},"DisableAutomaticTaxCalculation":{"value":false},"EffectiveDate":{"value":"2025-05-25T00:00:00+03:00"},"ExternalRef":{},"Hold":{"value":false},"IsTaxValid":{"value":false},"LastModified":{"value":"2025-05-26T06:50:38.223+03:00"},"LocationID":{"value":"MAIN"},"NoteID":{"value":"40d3bb92-e439-f011-b8ec-54e4edd6c91d"},"OrderedQty":{"value":88.0},"OrderNbr":{"value":"000474"},"OrderTotal":{"value":41800.00},"OrderType":{"value":"SO"},"PaymentMethod":{"value":"CHECK"},"PaymentRef":{},"PreferredWarehouseID":{},"Project":{"value":"X"},"ReciprocalRate":{"value":1.0},"RequestedOn":{"value":"2025-05-26T00:00:00+03:00"},"ShipToAddressOverride":{"value":false},"ShipToContactOverride":{"value":false},"ShipVia":{},"Status":{"value":"Open"},"TaxTotal":{"value":0.0},"VATExemptTotal":{"value":0.0},"VATTaxableTotal":{"value":0.0},"WillCall":{"value":true},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/40d3bb92-e439-f011-b8ec-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/40d3bb92-e439-f011-b8ec-54e4edd6c91d/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:38 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:39 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:46 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/login
+	Body: {"name":"admin","password":"123","branch":"","locale":""}
+-----------------------------------------
+
+5/26/2025 6:50:46 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+
+5/26/2025 6:50:46 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/SalesOrder?$select=OrderType%2cOrderNbr%2cStatus%2cDate%2cShipments%2fShipmentDate%2cCustomerID%2cOrderedQty%2cOrderTotal%2cCurrencyID%2c+LastModified&$filter=Date+gt+datetimeoffset%272025-02-25T00%3a00%3a00%27+and+Date+le+datetimeoffset%272025-05-26T06%3a50%3a46%27+and+OrderType+eq+%27SO%27&$expand=Shipments&$top=10
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: [{"id":"9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","rowNumber":1,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:29.993+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000464"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"4ba6a5d6-2d53-4e0c-b414-810911654e37","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9e58a8e3-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","rowNumber":2,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:42.28+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000465"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"8370bb1c-fc4e-4e34-a879-3414a91f491a","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3a1c0dff-1f26-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"a7301b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":3,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:49.323+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000466"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"b1b698bd-52e0-486f-ab10-186e588cbcc8","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/a7301b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/a7301b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"3b311b05-2026-f011-b8dd-54e4edd6c91d","rowNumber":4,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:05:56.787+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000467"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"5db16e67-f5d5-4613-a8bf-c598571f0bb5","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/3b311b05-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/3b311b05-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"185f4e0b-2026-f011-b8dd-54e4edd6c91d","rowNumber":5,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:03.4+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000468"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"861a3650-484f-4935-bcb1-17e87e9f5619","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/185f4e0b-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/185f4e0b-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"1c224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":6,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:10.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000469"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"be2643a4-3577-4708-8136-847fc5f790f3","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/1c224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/1c224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"b1224a11-2026-f011-b8dd-54e4edd6c91d","rowNumber":7,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:17.96+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000470"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"35093c3d-06cd-4809-948e-1d637656a1ff","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/b1224a11-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/b1224a11-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"4392cc17-2026-f011-b8dd-54e4edd6c91d","rowNumber":8,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:24.5+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000471"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"a0164d16-8f28-4472-893b-4e4171eeb10f","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/4392cc17-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/4392cc17-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"9c8dd61d-2026-f011-b8dd-54e4edd6c91d","rowNumber":9,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:32.177+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000472"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"f043ed40-c672-49bd-8754-91ec3da7a0f4","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/9c8dd61d-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/9c8dd61d-2026-f011-b8dd-54e4edd6c91d/{filename}"}},{"id":"beded523-2026-f011-b8dd-54e4edd6c91d","rowNumber":10,"note":{"value":""},"CurrencyID":{"value":"USD"},"CustomerID":{"value":"AACUSTOMER"},"Date":{"value":"2025-04-29T00:00:00+03:00"},"LastModified":{"value":"2025-05-01T03:06:38.873+03:00"},"OrderedQty":{"value":1.000000},"OrderNbr":{"value":"000473"},"OrderTotal":{"value":500.0000},"OrderType":{"value":"SO"},"Shipments":[{"id":"77793747-e0f5-4b2a-a3bf-0a558451c352","rowNumber":1,"note":null,"ShipmentDate":{"value":"2025-04-30T00:00:00+03:00"},"custom":{}}],"Status":{"value":"Completed"},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/SalesOrder/beded523-2026-f011-b8dd-54e4edd6c91d","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.SO.SOOrderEntry/Document/beded523-2026-f011-b8dd-54e4edd6c91d/{filename}"}}]
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:49 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Request
+	Method: GET
+	URL: http://localhost/acumaticaerp/entity/Default/24.200.001/BusinessAccount/AACUSTOMER
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: OK
+	Content: {"id":"01a0c017-df7f-ea11-8175-b9d61cb73193","rowNumber":1,"note":{"value":"This is one of our first customers. They have remained very loyal over the years!"},"AccountRef":{},"BusinessAccountID":{"value":"AACUSTOMER"},"ClassID":{},"CurrencyID":{"value":"USD"},"Duplicate":{"value":"Validated"},"EnableCurrencyOverride":{"value":true},"LastIncomingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"LastModifiedDateTime":{"value":"2024-01-01T02:00:00+02:00"},"LastOutgoingActivity":{"value":"2020-04-17T15:18:44.943+03:00"},"Name":{"value":"Alta Ace"},"NoteID":{"value":"01a0c017-df7f-ea11-8175-b9d61cb73193"},"Owner":{"value":"3205"},"OwnerEmployeeName":{"value":"Maxwell Baker"},"ParentAccount":{},"ShippingAddressOverride":{"value":false},"SourceCampaign":{},"Status":{"value":"Active"},"Type":{"value":"Customer"},"Workgroup":{},"WorkgroupDescription":{},"custom":{},"_links":{"self":"/acumaticaerp/entity/Default/24.200.001/BusinessAccount/01a0c017-df7f-ea11-8175-b9d61cb73193","files:put":"/acumaticaerp/entity/Default/24.200.001/files/PX.Objects.CR.BusinessAccountMaint/BAccount/01a0c017-df7f-ea11-8175-b9d61cb73193/{filename}"}}
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Request
+	Method: POST
+	URL: http://localhost/acumaticaerp//entity/auth/logout
+-----------------------------------------
+
+5/26/2025 6:50:50 AM
+Response
+	Status code: NoContent
+	Content: 
+-----------------------------------------
+

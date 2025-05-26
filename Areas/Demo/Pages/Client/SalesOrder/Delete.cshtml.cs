@@ -171,9 +171,9 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
                 var OrderNbr = SalesOrder.OrderNbr;
                 var OrderType = SalesOrder.OrderType;
                 var Status = SalesOrder.Status;
-                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Exprired" };
+                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Expired" };
 
-                _logger.LogInformation($"Delete: Deleteing Sales Order {OrderType} {OrderNbr}.");
+                _logger.LogInformation($"Delete: Deleting Sales Order {OrderType} {OrderNbr}.");
 
                 var so = client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(ids: Ids, select: "OrderType, OrderNbr, Status");
                 if (StatusList.Contains(Status)) 
