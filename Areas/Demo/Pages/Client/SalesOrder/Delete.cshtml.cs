@@ -1,6 +1,5 @@
 ﻿#nullable disable
 
-using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.Client;
 
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +12,10 @@ using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models.App;
 using RevisionTwoApp.RestApi.Models;
+
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.ContractBasedApi;
-using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.IdentityModel.Tokens;
+using Acumatica.Default_24_200_001.Model;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
@@ -142,10 +141,10 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         }
 
         var client = new ApiClient(credential.SiteUrl,
-            requestInterceptor: RequestLogger.LogRequest,
-            responseInterceptor: RequestLogger.LogResponse,
-            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-            );
+                                   requestInterceptor: RequestLogger.LogRequest,
+                                   responseInterceptor: RequestLogger.LogResponse,
+                                   ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+                                   );
 
         if (client.RequestInterceptor is null)
         {
@@ -160,13 +159,12 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
             if (client.RequestInterceptor is null)
             {
                 var Message = $"Delete: Failure to create a context for client login: UserName of " +
-                                    $"{credential.UserName} and Password of {credential.Password}";
+                              $"{credential.UserName} and Password of {credential.Password}";
                 _logger.LogError(Message);
                 throw new NullReferenceException(nameof(client));
             }
             else
             {
-                
                 IEnumerable<string> Ids = [ ];
                 var OrderNbr = SalesOrder.OrderNbr;
                 var OrderType = SalesOrder.OrderType;
@@ -194,12 +192,13 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
                     return Page();
                 }
                 var entityish = client.ResponseInterceptor;
+                var result = client.DeleteByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(Ids);
 
-                var result = client.DeleteAsync(new Acumatica.Default_24_200_001.Model.SalesOrder
-                                                    {
-                                                        OrderType = OrderType,
-                                                        OrderNbr = OrderNbr
-                                                    });
+                //var result = client.DeleteAsync(new Acumatica.Default_24_200_001.Model.SalesOrder
+                //                                    {
+                //                                        OrderType = OrderType,
+                //                                        OrderNbr = OrderNbr
+                //                                    });
                 ;
                 if (result == null)
                 {
