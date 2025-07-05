@@ -63,7 +63,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
     public async Task<IActionResult> OnGetAsync()
     {
-        // Get current SalesOrders from cache 
+        // Get current SalesOrders from database
         SalesOrders = await _context.SalesOrders.ToListAsync();
         if (SalesOrders is null)
         {
@@ -92,7 +92,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     }
 
     /// <summary>
-    /// To protect from over posting attacks, see https://aka.ms/RazorPagesCRUD
+    /// To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     /// </summary>
     /// <returns></returns>
     public async Task<IActionResult> OnPostAsync()
@@ -109,7 +109,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         _context.Attach(salesOrder).State = EntityState.Added;
         
         // adjust values not captured on Screen or are not sensible for a create screen
-        //salesOrder.CustomerID = salesOrder.CustomerName;
+        salesOrder.CustomerID = salesOrder.CustomerName;
         salesOrder.CustomerName = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CustomerName;
         salesOrder.CurrencyID = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CurrencyID;
         salesOrder.LastModified = DateTime.Now;
@@ -117,7 +117,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         // add adjusted salesOrder or the SalesOrder_App cache
         SalesOrders.Add(salesOrder);
         
-        // get current Acumatica ERP credentials to login
+        // get current Acumatcia ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
 
         Credential credential = SiteCredential.GetSiteCredential().Result;
@@ -129,10 +129,10 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         }
 
         var client = new ApiClient(credential.SiteUrl,
-                                   requestInterceptor: RequestLogger.LogRequest,
-                                   responseInterceptor: RequestLogger.LogResponse,
-                                   ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-                                   );
+            requestInterceptor: RequestLogger.LogRequest,
+            responseInterceptor: RequestLogger.LogResponse,
+            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+            );
 
         if(client.RequestInterceptor is null)
         {
@@ -149,38 +149,20 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             if(client.RequestInterceptor is null)
             {
                 var Message = $"Create: Failure to create a context for client login: UserName of " +
-                              $"{credential.UserName} and Password of {credential.Password}";
+                                    $"{credential.UserName} and Password of {credential.Password}";
                 _logger.LogError(Message);
                 throw new NullReferenceException(nameof(client));
             }
             else
             {
                 var CustomerID = salesOrder.CustomerID;
-                if (string.IsNullOrEmpty(CustomerID))
-                {
-                    _logger.LogError("Create: CustomerID is null or empty. Cannot proceed with Sales Order creation.");
-                    return Page();
-                }
-                else 
-                {
-                    _logger.LogInformation($"Create: Retrieve customer using Customer ID {CustomerID}.");
 
-                }
+                _logger.LogInformation($"Create: Retrieve customer using Customer ID {CustomerID}.");
 
                 //var customer = client.GetList<Customer>(top: 1,filter: "Status eq 'Active'",select: "CustomerID").Single();
                 var customer = client.GetByKeys<Customer>([CustomerID]);
-                if (customer is null)
-                {
-                    var Message = $"Create: Failure to determine Customer using {client.ToString()} and CustomerID {CustomerID}";
-                    _logger.LogError(Message);
-                    throw new NullReferenceException(nameof(customer));
-                }
-                else 
-                {
-                    _logger.LogInformation($"Create: Retrieved Customer details {customer}.");
-                }
 
-                _logger.LogInformation($"Create: Put Customer details");
+                _logger.LogInformation($"Create: Customer Retrie Customer details {customer}.");
 
                 var so = client.Put(new Acumatica.Default_24_200_001.Model.SalesOrder()
                 {
@@ -220,7 +202,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 _logger.LogInformation($"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.");
 
-                var baAccount = client.GetByKeys<BusinessAccount>([CustomerID]);
+                var baAccount = client.GetByKeys<BusinessAccount>([ CustomerID ]);
                 if (baAccount is null)
                 {
                     var Message = $"Details: Failure to determine Business Account using {client.ToString} and CustomerID {CustomerID}";
@@ -234,7 +216,6 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 _logger.LogInformation($"Create: Newly created SalesOrder_App record to be added {_so}.");
 
-                //Update app cache with newly created record
                 await _context.SalesOrders.AddAsync(_so);
                 await _context.SaveChangesAsync();
 
@@ -249,5 +230,6 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             return Page();
         }
     }
+
     #endregion
 }
