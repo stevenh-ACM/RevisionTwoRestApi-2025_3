@@ -2,26 +2,25 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
+using System;
 using System.ComponentModel.DataAnnotations;
-
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
-using RevisionTwoApp.RestApi.Models;
-
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<DemoUser> _userManager;
-        private readonly SignInManager<DemoUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<DemoUser> userManager,
-            SignInManager<DemoUser> signInManager,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;

@@ -5,6 +5,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models;
@@ -22,57 +23,59 @@ var connectionString = builder.Configuration.GetConnectionString("ConnectionStri
 
 builder.Services.AddDbContext<AppDbContext>(options => options
             .UseSqlServer(connectionString)
+            .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
+            .EnableDetailedErrors()
             .EnableSensitiveDataLogging());
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options
+            .SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<DemoUser>(options => options
-            .SignIn.RequireConfirmedAccount = false)
-            .AddEntityFrameworkStores<AppDbContext>();
-
-
 builder.Logging.AddSimpleConsole();
 
-//builder.Services.ConfigureApplicationCookie(o => {
-//            o.ExpireTimeSpan = TimeSpan.FromDays(5);
-//            o.SlidingExpiration = true;
-//});
-
-//// Force Identity's security stamp to be validated every minute.
-//builder.Services.Configure<SecurityStampValidatorOptions>(o => 
-//            o.ValidationInterval = TimeSpan.FromMinutes(4));
+builder.Services.ConfigureApplicationCookie(o =>
+{
+    o.ExpireTimeSpan = TimeSpan.FromDays(5);
+    o.SlidingExpiration = true;
+});
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    // Default Password settings.
+    // Password settings.
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
     options.Password.RequiredLength = 3;
     options.Password.RequiredUniqueChars = 1;
-    options.SignIn.RequireConfirmedEmail = false;
-    options.SignIn.RequireConfirmedPhoneNumber = false;
+
+    // Lockout settings.
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+
+    // User settings.
     options.User.AllowedUserNameCharacters =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012g3456789-._@+";
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = false;
 });
 
-//builder.Services.ConfigureApplicationCookie(options =>
-//{
-//            options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-//            options.Cookie.Name = "RevisionTwoRestApi";
-//            options.Cookie.HttpOnly = true;
-//            options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-//            options.LoginPath = "/Identity/Account/Login";
-//            options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-//            options.SlidingExpiration = true;
-//});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    // Cookie settings
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-//builder.Services.Configure<PasswordHasherOptions>(option =>
-//{
-//            option.IterationCount = 12000;
-//});
+    options.LoginPath = "/Identity/Account/Login";
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.SlidingExpiration = true;
+});
+
+builder.Services.Configure<PasswordHasherOptions>(option =>
+{
+    option.IterationCount = 12000;
+});
 
 builder.Services.AddRazorPages();
 

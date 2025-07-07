@@ -13,19 +13,16 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using RevisionTwoApp.RestApi.Models;
 
 namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class ResendEmailConfirmationModel : PageModel
-
     {
-        private readonly UserManager<DemoUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ResendEmailConfirmationModel(UserManager<DemoUser> userManager, IEmailSender emailSender)
+        public ResendEmailConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _emailSender = emailSender;
@@ -88,5 +85,4 @@ namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account
             return Page();
         }
     }
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

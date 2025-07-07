@@ -2,24 +2,25 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System.Text;using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using RevisionTwoApp.RestApi.Models;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<DemoUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<DemoUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;
@@ -59,7 +60,7 @@ namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account
 
             Email = email;
             // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = false;
+            DisplayConfirmAccountLink = true;
             if (DisplayConfirmAccountLink)
             {
                 var userId = await _userManager.GetUserIdAsync(user);

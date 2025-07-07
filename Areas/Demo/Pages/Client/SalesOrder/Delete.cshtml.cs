@@ -133,7 +133,7 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         _context.Remove(SalesOrder);
         _context.SaveChanges();
 
-        // get current Acumatcia ERP credentials to login
+        // get current Acumatica ERP credentials to login
         Site_Credential SiteCredential = new(_context, _logger);
 
         Credential credential = SiteCredential.GetSiteCredential().Result;
@@ -145,10 +145,10 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         }
 
         var client = new ApiClient(credential.SiteUrl,
-            requestInterceptor: RequestLogger.LogRequest,
-            responseInterceptor: RequestLogger.LogResponse,
-            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-            );
+                                            requestInterceptor: RequestLogger.LogRequest,
+                                            responseInterceptor: RequestLogger.LogResponse,
+                                            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+                                          );
 
         if (client.RequestInterceptor is null)
         {
@@ -156,6 +156,8 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
             _logger.LogError(Message);
             throw new NullReferenceException(nameof(client));
         }
+
+        // attempt to delete the selected Sales Order from Acumatica ERP
         try
         {
             //RestClient Log In (on) using Credentials retrieved
@@ -169,56 +171,42 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
             }
             else
             {
-                
-                IEnumerable<string> Ids = [ ];
-                var OrderNbr = SalesOrder.OrderNbr;
-                var OrderType = SalesOrder.OrderType;
-                var Status = SalesOrder.Status;
-                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Exprired" };
+                //order status if to be deleted
+                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Expired" };
 
-                _logger.LogInformation($"Delete: Deleteing Sales Order {OrderType} {OrderNbr}.");
+                var keys = new List<string> { SalesOrder.OrderType, SalesOrder.OrderNbr };
 
-                var so = client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(ids: Ids, select: "OrderType, OrderNbr, Status");
-                if (StatusList.Contains(Status)) 
+                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, select: "OrderType, OrderNbr, Status");
+                if (StatusList.Contains(so.Status))
                 {
-                    if (Ids == null || Ids.Any())
+                    if (so == null)
                     {
-                        _logger.LogError($@"Sales Order {OrderType} {OrderNbr} is not in a valid status for deletion. Status is {Status}.");
-                        return Page();
+                        _logger.LogError($@"Sales Order {so.OrderType} {so.OrderNbr} is not in a valid status for deletion. Status is {so.Status}.");
+                        return RedirectToPage("./Details");
                     }
                     else
                     {
-                        _logger.LogInformation($@"Sales Order {OrderType} {OrderNbr} is in a valid status for deletion. Status is {Status}.");
+                        _logger.LogInformation($@"Sales Order {keys} is in a valid status for deletion. Status is {so.Status}.");
                     }
                 }
                 else
                 {
-                    _logger.LogError($@"Sales Order {OrderType} {OrderNbr} is not in a valid status for deletion. Status is {Status}.");
-                    return Page();
+                    _logger.LogError($@"Sales Order {keys} is not in a valid status for deletion. Status is {so.Status}.");
+                    return RedirectToPage("./Details");
                 }
-                var entityish = client.ResponseInterceptor;
 
-                var result = client.DeleteAsync(new Acumatica.Default_24_200_001.Model.SalesOrder
-                                                    {
-                                                        OrderType = OrderType,
-                                                        OrderNbr = OrderNbr
-                                                    });
-                ;
-                if (result == null)
+                //Delete the Sales Order using the keys
+                var result = client.DeleteAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(so);
+                if (result != null)
                 {
-                    _logger.LogError($"Delete: Failed to delete Sales Order {OrderNbr}.");
-                    throw new NullReferenceException(nameof(result));
-                }
-                else
-                {
-                    _logger.LogInformation(@$"Delete: Sales Order {OrderNbr} deleted.");
+                    _logger.LogInformation(@$"Delete: Sales Order {so.OrderNbr} deletion status is {result}.");
                 }
             }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Create-OnPostAsync: Error creating Sales Order.");
-            return Page();
+            _logger.LogError($"Delete: Failed to delete Sales Order exception {ex}.");
+            return RedirectToPage("./Details");
         }
         finally
         {
@@ -233,7 +221,6 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
                 var Message = $"Details: Error {client.RequestInterceptor} while logging out";
                 _logger.LogError(Message);
             }
-
         }
 
         SetParms();

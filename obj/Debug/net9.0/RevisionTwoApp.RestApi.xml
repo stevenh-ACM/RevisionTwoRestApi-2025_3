@@ -1013,16 +1013,6 @@
                 directly from your code. This API may change or be removed in future releases.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.Name">
-            <summary>
-            Gets or sets the full name of the user.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.DOB">
-            <summary>
-            Gets or sets the date of birth of the user.
-            </summary>
-        </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage.ManageNavPages">
             <summary>
                 This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -1447,7 +1437,7 @@
             <summary>
             Configures the model for the database context.
             </summary>
-            <param name="builder">The model builder used to configure the database schema.</param>
+            <param name="modelBuilder">The model builder used to configure the database schema.</param>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Credentials">
             <summary>
@@ -2330,88 +2320,16 @@
             Gets the combo box items for shipment statuses.
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.initialCreate">
+        <member name="T:RevisionTwoApp.RestApi.Migrations.inititalCreate">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.addedProperty">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedProperty.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addAddtionalOnModelProps.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.commentedOutOnModel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.addedRegex">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addedRegex.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.changedRegEx">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.changedRegEx.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.addIdentity">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.addIdentity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Addr">
@@ -3517,26 +3435,6 @@
         <member name="P:RevisionTwoApp.RestApi.Models.Default.ShipmentDetail_Model.Description">
             <summary>
             Gets or sets the description of the shipment detail.
-            </summary>
-        </member>
-        <member name="T:RevisionTwoApp.RestApi.Models.DemoUser">
-            <summary>
-                Add profile data for application users by adding properties to the ApiDemoUser class
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.FullName">
-            <summary>
-                Gets or sets the full name of the user.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.EmailAddress">
-            <summary>
-                Gets or sets the email address of the user.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Models.DemoUser.DOB">
-            <summary>
-                Gets or sets the date of birth of the user.
             </summary>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.ToBill_App">

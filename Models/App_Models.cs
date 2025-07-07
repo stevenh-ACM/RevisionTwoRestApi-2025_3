@@ -549,6 +549,7 @@ public class SalesOrder_App
     /// <summary>
     /// Gets or sets the date of the order.
     /// </summary>
+    [DisplayFormat(DataFormatString = "{0:d}")]
     public DateTime? Date { get; set; }
 
     /// <summary>
@@ -579,11 +580,13 @@ public class SalesOrder_App
     /// <summary>
     /// Gets or sets the shipment date for the order.
     /// </summary>
+    [DisplayFormat(DataFormatString = "{0:d}")]
     public DateTime? ShipmentDate { get; set; }
 
     /// <summary>
     /// Gets or sets the last modified date of the order.
     /// </summary>
+    [DisplayFormat(DataFormatString = "{0:d}")]
     public DateTime? LastModified { get; set; }
     #endregion
 }

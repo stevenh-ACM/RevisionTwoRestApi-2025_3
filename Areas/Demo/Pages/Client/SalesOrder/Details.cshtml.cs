@@ -206,7 +206,7 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                     var baAccount = client.GetByKeys<BusinessAccount>(customerID);
                     if(baAccount is null)
                     {
-                        var Message2 = $"Details: Failure to create an salesOrderApi using {client.ToString}";
+                        var Message2 = $"Details: Failure to create a salesOrderApi using {client.ToString}";
                         _logger.LogError(Message2);
                         throw new NullReferenceException(nameof(baAccount));
                     }
