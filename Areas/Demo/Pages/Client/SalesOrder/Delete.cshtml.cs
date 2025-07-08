@@ -1,7 +1,8 @@
 ﻿#nullable disable
 
-using Acumatica.Default_24_200_001.Model;
+using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,11 +13,8 @@ using Newtonsoft.Json;
 using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models.App;
-using RevisionTwoApp.RestApi.Models;
-using Acumatica.RESTClient.AuthApi;
-using Acumatica.RESTClient.ContractBasedApi;
-using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.IdentityModel.Tokens;
+using Credential = RevisionTwoApp.RestApi.Models.Credential;
+
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
@@ -26,17 +24,14 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// </summary>
 /// <param name="context"></param>
 /// <param name="logger"></param>
-public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : PageModel
+public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : PageModel
 {
     #region ctor
-
-    private readonly ILogger<IndexModel> _logger = logger;
+    private readonly ILogger<DeleteModel> _logger = logger;
     private readonly AppDbContext _context = context;
-
     #endregion
 
     #region properties
-
     /// <summary>
     /// Represents a SalesOrder page entity to be deleted.
     /// </summary>
@@ -48,35 +43,28 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
     /// </summary>
     public SalesOrder_App SalesOrder { get; set; } = default!;
 
+    /// <summary>
+    /// Gets or sets the collection of sales orders associated with the application.
+    /// </summary>
     public List<SalesOrder_App> SalesOrders { get; set; } = default!;
 
     /// <summary>
-    /// Gets or sets the message for the current operation.
+    /// Gets or sets the credentials used to authenticate with the site.
     /// </summary>
-    public string Message { get; private set; }
+    public Site_Credential SiteCredential { get; set; }
+
+    /// <summary>
+    /// Gets or sets the credential information used for authentication.
+    /// </summary>
+    public Credential credential { get; set; }
+
     /// <summary>
     /// Gets or sets the parameters used for processing or filtering.
     /// </summary>
     public List<object> Parms { get; private set; }
-
-    /// <summary>
-    /// Gets or sets the start date for filtering or processing.
-    /// </summary>
     public DateTime FromDate { get; private set; }
-
-    /// <summary>
-    /// Gets or sets the end date for filtering or processing.
-    /// </summary>
     public DateTime ToDate { get; private set; }
-
-    /// <summary>
-    /// Gets or sets the number of records.
-    /// </summary>
     public int NumRecords { get; private set; }
-
-    /// <summary>
-    /// Gets the selected sales order type.
-    /// </summary>
     public string Selected_SalesOrder_Type { get; private set; }
     #endregion
 
@@ -89,24 +77,27 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
     /// <returns>An IActionResult that renders the page if successful, or NotFound if the ID is invalid.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null || _context.SalesOrders == null)
+        if (id is null)
         {
-            Message = $"Delete: Id {id} or SalesOrder context {_context.ContextId} is null";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Delete: Id {id} or SalesOrder context {_context.ContextId} is null";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
 
         // retrieve the sales order from the database
         salesOrder = await _context.SalesOrders.FirstOrDefaultAsync(m => m.Id == id);
-        if (salesOrder == null)
+        if (salesOrder is null)
         {
-            Message = $"Delete: deletion of id {id} failed";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Delete: SalesOrder with id {id} not found";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
         else 
         {
-            _logger.LogInformation($@"salesOrder is {salesOrder}");
+            var infoMessage = $@"Delete: SalesOrder found. {salesOrder}";
+            _logger.LogInformation(infoMessage);
         }
 
         return Page();
@@ -119,54 +110,60 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
     /// <returns>An IActionResult that redirects to the Details page if successful, or NotFound if the ID is invalid.</returns>
     public async Task<IActionResult> OnPostAsync(int? id)
     {
-        GetParms();
-
         SalesOrder = await _context.SalesOrders.FindAsync(id);
-
-        if (SalesOrder == null)
+        if (SalesOrder is null)
         {
-            _logger.LogError("Delete-OnGetAsync: No Sales Orders exist or Model is inValid.");
-            return Page();
-        }
+            var errorMessage = $"Delete: No SalesOrder with ID {id} exists.";    
+            _logger.LogError(errorMessage);
 
-        // remove salesOrder from SalesOrder_App cache
-        _context.Remove(SalesOrder);
-        _context.SaveChanges();
+            return NotFound();
+        }
+        else
+        {        
+            // remove salesOrder from SalesOrder_App cache
+            _context.Remove(SalesOrder);
+            _context.SaveChanges();
+
+            var infoMessage = $@"Delete: SalesOrder deleted from local store. {SalesOrder}";
+            _logger.LogInformation(infoMessage);
+        }
 
         // get current Acumatica ERP credentials to login
-        Site_Credential SiteCredential = new(_context, _logger);
+        SiteCredential = new(_context, _logger);
 
-        Credential credential = SiteCredential.GetSiteCredential().Result;
-
-        if (credential == null)
+        credential = SiteCredential.GetSiteCredential().Result;
+        if (credential is null)
         {
-            _logger.LogError("Delete-OnPostAsync: No credentials found. Please create at least one credential.");
-            return Page();
+            var errorMessage = $"Delete: No credentials found. Please create at least one credential.";
+            _logger.LogError(errorMessage);
+
+            return RedirectToPage("Demo/Credentials");
         }
 
-        var client = new ApiClient(credential.SiteUrl,
+        var client = new ApiClient(
+                                    credential.SiteUrl,
                                             requestInterceptor: RequestLogger.LogRequest,
                                             responseInterceptor: RequestLogger.LogResponse,
-                                            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-                                          );
-
+                                            ignoreSslErrors: true); // this is here to allow testing with self-signed certificates
         if (client.RequestInterceptor is null)
         {
-            var Message = $"Delete: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
-            _logger.LogError(Message);
+            var errorMessage = $"Delete: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            _logger.LogError(errorMessage);
+
             throw new NullReferenceException(nameof(client));
         }
 
-        // attempt to delete the selected Sales Order from Acumatica ERP
+        // attempt to delete the selected Sales Order from Acumatica ERP and ensure logout
         try
         {
             //RestClient Log In (on) using Credentials retrieved
             client.Login(credential.UserName, credential.Password, "", "", "");
             if (client.RequestInterceptor is null)
             {
-                var Message = $"Delete: Failure to create a context for client login: UserName of " +
-                                    $"{credential.UserName} and Password of {credential.Password}";
-                _logger.LogError(Message);
+                var errorMessage = $"Delete: Failure to create a context for client login: UserName of " +
+                                         $"{credential.UserName} and Password of {credential.Password}";
+                _logger.LogError(errorMessage);
+
                 throw new NullReferenceException(nameof(client));
             }
             else
@@ -236,8 +233,8 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
         if(Parms is null)
         {
-            Message = $"Details: No parameters exist. Please check your parameters!";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Delete: No parameters exist. Please check your parameters!";
+            _logger.LogError(errorMessage);
             throw new NullReferenceException(nameof(Parms));
         }
 
@@ -246,9 +243,9 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
         NumRecords = Convert.ToInt32(Parms[2]);
         Selected_SalesOrder_Type = (string)Parms[3];
 
-        Message = $"Details: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var infoMessage = $"Delete: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(message: Message);
+        _logger.LogInformation(infoMessage);
 
         return;
     }
@@ -261,16 +258,17 @@ public class DeleteModel(AppDbContext context,ILogger<IndexModel> logger) : Page
                              Selected_SalesOrder_Type ];
         if(Parms is null)
         {
-            _logger.LogError($"Details: No parameters exist. Please check your parameters!");
+            var errorMessage = $"Delete: No parameters exist. Please check your parameters!";
+            _logger.LogError(errorMessage);
             throw new NullReferenceException(nameof(Parms));
         }
 
         TempData["parms"] = JsonConvert.SerializeObject(Parms);
         TempData["DeleteFlag"] = true;
 
-        Message = $"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var infoMessage = $"Delete: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(message: Message);
+        _logger.LogInformation(infoMessage);
 
         return;
     }

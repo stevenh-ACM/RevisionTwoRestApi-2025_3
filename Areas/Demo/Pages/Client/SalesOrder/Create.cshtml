@@ -23,7 +23,11 @@
 <div class="container pagemiddle p-3 m-1">
     <span asp-validation-Summary="All" class="text-danger"></span>
     <form method="post">
-
+        <input type="hidden" asp-for="salesOrder.Date" />
+        <input type="hidden" asp-for="salesOrder.CurrencyID" />
+        <input type="hidden" asp-for="salesOrder.CustomerID" />
+        <input type="hidden" asp-for="salesOrder.ShipmentDate" />
+        <input type="hidden" asp-for="salesOrder.LastModified" />
 @*Top Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
@@ -44,7 +48,6 @@
                 <label asp-for="salesOrder.Status" class="control-label"></label>
                 <div class="input-group">
                     <input type="text" asp-for="salesOrder.Status" value="New" class="form-control dark" readonly />
-                    <input type="hidden" asp-for="salesOrder.CustomerID" />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-list-check"></i>
@@ -57,7 +60,7 @@
                 <div class="input-group">
                     <select asp-for="salesOrder.CustomerName"
                             asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"></select>
-                    <span class="input-group-append">
+                    <span class="input-group-append">   
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>
                         </span>

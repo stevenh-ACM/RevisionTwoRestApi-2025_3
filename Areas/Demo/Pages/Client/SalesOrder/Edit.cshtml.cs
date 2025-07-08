@@ -1,5 +1,11 @@
 #nullable disable
 
+using Acumatica.Default_24_200_001.Model;
+using Acumatica.RESTClient.AuthApi;
+using Acumatica.RESTClient.Client;
+using Acumatica.RESTClient.ContractBasedApi;
+using Acumatica.RESTClient.ContractBasedApi.Model;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -7,13 +13,19 @@ using Microsoft.EntityFrameworkCore;
 
 using Newtonsoft.Json;
 
+using RevisionTwoApp.RestApi.Auxiliary;
 using RevisionTwoApp.RestApi.Data;
+using RevisionTwoApp.RestApi.DTOs.Conversions;
 using RevisionTwoApp.RestApi.Helper;
 using RevisionTwoApp.RestApi.Models.App;
+
+using Credential = RevisionTwoApp.RestApi.Models.Credential;
+
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+#region EditModel
 /// <summary>
 /// Edit a new Sales Order
 /// </summary>
@@ -22,42 +34,29 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageModel
 {
     #region ctor
-
     private readonly ILogger<EditModel> _logger = logger;
     private readonly AppDbContext _context = context;
+    #endregion
 
+    #region properties
     /// <summary>
-    /// Gets or sets the data associated with the EditModel.
+    /// Gets or sets the sales order application model used for binding and processing sales order data.
     /// </summary>
-    public string Data { get; set; } = string.Empty;
+    [BindProperty]
+    public SalesOrder_App salesOrder { get; set; }
+
+    Site_Credential SiteCredential { get; set; }
+
+    Credential credential { get; set; }
 
     /// <summary>
     /// Gets or sets the parameters associated with the EditModel.
     /// </summary>
     public List<object> Parms { get; set; } = [new()];
-
-    /// <summary>
-    /// Gets or sets the starting date for the sales order.
-    /// </summary>
     public DateTime FromDate { get; set; }
-
-    /// <summary>
-    /// Gets or sets the ending date for the sales order.
-    /// </summary>
     public DateTime ToDate { get; set; }
-
-    /// <summary>
-    /// Gets or sets the number of records associated with the sales order.
-    /// </summary>
     public int NumRecords { get; set; }
-
-    /// <summary>
-    /// Gets or sets the selected sales order type.
-    /// </summary>
     public string Selected_SalesOrder_Type { get; set; }
-
-    [BindProperty]
-    public SalesOrder_App salesOrder_App { get; set; }
 
     /// <summary>
     /// Gets the list of selectable sales order types.
@@ -68,18 +67,9 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
     /// Gets the list of selectable sales order statuses.
     /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Statuses { get; } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
+    #endregion
 
-    /// <summary>
-    /// Gets or sets the message associated with the EditModel.
-    /// </summary>
-    public string Message { get; private set; }
-
-    /// <summary>
-    /// Gets or sets the sales order application data.
-    /// </summary>
-    [BindProperty]
-    public SalesOrder_App SalesOrderApp { get; set; }
-
+    #region methods
     /// <summary>
     /// Handles the GET request for editing a sales order.
     /// </summary>
@@ -89,89 +79,183 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
     {
         GetParms();
 
-        if (id == null || _context.SalesOrders == null)
+        if (id is null)
         {
-            Message = $"Edit: Id {id} or SalesOrder context {_context.ContextId} is null";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Edit: Id {id}";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
-        SalesOrder_App salesOrder_app = await _context.SalesOrders.FirstOrDefaultAsync(m => m.Id == id);
 
-        if (salesOrder_app == null)
+        //Retrieve the salesOrder from the local store using id
+        salesOrder = await _context.SalesOrders.FirstOrDefaultAsync(m => m.Id == id);
+        if (salesOrder is null)
         {
-            Message = $"Edit: Edit of id {id} failed";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Edit: Edit of id {id} failed";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
         else
         {
-            salesOrder_App = salesOrder_app;
+            salesOrder.LastModified = DateTime.Now;
+            salesOrder.ShipmentDate = DateTime.Now.AddDays(1);
         }
-        salesOrder_App.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Text == salesOrder_App.Status)?.Value ?? string.Empty;
-        salesOrder_App.LastModified = DateTime.Now;
-        SetParms();
+
         return Page();
     }
 
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see https://aka.ms/RazorPagesCRUD.
+    /// <summary>
+    /// Handles the HTTP POST request to update a sales order.
+    /// </summary>
+    /// <remarks>This method validates the model state, updates the sales order's status, and saves the changes to the
+    /// database. If a concurrency conflict occurs during the update, the method checks whether the sales order still exists
+    /// and throws an exception if the conflict cannot be resolved.</remarks>
+    /// <param name="id">The identifier of the sales order to update. Must be a valid sales order ID.</param>
+    /// <returns>An <see cref="IActionResult"/> indicating the result of the operation.  Returns the current page if the model state
+    /// is invalid, a "Not Found" result if the sales order does not exist,  or redirects to the details page upon
+    /// successful update.</returns>
     public async Task<IActionResult> OnPostAsync(int? id)
     {
-        GetParms();
-        if(!ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            _logger.LogError($"Edit: Model State is inValid for Id {id} or SalesOrder context {_context.ContextId}");
-            _logger.LogError($"Edit: ModelState Values are:{errors}");
-            return Page();
+
+            var errorMessage = $@"Edit: Model State is inValid for Id {id} ModelState Values are:{errors}";
+            _logger.LogError(errorMessage);
+
+            return NotFound();
         }
-        _context.Attach(salesOrder_App).State = EntityState.Modified;
-        var status = salesOrder_App.Status;
 
-        Message = $"Edit: salesOrder_App.Status is {status}";
-        _logger.LogInformation(message: Message);
+        _context.Attach(salesOrder).State = EntityState.Modified;
+        await _context.SaveChangesAsync(); //Save Modified Record to cache
 
-        salesOrder_App.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Value == salesOrder_App.Status)?.Text ?? string.Empty;
-        var status1 = salesOrder_App.Status;
+        var infoMessage = $"Edit: Edited salesOrder is {salesOrder}";
+        _logger.LogInformation(infoMessage);
 
-        Message = $"Edit: salesOrder_App.Status is {status1}";
-        _logger.LogInformation(message: Message);
+        //salesOrder.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Value == salesOrder.Status)?.Text ?? string.Empty;
 
+        // get current Acumatica ERP credentials to login
+        SiteCredential = new(_context, _logger);
+
+        credential = SiteCredential.GetSiteCredential().Result;
+        if (credential is null)
+        {
+            var errorMessage = $"Edit: No credentials found. Please create at least one credential.";
+            _logger.LogError(errorMessage);
+
+            return RedirectToPage("Demo/Credentials");
+        }
+
+        var client = new ApiClient(
+                                    credential.SiteUrl,
+                                            requestInterceptor: RequestLogger.LogRequest,
+                                            responseInterceptor: RequestLogger.LogResponse,
+                                            ignoreSslErrors: true); // this is here to allow testing with self-signed certificates
+        if (client.RequestInterceptor is null)
+        {
+            var errorMessage = $"Edit: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            _logger.LogError(errorMessage);
+
+            throw new NullReferenceException(nameof(client));
+        }
+
+        // attempt to delete the selected Sales Order from Acumatica ERP and ensure logout
         try
         {
-            await _context.SaveChangesAsync(); //Save Modified Record to cache
-        }
-        catch(DbUpdateConcurrencyException)
-        {
-            if(!SalesOrder_AppExists(salesOrder_App.Id))
+            //RestClient Log In (on) using Credentials retrieved
+            client.Login(credential.UserName, credential.Password, "", "", "");
+            if (client.RequestInterceptor is null)
             {
-                return NotFound();
+                var errorMessage = $"Edit: Failure to create a context for client login: UserName of " +
+                                         $"{credential.UserName} and Password of {credential.Password}";
+                _logger.LogError(errorMessage);
+
+                throw new NullReferenceException(nameof(client));
             }
             else
             {
-                throw;
+                //order status if to be deleted
+                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Expired" };
+
+                var keys = new List<string> { salesOrder.OrderType, salesOrder.OrderNbr };
+
+                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, select: "OrderType, OrderNbr, Status");
+                if (so is null)
+                {
+                    var errorMessage = $@"Edit: Sales Order {so.OrderType} {so.OrderNbr} is not in a valid status for deletion. Status is {so.Status}.";
+                    _logger.LogError(errorMessage);
+
+                    return RedirectToPage("./Details");
+                }
+                else
+                {
+                    if (StatusList.Contains(so.Status))
+                    {
+                        infoMessage = $@"Edit: Sales Order {keys} is in a valid status for deletion. Status is {so.Status}.";
+                        _logger.LogInformation(infoMessage);
+                    }
+                    else
+                    {
+                        var errorMessage = $@"Edit: Sales Order {keys} is not in a valid status for deletion. Status is {so.Status}.";
+                        _logger.LogError(errorMessage);
+
+                        return RedirectToPage("./Details");
+                    }
+                }
+
+                var _so = new ConvertToSalesOrder(salesOrder);
+
+                //Update the Sales Order using the updated record
+                var result = client.Put<Acumatica.Default_24_200_001.Model.SalesOrder>(_so);
+                if (result is not null)
+                {
+                    infoMessage = @$"Edit: Sales Order {_so.OrderNbr} edit status is {result}.";
+                    _logger.LogInformation(infoMessage);
+                }
             }
         }
+        catch (Exception ex)
+        {
+            var errorMessage = $"Edit: Failed to delete Sales Order exception {ex}.";
+            _logger.LogError(errorMessage);
+
+            return RedirectToPage("./Details");
+        }
+        finally
+        {
+            //we use logout in finally block because we need to always log out, even if the request failed for some reason
+            if (client.TryLogout())
+            {
+                infoMessage = $"Edit: Logged out Successfully {client.RequestInterceptor}";
+                _logger.LogInformation(infoMessage);
+            }
+            else
+            {
+                var errorMessage = $"Edit: Error {client.RequestInterceptor} while logging out";
+                _logger.LogError(errorMessage);
+            }
+        }
+
         SetParms();
+
         return RedirectToPage("./Details");
     }
+    #endregion
 
+    #region private methods
     private bool SalesOrder_AppExists(int id)
     {
         return (_context.SalesOrders?.Any(e => e.Id == id)).GetValueOrDefault();
     }
-
-    #endregion
-
-    #region parameters
 
     private void GetParms()
     {
         Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
         if(Parms is null)
         {
-            Message = $"Details: No parameters exist. Please check your parameters!";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Edit: No parameters exist. Please check your parameters!";
+            _logger.LogError(errorMessage);
             throw new NullReferenceException(nameof(Parms));
         }
 
@@ -180,33 +264,33 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         NumRecords = Convert.ToInt32(Parms[2]);
         Selected_SalesOrder_Type = (string)Parms[3];
 
-        Message = $"Details: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var infoMessage = $"Edit: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(message: Message);
-
-        return;
+        _logger.LogInformation(infoMessage);
     }
+
     private void SetParms()
     {
-        Parms = [ FromDate,
-                                  ToDate,
-                                  NumRecords,
-                                  Selected_SalesOrder_Type ];
+        Parms = [FromDate,
+                           ToDate,
+                           NumRecords,
+                           Selected_SalesOrder_Type];
         if(Parms is null)
         {
-            _logger.LogError($"Details: No parameters exist. Please check your parameters!");
+            var errorMessage = $"Edit: No parameters exist. Please check your parameters!";
+            _logger.LogError(errorMessage);
+
             throw new NullReferenceException(nameof(Parms));
         }
 
         TempData["parms"] = JsonConvert.SerializeObject(Parms);
         TempData["EditFlag"] = true;
+        TempData["DeleteFlag"] = false;
 
-        Message = $"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
-                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(message: Message);
-
-        return;
+        var infoMessage = $"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}, EditFlag:true, DeleteFlag:false";
+        _logger.LogInformation(infoMessage);
     }
-
     #endregion
 }
+#endregion

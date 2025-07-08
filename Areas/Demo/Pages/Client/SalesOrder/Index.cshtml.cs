@@ -31,7 +31,6 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
 {
     #region ctor
-
     /// <summary>
     /// Initializes a new instance of the <see cref="IndexModel"/> class.
     /// </summary>
@@ -39,7 +38,6 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// <param name="logger">The logger used for logging information and errors.</param>
     private readonly ILogger<IndexModel> _logger = logger;
     private readonly AppDbContext _context = context;
-
     #endregion
 
     #region Properties
@@ -47,22 +45,25 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// Search fields
     /// </summary>
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-90); //default to 180 days ago
+    public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-90); //default to 90 days ago
 
     /// <summary>
     /// Gets or sets the end date for the search range. Defaults to today.
     /// </summary>
+    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime ToDate { get; set; } = DateTime.Now; //default to today
 
     /// <summary>
     /// Gets or sets the number of records to retrieve. Defaults to 10.
     /// </summary>
     [BindProperty]
-    public int NumRecords { get; set; } = 10; //default 
+    public int NumRecords { get; set; } = 10; //default
+
     /// <summary>
     /// Gets or sets the selected sales order type. Defaults to "SO".
     /// </summary>
     public string Selected_SalesOrder_Type { get; set; } = "SO"; // Sales Order Type is Sales Order default
+
     /// <summary>
     /// Gets or sets the list of selectable sales order types.
     /// </summary>
@@ -71,22 +72,17 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// <summary>
     /// Gets or sets the parameters for the SalesOrder.
     /// </summary>
-    public List<object> Parms { get; set; } = [];
-    /// <summary>
-    /// Gets or sets the message for the Index page.
-    /// </summary>
-    public string Message { get; private set; }
+    public List<object> Parms { get; set; } = [ ];
     #endregion
 
     #region methods
-
     /// <summary>
     /// Handles GET requests for the Index page.
     /// </summary>
     public void OnGet()
     {
-        Message = $"Main: OnGet";
-        _logger.LogInformation(message: Message);
+        var infoMessage = $"Index: OnGet";
+        _logger.LogInformation(infoMessage);
     }
 
     /// <summary>
@@ -96,37 +92,35 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     public IActionResult OnPost()
     {
         SetParms();
-        Message = $"Main: OnPost";
-        _logger.LogInformation(message: Message);
+
+        var infoMessage = $"Index: OnPost";
+        _logger.LogInformation( infoMessage);
 
         return RedirectToPage("./Details");
     }
+    #endregion 
 
-    #endregion
-
-    #region parameters
-
-    private void SetParms() 
+    #region private methods
+    private void SetParms()
     {
         Parms = [FromDate,
-                            ToDate,
-                            NumRecords,
-                            Selected_SalesOrder_Type ];
-        if(Parms is null)
+                          ToDate,
+                          NumRecords,
+                          Selected_SalesOrder_Type ];
+        if (Parms is null)
         {
-            Message = $"Main: No parameters exist. Please check your parameters!";
-            _logger.LogError(message: Message);
+            var errorMessage = $"Main: No parameters exist. Please check your parameters!";
+            _logger.LogError( errorMessage);
+
             throw new NullReferenceException(nameof(Parms));
         }
 
-        TempData["parms"] = JsonConvert.SerializeObject(Parms);
-        TempData["EditFlag"] = false;
-        TempData["DeleteFlag"] = false;
+        TempData ["parms"] = JsonConvert.SerializeObject(Parms);
+        TempData ["EditFlag"] = false;
+        TempData ["DeleteFlag"] = false;
 
-        Message = $"Main: Date Range is {FromDate} to {ToDate}. Number of Records is {NumRecords} and the SalesOrder Type is {Selected_SalesOrder_Type}";
-        _logger.LogInformation(message: Message);
-        
-        return;
+        var infoMessage = $"Main: Date Range is {FromDate} to {ToDate}. Number of Records is {NumRecords} and the SalesOrder Type is {Selected_SalesOrder_Type}";
+        _logger.LogInformation( infoMessage);
     }
     #endregion
 }

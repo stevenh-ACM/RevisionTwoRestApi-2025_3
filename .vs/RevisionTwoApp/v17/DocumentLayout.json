@@ -3,12 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Migrations\\20250707030905_inititalCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250707030905_inititalCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\home\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\home\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\revisiontwo\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,27 +87,170 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250707030905_inititalCreate.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Migrations\\20250707030905_inititalCreate.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250707030905_inititalCreate.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Migrations\\20250707030905_inititalCreate.cs",
-              "RelativeToolTip": "Migrations\\20250707030905_inititalCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAAGoAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T03:09:05.767Z",
+              "WhenOpened": "2025-07-08T07:24:12.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Create.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:14:16.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\_ViewStart.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:14:12.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\_ViewImports.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:13:45.995Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAmwDQAAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T02:13:21.347Z",
+              "WhenOpened": "2025-07-08T07:09:51.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Index.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAB0AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:09:32.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwFAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:03:30.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:03:14.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAuwBwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T06:59:09.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxYAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T06:58:56.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T06:58:52.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Delete.cshtml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAmwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T06:57:30.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Create.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\RevisionTwo\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Create.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Create.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T06:56:56.931Z",
               "EditorCaption": ""
             }
           ]

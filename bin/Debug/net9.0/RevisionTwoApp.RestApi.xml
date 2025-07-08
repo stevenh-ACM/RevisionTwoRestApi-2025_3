@@ -18,11 +18,84 @@
             <param name="context"></param>
             <param name="logger"></param>
         </member>
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel._logger">
+            <summary>
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel"/> class.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.SiteCredential">
+            <summary>
+            Represents the credentials required to access the site.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Selected_SalesOrder_Types">
+            <summary>
+            Gets the list of sales order types available for selection.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Selected_SalesOrder_Statuses">
+            <summary>
+            Gets a list of selectable sales order statuses for use in UI components.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Selected_SalesOrder_Customers">
+            <summary>
+            Gets a list of customers available for selection in a sales order.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.SalesOrders">
+            <summary>
+            Gets or sets the collection of sales orders associated with the application.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.salesOrder">
+            <summary>
+            Gets or sets the sales order associated with the current operation.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Combo_Boxes">
+            <summary>
+            Gets or sets the <see cref="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Combo_Boxes"/> instance used to manage the state and data of combo box controls.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Date">
+            <summary>
+            Gets or sets the date value associated with the current operation.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.InventoryID">
+            <summary>
+            Gets or sets the unique identifier for the inventory item.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.lastModified">
+            <summary>
+            Gets or sets the date and time when the entity was last modified.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.OnGetAsync">
+            <summary>
+            Handles GET requests for the page and initializes data required for rendering.
+            </summary>
+            <remarks>This method retrieves the current list of sales orders from the database and populates the 
+            <see cref="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.Selected_SalesOrder_Customers"/> collection with customer information for use in the UI. If no sales
+            orders exist, an error is logged and the page is returned without additional data.</remarks>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation. Typically, this will return the page 
+            to the caller.</returns>
+        </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.OnPostAsync">
             <summary>
-            To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+            Handles the HTTP POST request to create a new sales order.
             </summary>
-            <returns></returns>
+            <remarks>This method performs several operations, including validating the model state, retrieving sales
+            orders from the database,  adjusting sales order values, and interacting with an external API to create and post the
+            sales order.  If the operation is successful, the new sales order is added to the database and the user is
+            redirected to the index page. If any errors occur during the process, the method logs the error and returns the
+            current page.</remarks>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the asynchronous operation.  Returns a <see
+            cref="T:Microsoft.AspNetCore.Mvc.RedirectToPageResult"/> if the sales order is successfully created and posted;  otherwise, returns a <see
+            cref="T:Microsoft.AspNetCore.Mvc.RazorPages.PageResult"/> indicating an error or invalid state.</returns>
+            <exception cref="T:System.NullReferenceException">Thrown if required objects, such as the API client or business account, are null during the operation.</exception>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel">
             <summary>
@@ -31,7 +104,7 @@
             <param name="context"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel})">
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel})">
             <summary>
             Delete a new Sales Order
             </summary>
@@ -48,34 +121,24 @@
             Represents a SalesOrder entity to be deleted.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Message">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.SalesOrders">
             <summary>
-            Gets or sets the message for the current operation.
+            Gets or sets the collection of sales orders associated with the application.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.SiteCredential">
+            <summary>
+            Gets or sets the credentials used to authenticate with the site.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.credential">
+            <summary>
+            Gets or sets the credential information used for authentication.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Parms">
             <summary>
             Gets or sets the parameters used for processing or filtering.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.FromDate">
-            <summary>
-            Gets or sets the start date for filtering or processing.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.ToDate">
-            <summary>
-            Gets or sets the end date for filtering or processing.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.NumRecords">
-            <summary>
-            Gets or sets the number of records.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Selected_SalesOrder_Type">
-            <summary>
-            Gets the selected sales order type.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.OnGetAsync(System.Nullable{System.Int32})">
@@ -111,14 +174,14 @@
             Credentials list of creds in db
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrders_App">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrders">
             <summary>
             Gets or sets the list of sales orders retrieved from the database or API.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Parms">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrderShipments">
             <summary>
-            Gets or sets the parameters used for filtering or other operations.
+            Gets or sets the collection of sales order shipments associated with the current sales order.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SiteCredential">
@@ -126,56 +189,32 @@
             Gets or sets the site credentials object used to hold credentials for Acumatica ERP connection.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.BAccount">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.credential">
             <summary>
-            Business Account ID 
+            Gets or sets the credentials used for authentication.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Id">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Parms">
             <summary>
-            Variable
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.RefreshFlag">
-            <summary>
-            Indicates whether the page is simply being refreshed.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.FromDate">
-            <summary>
-            Gets or sets the starting date for the operation or range.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.ToDate">
-            <summary>
-            Gets or sets the end date for filtering sales orders.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.NumRecords">
-            <summary>
-            Gets or sets the number of records to retrieve.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Selected_SalesOrder_Type">
-            <summary>
-            Gets or sets the selected sales order type.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrderShipment">
-            <summary>
-            List of sales order shipments
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.SalesOrderShipments">
-            <summary>
-            List of sales order shipments
+            Parameters used for values passing and flags.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.OnGetAsync">
             <summary>
-            Retrieve list of the most recent 10 Orders, type SO
+            Handles the GET request for the page, managing the retrieval and synchronization of sales order data.
             </summary>
-            
+            <remarks>This method performs several operations based on the state of the application: <list
+            type="bullet"> <item> If the TempData flags <c>EditFlag</c> or <c>DeleteFlag</c> are set to <see
+            langword="true"/>, it refreshes the local cache of sales orders. </item> <item> If the local store requires
+            refreshing, indicated by the <c>RefreshFlag</c>, it retrieves sales order data from an external Acumatica ERP
+            system and updates the local database. </item> <item> If no refresh is required, it clears the local store and
+            prepares it for future updates. </item> </list> The method ensures that the local store is synchronized with the
+            external system when necessary and handles exceptions related to data retrieval or connectivity
+            issues.</remarks>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation. Typically, this is the current page,
+            but it may redirect to another page if certain conditions are met.</returns>
+            <exception cref="T:System.NullReferenceException">Thrown if critical objects such as <c>SalesOrders</c> or the API client cannot be initialized.</exception>
+            <exception cref="T:System.Exception">Thrown if an error occurs during the interaction with the external Acumatica ERP system.</exception>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.OnPostAsync">
             <summary>
@@ -198,34 +237,14 @@
             <param name="context"></param>
             <param name="logger"></param>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Data">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.salesOrder">
             <summary>
-            Gets or sets the data associated with the EditModel.
+            Gets or sets the sales order application model used for binding and processing sales order data.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Parms">
             <summary>
             Gets or sets the parameters associated with the EditModel.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.FromDate">
-            <summary>
-            Gets or sets the starting date for the sales order.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.ToDate">
-            <summary>
-            Gets or sets the ending date for the sales order.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.NumRecords">
-            <summary>
-            Gets or sets the number of records associated with the sales order.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Type">
-            <summary>
-            Gets or sets the selected sales order type.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Types">
@@ -238,22 +257,24 @@
             Gets the list of selectable sales order statuses.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Message">
-            <summary>
-            Gets or sets the message associated with the EditModel.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.SalesOrderApp">
-            <summary>
-            Gets or sets the sales order application data.
-            </summary>
-        </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.OnGetAsync(System.Nullable{System.Int32})">
             <summary>
             Handles the GET request for editing a sales order.
             </summary>
             <param name="id">The ID of the sales order to edit.</param>
             <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.OnPostAsync(System.Nullable{System.Int32})">
+            <summary>
+            Handles the HTTP POST request to update a sales order.
+            </summary>
+            <remarks>This method validates the model state, updates the sales order's status, and saves the changes to the
+            database. If a concurrency conflict occurs during the update, the method checks whether the sales order still exists
+            and throws an exception if the conflict cannot be resolved.</remarks>
+            <param name="id">The identifier of the sales order to update. Must be a valid sales order ID.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> indicating the result of the operation.  Returns the current page if the model state
+            is invalid, a "Not Found" result if the sales order does not exist,  or redirects to the details page upon
+            successful update.</returns>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel">
             <summary>
@@ -306,11 +327,6 @@
             Gets or sets the parameters for the SalesOrder.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Message">
-            <summary>
-            Gets or sets the message for the Index page.
-            </summary>
-        </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.OnGet">
             <summary>
             Handles GET requests for the Index page.
@@ -327,43 +343,45 @@
             Represents the model for creating a new credential in the application.
             </summary>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel})">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel"/> class.
+            Represents the model for creating a new credential in the application.
             </summary>
-            <param name="context">The database context used to interact with the application's data.</param>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.OnGet">
-            <summary>
-            Handles GET requests to display the create credential page.
-            </summary>
-            <returns>A <see cref="T:Microsoft.AspNetCore.Mvc.RazorPages.PageResult"/> representing the page to be displayed.</returns>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.Credentials">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.credential">
             <summary>
             Gets or sets the credential being created.
             </summary>
         </member>
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.OnGet">
+            <summary>
+            Handles GET requests for the page.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> that renders the current page.</returns>
+        </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.CreateModel.OnPostAsync">
             <summary>
-            Handles POST requests to create a new credential.
+            Handles the HTTP POST request for the page.
             </summary>
-            <returns>
-            A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
-            Redirects to the index page upon successful creation, or redisplays the page if the model state is invalid.
-            </returns>
+            <remarks>This method processes form submissions and performs validation on the model state. If the
+            model state is invalid, the method returns the current page to allow the user to correct errors. If the model
+            state is valid, the method saves the submitted data to the database and redirects to the index page.</remarks>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation. Returns the current page if the model
+            state is invalid. Redirects to the index page upon successful processing.</returns>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel">
             <summary>
             Represents the model for deleting a credential.
             </summary>
             <param name="context">The database context.</param>
+            <param name="logger"></param>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel})">
             <summary>
             Represents the model for deleting a credential.
             </summary>
             <param name="context">The database context.</param>
+            <param name="logger"></param>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel._context">
             <summary>
@@ -395,7 +413,7 @@
             </summary>
             <param name="context">The database context.</param>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel})">
             <summary>
             Represents the model for the details page of credentials.
             </summary>
@@ -424,7 +442,7 @@
             </summary>
             <param name="context">The database context.</param>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext)">
+        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel})">
             <summary>
             Represents the model for editing credentials in the Razor Page.
             </summary>
@@ -460,7 +478,7 @@
             <param name="id">The ID of the credential.</param>
             <returns>True if the credential exists; otherwise, false.</returns>
         </member>
-        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel._logger">
+        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel._context">
             <summary>
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel"/> class.
             </summary>
@@ -1459,6 +1477,11 @@
             Gets or sets the bill details table.
             </summary>
         </member>
+        <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Customers">
+            <summary>
+            Gets or sets the collection of customers from Acumatica ERP into the local store.
+            </summary>
+        </member>
         <member name="P:RevisionTwoApp.RestApi.Data.AppDbContext.Contacts">
             <summary>
             Gets or sets the contacts table.
@@ -2320,22 +2343,25 @@
             Gets the combo box items for shipment statuses.
             </summary>
         </member>
-        <member name="T:RevisionTwoApp.RestApi.Migrations.inititalCreate">
+        <member name="T:RevisionTwoApp.RestApi.Migrations.initialCreate">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Migrations.inititalCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:RevisionTwoApp.RestApi.Migrations.initialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Addr">
             <summary>
-             mapping class for standard output form
+            Represents an address with details such as street, city, state, country, and postal code.
             </summary>
+            <remarks>This class is commonly used to store and manage address information for billing, shipping, or other
+            purposes. It includes properties for both required and optional address components, such as AddressLine2 for
+            additional details.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Addr.Id">
             <summary>
@@ -2374,8 +2400,12 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Bill_App">
             <summary>
-             mapping class for standard output form
+            Represents a bill in the application, including its details such as type, reference number, status, date, vendor,
+            amount, and other related information.
             </summary>
+            <remarks>This class is used to store and manage information about individual bills. It includes properties for
+            identifying the bill, tracking its status, associating it with a vendor, and recording financial details such as the
+            amount and currency.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Bill_App.Id">
             <summary>
@@ -2439,8 +2469,12 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.BillDetail_App">
             <summary>
-             mapping class for standard output form
+            Represents the details of a bill, including associated branch, inventory, transaction information, and financial
+            data.
             </summary>
+            <remarks>This class is used to store and manage detailed information about a bill, such as quantities, costs,
+            and accounts. It is typically used in financial or inventory management systems to track bill-related
+            transactions.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.BillDetail_App.Id">
             <summary>
@@ -2579,8 +2613,11 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Contact_App">
             <summary>
-             mapping class for standard output form
+            Represents a contact entity with various attributes such as name, status, and associated account.
             </summary>
+            <remarks>This class is designed to store and manage information about a contact, including identifiers, 
+            display name, job title, and other metadata. It is commonly used in applications that handle  customer or business
+            contact information.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Contact_App.Id">
             <summary>
@@ -2632,10 +2669,37 @@
             Gets or sets the last modified date and time of the contact.
             </summary>
         </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.App.Customer_App">
+            <summary>
+            Represents a customer application entity with properties for identifying and describing a customer.
+            </summary>
+            <remarks>This class is typically used to store and manage customer-related information, such as unique
+            identifiers, customer IDs, and display names. It is designed to be used in database contexts where the <see
+            cref="P:RevisionTwoApp.RestApi.Models.App.Customer_App.Id"/> property serves as the primary key.</remarks>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Customer_App.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Customer_App.CustomerID">
+            <summary>
+            Gets or sets the unique identifier for a customer.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.App.Customer_App.CustomerName">
+            <summary>
+            Gets or sets the display name of the customer.
+            </summary>
+        </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Opportunity_App">
             <summary>
-             mapping class for standard output form
+            Represents an opportunity within the application, including details such as its unique identifier, status, stage,
+            estimated close date, and associated contact or business account.
             </summary>
+            <remarks>This class is used to model opportunities in the system, providing properties to store relevant
+            information such as the opportunity's subject, total amount, owner, and other metadata. It is typically used in
+            scenarios where opportunities need to be tracked, updated, or displayed in the application.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Opportunity_App.Id">
             <summary>
@@ -2709,8 +2773,12 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.SalesOrder_App">
             <summary>
-            Represents a sales order in the application.
+            Represents a sales order in the application, including details such as order type, customer information, 
+            quantities, and financial data.
             </summary>
+            <remarks>This class provides properties to store and retrieve information about a sales order, such as its
+            unique  identifier, status, associated customer, and financial details. It is typically used to manage and track 
+            sales orders within the system.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.SalesOrder_App.Id">
             <summary>
@@ -2774,8 +2842,11 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Shipment_App">
             <summary>
-            Represents a shipment in the application.
+            Represents a shipment entity with details such as type, status, customer information, and shipment metrics.
             </summary>
+            <remarks>This class is used to store and manage information related to shipments, including shipment
+            identifiers,  customer details, shipment dates, and metrics such as quantity and weight. It is typically used in 
+            applications that handle logistics or inventory management.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Shipment_App.Id">
             <summary>
@@ -2838,9 +2909,12 @@
             </summary>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App">
-            <summary>  
-            Represents the details of a shipment in the application.  
-            </summary>  
+            <summary>
+            Represents the details of a shipment, including order information, inventory, warehouse, and quantities.
+            </summary>
+            <remarks>This class is used to store and manage information related to individual shipment details. It
+            includes properties for identifying the shipment, tracking associated orders, and recording shipped and ordered
+            quantities. Each instance corresponds to a specific shipment detail.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.ShipmentDetail_App.Id">
             <summary>  
@@ -2884,8 +2958,11 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.App.Address_App">
             <summary>
-             mapping class for standard output form
+            Represents an address with details such as street, city, state, country, and postal code.
             </summary>
+            <remarks>This class is designed to store and manage address information, including optional fields for 
+            additional address lines. It can be used in applications requiring structured address data,  such as shipping,
+            billing, or user profiles.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.App.Address_App.Id">
             <summary>
@@ -3159,8 +3236,11 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.Default.Contact_Model">
             <summary>
-             mapping class for standard output form
+            Represents a contact entity with various attributes such as status, display name, and associated business account.
             </summary>
+            <remarks>This model is typically used to store and manage information about a contact in a business context.
+            It includes properties for identifying the contact, tracking its status, and associating it with other
+            entities.</remarks>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Models.Default.Contact_Model.Active">
             <summary>
@@ -3206,6 +3286,519 @@
             <summary>
             Gets or sets the last modified date and time of the contact.
             </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Customer_Model">
+            <summary>
+            Represents a customer entity, including details about the customer's account, preferences, and associated data.
+            </summary>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer"/> class provides properties and methods to manage
+            customer-related information, such as account identifiers, billing and shipping details, financial preferences, and
+            other attributes. This class is primarily used in business applications to handle customer data and
+            interactions.</remarks>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer">
+            <summary>
+            Represents a customer entity, including details about the customer's account, preferences, and associated data.
+            </summary>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer"/> class provides properties and methods to manage customer-related
+            information,  such as account identifiers, billing and shipping details, financial preferences, and other
+            attributes. This class is primarily used in business applications to handle customer data and
+            interactions.</remarks>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.AccountRef">
+            <summary>
+            The external reference number of the business account.
+            DAC Field Name: AcctReferenceNbr 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Ext Ref Nbr 
+            SQL Type: nvarchar(50) 
+            </summary>
+            <remarks>
+            It can be an additional number of the business account used in external integration.            
+            </remarks>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ApplyOverdueCharges">
+            <summary>
+            If set to true, indicates that financial chargescan be calculated for the customer.
+            DAC Field Name: FinChargeApply 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Apply Overdue Charges 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Attributes">
+            <summary>
+            Gets or sets the collection of attribute values associated with the entity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.AutoApplyPayments">
+            <summary>
+            If set to true, indicates that the payments of the customershould be automatically applied to the open invoices upon release.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Auto-Apply Payments 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.BAccountID">
+            <summary>
+            The identifier of the related business account.Along with ContactID, this field is used as an additional reference,but unlike RefNoteID and DocumentNoteID it is used for specific entities.
+            DAC: PX.Objects.CR.CRPMTimeActivity 
+            Display Name: Related Account 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.BillingAddressOverride">
+            <summary>
+            A calculated field. If set to false, indicates thatthe customer's billing address is the same as the customer'sdefault address.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedAddressOverrideGraphExt"
+            DAC Field Name: OverrideBillAddress 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.BillingContact">
+            <summary>
+            Gets or sets the billing contact information associated with the account.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.BillingContactOverride">
+            <summary>
+            A calculated field. If set to false, indicates that the customer's billing contact is the same as the customer'sdefault contact.The field is populated by a formula, working only in the scope of the Customers (AR303000) form. See CustomerBillSharedContactOverrideGraphExt"
+            DAC Field Name: OverrideBillContact 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Contacts">
+            <summary>
+            Gets or sets the collection of customer contacts associated with the entity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CreatedDateTime">
+            <summary>
+            The date and time when the record was created.
+            DAC: PX.Objects.CR.Standalone.Location 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CreditVerificationRules">
+            <summary>
+            Gets or sets the credit verification rules used to validate credit-related operations.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CurrencyID">
+            <summary>
+            The identifier of the Currency,which is applied to the documents of the customer.
+            DAC Field Name: CuryID 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Currency ID 
+            SQL Type: nvarchar(5) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CurrencyRateType">
+            <summary>
+            The identifier of the currency rate type,which is applied to the documents of the customer.
+            DAC Field Name: CuryRateTypeID 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Curr. Rate Type 
+            SQL Type: nvarchar(6) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CustomerClass">
+            <summary>
+            Identifier of the customer class to which the customer belongs.
+            DAC Field Name: CustomerClassID 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Customer Class 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CustomerID">
+            <summary>
+            The human-readable identifier of the customer account, which isspecified by the user or defined by the auto-numbering sequence duringcreation of the customer. This field is a natural key, as opposedto the surrogate key BAccountID.
+            DAC Field Name: AcctCD 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Customer ID 
+            SQL Type: nvarchar(30) 
+            Key Field
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CustomerCategory">
+            <summary>
+            The customer kind, indicating whether the customer is an individual (I) or an organization (O).
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Customer Category 
+            SQL Type: char(1) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CustomerName">
+            <summary>
+            The full business account name (as opposed to the short identifier provided by AcctCD).
+            DAC Field Name: AcctName 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Customer Name 
+            SQL Type: nvarchar(255) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Email">
+            <summary>
+            DAC: PX.Objects.CS.NotificationRecipient 
+            SQL Type: nvarchar(MAX) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.EnableCurrencyOverride">
+            <summary>
+            If set to true, indicates that the currency of customer documents (which is specified by CuryID)can be overridden by a user during document entry.
+            DAC Field Name: AllowOverrideCury 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Enable Currency Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.EnableRateOverride">
+            <summary>
+            If set to true, indicates that the currency ratefor customer documents (which is calculated by the system from the currency rate history) can be overridden by a user during document entry.
+            DAC Field Name: AllowOverrideRate 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Enable Rate Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.EnableWriteOffs">
+            <summary>
+            If set to true, indicates that small balancewrite-offs are allowed for the customer.
+            DAC Field Name: SmallBalanceAllow 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Enable Write-Offs 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.FOBPoint">
+            <summary>
+            The customer's FOB (free on board) shipping point.
+            DAC Field Name: CFOBPointID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: FOB Point 
+            SQL Type: nvarchar(15) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.LastModifiedDateTime">
+            <summary>
+            The date and time when the record was last modified.
+            DAC: PX.Objects.CR.Standalone.Location 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.LeadTimedays">
+            <summary>
+            The amount of lead days (the time in days from the moment when the production was finished to the moment when the customer's order was delivered).
+            DAC Field Name: CLeadTime 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Lead Time (Days) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.LocationName">
+            <summary>
+            The name of the location.
+            DAC Field Name: Descr 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Location Name 
+            SQL Type: nvarchar(60) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.MainContact">
+            <summary>
+            Gets or sets the primary contact associated with this entity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.MultiCurrencyStatements">
+            <summary>
+            If set to true, indicates that customerstatements should be generated for the customer in multi-currency format.
+            DAC Field Name: PrintCuryStatements 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Multi-Currency Statements 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.OrderPriority">
+            <summary>
+            The order priority of the customer's location.
+            DAC Field Name: COrderPriority 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Order Priority 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ParentRecord">
+            <summary>
+            The identifier of the parent business account.
+            DAC Field Name: ParentBAccountID 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Parent Account 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PaymentInstructions">
+            <summary>
+            Gets or sets the collection of payment instructions associated with the business account.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PriceClassID">
+            <summary>
+            The price class of the customer.
+            DAC Field Name: CPriceClassID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Price Class 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PrimaryContact">
+            <summary>
+            Gets or sets the primary contact associated with this entity.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PrimaryContactID">
+            <summary>
+            The identifier of the Contact object linked with the business account and marked as primary.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Primary Contact 
+            </summary>
+            <remarks>
+            Also, the Contact.BAccountID value must equal tothe BAccount.BAccountID value of the current business account.
+            </remarks>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PrintDunningLetters">
+            <summary>
+            If set to true, indicates that dunning letters should be printed for the customer.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Print Dunning Letters 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PrintInvoices">
+            <summary>
+            If set to true, indicates that invoicesshould be printed for the customer.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Print Invoices 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.PrintStatements">
+            <summary>
+            If set to true, indicates that customerstatements should be printed for the customer.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Print Statements 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ResidentialDelivery">
+            <summary>
+            This field indicates whether the residential delivery is available in this location.
+            DAC Field Name: CResedential 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Residential Delivery 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Salespersons">
+            <summary>
+            Gets or sets the collection of salespersons associated with the customer.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.SaturdayDelivery">
+            <summary>
+            This field indicates whether the Saturday delivery is available in this location.
+            DAC Field Name: CSaturdayDelivery 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Saturday Delivery 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.SendDunningLettersbyEmail">
+            <summary>
+            If set to true, indicates that dunning letters should be sent to the customer by email.
+            DAC Field Name: MailDunningLetters 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Send Dunning Letters by Email 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.SendInvoicesbyEmail">
+            <summary>
+            If set to true, indicates that invoicesshould be sent to the customer by email.
+            DAC Field Name: MailInvoices 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Send Invoices by Email 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.SendStatementsbyEmail">
+            <summary>
+            DAC Field Name: SendStatementByEmail 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Send Statements by Email 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingAddressOverride">
+            <summary>
+            If set to true, indicates that the addressoverrides the default Address record, which isreferenced by DefAddressID.
+            DAC Field Name: OverrideAddress 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingBranch">
+            <summary>
+            The identifier of the default branch of the customer location.
+            DAC Field Name: CBranchID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Shipping Branch 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingContact">
+            <summary>
+            Gets or sets the contact information for shipping purposes.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingContactOverride">
+            <summary>
+            If set to true, indicates that the addressoverrides the default Contact record, which isreferenced by DefContactID.
+            DAC Field Name: OverrideContact 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Override 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingRule">
+            <summary>
+            The shipping rule of the customer location.
+            DAC Field Name: CShipComplete 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Shipping Rule 
+            SQL Type: char(1) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingTerms">
+            <summary>
+            The customer's shipping terms.
+            DAC Field Name: CShipTermsID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Shipping Terms 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShippingZoneID">
+            <summary>
+            The customer's shipping zone.
+            DAC Field Name: CShipZoneID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Shipping Zone 
+            SQL Type: nvarchar(15) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.ShipVia">
+            <summary>
+            The shipping carrier for the vendor location.
+            DAC Field Name: CCarrierID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Ship Via 
+            SQL Type: nvarchar(15) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.StatementCycleID">
+            <summary>
+            The identifier of the statement cycleto which the customer is assigned.
+            DAC Field Name: StatementCycleId 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Statement Cycle ID 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.StatementType">
+            <summary>
+            The type of customer statements generated for the customer.The list of possible values of the field is determined by StatementTypeAttribute.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Statement Type 
+            SQL Type: char(1) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Status">
+            <summary>
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Customer Status 
+            SQL Type: char(1) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.TaxRegistrationID">
+            <summary>
+            The registration ID of the company in the state tax authority.
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Tax Registration ID 
+            SQL Type: nvarchar(50) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.TaxZone">
+            <summary>
+            The customer's tax zone.
+            DAC Field Name: CTaxZoneID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Tax Zone 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.Terms">
+            <summary>
+            The identifier of the default terms, which are applied to the documents of the customer.
+            DAC Field Name: TermsID 
+            DAC: PX.Objects.AR.Customer 
+            SQL Type: nvarchar(10) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.WarehouseID">
+            <summary>
+            The warehouse identifier of the customer location.
+            DAC Field Name: CSiteID 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Warehouse 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.WriteOffLimit">
+            <summary>
+            If SmallBalanceAllow is set to true, thefield determines the maximum small balance write-off limit for customer documents.
+            DAC Field Name: SmallBalanceLimit 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Write-Off Limit 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.RestrictVisibilityTo">
+            <summary>
+            DAC Field Name: COrgBAccountID 
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Restrict Visibility To 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.CreditLimit">
+            <summary>
+            If CreditRule enables verification by credit limit,this field determines the maximum amount of credit allowed for the customer.
+            DAC: PX.Objects.AR.Customer 
+            Display Name: Credit Limit 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.NoteID">
+            <summary>
+            Gets or sets the unique identifier for the note.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.EntityUsageType">
+            <summary>
+            The customer's entity type for reporting purposes. This field is used if the system is integrated with External Tax Calculationand the External Tax Calculation Integration feature is enabled.
+            DAC Field Name: CAvalaraCustomerUsageType 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Tax Exemption Type 
+            SQL Type: char(1) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.TaxExemptionNumber">
+            <summary>
+            The Avalara Exemption number of the customer location.
+            DAC Field Name: CAvalaraExemptionNumber 
+            DAC: PX.Objects.CR.Standalone.Location 
+            Display Name: Tax Exemption Number 
+            SQL Type: nvarchar(30) 
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.IsGuestCustomer">
+            <summary>
+            Gets or sets a value indicating whether the customer is a guest.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Models.Default.Customer_Model.Customer.GetEndpointPath">
+            <summary>
+            Retrieves the default endpoint path for the entity.
+            </summary>
+            <remarks>This method returns a predefined endpoint path and does not perform any dynamic
+            computation. It can be overridden in derived classes to provide a custom endpoint path.</remarks>
+            <returns>A string representing the endpoint path in the format "entity/Default/24.200.001".</returns>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Models.Default.Opportunity_Model">
             <summary>

@@ -264,6 +264,18 @@ public class ConvertToContact:Contact
 }
 #endregion
 
+#region ConvertToCU
+
+public class ConvertToCU: Customer_App
+{
+    public ConvertToCU(Customer cu)
+    {
+        CustomerID = cu.CustomerID.Value;
+        CustomerName = cu.CustomerName.Value;
+    }
+}
+#endregion
+
 #region ConvertToOP
 /// <summary>
 /// Conversion to App model from Default model using inheritance 

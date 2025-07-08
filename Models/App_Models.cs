@@ -7,8 +7,11 @@ namespace RevisionTwoApp.RestApi.Models.App;
 
 #region Addr
 /// <summary>
-///  mapping class for standard output form
+/// Represents an address with details such as street, city, state, country, and postal code.
 /// </summary>
+/// <remarks>This class is commonly used to store and manage address information for billing, shipping, or other
+/// purposes. It includes properties for both required and optional address components, such as AddressLine2 for
+/// additional details.</remarks>
 public class Addr
 {
     #region Addr
@@ -52,8 +55,12 @@ public class Addr
 
 #region Bills_App
 /// <summary>
-///  mapping class for standard output form
+/// Represents a bill in the application, including its details such as type, reference number, status, date, vendor,
+/// amount, and other related information.
 /// </summary>
+/// <remarks>This class is used to store and manage information about individual bills. It includes properties for
+/// identifying the bill, tracking its status, associating it with a vendor, and recording financial details such as the
+/// amount and currency.</remarks>
 public class Bill_App
 {
     #region Bills_App
@@ -143,8 +150,12 @@ public class Bill_App
 
 #region BillDetail_App
 /// <summary>
-///  mapping class for standard output form
+/// Represents the details of a bill, including associated branch, inventory, transaction information, and financial
+/// data.
 /// </summary>
+/// <remarks>This class is used to store and manage detailed information about a bill, such as quantities, costs,
+/// and accounts. It is typically used in financial or inventory management systems to track bill-related
+/// transactions.</remarks>
 public class BillDetail_App
 {
     #region BillDetail_App
@@ -339,8 +350,11 @@ public class Case_App
 
 #region Contact_App
 /// <summary>
-///  mapping class for standard output form
+/// Represents a contact entity with various attributes such as name, status, and associated account.
 /// </summary>
+/// <remarks>This class is designed to store and manage information about a contact, including identifiers, 
+/// display name, job title, and other metadata. It is commonly used in applications that handle  customer or business
+/// contact information.</remarks>
 public class Contact_App
 {
     #region Contact_App
@@ -415,10 +429,46 @@ public class Contact_App
 }
 #endregion
 
+/// <summary>
+/// Represents a customer application entity with properties for identifying and describing a customer.
+/// </summary>
+/// <remarks>This class is typically used to store and manage customer-related information, such as unique
+/// identifiers, customer IDs, and display names. It is designed to be used in database contexts where the <see
+/// cref="Id"/> property serves as the primary key.</remarks>
+#region Customer_App
+public class Customer_App
+{
+    #region Customer_App
+    /// <summary>
+    /// Gets or sets the unique identifier for the entity.
+    /// </summary>
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
+    /// <summary>
+    /// Gets or sets the unique identifier for a customer.
+    /// </summary>
+    [Display(Name = "Customer ID")]
+    [StringLength(128)]
+    public string? CustomerID { get; set; }
+    /// <summary>
+    /// Gets or sets the display name of the customer.
+    /// </summary>
+    [StringLength(128)]
+    [Display(Name = "Customer Name")]
+    public string? CustomerName { get; set; }
+    #endregion
+}
+#endregion
+
 #region Opportunity_App
 /// <summary>
-///  mapping class for standard output form
+/// Represents an opportunity within the application, including details such as its unique identifier, status, stage,
+/// estimated close date, and associated contact or business account.
 /// </summary>
+/// <remarks>This class is used to model opportunities in the system, providing properties to store relevant
+/// information such as the opportunity's subject, total amount, owner, and other metadata. It is typically used in
+/// scenarios where opportunities need to be tracked, updated, or displayed in the application.</remarks>
 public class Opportunity_App
 {
     #region Opportunity_App
@@ -521,8 +571,12 @@ public class Opportunity_App
 
 #region SalesOrder_App
 /// <summary>
-/// Represents a sales order in the application.
+/// Represents a sales order in the application, including details such as order type, customer information, 
+/// quantities, and financial data.
 /// </summary>
+/// <remarks>This class provides properties to store and retrieve information about a sales order, such as its
+/// unique  identifier, status, associated customer, and financial details. It is typically used to manage and track 
+/// sales orders within the system.</remarks>
 public class SalesOrder_App
 {
     #region SalesOrder_App
@@ -594,8 +648,11 @@ public class SalesOrder_App
 
 #region Shipment_App
 /// <summary>
-/// Represents a shipment in the application.
+/// Represents a shipment entity with details such as type, status, customer information, and shipment metrics.
 /// </summary>
+/// <remarks>This class is used to store and manage information related to shipments, including shipment
+/// identifiers,  customer details, shipment dates, and metrics such as quantity and weight. It is typically used in 
+/// applications that handle logistics or inventory management.</remarks>
 public class Shipment_App
 {
     #region Shipments_App
@@ -688,9 +745,12 @@ public class Shipment_App
 #endregion
 
 #region ShipmentDetail_App  
-/// <summary>  
-/// Represents the details of a shipment in the application.  
-/// </summary>  
+/// <summary>
+/// Represents the details of a shipment, including order information, inventory, warehouse, and quantities.
+/// </summary>
+/// <remarks>This class is used to store and manage information related to individual shipment details. It
+/// includes properties for identifying the shipment, tracking associated orders, and recording shipped and ordered
+/// quantities. Each instance corresponds to a specific shipment detail.</remarks>
 public class ShipmentDetail_App
 {
     #region ShipmentDetail_App  
@@ -757,8 +817,11 @@ public class ShipmentDetail_App
 
 #region Address_App
 /// <summary>
-///  mapping class for standard output form
+/// Represents an address with details such as street, city, state, country, and postal code.
 /// </summary>
+/// <remarks>This class is designed to store and manage address information, including optional fields for 
+/// additional address lines. It can be used in applications requiring structured address data,  such as shipping,
+/// billing, or user profiles.</remarks>
 public class Address_App
 {
     #region Address_App

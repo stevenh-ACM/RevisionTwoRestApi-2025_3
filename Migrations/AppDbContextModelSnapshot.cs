@@ -151,17 +151,17 @@ namespace RevisionTwoApp.RestApi.Migrations
                         {
                             Id = "74462461-2f95-46cf-b4c9-feda3cd43d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "559609a5-b16b-498e-8b75-2e13cbdaae84",
+                            ConcurrencyStamp = "214a1194-0e2e-4fbb-bc00-e1f901173e2a",
                             Email = "demo@r.c",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "DEMO@R.C",
-                            NormalizedUserName = "DEMO",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOkVHmJOZySOkPjdIIc5r6aMicmHQZVO4BmKOvFctbkI23oj4T3r/7u8Bw8WdbHR2A==",
+                            NormalizedUserName = "DEMO@R.C",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJYq26/keGnwZGCKVq4969yrGg3/YrCvU9gJGjqh6p5J4BOQ6pTbBeNQj3nF7359eA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e21a3ef7-1a01-4c61-adad-09f79ed35700",
+                            SecurityStamp = "42c217f3-7f46-4a27-b3e8-48ac825e352e",
                             TwoFactorEnabled = false,
-                            UserName = "Demo"
+                            UserName = "demo@r.c"
                         });
                 });
 
@@ -508,6 +508,27 @@ namespace RevisionTwoApp.RestApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("RevisionTwoApp.RestApi.Models.App.Customer_App", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CustomerID")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("CustomerName")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("RevisionTwoApp.RestApi.Models.App.Opportunity_App", b =>

@@ -64,7 +64,6 @@ public class Credential
     /// Gets or sets the locale associated with the credential.
     /// </summary>
     public string? Locale { get; set; }
-
     #endregion
 }
 #endregion

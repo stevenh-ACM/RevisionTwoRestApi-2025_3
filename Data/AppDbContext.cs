@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿#nullable disable
+
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;
@@ -44,8 +45,8 @@ public class AppDbContext: IdentityDbContext
         var user = new IdentityUser
         {
             Id = "74462461-2f95-46cf-b4c9-feda3cd43d4a", // primary key
-            UserName = "Demo",
-            NormalizedUserName = "DEMO".ToUpper(),
+            UserName = "demo@r.c",
+            NormalizedUserName = "DEMO@R.C".ToUpper(),
             Email = "demo@r.c",
             NormalizedEmail = "DEMO@R.C".ToUpper(),
             EmailConfirmed = true,
@@ -87,6 +88,11 @@ public class AppDbContext: IdentityDbContext
     /// Gets or sets the bill details table.
     /// </summary>
     public DbSet<BillDetail_App> BillDetails { get; set; } = default!;
+
+    /// <summary>
+    /// Gets or sets the collection of customers from Acumatica ERP into the local store.
+    /// </summary>
+    public DbSet<Customer_App> Customers { get; set; } = default!;
 
     /// <summary>
     /// Gets or sets the contacts table.

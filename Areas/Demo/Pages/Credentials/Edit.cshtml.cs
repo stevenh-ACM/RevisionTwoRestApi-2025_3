@@ -13,13 +13,14 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// Represents the model for editing credentials in the Razor Page.
 /// </summary>
 /// <param name="context">The database context.</param>
-public class EditModel(AppDbContext context):PageModel
+public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageModel
 {
     #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="EditModel"/> class.
     /// </summary>
-    private readonly AppDbContext _context = context;
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly ILogger<EditModel> _logger = logger;
     #endregion
 
     #region properties
@@ -27,7 +28,7 @@ public class EditModel(AppDbContext context):PageModel
     /// Gets or sets the credential being edited.
     /// </summary>
     [BindProperty]
-    public Credential Credentials { get; set; } = default!;
+    public Credential credential { get; set; } = default!;
     #endregion
 
     #region methods
@@ -38,17 +39,23 @@ public class EditModel(AppDbContext context):PageModel
     /// <returns>The page result or a not found result.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
+        if (id is null)
         {
-            return NotFound();
+            var errorMessage = $@"Edit: No ID provided, {id} was passed in.";
+            _logger.LogError(errorMessage);
+
+            throw new ArgumentNullException(nameof(id));
         }
 
         var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
-        if (credential == null)
+        if (credential is null)
         {
+            var errorMessage = $@"Edit: No credential with the Id {id} found.";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
-        Credentials = credential;
+
         return Page();
     }
 
@@ -58,40 +65,32 @@ public class EditModel(AppDbContext context):PageModel
     /// <returns>A redirect to the index page or the current page if validation fails.</returns>
     public async Task<IActionResult> OnPostAsync()
     {
+        _context.Attach(credential).State = EntityState.Modified;
+
         if (!ModelState.IsValid)
         {
-            return Page();
-        }
+            var errorMessage = $"Create: No credential exists. Please create at least one!";
+            _logger.LogError(errorMessage);
 
-        _context.Attach(Credentials).State = EntityState.Modified;
+            return NotFound();
+        }
+        
+        await _context.SaveChangesAsync();
 
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!CredentialExists(Credentials.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        var infoMessage = $"Edit: Credential {credential} updated successfully!";
+        _logger.LogInformation(infoMessage);
 
         return RedirectToPage("./Index");
     }
 
-    /// <summary>
-    /// Checks if a credential with the specified ID exists.
-    /// </summary>
-    /// <param name="id">The ID of the credential.</param>
-    /// <returns>True if the credential exists; otherwise, false.</returns>
-    private bool CredentialExists(int id)
-    {
-        return _context.Credentials.Any(e => e.Id == id);
-    }
-    #endregion
+    ///// <summary>
+    ///// Checks if a credential with the specified ID exists.
+    ///// </summary>
+    ///// <param name="id">The ID of the credential.</param>
+    ///// <returns>True if the credential exists; otherwise, false.</returns>
+    //private bool CredentialExists(int id)
+    //{
+    //    return _context.Credentials.Any(e => e.Id == id);
+    //}
+    //#endregion
 }

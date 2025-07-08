@@ -5,8 +5,6 @@ using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
 
-using Humanizer.DateTimeHumanizeStrategy;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -19,7 +17,7 @@ using RevisionTwoApp.RestApi.Helper;
 using RevisionTwoApp.RestApi.Models;
 using RevisionTwoApp.RestApi.Models.App;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+//pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 /// <summary>
@@ -30,101 +28,155 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : PageModel
 {
     #region ctor
-
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CreateModel"/> class.
+    /// </summary>
     private readonly ILogger<CreateModel> _logger = logger;
     private readonly AppDbContext _context = context;
-
     #endregion
 
     #region properties
-
+    /// <summary>
+    /// Represents the credentials required to access the site.
+    /// </summary>
     public Site_Credential SiteCredential { get; set; }
+    /// <summary>
+    /// Gets the list of sales order types available for selection.
+    /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Types { get; } = new Combo_Boxes().ComboBox_SalesOrder_Types;
+    /// <summary>
+    /// Gets a list of selectable sales order statuses for use in UI components.
+    /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Statuses { get; } = new Combo_Boxes().ComboBox_SalesOrder_Statuses;
+    /// <summary>
+    /// Gets a list of customers available for selection in a sales order.
+    /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Customers { get; } = [];
+    /// <summary>
+    /// Gets or sets the collection of sales orders associated with the application.
+    /// </summary>
     public List<SalesOrder_App> SalesOrders { get; set; } = default!;
 
+    /// <summary>
+    /// Gets or sets the sales order associated with the current operation.
+    /// </summary>
     [BindProperty]
     public SalesOrder_App salesOrder { get; set; } = new();
+
+    /// <summary>
+    /// Gets or sets the <see cref="Combo_Boxes"/> instance used to manage the state and data of combo box controls.
+    /// </summary>
     [BindProperty]
     public Combo_Boxes Combo_Boxes { get; set; } = new();
 
-    // default values for new Sales Order 
+    /// <summary>
+    /// Gets or sets the date value associated with the current operation.
+    /// </summary>
     [BindProperty]
     public DateTime Date { get; set; } = DateTime.Now;
+    /// <summary>
+    /// Gets or sets the unique identifier for the inventory item.
+    /// </summary>
     [BindProperty]
     public string InventoryID { get; set; } = "AACOMPUT01";
+    /// <summary>
+    /// Gets or sets the date and time when the entity was last modified.
+    /// </summary>
     [BindProperty]
     public DateTime lastModified { get; set; } = DateTime.Now;
 
     #endregion
 
     #region methods
-
+    /// <summary>
+    /// Handles GET requests for the page and initializes data required for rendering.
+    /// </summary>
+    /// <remarks>This method retrieves the current list of sales orders from the database and populates the 
+    /// <see cref="Selected_SalesOrder_Customers"/> collection with customer information for use in the UI. If no sales
+    /// orders exist, an error is logged and the page is returned without additional data.</remarks>
+    /// <returns>An <see cref="IActionResult"/> representing the result of the operation. Typically, this will return the page 
+    /// to the caller.</returns>
     public async Task<IActionResult> OnGetAsync()
     {
-        // Get current SalesOrders from database
-        SalesOrders = await _context.SalesOrders.ToListAsync();
-        if (SalesOrders is null)
+        // Get current SalesOrders from local store
+        var customers = await _context.Customers.ToListAsync();
+        if (customers is null)
         {
-            _logger.LogError("Create-OnGetAsync: No Sales Orders exist. Please create at least one Sales Order!");
-            return Page();
+            _logger.LogError("Create: No customers exist.");
+            throw new NullReferenceException(nameof(customers));
         }
 
         // Populate Selected_SalesOrder_Customers
         Selected_SalesOrder_Customers.Clear();
-        foreach (var salesOrder in SalesOrders)
+        foreach (var customer in customers)
         {
-            if (!string.IsNullOrEmpty(salesOrder.CustomerID))
+            if (!string.IsNullOrEmpty(customer.CustomerID))
             {
                 Selected_SalesOrder_Customers.Add(new SelectListItem
                 {
-                    Value = salesOrder.CustomerID,
-                    Text  = salesOrder.CustomerName
+                    Value = customer.CustomerID,
+                    Text  = customer.CustomerName
                 });
             }
         }
 
         salesOrder.Date = Date.AddDays(-1);
         salesOrder.ShipmentDate = Date;
+        salesOrder.CurrencyID = "USD";
+        salesOrder.LastModified = DateTime.Now;
 
         return Page();
     }
 
     /// <summary>
-    /// To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    /// Handles the HTTP POST request to create a new sales order.
     /// </summary>
-    /// <returns></returns>
+    /// <remarks>This method performs several operations, including validating the model state, retrieving sales
+    /// orders from the database,  adjusting sales order values, and interacting with an external API to create and post the
+    /// sales order.  If the operation is successful, the new sales order is added to the database and the user is
+    /// redirected to the index page. If any errors occur during the process, the method logs the error and returns the
+    /// current page.</remarks>
+    /// <returns>A <see cref="Task{IActionResult}"/> representing the asynchronous operation.  Returns a <see
+    /// cref="RedirectToPageResult"/> if the sales order is successfully created and posted;  otherwise, returns a <see
+    /// cref="PageResult"/> indicating an error or invalid state.</returns>
+    /// <exception cref="NullReferenceException">Thrown if required objects, such as the API client or business account, are null during the operation.</exception>
     public async Task<IActionResult> OnPostAsync()
-    {
-        // Get current SalesOrders from database
-        SalesOrders = await _context.SalesOrders.ToListAsync();
- 
-        if (!ModelState.IsValid || _context.SalesOrders == null || SalesOrders == null)
+    {        
+        _context.Attach(salesOrder).State = EntityState.Added;
+        
+        if (!ModelState.IsValid)
         {
-            _logger.LogError("Create-OnGetAsync: No Sales Orders exist. Please create at least one Sales Order!");
+            var Message = $"Create: No Sales Orders exist. Please create at least one Sales Order!";
+            _logger.LogError(Message);
             return Page();
         }
 
-        _context.Attach(salesOrder).State = EntityState.Added;
-        
-        // adjust values not captured on Screen or are not sensible for a create screen
-        salesOrder.CustomerID = salesOrder.CustomerName;
-        salesOrder.CustomerName = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CustomerName;
-        salesOrder.CurrencyID = SalesOrders.Find(x => x.CustomerID == salesOrder.CustomerID).CurrencyID;
-        salesOrder.LastModified = DateTime.Now;
+        // Find the CustomerID by CustomerName from the Customers table
+        Customer_App customer = await _context.Customers.FirstOrDefaultAsync(x => x.CustomerID == salesOrder.CustomerName);
+        if (customer == null)
+        {
+            var message = $@"Create: No customer found with name {salesOrder.CustomerName}.";
+            _logger.LogError(message);
+            ModelState.AddModelError(string.Empty,message);
+            return Page();
+        }
 
-        // add adjusted salesOrder or the SalesOrder_App cache
+        salesOrder.CustomerID = customer.CustomerID;
+        salesOrder.CustomerName = customer.CustomerName;
+
+        // adjusted salesOrder added to the SalesOrder_App cache
+        var SalesOrders = await _context.SalesOrders.ToListAsync();
         SalesOrders.Add(salesOrder);
         
-        // get current Acumatcia ERP credentials to login
+        // get current Acumatica ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
 
         Credential credential = SiteCredential.GetSiteCredential().Result;
 
         if(credential == null)
         {
-            _logger.LogError("Create-OnPostAsync: No credentials found. Please create at least one credential.");
+            var Message = "Create: No credentials found. Please create at least one credential.";
+            _logger.LogError(Message);
             return Page();
         }
 
@@ -136,7 +188,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
         if(client.RequestInterceptor is null)
         {
-            var Message = $"Create: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            var Message = $@"Create: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
             _logger.LogError(Message);
             throw new NullReferenceException(nameof(client));
         }
@@ -144,30 +196,20 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         try
         {
             //RestClient Log In (on) using Credentials retrieved
-            //authApi.LogIn( Credentials[id].UserName, Credentials[id].Password, "", "", "" );
             client.Login(credential.UserName,credential.Password,"","","");
             if(client.RequestInterceptor is null)
             {
-                var Message = $"Create: Failure to create a context for client login: UserName of " +
+                var Message = $@"Create: Failure to create a context for client login: UserName of " +
                                     $"{credential.UserName} and Password of {credential.Password}";
                 _logger.LogError(Message);
                 throw new NullReferenceException(nameof(client));
             }
             else
             {
-                var CustomerID = salesOrder.CustomerID;
-
-                _logger.LogInformation($"Create: Retrieve customer using Customer ID {CustomerID}.");
-
-                //var customer = client.GetList<Customer>(top: 1,filter: "Status eq 'Active'",select: "CustomerID").Single();
-                var customer = client.GetByKeys<Customer>([CustomerID]);
-
-                _logger.LogInformation($"Create: Customer Retrie Customer details {customer}.");
-
                 var so = client.Put(new Acumatica.Default_24_200_001.Model.SalesOrder()
                 {
-                    CustomerID = customer.CustomerID,
-                    Date = DateTime.Now.AddDays(-1),
+                    CustomerID = salesOrder.CustomerID,
+                    Date = salesOrder.Date,
                     Details =
                     [
                         new SalesOrderDetail()
@@ -179,55 +221,60 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                     ]
                 },expand: "Details");
 
-                _logger.LogInformation($"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}.");
-
-                //var shipment = client.Put(new Shipment()
-                //{
-                //    CustomerID = customer.CustomerID,
-                //    WarehouseID = so.Details!.Single().WarehouseID,
-                //    Details =
-                //    [
-                //        new ShipmentDetail()
-                //        {
-                //            OrderNbr = so.OrderNbr,
-                //            OrderType = so.OrderType,
-                //            OrderLineNbr = so.Details!.First().LineNbr,
-                //        }
-                //    ]
-                //});
+                var Message = $"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}."; 
+                _logger.LogInformation(Message);
 
                var shipment = new Shipment { 
-                    ShipmentDate = DateTime.Now.AddDays(-1)
-                }; 
+                    ShipmentDate = salesOrder.ShipmentDate
+               }; 
 
-                _logger.LogInformation($"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.");
+                Message = $"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.";
+                _logger.LogInformation(Message);
 
-                var baAccount = client.GetByKeys<BusinessAccount>([ CustomerID ]);
+                var baAccount = client.GetByKeys<BusinessAccount>([ salesOrder.CustomerID ]);
                 if (baAccount is null)
                 {
-                    var Message = $"Details: Failure to determine Business Account using {client.ToString} and CustomerID {CustomerID}";
+                    Message = $"Create: Failure to determine Business Account using {client.ToString} and CustomerID {salesOrder.CustomerID}";
                     _logger.LogError(Message);
                     throw new NullReferenceException(nameof(baAccount));
                 }
 
-                _logger.LogInformation($"Create: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.");
+                Message = $"Create: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.";
+                _logger.LogInformation(Message);
 
                 var _so = new ConvertToSO(so, baAccount, shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
-                _logger.LogInformation($"Create: Newly created SalesOrder_App record to be added {_so}.");
+                Message= $@"Create: Convert Sales Order to SalesOrder_App {_so}.";
+                _logger.LogInformation(Message);
 
                 await _context.SalesOrders.AddAsync(_so);
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation($"Create: Sales Order Created and posted and added to SalesOrder_App cache.");
+                Message = $"Create: Sales Order Created and posted and added to SalesOrder_App cache.";
+                _logger.LogInformation(Message);
 
                 return RedirectToPage("./Index");
             }
         }
         catch(Exception ex)
         {
-            _logger.LogError(ex,"Create-OnPostAsync: Error creating Sales Order.");
+            var Message = $"Create: Error creating Sales Order: {ex.Message}";
+            _logger.LogError(ex,Message);
             return Page();
+        }
+        finally
+        {
+            //we use logout in finally block because we need to always log out, even if the request failed for some reason
+            if (client.TryLogout())
+            {
+                var Message = $"Create: Logged out Successfully {client.RequestInterceptor}";
+                _logger.LogInformation(message: Message);
+            }
+            else
+            {
+                var Message = $"Create: Error {client.RequestInterceptor} while logging out";
+                _logger.LogError(Message);
+            }
         }
     }
 

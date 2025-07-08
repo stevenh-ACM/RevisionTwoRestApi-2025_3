@@ -10,23 +10,27 @@ using RevisionTwoApp.RestApi.Models;
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 /// <summary>
-/// Represents the model for the details page of credentials.
+/// Represents the model for handling credential details in a Razor Page.
 /// </summary>
-/// <param name="context">The database context.</param>
-public class DetailsModel(AppDbContext context):PageModel
+/// <remarks>The <see cref="DetailsModel"/> class is used to manage the retrieval and display of credential
+/// details. It provides functionality to handle GET requests for fetching credential information by ID.</remarks>
+/// <param name="context"></param>
+/// <param name="logger"></param>
+public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):PageModel
 {
     #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="DetailsModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
-    private readonly AppDbContext _context = context;
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly ILogger<DetailsModel> _logger = logger;
     #endregion
 
     #region properties
     /// <summary>
     /// Gets or sets the credential details.
     /// </summary>
-    public Credential Credentials { get; set; } = default!;
+    public Credential credential { get; set; } = default!;
     #endregion
 
     #region methods
@@ -37,20 +41,23 @@ public class DetailsModel(AppDbContext context):PageModel
     /// <returns>An <see cref="IActionResult"/> representing the result of the operation.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
+        if (id is null)
         {
+            var errorMessage = $"Details: id is null {id}.";
+            _logger.LogError(errorMessage);
+
+            throw new ArgumentNullException(nameof(id));
+        }
+
+        var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
+        if (credential is null)
+        {
+            var errorMessage = $"Details: there are no credentials with id {id} to display!";
+            _logger.LogError(errorMessage);
+
             return NotFound();
         }
 
-        var credentials = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
-        if (credentials == null)
-        {
-            return NotFound();
-        }
-        else
-        {
-            Credentials = credentials;
-        }
         return Page();
     }
     #endregion

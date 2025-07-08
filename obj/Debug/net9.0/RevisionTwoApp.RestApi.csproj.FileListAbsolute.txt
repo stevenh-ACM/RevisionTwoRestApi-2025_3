@@ -1293,13 +1293,11 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\S
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Composition.TypedParts.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Memory.Data.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Runtime.Caching.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\af\Humanizer.resources.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\ar\Humanizer.resources.dll
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\bin\Debug\net9.0\az\Humanizer.resources.dll
@@ -1665,3 +1663,10 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\s
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\Revision.319453D2.Up2Date
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\RevisionTwoApp.RestApi.genruntimeconfig.cache
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\ref\RevisionTwoApp.RestApi.dll
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\compressed\o5qcftqpd6-at67e3d06i.gz
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\compressed\cjzweeyifr-28yq9sd61h.gz
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\obj\Debug\net9.0\compressed\xkd6k5xul0-h5gslb8p3n.gz

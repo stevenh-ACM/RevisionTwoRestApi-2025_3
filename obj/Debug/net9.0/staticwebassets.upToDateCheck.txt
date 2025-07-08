@@ -148,6 +148,10 @@ wwwroot\lib\jquery\dist\jquery.min(Conflicted copy 2025-06-10 by P1g7).map
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\qr.js
+wwwroot\lib\qrcode.js
+wwwroot\lib\qrcode.min.js
+wwwroot\lib\LICENSE
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\css\site.css
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\favicon.ico
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\img\AcumaticaRESTClientLogo.ico
@@ -258,3 +262,6 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\js\qr.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\qrcode.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\qrcode.min.js
