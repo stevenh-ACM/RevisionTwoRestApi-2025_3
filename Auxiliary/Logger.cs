@@ -1,4 +1,6 @@
-﻿namespace RevisionTwoApp.RestApi.Auxiliary;
+﻿#nullable disable
+
+namespace RevisionTwoApp.RestApi.Auxiliary;
 
 #region RequestLogger
 /// <summary>

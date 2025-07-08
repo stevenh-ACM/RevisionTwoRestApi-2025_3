@@ -63,7 +63,7 @@ namespace AcumaticaRestApiExample
                 }
                 else
                 {
-                    Console.WriteLine("An error occured during logout.");
+                    Console.WriteLine("An error occurred during logout.");
                 }
             }
         }
@@ -141,7 +141,7 @@ namespace AcumaticaRestApiExample
                 }
                 else
                 {
-                    Console.WriteLine("An error occured during logout.");
+                    Console.WriteLine("An error occurred during logout.");
                 }
             }
         }

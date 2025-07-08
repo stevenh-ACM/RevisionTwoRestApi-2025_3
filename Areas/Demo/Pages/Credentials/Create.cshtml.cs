@@ -8,6 +8,8 @@ using RevisionTwoApp.RestApi.Data;
 
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 #region CreateModel

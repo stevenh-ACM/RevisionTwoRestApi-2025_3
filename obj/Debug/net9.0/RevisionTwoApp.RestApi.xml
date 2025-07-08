@@ -297,19 +297,9 @@
             <param name="context">The database context used for data access.</param>
             <param name="logger">The logger used for logging information and errors.</param>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.FromDate">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Parms">
             <summary>
-            Search fields
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.ToDate">
-            <summary>
-            Gets or sets the end date for the search range. Defaults to today.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.NumRecords">
-            <summary>
-            Gets or sets the number of records to retrieve. Defaults to 10.
+            Gets or sets the list of parameters associated with the operation.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Selected_SalesOrder_Type">
@@ -320,11 +310,6 @@
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Selected_SalesOrder_Types">
             <summary>
             Gets or sets the list of selectable sales order types.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Parms">
-            <summary>
-            Gets or sets the parameters for the SalesOrder.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.OnGet">
@@ -388,7 +373,7 @@
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel"/> class.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.Credentials">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DeleteModel.credential">
             <summary>
             Gets or sets the credential to be deleted.
             </summary>
@@ -409,22 +394,28 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel">
             <summary>
-            Represents the model for the details page of credentials.
+            Represents the model for handling credential details in a Razor Page.
             </summary>
-            <param name="context">The database context.</param>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class is used to manage the retrieval and display of credential
+            details. It provides functionality to handle GET requests for fetching credential information by ID.</remarks>
+            <param name="context"></param>
+            <param name="logger"></param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel})">
             <summary>
-            Represents the model for the details page of credentials.
+            Represents the model for handling credential details in a Razor Page.
             </summary>
-            <param name="context">The database context.</param>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class is used to manage the retrieval and display of credential
+            details. It provides functionality to handle GET requests for fetching credential information by ID.</remarks>
+            <param name="context"></param>
+            <param name="logger"></param>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel._context">
             <summary>
-            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel"/> class.
+            Initializes a new instance of the class with the specified database context.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.Credentials">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.DetailsModel.credential">
             <summary>
             Gets or sets the credential details.
             </summary>
@@ -438,22 +429,28 @@
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel">
             <summary>
-            Represents the model for editing credentials in the Razor Page.
+            Represents the page model for editing credentials.
             </summary>
-            <param name="context">The database context.</param>
+            <remarks>This class provides functionality to handle GET and POST requests for editing credentials. It
+            interacts with the database context to retrieve and update credential data.</remarks>
+            <param name="context"></param>
+            <param name="logger"></param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel})">
             <summary>
-            Represents the model for editing credentials in the Razor Page.
+            Represents the page model for editing credentials.
             </summary>
-            <param name="context">The database context.</param>
+            <remarks>This class provides functionality to handle GET and POST requests for editing credentials. It
+            interacts with the database context to retrieve and update credential data.</remarks>
+            <param name="context"></param>
+            <param name="logger"></param>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel._context">
             <summary>
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel"/> class.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.Credentials">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.credential">
             <summary>
             Gets or sets the credential being edited.
             </summary>
@@ -471,19 +468,12 @@
             </summary>
             <returns>A redirect to the index page or the current page if validation fails.</returns>
         </member>
-        <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.CredentialExists(System.Int32)">
-            <summary>
-            Checks if a credential with the specified ID exists.
-            </summary>
-            <param name="id">The ID of the credential.</param>
-            <returns>True if the credential exists; otherwise, false.</returns>
-        </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel._context">
             <summary>
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel"/> class.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.Credentials">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.credentials">
             <summary>
             Gets or sets the list of credentials.
             </summary>
@@ -587,12 +577,7 @@
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel._logger">
             <summary>
-            Logger instance for logging information and errors.
-            </summary>
-        </member>
-        <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel._context">
-            <summary>
-            Database context for accessing application data.
+            Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel"/> class.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.SiteUrl">
@@ -603,6 +588,11 @@
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.SiteCredential">
             <summary>
             Object to hold credentials for Acumatica ERP connection.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.credential">
+            <summary>
+            Gets or sets the credential used for authentication or authorization.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Home.IndexModel.OnGet">

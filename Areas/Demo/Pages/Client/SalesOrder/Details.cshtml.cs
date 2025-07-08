@@ -21,6 +21,8 @@ using RevisionTwoApp.RestApi.Models.App;
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1572 // XML comment has badly formed XML
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 #region DetailsModel

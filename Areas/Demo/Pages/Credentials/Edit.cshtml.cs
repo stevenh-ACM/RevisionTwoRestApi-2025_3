@@ -7,12 +7,17 @@ using Microsoft.EntityFrameworkCore;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 /// <summary>
-/// Represents the model for editing credentials in the Razor Page.
+/// Represents the page model for editing credentials.
 /// </summary>
-/// <param name="context">The database context.</param>
+/// <remarks>This class provides functionality to handle GET and POST requests for editing credentials. It
+/// interacts with the database context to retrieve and update credential data.</remarks>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageModel
 {
     #region ctor
@@ -94,3 +99,4 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
     //}
     //#endregion
 }
+#endregion

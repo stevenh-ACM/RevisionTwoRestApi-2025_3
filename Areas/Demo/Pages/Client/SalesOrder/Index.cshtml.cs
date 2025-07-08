@@ -42,20 +42,13 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
 
     #region Properties
     /// <summary>
-    /// Search fields
+    /// Gets or sets the list of parameters associated with the operation.
     /// </summary>
+    public List<object> Parms { get; set; } = [ ];
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-90); //default to 90 days ago
-
-    /// <summary>
-    /// Gets or sets the end date for the search range. Defaults to today.
-    /// </summary>
     [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime ToDate { get; set; } = DateTime.Now; //default to today
-
-    /// <summary>
-    /// Gets or sets the number of records to retrieve. Defaults to 10.
-    /// </summary>
     [BindProperty]
     public int NumRecords { get; set; } = 10; //default
 
@@ -69,10 +62,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Types { get; set; } = new Combo_Boxes().ComboBox_SalesOrder_Types;
 
-    /// <summary>
-    /// Gets or sets the parameters for the SalesOrder.
-    /// </summary>
-    public List<object> Parms { get; set; } = [ ];
+
     #endregion
 
     #region methods
@@ -106,7 +96,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
         Parms = [FromDate,
                           ToDate,
                           NumRecords,
-                          Selected_SalesOrder_Type ];
+                          Selected_SalesOrder_Type];
         if (Parms is null)
         {
             var errorMessage = $"Main: No parameters exist. Please check your parameters!";

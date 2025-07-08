@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="RequestsLog.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Acumatica.Default_24.200.001" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />

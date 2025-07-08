@@ -4,7 +4,6 @@ using Acumatica.Default_24_200_001.Model;
 using Acumatica.RESTClient.AuthApi;
 using Acumatica.RESTClient.Client;
 using Acumatica.RESTClient.ContractBasedApi;
-using Acumatica.RESTClient.ContractBasedApi.Model;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,11 +17,11 @@ using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.DTOs.Conversions;
 using RevisionTwoApp.RestApi.Helper;
 using RevisionTwoApp.RestApi.Models.App;
-
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1572 // XML comment has badly formed XML
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 #region EditModel
@@ -31,7 +30,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// </summary>
 /// <param name="context"></param>
 /// <param name="logger"></param>
-public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageModel
+public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageModel
 {
     #region ctor
     private readonly ILogger<EditModel> _logger = logger;
@@ -127,13 +126,12 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
             return NotFound();
         }
 
+        // Update the salesOrder property
         _context.Attach(salesOrder).State = EntityState.Modified;
-        await _context.SaveChangesAsync(); //Save Modified Record to cache
+        await _context.SaveChangesAsync(); //Save Modified Record to local store
 
-        var infoMessage = $"Edit: Edited salesOrder is {salesOrder}";
+        var infoMessage = $@"Edit: Edited salesOrder is {salesOrder}";
         _logger.LogInformation(infoMessage);
-
-        //salesOrder.Status = Selected_SalesOrder_Statuses.FirstOrDefault(x => x.Value == salesOrder.Status)?.Text ?? string.Empty;
 
         // get current Acumatica ERP credentials to login
         SiteCredential = new(_context, _logger);
@@ -141,7 +139,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         credential = SiteCredential.GetSiteCredential().Result;
         if (credential is null)
         {
-            var errorMessage = $"Edit: No credentials found. Please create at least one credential.";
+            var errorMessage = $@"Edit: No credentials found. Please create at least one credential.";
             _logger.LogError(errorMessage);
 
             return RedirectToPage("Demo/Credentials");
@@ -154,7 +152,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
                                             ignoreSslErrors: true); // this is here to allow testing with self-signed certificates
         if (client.RequestInterceptor is null)
         {
-            var errorMessage = $"Edit: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            var errorMessage = $@"Edit: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(client));
@@ -167,7 +165,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
             client.Login(credential.UserName, credential.Password, "", "", "");
             if (client.RequestInterceptor is null)
             {
-                var errorMessage = $"Edit: Failure to create a context for client login: UserName of " +
+                var errorMessage = $@"Edit: Failure to create a context for client login: UserName of " +
                                          $"{credential.UserName} and Password of {credential.Password}";
                 _logger.LogError(errorMessage);
 
@@ -207,7 +205,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
                 var _so = new ConvertToSalesOrder(salesOrder);
 
                 //Update the Sales Order using the updated record
-                var result = client.Put<Acumatica.Default_24_200_001.Model.SalesOrder>(_so);
+                var result = client.Put<Acumatica.Default_24_200_001.Model.SalesOrder>((_so));
                 if (result is not null)
                 {
                     infoMessage = @$"Edit: Sales Order {_so.OrderNbr} edit status is {result}.";
@@ -217,7 +215,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         }
         catch (Exception ex)
         {
-            var errorMessage = $"Edit: Failed to delete Sales Order exception {ex}.";
+            var errorMessage = $@"Edit: Failed to delete Sales Order exception {ex}.";
             _logger.LogError(errorMessage);
 
             return RedirectToPage("./Details");
@@ -227,12 +225,12 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
             //we use logout in finally block because we need to always log out, even if the request failed for some reason
             if (client.TryLogout())
             {
-                infoMessage = $"Edit: Logged out Successfully {client.RequestInterceptor}";
+                infoMessage = $@"Edit: Logged out Successfully {client.RequestInterceptor}";
                 _logger.LogInformation(infoMessage);
             }
             else
             {
-                var errorMessage = $"Edit: Error {client.RequestInterceptor} while logging out";
+                var errorMessage = $@"Edit: Error {client.RequestInterceptor} while logging out";
                 _logger.LogError(errorMessage);
             }
         }
@@ -244,17 +242,12 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
     #endregion
 
     #region private methods
-    private bool SalesOrder_AppExists(int id)
-    {
-        return (_context.SalesOrders?.Any(e => e.Id == id)).GetValueOrDefault();
-    }
-
     private void GetParms()
     {
         Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
         if(Parms is null)
         {
-            var errorMessage = $"Edit: No parameters exist. Please check your parameters!";
+            var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
             _logger.LogError(errorMessage);
             throw new NullReferenceException(nameof(Parms));
         }
@@ -264,7 +257,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         NumRecords = Convert.ToInt32(Parms[2]);
         Selected_SalesOrder_Type = (string)Parms[3];
 
-        var infoMessage = $"Edit: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var infoMessage = $@"Edit: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
         _logger.LogInformation(infoMessage);
     }
@@ -277,7 +270,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
                            Selected_SalesOrder_Type];
         if(Parms is null)
         {
-            var errorMessage = $"Edit: No parameters exist. Please check your parameters!";
+            var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(Parms));
@@ -287,7 +280,7 @@ public class EditModel(AppDbContext context,ILogger<EditModel> logger) : PageMod
         TempData["EditFlag"] = true;
         TempData["DeleteFlag"] = false;
 
-        var infoMessage = $"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+        var infoMessage = $@"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
                   $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}, EditFlag:true, DeleteFlag:false";
         _logger.LogInformation(infoMessage);
     }

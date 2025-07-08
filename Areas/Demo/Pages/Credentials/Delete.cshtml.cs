@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using RevisionTwoApp.RestApi.Data;
 using RevisionTwoApp.RestApi.Models;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 /// <summary>
@@ -85,10 +87,11 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger):Page
             var Message = $"Delete: credential is null";
             _logger.LogError(Message);
 
-            throw new NullReferenceException(nameof(credential)); _context.Credentials.Remove(credential);
+            throw new NullReferenceException(nameof(credential)); 
         }
         else
         {
+            _context.Credentials.Remove(credential);
             await _context.SaveChangesAsync();
 
             var infoMessage = $"Delete: credential {credential} removed from local store";
