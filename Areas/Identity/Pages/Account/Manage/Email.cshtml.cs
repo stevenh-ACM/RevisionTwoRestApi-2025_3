@@ -2,19 +2,25 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+
 using Microsoft.AspNetCore.WebUtilities;
 
 namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage
 {
+    /// <summary>
+    /// Represents the page model for managing email-related functionality in the ASP.NET Core Identity UI.
+    /// </summary>
+    /// <remarks>This class is part of the ASP.NET Core Identity default UI infrastructure and provides
+    /// functionality  for changing and verifying user email addresses. It is not intended to be used directly from your
+    /// code  and may change or be removed in future releases.</remarks>
     public class EmailModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -73,7 +79,7 @@ namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async System.Threading.Tasks.Task LoadAsync(IdentityUser user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

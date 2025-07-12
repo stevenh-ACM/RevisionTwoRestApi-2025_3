@@ -2,17 +2,15 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+ 
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Linq;
+
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage
 {
@@ -142,7 +140,7 @@ namespace RevisionTwoApp.RestApi.Areas.Identity.Pages.Account.Manage
             }
         }
 
-        private async Task LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
+        private async System.Threading.Tasks.Task LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
