@@ -41,6 +41,7 @@ wwwroot\img\support1.png
 wwwroot\img\support_case.png
 wwwroot\img\webendpoints.png
 wwwroot\js\datepicker.js
+wwwroot\js\qr.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap(Conflicted copy 2025-06-10 by P1g7).css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid(Conflicted copy 2025-06-10 by P1g7).css
@@ -148,10 +149,9 @@ wwwroot\lib\jquery\dist\jquery.min(Conflicted copy 2025-06-10 by P1g7).map
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\js\qr.js
+wwwroot\lib\LICENSE
 wwwroot\lib\qrcode.js
 wwwroot\lib\qrcode.min.js
-wwwroot\lib\LICENSE
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\css\site.css
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\favicon.ico
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\img\AcumaticaRESTClientLogo.ico
