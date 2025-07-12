@@ -1,10 +1,11 @@
 ﻿#nullable disable
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace RevisionTwoApp.RestApi.Helper;
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
 public class Combo_Boxes
 {
     /// <summary>

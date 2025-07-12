@@ -1,36 +1,23 @@
 ﻿#nullable disable
 
-using Acumatica.RESTClient.AuthApi;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.ContractBasedApi;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using Newtonsoft.Json;
-
-using RevisionTwoApp.RestApi.Auxiliary;
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models.App;
-using Credential = RevisionTwoApp.RestApi.Models.Credential;
-
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
+using Credential = RevisionTwoApp.RestApi.Models.Credential;
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+#region DeleteModel
 /// <summary>
 /// Delete a new Sales Order
 /// </summary>
 /// <param name="context"></param>
 /// <param name="logger"></param>
-public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : PageModel
+public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger): PageModel
 {
     #region ctor
-    private readonly ILogger<DeleteModel> _logger = logger;
-    private readonly AppDbContext _context = context;
+    private readonly ILogger<DeleteModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     #endregion
 
     #region properties
@@ -96,7 +83,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
 
             return NotFound();
         }
-        else 
+        else
         {
             var infoMessage = $@"Delete: SalesOrder found. {salesOrder}";
             _logger.LogInformation(infoMessage);
@@ -115,23 +102,14 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
         SalesOrder = await _context.SalesOrders.FindAsync(id);
         if (SalesOrder is null)
         {
-            var errorMessage = $"Delete: No SalesOrder with ID {id} exists.";    
+            var errorMessage = $"Delete: No SalesOrder with ID {id} exists.";
             _logger.LogError(errorMessage);
 
             return NotFound();
         }
-        else
-        {        
-            // remove salesOrder from SalesOrder_App cache
-            _context.Remove(SalesOrder);
-            _context.SaveChanges();
-
-            var infoMessage = $@"Delete: SalesOrder deleted from local store. {SalesOrder}";
-            _logger.LogInformation(infoMessage);
-        }
 
         // get current Acumatica ERP credentials to login
-        SiteCredential = new(_context, _logger);
+        SiteCredential = new(_context,_logger);
 
         credential = SiteCredential.GetSiteCredential().Result;
         if (credential is null)
@@ -159,7 +137,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
         try
         {
             //RestClient Log In (on) using Credentials retrieved
-            client.Login(credential.UserName, credential.Password, "", "", "");
+            client.Login(credential.UserName,credential.Password,"","","");
             if (client.RequestInterceptor is null)
             {
                 var errorMessage = $"Delete: Failure to create a context for client login: UserName of " +
@@ -171,35 +149,53 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
             else
             {
                 //order status if to be deleted
-                var StatusList = new List<string> { "Open", "On Hold", "Rejected", "Expired" };
+                var StatusList = new List<string> { "Open","On Hold","Rejected","Expired" };
 
-                var keys = new List<string> { SalesOrder.OrderType, SalesOrder.OrderNbr };
+                var keys = new List<string> { SalesOrder.OrderType,SalesOrder.OrderNbr };
 
-                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, select: "OrderType, OrderNbr, Status");
-                if (StatusList.Contains(so.Status))
+                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys,select: "OrderType, OrderNbr, Status");
+                if (so is null)
                 {
-                    if (so == null)
-                    {
-                        _logger.LogError($@"Sales Order {so.OrderType} {so.OrderNbr} is not in a valid status for deletion. Status is {so.Status}.");
-                        return RedirectToPage("./Details");
-                    }
-                    else
-                    {
-                        _logger.LogInformation($@"Sales Order {keys} is in a valid status for deletion. Status is {so.Status}.");
-                    }
+                    var errorMessage = $@"Delete: Sales Order {keys} not found in Acumatica ERP.";
+                    _logger.LogError(errorMessage);
+
+                    throw new NullReferenceException(nameof(so));
                 }
                 else
                 {
-                    _logger.LogError($@"Sales Order {keys} is not in a valid status for deletion. Status is {so.Status}.");
-                    return RedirectToPage("./Details");
+                    if (StatusList.Contains(so.Status))
+                    {
+                        // chceck salseOrder status for deletion eligibility
+                        var infoMessage = $@"Delete: Sales Order {keys} is in a valid status for deletion. Status is {so.Status}.";
+                        _logger.LogInformation(infoMessage);
+                    }
+                    else
+                    {
+                        // if the status is not in the list, we cannot delete the Sales Order
+                        var errorMessage = $@"Delete: Sales Order {so.OrderType} {so.OrderNbr} is not in a valid status for deletion. Status is {so.Status}.";
+                        _logger.LogError(errorMessage);
+
+                        //go back to calling page
+                        return RedirectToPage("./Details");
+                    }
                 }
 
                 //Delete the Sales Order using the keys
                 var result = client.DeleteAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(so);
-                if (result != null)
+                if (result is not null)
                 {
-                    _logger.LogInformation(@$"Delete: Sales Order {so.OrderNbr} deletion status is {result}.");
+                    var infoMessage = @$"Delete: Sales Order {so.OrderNbr} deletion status is {result}.";
+                    _logger.LogInformation(infoMessage);
                 }
+
+                // remove salesOrder from SalesOrder_App cache
+                _context.Remove(SalesOrder);
+                _context.SaveChanges();
+
+                var infoMessage2 = $@"Delete: SalesOrder deleted from local store. {SalesOrder}";
+                _logger.LogInformation(infoMessage2);
+
+                TempData ["DeleteFlag"] = true;
             }
         }
         catch (Exception ex)
@@ -212,68 +208,45 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
             //we use logout in finally block because we need to always log out, even if the request failed for some reason
             if (client.TryLogout())
             {
-                var Message = $"Details: Logged out Successfully {client.RequestInterceptor}";
-                _logger.LogInformation(message: Message);
+                var infoMessage = $"Details: Logged out Successfully {client.RequestInterceptor}";
+                _logger.LogInformation(infoMessage);
             }
             else
             {
-                var Message = $"Details: Error {client.RequestInterceptor} while logging out";
-                _logger.LogError(Message);
+                var errorMessage = $"Details: Error {client.RequestInterceptor} while logging out";
+                _logger.LogError(errorMessage);
             }
         }
 
-        SetParms();
+        //SetParms();
 
         return RedirectToPage("./Details");
     }
     #endregion
 
     #region parameters
+    //private void SetParms()
+    //{
+    //    Parms = [ FromDate,
+    //                         ToDate,
+    //                         NumRecords,
+    //                         Selected_SalesOrder_Type ];
+    //    if(Parms is null)
+    //    {
+    //        var errorMessage = $"Delete: No parameters exist. Please check your parameters!";
+    //        _logger.LogError(errorMessage);
+    //        throw new NullReferenceException(nameof(Parms));
+    //    }
 
-    private void GetParms()
-    {
-        Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
-        if(Parms is null)
-        {
-            var errorMessage = $"Delete: No parameters exist. Please check your parameters!";
-            _logger.LogError(errorMessage);
-            throw new NullReferenceException(nameof(Parms));
-        }
+    //    TempData["parms"] = JsonConvert.SerializeObject(Parms);
 
-        FromDate = (DateTime)Parms[0];
-        ToDate = (DateTime)Parms[1];
-        NumRecords = Convert.ToInt32(Parms[2]);
-        Selected_SalesOrder_Type = (string)Parms[3];
+    //    var infoMessage = $"Delete: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+    //              $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
+    //    _logger.LogInformation(infoMessage);
 
-        var infoMessage = $"Delete: FromDate: {FromDate}, ToDate: {ToDate}, " +
-                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(infoMessage);
-
-        return;
-    }
-
-    private void SetParms()
-    {
-        Parms = [ FromDate,
-                             ToDate,
-                             NumRecords,
-                             Selected_SalesOrder_Type ];
-        if(Parms is null)
-        {
-            var errorMessage = $"Delete: No parameters exist. Please check your parameters!";
-            _logger.LogError(errorMessage);
-            throw new NullReferenceException(nameof(Parms));
-        }
-
-        TempData["parms"] = JsonConvert.SerializeObject(Parms);
-        TempData["DeleteFlag"] = true;
-
-        var infoMessage = $"Delete: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
-                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(infoMessage);
-
-        return;
-    }
+    //    return;
+    //}
     #endregion
 }
+#endregion
 

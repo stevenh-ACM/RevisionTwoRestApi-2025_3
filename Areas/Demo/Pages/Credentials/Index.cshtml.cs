@@ -1,18 +1,17 @@
 ﻿#nullable disable
 
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models;
-
-namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
+using Microsoft.AspNetCore.Authorization;
+
+using Task = System.Threading.Tasks.Task;
+
+namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
+
 [Authorize]
 
+#region IndexModel
 /// <summary>
 /// Represents the model for the Credentials Index page.
 /// </summary>
@@ -21,14 +20,13 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
 #pragma warning restore CS1587 // XML comment is not placed on a valid language element
 {
-    #region ctor   
+    #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="IndexModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
-    private readonly ILogger<IndexModel> _logger = logger;
-
-    #endregion
+    private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    #endregion ctor
 
     #region methods
     /// <summary>
@@ -58,3 +56,4 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     }
     #endregion
 }
+#endregion

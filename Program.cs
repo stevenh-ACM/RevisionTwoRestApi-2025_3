@@ -1,14 +1,36 @@
+#nullable disable
+
 #pragma warning disable CS1572 // XML comment has badly formed XML
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // Non-nullable field is uninitialized. Consider declaring as nullable.
 
+global using Acumatica.Default_24_200_001.Model;
+
+global using Acumatica.RESTClient.AuthApi;
+global using Acumatica.RESTClient.Client;
+global using Acumatica.RESTClient.ContractBasedApi;
+global using Acumatica.RESTClient.ContractBasedApi.Model;
+
+global using RevisionTwoApp.RestApi.Auxiliary;
+global using RevisionTwoApp.RestApi.Data;
+global using RevisionTwoApp.RestApi.DTOs.Conversions;
+global using RevisionTwoApp.RestApi.Helper;
+global using RevisionTwoApp.RestApi.Models;
+global using RevisionTwoApp.RestApi.Models.App;
+global using RevisionTwoApp.RestApi.Settings;
+
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.RazorPages;
+
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models;
+using System.ComponentModel.DataAnnotations;
+
+using Newtonsoft.Json;
 
 /// <summary>
 /// Version 3.0.0

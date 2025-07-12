@@ -8,8 +8,11 @@ namespace RevisionTwoApp.RestApi.Auxiliary;
 /// </summary>
 public static class RequestLogger
 {
+    #region properties
     private const string _requestsLogPath = "RequestsLog.txt";
+    #endregion
 
+    #region methods
     /// <summary>
     /// Logs the details of an HTTP response to the RequestsLog.txt file.
     /// </summary>
@@ -57,5 +60,6 @@ public static class RequestLogger
         }
         catch { }
     }
+    #endregion
 }
 #endregion

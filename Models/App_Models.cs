@@ -429,13 +429,13 @@ public class Contact_App
 }
 #endregion
 
+#region Customer_App
 /// <summary>
 /// Represents a customer application entity with properties for identifying and describing a customer.
 /// </summary>
 /// <remarks>This class is typically used to store and manage customer-related information, such as unique
 /// identifiers, customer IDs, and display names. It is designed to be used in database contexts where the <see
 /// cref="Id"/> property serves as the primary key.</remarks>
-#region Customer_App
 public class Customer_App
 {
     #region Customer_App

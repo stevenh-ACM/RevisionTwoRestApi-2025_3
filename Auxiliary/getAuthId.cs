@@ -1,14 +1,14 @@
 ﻿#nullable disable
 
-using RevisionTwoApp.RestApi.Models;
-
 namespace RevisionTwoApp.RestApi.Auxiliary;
 
+#region AuthId
 /// <summary>
 /// Provides methods to retrieve authentication-related information.
 /// </summary>
 public class AuthId
 {
+    #region methods
     /// <summary>
     /// Retrieves the ID of the first checked credential from the provided list.
     /// </summary>
@@ -25,4 +25,6 @@ public class AuthId
         }
         return 0;
     }
+    #endregion
 }
+#endregion

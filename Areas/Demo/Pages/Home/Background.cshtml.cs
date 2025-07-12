@@ -1,21 +1,23 @@
 
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 
+#region BackgroundModel
 /// <summary>
-/// Represents the model for the Background page in the Home area.
+/// Represents the model for the Background page, providing functionality to handle HTTP GET requests.
 /// </summary>
-public class BackgroundModel:PageModel
+/// <remarks>This class is used in ASP.NET Core Razor Pages to manage the Background page. It logs information
+/// about page access using the provided <see cref="ILogger{BackgroundModel}"/> instance.</remarks>
+/// <param name="logger"></param>
+public class BackgroundModel(ILogger<BackgroundModel> logger): PageModel
 {
-    private readonly ILogger<BackgroundModel> _logger;
-
+    #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="BackgroundModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
-    /// <param name="logger">The logger instance for logging information.</param>
-    public BackgroundModel(ILogger<BackgroundModel> logger) => _logger = logger;
+    private readonly ILogger<BackgroundModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    #endregion ctor
 
+    #region methods
     /// <summary>
     /// Handles GET requests to the Background page.
     /// </summary>
@@ -23,4 +25,6 @@ public class BackgroundModel:PageModel
     {
         _logger.LogInformation("Home/Background Page");
     }
+    #endregion
 }
+#endregion

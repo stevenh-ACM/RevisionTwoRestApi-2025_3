@@ -1,29 +1,28 @@
 ﻿#nullable disable
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
+#region DeleteModel
 /// <summary>
-/// Represents the model for deleting a credential.
+/// Represents a Razor Page model for handling the deletion of credentials.
 /// </summary>
-/// <param name="context">The database context.</param>
+/// <remarks>This class provides methods to handle GET and POST requests for deleting credentials. It interacts
+/// with the database context to retrieve and delete credentials and logs relevant information during the process. The
+/// class requires a valid <see cref="AppDbContext"/> and <see cref="ILogger{TCategoryName}"/>  to function
+/// correctly.</remarks>
+/// <param name="context"></param>
 /// <param name="logger"></param>
-public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger):PageModel
+public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : PageModel
 {
     #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="DeleteModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
-    private readonly ILogger<DeleteModel> _logger = logger;
+    private readonly ILogger<DeleteModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     #endregion
 
     #region properties
@@ -102,3 +101,4 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger):Page
     }
     #endregion
 }
+#endregion

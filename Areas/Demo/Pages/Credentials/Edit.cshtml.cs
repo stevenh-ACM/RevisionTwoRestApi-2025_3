@@ -1,16 +1,11 @@
 ﻿#nullable disable
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
+#region EditModel
 /// <summary>
 /// Represents the page model for editing credentials.
 /// </summary>
@@ -22,11 +17,11 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
 {
     #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="EditModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
-    private readonly ILogger<EditModel> _logger = logger;
-    #endregion
+    private readonly ILogger<EditModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    #endregion ctor
 
     #region properties
     /// <summary>
@@ -87,6 +82,9 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
 
         return RedirectToPage("./Index");
     }
+    #endregion
+}
+#endregion
 
     ///// <summary>
     ///// Checks if a credential with the specified ID exists.
@@ -97,6 +95,3 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
     //{
     //    return _context.Credentials.Any(e => e.Id == id);
     //}
-    //#endregion
-}
-#endregion

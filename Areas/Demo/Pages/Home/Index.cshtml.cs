@@ -1,20 +1,5 @@
 #nullable disable
 
-using Acumatica.Default_24_200_001.Model;
-using Acumatica.RESTClient.AuthApi;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.ContractBasedApi;
-using Acumatica.RESTClient.ContractBasedApi.Model;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Auxiliary;
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.DTOs.Conversions;
-using RevisionTwoApp.RestApi.Models;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
@@ -22,16 +7,22 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 
 #region IndexModel
 /// <summary>
-/// Represents the model for the Index page in the Home area of the Demo section.
+/// Represents the model for the Index page, providing functionality to handle GET requests and manage credentials for
+/// connecting to Acumatica ERP.
 /// </summary>
+/// <remarks>This class is responsible for retrieving credentials, establishing a connection to Acumatica ERP, and
+/// performing operations such as fetching customer data and storing it locally. It also handles logging for various
+/// operations and ensures proper cleanup, such as logging out from the client.</remarks>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
 {
     #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="IndexModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
-    public readonly ILogger<IndexModel> _logger = logger;
-    public readonly AppDbContext _context = context;
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     #endregion
 
     #region properties
@@ -150,7 +141,6 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
                 _logger.LogError(Message);
             }
         }
-
         return Page();
     }
     #endregion

@@ -1,22 +1,21 @@
 ﻿#nullable disable
 
-using Acumatica.Default_24_200_001.Model;
-using Acumatica.RESTClient.ContractBasedApi.Model;
-
-using RevisionTwoApp.RestApi.Models.App;
-using RevisionTwoApp.RestApi.Models.Default;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 #pragma warning disable IDE0290 // Use primary constructor
-#pragma warning disable IDE0060 // Use primary constructor
+#pragma warning disable IDE0060 // Use primary constructorsing Acumatica.Default_24_200_001.Model;
+ 
+using RevisionTwoApp.RestApi.Models.Default;
+
 namespace RevisionTwoApp.RestApi.Models;
 
+#region classes
 /// <summary>
 /// Conversion classes using inheritance of custom models
 /// </summary>
-#region classes
 
+
+#region toBill_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -29,7 +28,9 @@ public class ToBill_App:Bill_App
     }
     #endregion
 }
+#endregion
 
+#region toBill_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -42,7 +43,9 @@ public class ToBill_Model:Bill_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_Bill_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -57,7 +60,9 @@ public class Create_Bill_Model:Bill
     { }
     #endregion
 }
+#endregion
 
+#region toBillDetail_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -70,7 +75,9 @@ public class ToBillDetail_App:BillDetail_App
     }
     #endregion
 }
+#endregion
 
+#region toBillDetail_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -83,7 +90,9 @@ public class ToBillDetail_Model:BillDetail_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_BillDetail_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -98,6 +107,9 @@ public class Create_BillDetail_Model:BillDetail
     { }
     #endregion
 }
+#endregion
+
+#region toCase_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -110,7 +122,9 @@ public class ToCase_App:Case_App
     }
     #endregion
 }
+#endregion
 
+#region toCase_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -127,7 +141,9 @@ public class ToCase_Model:Case_Model
     }
     #endregion
 }
+#endregion
 
+#region toContact_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -140,7 +156,9 @@ public class ToContact_App:Contact_App
     }
     #endregion
 }
+#endregion
 
+#region toContact_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -153,7 +171,9 @@ public class ToContact_Model:Contact_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_Contact_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -168,7 +188,9 @@ public class Create_Contact_Model:Contact
     { }
     #endregion
 }
+#endregion
 
+#region toOpportunity_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -181,7 +203,9 @@ public class ToOpportunity_App:Opportunity_App
     }
     #endregion
 }
+#endregion
 
+#region toOpportunity_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -194,7 +218,9 @@ public class ToOpportunity_Model:Opportunity_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_Opportunity_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -209,7 +235,9 @@ public class Create_Opportunity_Model:Opportunity
     { }
     #endregion
 }
+#endregion
 
+#region toSalesOrder_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -232,7 +260,9 @@ public class ToSalesOrder_App:SalesOrder_App
     }
     #endregion
 }
+#endregion
 
+#region toSalesOrder_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance and
 /// </summary>
@@ -255,7 +285,9 @@ public class ToSalesOrder_Model:SalesOrder_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_SalesOrder_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -282,7 +314,9 @@ public class Create_SalesOrder_Model:SalesOrder_Model
     }
     #endregion
 }
+#endregion
 
+#region toShipment_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -295,7 +329,9 @@ public class ToShipment_App:Shipment_App
     }
     #endregion
 }
+#endregion
 
+#region toShipment_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -308,7 +344,9 @@ public class ToShipment_Model:Shipment_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_Shipment_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -323,7 +361,9 @@ public class Create_Shipment_Model:Shipment
     { }
     #endregion
 }
+#endregion
 
+#region toShipmentDetail_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
@@ -336,7 +376,9 @@ public class ToShipmentDetail_App:ShipmentDetail_App
     }
     #endregion
 }
+#endregion
 
+#region toShipmentDetail_Model
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
@@ -349,7 +391,9 @@ public class ToShipmentDetail_Model:ShipmentDetail_Model
     }
     #endregion
 }
+#endregion
 
+#region Create_ShipmentDetail_Model
 /// <summary>
 /// Create custom Default model from API Response, add new properties
 /// potentially from other Default Models by constructor
@@ -364,5 +408,6 @@ public class Create_ShipmentDetail_Model:ShipmentDetail
     { }
     #endregion
 }
+#endregion
 
 #endregion

@@ -1,7 +1,5 @@
 ﻿ #nullable disable
 
-using Acumatica.RESTClient.ContractBasedApi.Model;
-
 namespace RevisionTwoApp.RestApi.Entity_DTOs;
 
 #region Bill

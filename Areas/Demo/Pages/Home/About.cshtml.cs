@@ -1,24 +1,22 @@
 #nullable disable
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 
+#region AboutModel
 /// <summary>
 /// Represents the model for the About page.
 /// </summary>
 [BindProperties]
-public class AboutModel:PageModel
+public class AboutModel(ILogger<AboutModel> logger): PageModel
 {
-    private readonly ILogger<AboutModel> _logger;
-
+    #region ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="AboutModel"/> class.
+    /// Initializes a new instance of the class with the specified database context.
     /// </summary>
-    /// <param name="logger">The logger instance.</param>
-    public AboutModel(ILogger<AboutModel> logger) => _logger = logger;
+    private readonly ILogger<AboutModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    #endregion ctor
 
+    #region properties
     /// <summary>
     /// Gets or sets the number of employees to display.
     /// </summary>
@@ -33,7 +31,9 @@ public class AboutModel:PageModel
     /// Gets or sets the start year to display.
     /// </summary>
     public string DisplayStartYear { get; set; }
+    #endregion
 
+    #region methods
     /// <summary>
     /// Handles GET requests for the About page.
     /// </summary>
@@ -74,5 +74,6 @@ public class AboutModel:PageModel
         Random rand = new Random();
         return DisplayTotalRevenue = Math.Round((rand.NextDouble() * 113) + 50,0);
     }
+    #endregion
 }
-
+#endregion

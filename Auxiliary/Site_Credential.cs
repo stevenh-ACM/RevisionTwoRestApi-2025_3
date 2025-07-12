@@ -1,10 +1,5 @@
 ﻿#nullable disable
 
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Models;
-
 namespace RevisionTwoApp.RestApi.Auxiliary;
 
 #region Site_Credential
@@ -16,22 +11,18 @@ namespace RevisionTwoApp.RestApi.Auxiliary;
 public class Site_Credential(AppDbContext context, ILogger<object> logger )
 {
     #region ctor
-
     private readonly AppDbContext  _context = context;
     private readonly ILogger<object> _logger = logger;
     #endregion
 
     #region properties
-
     /// <summary>
     /// List of site credentials retrieved from the database.
     /// </summary>
     public List<Credential> SiteCredentials = [];
-
     #endregion
 
     #region methods
-
     /// <summary>
     /// Find the selected site credential from the credentials dbset in the database
     /// </summary>
@@ -103,7 +94,6 @@ public class Site_Credential(AppDbContext context, ILogger<object> logger )
         }
         return -1;
     }
-
     #endregion
 }
 #endregion

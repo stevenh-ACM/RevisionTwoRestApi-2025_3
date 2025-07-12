@@ -1,9 +1,5 @@
 ﻿#nullable disable
 
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Models;
-
 namespace RevisionTwoApp.RestApi.Data;
 
 #region SeedData
@@ -12,7 +8,7 @@ namespace RevisionTwoApp.RestApi.Data;
 /// </summary>
 public static class SeedData
 {
-    #region SeedData
+    #region methods
     /// <summary>
     /// Initializes the database with seed data.
     /// </summary>
@@ -51,8 +47,7 @@ public static class SeedData
             );
             context.SaveChanges();
         }
-
-        #endregion
     }
+    #endregion
 }
 #endregion

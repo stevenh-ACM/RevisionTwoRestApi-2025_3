@@ -1,40 +1,32 @@
 #nullable disable
 
-using Acumatica.Default_24_200_001.Model;
-using Acumatica.RESTClient.AuthApi;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.ContractBasedApi;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-
-using Newtonsoft.Json;
-
-using RevisionTwoApp.RestApi.Auxiliary;
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.DTOs.Conversions;
-using RevisionTwoApp.RestApi.Helper;
-using RevisionTwoApp.RestApi.Models.App;
-using Credential = RevisionTwoApp.RestApi.Models.Credential;
-
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1572 // XML comment has badly formed XML
+
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using Credential = RevisionTwoApp.RestApi.Models.Credential;
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 #region EditModel
 /// <summary>
-/// Edit a new Sales Order
+/// Represents the model for editing sales orders in the application.
 /// </summary>
+/// <remarks>The <see cref="EditModel"/> class provides functionality for handling HTTP GET and POST requests 
+/// related to editing sales orders. It includes properties for binding sales order data, managing  selectable options,
+/// and tracking parameters for filtering and processing sales orders.  This model is designed to interact with the
+/// application's database context and logging system.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param>
 public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageModel
 {
     #region ctor
-    private readonly ILogger<EditModel> _logger = logger;
-    private readonly AppDbContext _context = context;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EditModel"/> class.
+    /// </summary>
+    private readonly ILogger<EditModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     #endregion
 
     #region properties
@@ -76,7 +68,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
     /// <returns>An <see cref="IActionResult"/> representing the result of the operation.</returns>
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        GetParms();
+        //GetParms();
 
         if (id is null)
         {
@@ -125,10 +117,6 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
 
             return NotFound();
         }
-
-        // Update the salesOrder property
-        _context.Attach(salesOrder).State = EntityState.Modified;
-        await _context.SaveChangesAsync(); //Save Modified Record to local store
 
         var infoMessage = $@"Edit: Edited salesOrder is {salesOrder}";
         _logger.LogInformation(infoMessage);
@@ -181,7 +169,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                 var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, select: "OrderType, OrderNbr, Status");
                 if (so is null)
                 {
-                    var errorMessage = $@"Edit: Sales Order {so.OrderType} {so.OrderNbr} is not in a valid status for deletion. Status is {so.Status}.";
+                    var errorMessage = $@"Edit: Sales Order with keys {keys} doesn't exist.";
                     _logger.LogError(errorMessage);
 
                     return RedirectToPage("./Details");
@@ -190,12 +178,12 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                 {
                     if (StatusList.Contains(so.Status))
                     {
-                        infoMessage = $@"Edit: Sales Order {keys} is in a valid status for deletion. Status is {so.Status}.";
+                        infoMessage = $@"Edit: Sales Order {keys} is in a valid status for editing. Status is {so.Status}.";
                         _logger.LogInformation(infoMessage);
                     }
                     else
                     {
-                        var errorMessage = $@"Edit: Sales Order {keys} is not in a valid status for deletion. Status is {so.Status}.";
+                        var errorMessage = $@"Edit: Sales Order {keys} is not in a valid status for editing. Status is {so.Status}.";
                         _logger.LogError(errorMessage);
 
                         return RedirectToPage("./Details");
@@ -211,6 +199,14 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                     infoMessage = @$"Edit: Sales Order {_so.OrderNbr} edit status is {result}.";
                     _logger.LogInformation(infoMessage);
                 }
+
+                // Update the salesOrder property
+                _context.Attach(salesOrder).State = EntityState.Modified;
+                await _context.SaveChangesAsync(); //Save Modified Record to local store
+
+                TempData["EditFlag" ]= true;
+
+                return RedirectToPage("./Details");
             }
         }
         catch (Exception ex)
@@ -234,56 +230,52 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                 _logger.LogError(errorMessage);
             }
         }
-
-        SetParms();
-
-        return RedirectToPage("./Details");
     }
     #endregion
 
     #region private methods
-    private void GetParms()
-    {
-        Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
-        if(Parms is null)
-        {
-            var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
-            _logger.LogError(errorMessage);
-            throw new NullReferenceException(nameof(Parms));
-        }
+    //private void GetParms()
+    //{
+    //    Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
+    //    if(Parms is null)
+    //    {
+    //        var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
+    //        _logger.LogError(errorMessage);
+    //        throw new NullReferenceException(nameof(Parms));
+    //    }
 
-        FromDate = (DateTime)Parms[0];
-        ToDate = (DateTime)Parms[1];
-        NumRecords = Convert.ToInt32(Parms[2]);
-        Selected_SalesOrder_Type = (string)Parms[3];
+    //    FromDate = (DateTime)Parms[0];
+    //    ToDate = (DateTime)Parms[1];
+    //    NumRecords = Convert.ToInt32(Parms[2]);
+    //    Selected_SalesOrder_Type = (string)Parms[3];
 
-        var infoMessage = $@"Edit: FromDate: {FromDate}, ToDate: {ToDate}, " +
-                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-        _logger.LogInformation(infoMessage);
-    }
+    //    var infoMessage = $@"Edit: FromDate: {FromDate}, ToDate: {ToDate}, " +
+    //              $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
+    //    _logger.LogInformation(infoMessage);
+    //}
 
-    private void SetParms()
-    {
-        Parms = [FromDate,
-                           ToDate,
-                           NumRecords,
-                           Selected_SalesOrder_Type];
-        if(Parms is null)
-        {
-            var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
-            _logger.LogError(errorMessage);
+    //private void SetParms()
+    //{
+    //    Parms = [FromDate,
+    //                       ToDate,
+    //                       NumRecords,
+    //                       Selected_SalesOrder_Type];
+    //    if(Parms is null)
+    //    {
+    //        var errorMessage = $@"Edit: No parameters exist. Please check your parameters!";
+    //        _logger.LogError(errorMessage);
 
-            throw new NullReferenceException(nameof(Parms));
-        }
+    //        throw new NullReferenceException(nameof(Parms));
+    //    }
 
-        TempData["parms"] = JsonConvert.SerializeObject(Parms);
-        TempData["EditFlag"] = true;
-        TempData["DeleteFlag"] = false;
+    //    TempData["parms"] = JsonConvert.SerializeObject(Parms);
+    //    TempData["EditFlag"] = true;
+    //    TempData["DeleteFlag"] = false;
 
-        var infoMessage = $@"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
-                  $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}, EditFlag:true, DeleteFlag:false";
-        _logger.LogInformation(infoMessage);
-    }
+    //    var infoMessage = $@"Edit: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
+    //              $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}, EditFlag:true, DeleteFlag:false";
+    //    _logger.LogInformation(infoMessage);
+    //}
     #endregion
 }
 #endregion

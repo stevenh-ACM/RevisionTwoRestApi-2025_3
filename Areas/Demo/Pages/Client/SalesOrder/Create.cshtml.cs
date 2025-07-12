@@ -1,31 +1,24 @@
 ﻿#nullable disable
 
-using Acumatica.Default_24_200_001.Model;
-using Acumatica.RESTClient.AuthApi;
-using Acumatica.RESTClient.Client;
-using Acumatica.RESTClient.ContractBasedApi;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Auxiliary;
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.DTOs.Conversions;
-using RevisionTwoApp.RestApi.Helper;
-using RevisionTwoApp.RestApi.Models;
-using RevisionTwoApp.RestApi.Models.App;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1572 // XML comment has badly formed XML
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using Microsoft.EntityFrameworkCore;
+
+using RevisionTwoApp.RestApi.Models;
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
+#region CreateModel
 /// <summary>
-/// Create a new Sales Order
+/// Represents the page model for creating new sales orders in the application.
 /// </summary>
+/// <remarks>This class provides properties and methods to manage the creation of sales orders, including handling
+/// user input, interacting with the database, and integrating with external APIs. It supports both GET and POST
+/// operations for initializing and submitting sales order data.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param>
 public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : PageModel
@@ -34,8 +27,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// <summary>
     /// Initializes a new instance of the <see cref="CreateModel"/> class.
     /// </summary>
-    private readonly ILogger<CreateModel> _logger = logger;
-    private readonly AppDbContext _context = context;
+    private readonly ILogger<CreateModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     #endregion
 
     #region properties
@@ -166,11 +159,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
         salesOrder.CustomerID = customer.CustomerID;
         salesOrder.CustomerName = customer.CustomerName;
-
-        // adjusted salesOrder added to the SalesOrder_App cache
-        var SalesOrders = await _context.SalesOrders.ToListAsync();
-        SalesOrders.Add(salesOrder);
-        
+      
         // get current Acumatica ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
 
@@ -250,6 +239,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                 Message= $@"Create: Convert Sales Order to SalesOrder_App {_so}.";
                 _logger.LogInformation(Message);
 
+                // adjusted salesOrder added to the SalesOrder_App cache
+                var SalesOrders = await _context.SalesOrders.ToListAsync();
                 await _context.SalesOrders.AddAsync(_so);
                 await _context.SaveChangesAsync();
 
@@ -280,6 +271,6 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             }
         }
     }
-
     #endregion
 }
+#endregion  

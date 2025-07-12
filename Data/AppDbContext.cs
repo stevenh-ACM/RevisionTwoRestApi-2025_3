@@ -2,10 +2,6 @@
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Models;
-using RevisionTwoApp.RestApi.Models.App;
 
 namespace RevisionTwoApp.RestApi.Data;
 

@@ -1,46 +1,39 @@
 #nullable disable
 
-using System.ComponentModel.DataAnnotations;
-
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-using Newtonsoft.Json;
-
-using RevisionTwoApp.RestApi.Data;
-using RevisionTwoApp.RestApi.Helper;
-
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1572 // XML comment has badly formed XML
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
+
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using System.ComponentModel.DataAnnotations;
+
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
-/// <summary>
-/// Index a new Sales Order
-/// </summary>
-/// <param name="context"></param>
-/// <param name="logger"></param>
-#region IndexModel
-
 [Authorize]
+
+#region IndexModel
 /// <summary>
-/// Represents the Index page model for the SalesOrder in the Demo area.
+/// Represents the model for editing sales orders in the application.
 /// </summary>
-public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
+/// <remarks>The <see cref="IndexModel"/> class provides functionality for handling HTTP GET and POST requests 
+/// related to editing sales orders. It includes properties for binding sales order data, managing  selectable options,
+/// and tracking parameters for filtering and processing sales orders.  This model is designed to interact with the
+/// application's database context and logging system.</remarks>
+/// <param name="context"></param>
+/// <param name="logger"></param> 
+public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : PageModel
 {
     #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="IndexModel"/> class.
     /// </summary>
-    /// <param name="context">The database context used for data access.</param>
-    /// <param name="logger">The logger used for logging information and errors.</param>
-    private readonly ILogger<IndexModel> _logger = logger;
-    private readonly AppDbContext _context = context;
+    private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     #endregion
 
-    #region Properties
+    #region properties
     /// <summary>
     /// Gets or sets the list of parameters associated with the operation.
     /// </summary>
@@ -51,18 +44,12 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     public DateTime ToDate { get; set; } = DateTime.Now; //default to today
     [BindProperty]
     public int NumRecords { get; set; } = 10; //default
-
-    /// <summary>
-    /// Gets or sets the selected sales order type. Defaults to "SO".
-    /// </summary>
     public string Selected_SalesOrder_Type { get; set; } = "SO"; // Sales Order Type is Sales Order default
 
     /// <summary>
     /// Gets or sets the list of selectable sales order types.
     /// </summary>
     public List<SelectListItem> Selected_SalesOrder_Types { get; set; } = new Combo_Boxes().ComboBox_SalesOrder_Types;
-
-
     #endregion
 
     #region methods
@@ -81,37 +68,17 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// <returns>A redirection to the Details page.</returns>
     public IActionResult OnPost()
     {
-        SetParms();
+        //SetParameters();
 
         var infoMessage = $"Index: OnPost";
         _logger.LogInformation( infoMessage);
 
+        TempData[ "EditFlag" ] = false;
+        TempData[ "DeleteFlag" ] = false;
+        TempData[ "RefreshFlag" ] = true;
+
         return RedirectToPage("./Details");
     }
     #endregion 
-
-    #region private methods
-    private void SetParms()
-    {
-        Parms = [FromDate,
-                          ToDate,
-                          NumRecords,
-                          Selected_SalesOrder_Type];
-        if (Parms is null)
-        {
-            var errorMessage = $"Main: No parameters exist. Please check your parameters!";
-            _logger.LogError( errorMessage);
-
-            throw new NullReferenceException(nameof(Parms));
-        }
-
-        TempData ["parms"] = JsonConvert.SerializeObject(Parms);
-        TempData ["EditFlag"] = false;
-        TempData ["DeleteFlag"] = false;
-
-        var infoMessage = $"Main: Date Range is {FromDate} to {ToDate}. Number of Records is {NumRecords} and the SalesOrder Type is {Selected_SalesOrder_Type}";
-        _logger.LogInformation( infoMessage);
-    }
-    #endregion
 }
 #endregion

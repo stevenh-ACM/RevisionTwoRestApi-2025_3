@@ -1,26 +1,29 @@
 ﻿#nullable disable
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Data;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1587 // XML comment is not placed on a valid language element
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 #region CreateModel
 /// <summary>
-/// Represents the model for creating a new credential in the application.
+/// Represents the page model for creating a new credential.
 /// </summary>
+/// <remarks>This class provides functionality for handling HTTP GET and POST requests related to the creation of
+/// credentials. It uses an <see cref="AppDbContext"/> for database operations and an <see
+/// cref="ILogger{TCategoryName}"/> for logging.</remarks>
+/// <param name="context"></param>
+/// <param name="logger"></param>
 public class CreateModel(AppDbContext context, ILogger<CreateModel> logger):PageModel
 {
     #region ctor
+    /// <summary>
+    /// Initializes a new instance of the class with the specified database context.
+    /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
-    private readonly ILogger<CreateModel> _logger = logger;
+    private readonly ILogger<CreateModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     #endregion
 
     #region properties
