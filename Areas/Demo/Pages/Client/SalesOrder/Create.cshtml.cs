@@ -29,6 +29,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// </summary>
     private readonly ILogger<CreateModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly string _className = nameof(CreateModel);
     #endregion
 
     #region properties
@@ -57,7 +58,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// Gets or sets the sales order associated with the current operation.
     /// </summary>
     [BindProperty]
-    public SalesOrder_App salesOrder { get; set; } = new();
+    public SalesOrder_App SalesOrder { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the <see cref="Combo_Boxes"/> instance used to manage the state and data of combo box controls.
@@ -69,7 +70,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// Gets or sets the date value associated with the current operation.
     /// </summary>
     [BindProperty]
-    public DateTime Date { get; set; } = DateTime.Now;
+    public DateTime Date { get; set; }
+
     /// <summary>
     /// Gets or sets the unique identifier for the inventory item.
     /// </summary>
@@ -79,7 +81,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// Gets or sets the date and time when the entity was last modified.
     /// </summary>
     [BindProperty]
-    public DateTime lastModified { get; set; } = DateTime.Now;
+    public DateTime lastModified { get; set; }
 
     #endregion
 
@@ -95,31 +97,32 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     public async Task<IActionResult> OnGetAsync()
     {
         // Get current SalesOrders from local store
-        var customers = await _context.Customers.ToListAsync();
-        if (customers is null)
+        var Customers = await _context.Customers.ToListAsync();
+        if (Customers is null)
         {
-            _logger.LogError("Create: No customers exist.");
-            throw new NullReferenceException(nameof(customers));
+            var errorMessage = $"{_className}: No Customers exist in the database.";
+            _logger.LogError(errorMessage);
+
+            throw new NullReferenceException(nameof(Customers));
         }
 
         // Populate Selected_SalesOrder_Customers
         Selected_SalesOrder_Customers.Clear();
-        foreach (var customer in customers)
+        foreach (var Customer in Customers)
         {
-            if (!string.IsNullOrEmpty(customer.CustomerID))
+            if (!string.IsNullOrEmpty(Customer.CustomerID))
             {
                 Selected_SalesOrder_Customers.Add(new SelectListItem
                 {
-                    Value = customer.CustomerID,
-                    Text  = customer.CustomerName
+                    Value = Customer.CustomerID,
                 });
             }
         }
 
-        salesOrder.Date = Date.AddDays(-1);
-        salesOrder.ShipmentDate = Date;
-        salesOrder.CurrencyID = "USD";
-        salesOrder.LastModified = DateTime.Now;
+        SalesOrder.Date = Date.AddDays(-1);
+        SalesOrder.ShipmentDate = DateTime.Now;
+        SalesOrder.LastModified = DateTime.Now;
+        SalesOrder.CurrencyID = "USD";
 
         return Page();
     }
@@ -138,27 +141,28 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// <exception cref="NullReferenceException">Thrown if required objects, such as the API client or business account, are null during the operation.</exception>
     public async Task<IActionResult> OnPostAsync()
     {        
-        _context.Attach(salesOrder).State = EntityState.Added;
+        _context.Attach(SalesOrder).State = EntityState.Added;
         
         if (!ModelState.IsValid)
         {
-            var Message = $"Create: No Sales Orders exist. Please create at least one Sales Order!";
+            var Message = $"{_className}: No Sales Orders exist. Please create at least one Sales Order!";
             _logger.LogError(Message);
+
             return Page();
         }
 
         // Find the CustomerID by CustomerName from the Customers table
-        Customer_App customer = await _context.Customers.FirstOrDefaultAsync(x => x.CustomerID == salesOrder.CustomerName);
-        if (customer == null)
+        Customer_App Customer = await _context.Customers.FirstOrDefaultAsync(x => x.CustomerID == SalesOrder.CustomerName);
+        if (Customer == null)
         {
-            var message = $@"Create: No customer found with name {salesOrder.CustomerName}.";
+            var message = $@"{_className}: No customer found with name {SalesOrder.CustomerName}.";
             _logger.LogError(message);
             ModelState.AddModelError(string.Empty,message);
             return Page();
         }
 
-        salesOrder.CustomerID = customer.CustomerID;
-        salesOrder.CustomerName = customer.CustomerName;
+        SalesOrder.CustomerID = Customer.CustomerID;
+        SalesOrder.CustomerName = Customer.CustomerName;
       
         // get current Acumatica ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
@@ -167,20 +171,21 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
         if(credential == null)
         {
-            var Message = "Create: No credentials found. Please create at least one credential.";
+            var Message = "{_className}: No credentials found. Please create at least one credential.";
             _logger.LogError(Message);
+
             return Page();
         }
 
         var client = new ApiClient(credential.SiteUrl,
-            requestInterceptor: RequestLogger.LogRequest,
-            responseInterceptor: RequestLogger.LogResponse,
-            ignoreSslErrors: true // this is here to allow testing with self-signed certificates
-            );
+                                  requestInterceptor: RequestLogger.LogRequest,
+                                  responseInterceptor: RequestLogger.LogResponse,
+                                  ignoreSslErrors: true // this is here to allow testing with self-signed certificates
+                                 );
 
         if(client.RequestInterceptor is null)
         {
-            var Message = $@"Create: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            var Message = $@"{_className}: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
             _logger.LogError(Message);
             throw new NullReferenceException(nameof(client));
         }
@@ -191,7 +196,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             client.Login(credential.UserName,credential.Password,"","","");
             if(client.RequestInterceptor is null)
             {
-                var Message = $@"Create: Failure to create a context for client login: UserName of " +
+                var Message = $@"{_className}: Failure to create a context for client login: UserName of " +
                                     $"{credential.UserName} and Password of {credential.Password}";
                 _logger.LogError(Message);
                 throw new NullReferenceException(nameof(client));
@@ -200,51 +205,51 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             {
                 var so = client.Put(new Acumatica.Default_24_200_001.Model.SalesOrder()
                 {
-                    CustomerID = salesOrder.CustomerID,
-                    Date = salesOrder.Date,
+                    CustomerID = SalesOrder.CustomerID,
+                    Date = SalesOrder.Date,
                     Details =
                     [
                         new SalesOrderDetail()
                         {
                             InventoryID = InventoryID,
-                            OrderQty = salesOrder.OrderedQty,
+                            OrderQty = SalesOrder.OrderedQty,
 
                         }
                     ]
                 },expand: "Details");
 
-                var Message = $"Create: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}."; 
+                var Message = $@"{_className}: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}."; 
                 _logger.LogInformation(Message);
 
                var shipment = new Shipment { 
-                    ShipmentDate = salesOrder.ShipmentDate
+                    ShipmentDate = SalesOrder.ShipmentDate
                }; 
 
-                Message = $"Create: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.";
+                Message = $@"{_className}: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.";
                 _logger.LogInformation(Message);
 
-                var baAccount = client.GetByKeys<BusinessAccount>([ salesOrder.CustomerID ]);
+                var baAccount = client.GetByKeys<BusinessAccount>([ SalesOrder.CustomerID ]);
                 if (baAccount is null)
                 {
-                    Message = $"Create: Failure to determine Business Account using {client.ToString} and CustomerID {salesOrder.CustomerID}";
+                    Message = $"{_className}: Failure to determine Business Account using {client.ToString} and CustomerID {SalesOrder.CustomerID}";
                     _logger.LogError(Message);
                     throw new NullReferenceException(nameof(baAccount));
                 }
 
-                Message = $"Create: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.";
+                Message = $"{_className}: Convert Sales Order {so} + BAccountID {baAccount.BusinessAccountID} + Shipment Date {shipment.ShipmentDate} to SalesOrder_App.";
                 _logger.LogInformation(Message);
 
                 var _so = new ConvertToSO(so, baAccount, shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
-                Message= $@"Create: Convert Sales Order to SalesOrder_App {_so}.";
+                Message= $@"{_className}: Convert Sales Order to SalesOrder_App {_so}.";
                 _logger.LogInformation(Message);
 
-                // adjusted salesOrder added to the SalesOrder_App cache
+                // adjusted SalesOrder added to the SalesOrder_App cache
                 var SalesOrders = await _context.SalesOrders.ToListAsync();
                 await _context.SalesOrders.AddAsync(_so);
                 await _context.SaveChangesAsync();
 
-                Message = $"Create: Sales Order Created and posted and added to SalesOrder_App cache.";
+                Message = $"{_className}: Sales Order Created and posted and added to SalesOrder_App cache.";
                 _logger.LogInformation(Message);
 
                 return RedirectToPage("./Index");
@@ -252,8 +257,9 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         }
         catch(Exception ex)
         {
-            var Message = $"Create: Error creating Sales Order: {ex.Message}";
+            var Message = $"{_className}: Error creating Sales Order: {ex.Message}";
             _logger.LogError(ex,Message);
+
             return Page();
         }
         finally
@@ -261,12 +267,12 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             //we use logout in finally block because we need to always log out, even if the request failed for some reason
             if (client.TryLogout())
             {
-                var Message = $"Create: Logged out Successfully {client.RequestInterceptor}";
+                var Message = $"{_className}: Logged out Successfully {client.RequestInterceptor}";
                 _logger.LogInformation(message: Message);
             }
             else
             {
-                var Message = $"Create: Error {client.RequestInterceptor} while logging out";
+                var Message = $"{_className}: Error {client.RequestInterceptor} while logging out";
                 _logger.LogError(Message);
             }
         }

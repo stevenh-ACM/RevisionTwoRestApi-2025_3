@@ -23,17 +23,17 @@
 <div class="container pagemiddle p-3 m-1">
     <span asp-validation-Summary="All" class="text-danger"></span>
     <form method="post">
-        <input type="hidden" asp-for="salesOrder.Date" />
-        <input type="hidden" asp-for="salesOrder.CurrencyID" />
-        <input type="hidden" asp-for="salesOrder.CustomerID" />
-        <input type="hidden" asp-for="salesOrder.ShipmentDate" />
-        <input type="hidden" asp-for="salesOrder.LastModified" />
+        <input type="hidden" asp-for="SalesOrder.Date" />
+        <input type="hidden" asp-for="SalesOrder.CurrencyID" />
+        <input type="hidden" asp-for="SalesOrder.CustomerID" />
+        <input type="hidden" asp-for="SalesOrder.ShipmentDate" />
+        <input type="hidden" asp-for="SalesOrder.LastModified" />
 @*Top Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.Date" class="control-label"></label>
+                <label asp-for="SalesOrder.Date" class="control-label"></label>
                 <div class="input-group date" id="datepicker">
-                    <input type="text" asp-for="salesOrder.Date" class="form-control" readonly />
+                    <input type="text" asp-for="SalesOrder.Date" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-calendar3"></i>
@@ -45,9 +45,9 @@
 @*Row Two*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.Status" class="control-label"></label>
+                <label asp-for="SalesOrder.Status" class="control-label"></label>
                 <div class="input-group">
-                    <input type="text" asp-for="salesOrder.Status" value="New" class="form-control dark" readonly />
+                    <input type="text" asp-for="SalesOrder.Status" value="New" class="form-control dark" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-list-check"></i>
@@ -56,9 +56,9 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.CustomerName" class="control-label"></label>
+                <label asp-for="SalesOrder.CustomerName" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="salesOrder.CustomerName"
+                    <select asp-for="SalesOrder.CustomerName"
                             asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"></select>
                     <span class="input-group-append">   
                         <span class="input-group-text bg-light d-block">
@@ -82,43 +82,43 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderedQty" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderedQty" class="control-label"></label>
                 <div class="input-group">
-                    <input asp-for="salesOrder.OrderedQty" class="form-control" />
+                    <input asp-for="SalesOrder.OrderedQty" class="form-control" />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-cart4"></i>
                         </span>
                     </span>
                 </div>
-                <span asp-validation-for="salesOrder.OrderedQty" class="text-danger"></span>
+                <span asp-validation-for="SalesOrder.OrderedQty" class="text-danger"></span>
             </div>
         </div>
 @*Row Four*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderType" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderType" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="salesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"><option selected="">Select a Type</option></select>
+                    <select asp-for="SalesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"><option selected="">Select a Type</option></select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>
                         </span>
                     </span>
                 </div>
-                <span asp-validation-for="salesOrder.OrderType" class="text-danger"></span>
+                <span asp-validation-for="SalesOrder.OrderType" class="text-danger"></span>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.ShipmentDate" class="control-label"></label>
+                <label asp-for="SalesOrder.ShipmentDate" class="control-label"></label>
                 <div class="input-group date" id="sd-datepicker">
-                    <input type="text" asp-for="salesOrder.ShipmentDate" class="form-control"  />
+                    <input type="text" asp-for="SalesOrder.ShipmentDate" class="form-control"  />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-truck"></i>
                         </span>
                     </span>
                 </div>
-                <span asp-validation-for="salesOrder.ShipmentDate" class="text-danger"></span>
+                <span asp-validation-for="SalesOrder.ShipmentDate" class="text-danger"></span>
             </div>
         </div>
         <br />

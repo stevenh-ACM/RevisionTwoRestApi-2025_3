@@ -25,7 +25,6 @@ global using RevisionTwoApp.RestApi.Settings;
 
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
 /// <summary>
 /// Version 3.0.0
@@ -35,18 +34,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders().AddConsole();
 
-builder.Services.AddHealthChecks();
+//builder.Services.AddHealthChecks();
 
-builder.Services.AddHttpLogging(logging => 
-{
-    logging.LoggingFields = HttpLoggingFields.All;
-    logging.RequestHeaders.Add("sec-ch-ua");
-    logging.ResponseHeaders.Add("MyResponseHeader");
-    logging.MediaTypeOptions.AddText("application/javascript");
-    logging.RequestBodyLogLimit = 4096;
-    logging.ResponseBodyLogLimit = 4096;
-    logging.CombineLogs = true;
-});
+//builder.Services.AddHttpLogging(logging => 
+//{
+//    logging.LoggingFields = HttpLoggingFields.All;
+//    logging.RequestHeaders.Add("sec-ch-ua");
+//    logging.ResponseHeaders.Add("MyResponseHeader");
+//    logging.MediaTypeOptions.AddText("application/javascript");
+//    logging.RequestBodyLogLimit = 4096;
+//    logging.ResponseBodyLogLimit = 4096;
+//    logging.CombineLogs = true;
+//});
 
 //builder.Services.AddDbContext<InMemoryDbContext> ( options => options.UseInMemoryDatabase ( "InMemoryDbContext" ) );
 
@@ -106,14 +105,16 @@ builder.Services.Configure<PasswordHasherOptions>(option =>
 {
     option.IterationCount = 12000;
 });
+ 
+Globals.InitializeProperties();
 
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-app.MapHealthChecks("/healthz");
+//app.MapHealthChecks("/healthz");
 
-app.UseHttpLogging();
+//app.UseHttpLogging();
 
 //Seed credentials for Acumatica ERP connection
 // This is a one-time operation to seed the database with initial data.

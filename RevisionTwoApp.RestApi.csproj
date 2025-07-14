@@ -12,6 +12,7 @@
     <Compile Remove="Models\TempData.cs" />
     <Compile Remove="Pages\DemoMenu.cshtml.cs" />
     <Compile Remove="RESTExample.cs" />
+    <Compile Remove="Settings\Global - Copy.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,6 +6,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Scripting.Hosting;
 
 using System.ComponentModel.DataAnnotations;
 
@@ -14,6 +15,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 [Authorize]
 
 #region IndexModel
+[BindProperties]
 /// <summary>
 /// Represents the model for editing sales orders in the application.
 /// </summary>
@@ -23,8 +25,8 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// application's database context and logging system.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param> 
-public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : PageModel
-{
+    public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : PageModel
+    {
     #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="IndexModel"/> class.
@@ -34,17 +36,15 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : Page
     #endregion
 
     #region properties
-    /// <summary>
-    /// Gets or sets the list of parameters associated with the operation.
-    /// </summary>
-    public List<object> Parms { get; set; } = [ ];
-    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime FromDate { get; set; } = DateTime.Now.AddDays(-90); //default to 90 days ago
-    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime ToDate { get; set; } = DateTime.Now; //default to today
-    [BindProperty]
-    public int NumRecords { get; set; } = 10; //default
-    public string Selected_SalesOrder_Type { get; set; } = "SO"; // Sales Order Type is Sales Order default
+    [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+    public DateTime FromDate { get; set; } = (DateTime)(Globals.GetGlobalProperty("FromDate", logger) ?? DateTime.Now.AddDays(-30));
+
+    [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+    public DateTime ToDate { get; set; } = (DateTime)(Globals.GetGlobalProperty("ToDate", logger) ?? DateTime.Now); 
+
+    public int NumRecords { get; set; } = (int)Globals.GetGlobalProperty("NumRecords", logger);
+
+    public string Selected_SalesOrder_Type { get; set; } = Globals.GetGlobalProperty("Selected_SalesOrder_Type", logger)?.ToString() ?? "SO";
 
     /// <summary>
     /// Gets or sets the list of selectable sales order types.
@@ -56,10 +56,9 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : Page
     /// <summary>
     /// Handles GET requests for the Index page.
     /// </summary>
-    public void OnGet()
+    public void OnGet( )
     {
-        var infoMessage = $"Index: OnGet";
-        _logger.LogInformation(infoMessage);
+        Globals.LogGlobalProperties(_logger);
     }
 
     /// <summary>
@@ -68,14 +67,14 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : Page
     /// <returns>A redirection to the Details page.</returns>
     public IActionResult OnPost()
     {
-        //SetParameters();
+        if (!ModelState.IsValid)
+        {
+            var errorMessage = "Index: ModelState is invalid.";
+            _logger.LogError(errorMessage);
+            return Page();
+        }
 
-        var infoMessage = $"Index: OnPost";
-        _logger.LogInformation( infoMessage);
-
-        TempData[ "EditFlag" ] = false;
-        TempData[ "DeleteFlag" ] = false;
-        TempData[ "RefreshFlag" ] = true;
+        Globals.LogGlobalProperties(_logger);
 
         return RedirectToPage("./Details");
     }

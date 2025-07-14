@@ -28,6 +28,7 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// </summary>
     private readonly ILogger<DetailsModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly string _className = nameof(DetailsModel);
     #endregion
 
     #region properties
@@ -57,16 +58,21 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     public Credential credential { get; set; }
 
     /// <summary>
-    /// Parameters used for values passing and flags.
+    /// Gets or sets a value indicating whether the data from local store should be refreshed.
     /// </summary>
-    public List<object> Parms { get; set; } = [new()];
-    public Boolean RefreshFlag { get; set; } = true; // is the page simply being refreshed
-    public string Selected_SalesOrder_Type { get; set; }
-    public int NumRecords { get; set; }
-    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
-    public DateTime FromDate { get; set; }
-    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
-    public DateTime ToDate { get; set; }
+    public Boolean RefreshFlag { get; set; }
+
+    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+    public DateTime FromDate { get; set; } = (DateTime)Globals.GetGlobalProperty("FromDate", logger);
+
+    [BindProperty, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+    public DateTime ToDate { get; set; } = (DateTime)Globals.GetGlobalProperty("ToDate", logger);
+    
+    [BindProperty]
+    public int NumRecords { get; set; } = (int)Globals.GetGlobalProperty("NumRecords", logger);
+
+    [BindProperty]
+    public string Selected_SalesOrder_Type { get; set; } = Globals.GetGlobalProperty("Selected_SalesOrder_Type", logger) as string;
     #endregion
 
     #region methods
@@ -87,13 +93,13 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// <exception cref="Exception">Thrown if an error occurs during the interaction with the external Acumatica ERP system.</exception>
     public async Task<IActionResult> OnGetAsync()
     {
-        if ((bool)TempData["EditFlag"] || (bool)TempData["DeleteFlag"])
+        if ((bool)Globals.GetGlobalProperty("EditFlag") || (bool)Globals.GetGlobalProperty("DeleteFlag"))
         {
             // refresh cache with any changes made in Edit or Delete
             SalesOrders = await _context.SalesOrders.ToListAsync();
             if(SalesOrders is null)
             {
-                var errorMessage = $"Details: No SalesOrders found in the cache!";
+                var errorMessage = $"{_className}: No SalesOrders found in the cache!";
                 _logger.LogError(errorMessage);
 
                 throw new NullReferenceException(nameof(SalesOrders));
@@ -101,16 +107,14 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
 
             if(SalesOrders.Count == 0)
             {
-                var errorMessage = $"Details: No SalesOrders found in the cache!";
+                var errorMessage = $"{_className}: No SalesOrders found in the cache!";
                 _logger.LogError(errorMessage);
 
                 return RedirectToPage("/Index");
             }
 
             // reset refreshFlag and others set to false when local store does not need to be refreshed
-            TempData ["RefreshFlag"] = false;
-            TempData[ "DeleteFlag" ] = false;
-            TempData[ "EditFlag" ] = false;
+            Globals.ResetGlobalPropertyFlags(logger); // all lobal property flags are reset to false
         }
         else
         {
@@ -120,11 +124,12 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
             await _context.SaveChangesAsync();
 
             // refreshFlag set to true when local store needs to be refreshed
-            TempData[ "RefreshFlag" ] = true;
+            //TempData[ "RefreshFlag" ] = true;
+            Globals.SetGlobalProperty("RefreshFlag", true);
         }
 
         // RefreshFlag true means to new retrieval of records from Acumatica ERP and need to replace local store
-        if ((bool)TempData ["RefreshFlag"]) 
+        if ((bool)Globals.GetGlobalProperty("RefreshFlag")) 
         {
             SiteCredential = new(_context, _logger);
 
@@ -138,14 +143,14 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                                               );
             if(client is null)
             {
-                var errorMessage = $"Details: Failure to create an client context. SiteURL is {credential.SiteUrl}";
+                var errorMessage = $@"{_className}: Failure to create an client context. SiteURL is {credential.SiteUrl}";
                 _logger.LogError(message: errorMessage);
 
                 throw new NullReferenceException(nameof(client));
             }
             else
             {
-                var infoMessage = $"Details: Created client context with SiteURL of {credential.SiteUrl}";
+                var infoMessage = $@"{_className}: Created client context with SiteURL of {credential.SiteUrl}";
                 _logger.LogInformation(infoMessage);
             }
 
@@ -157,21 +162,21 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
 
                 if(client.RequestInterceptor is null)
                 {
-                    var errorMessage = $"Details: Failure to create an configuration context. client login has UserName of " +
+                    var errorMessage = $"{_className}: Failure to create an configuration context. client login has UserName of " +
                                             $"{credential.UserName} and Password of {credential.Password}";
                     _logger.LogError(errorMessage);
                     throw new NullReferenceException(nameof(client));
                 }
                 else
                 {
-                     var infoMessage = "Details: Reading Accounts for parameters chosen";
+                     var infoMessage = $"{_className}: Reading Accounts for parameters chosen";
                     _logger.LogInformation(infoMessage);
                 }
 
                 //Rest parameters for API methods
                 var fromDateTimeOffset = FromDate.ToString("s");
                 var toDateTimeOffset = ToDate.ToString("s");
-                string filter = @$"Date gt datetimeoffset'{fromDateTimeOffset}' and Date le datetimeoffset'{toDateTimeOffset}' and OrderType eq '{Selected_SalesOrder_Type}'";
+                string filter = $@"Date gt datetimeoffset'{fromDateTimeOffset}' and Date le datetimeoffset'{toDateTimeOffset}' and OrderType eq '{Selected_SalesOrder_Type}'";
                 string select = "OrderType,OrderNbr,Status,Date,Shipments/ShipmentDate,CustomerID,OrderedQty,OrderTotal,CurrencyID, LastModified";
                 string expand = "Shipments";
                 string custom = null;
@@ -197,7 +202,7 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                     var baAccount = client.GetByKeys<BusinessAccount>(customerID);
                     if(baAccount is null)
                     {
-                        var errorMessage = $"Details: Failure to create a salesOrderApi using {client.ToString}";
+                        var errorMessage = $"{_className}: Failure to create a salesOrderApi using {client.ToString}";
                         _logger.LogError(errorMessage);
 
                         throw new NullReferenceException(nameof(baAccount));
@@ -214,7 +219,7 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
             }
             catch(Exception e)
             {
-                var errorMessage = $"Details: Exception caught {e.Message}";
+                var errorMessage = $"{_className}: Exception caught {e.Message}";
                 _logger.LogError(errorMessage);
 
                 throw new Exception(nameof(client), e);
@@ -224,30 +229,31 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
                 //we use logout in finally block because we need to always log out, even if the request failed for some reason
                 if(client.TryLogout())
                 {
-                    var infoMessage = $"Details: Logged out Successfully {client.RequestInterceptor}";
+                    var infoMessage = $"{_className}: Logged out Successfully {client.RequestInterceptor}";
                     _logger.LogInformation(infoMessage);
                 }
                 else
                 {
-                    var errorMessage = $"Details: Error {client.RequestInterceptor} while logging out";
+                    var errorMessage = $"{_className}: Error {client.RequestInterceptor} while logging out";
                     _logger.LogError(errorMessage);
                 }
             }
         }
 
-        SalesOrders = await _context.SalesOrders.ToListAsync(); //retrieve the latest salesOrders from local store Refresh Flag is false
+        // if RefreshFlag is false, retrieve the latest salesOrders from local store
+        SalesOrders = await _context.SalesOrders.ToListAsync(); 
         if(SalesOrders is null)
         {
-            var errorMessage = $"Details: No SalesOrders found in the local store!";
+            var errorMessage = $"{_className}: No SalesOrders found in the local store!";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(SalesOrders));
         }
 
-        var infoMessage2 = $@"Details: No need to retrieve records from Acumatica ERP, RefreshFlag is {RefreshFlag}";
+        var infoMessage2 = $"{_className}: No need to retrieve records from Acumatica ERP, RefreshFlag is {RefreshFlag}";
         _logger.LogInformation(infoMessage2);
 
-        //SetParms(); //resets parameters and false for the SalesOrder
+        Globals.ResetGlobalPropertyFlags(logger); // reset all global property flags to false
 
         return Page();
     }
@@ -259,55 +265,14 @@ public class DetailsModel(AppDbContext context,ILogger<DetailsModel> logger) : P
     /// <returns>An IActionResult representing the result of the POST operation.</returns>
     public async Task<IActionResult> OnPostAsync()
     {
-        var infoMessage = $"Details: From Date is {FromDate}: To Date is {ToDate}";
+        var infoMessage = $@"{_className}: From Date is {FromDate}: To Date is {ToDate}";
         _logger.LogInformation(infoMessage);
 
+        // return only SalesOrders within the date range
         SalesOrders = await _context.SalesOrders.Where(x => x.Date >= FromDate && x.Date <= ToDate).ToListAsync();
         
         return Page();
     }
-    #endregion
-
-    #region private methods
-    //private void GetParms()
-    //{
-    //    Parms = JsonConvert.DeserializeObject<List<object>>((string)TempData["parms"]);
-    //    if(Parms is null)
-    //    {
-    //        var errorMessage = $"Details: No parameters exist. Please check your parameters!";
-    //        _logger.LogError(errorMessage);
-    //        throw new NullReferenceException(nameof(Parms));
-    //    }
-
-    //    FromDate = (DateTime)Parms[0];
-    //    ToDate = (DateTime)Parms[1];
-    //    NumRecords = Convert.ToInt32(Parms[2]);
-    //    Selected_SalesOrder_Type = (string)Parms[3];
-
-    //    var infoMessage = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
-    //                            $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-    //    _logger.LogInformation(infoMessage);
-    //}
-
-    //private void SetParms()
-    //{
-    //    Parms = [FromDate,
-    //                              ToDate,
-    //                              NumRecords,
-    //                              Selected_SalesOrder_Type];
-    //    if(Parms is null)
-    //    {
-    //        var errorMessage = $"Details: No parameters exist. Please check your parameters!";
-    //        _logger.LogError(errorMessage);
-    //        throw new NullReferenceException(nameof(Parms));
-    //    }
-
-    //    TempData["parms"] = JsonConvert.SerializeObject(Parms);
-
-    //    var infoMessage = $"Details: Set Parameters assigned: FromDate: {FromDate}, ToDate: {ToDate}, " +
-    //                            $"NumRecords: {NumRecords}, OrderType: {Selected_SalesOrder_Type}";
-    //    _logger.LogInformation(infoMessage);
-    //}
     #endregion
 }
 #endregion

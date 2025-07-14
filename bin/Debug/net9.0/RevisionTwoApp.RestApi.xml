@@ -54,7 +54,7 @@
             Gets or sets the collection of sales orders associated with the application.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.salesOrder">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.CreateModel.SalesOrder">
             <summary>
             Gets or sets the sales order associated with the current operation.
             </summary>
@@ -142,11 +142,6 @@
             Gets or sets the credential information used for authentication.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.Parms">
-            <summary>
-            Gets or sets the parameters used for processing or filtering.
-            </summary>
-        </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DeleteModel.OnGetAsync(System.Nullable{System.Int32})">
             <summary>
             Handles the GET request to retrieve a SalesOrder by its ID for deletion.
@@ -215,9 +210,9 @@
             Gets or sets the credentials used for authentication.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.Parms">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.RefreshFlag">
             <summary>
-            Parameters used for values passing and flags.
+            Gets or sets a value indicating whether the data from local store should be refreshed.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.DetailsModel.OnGetAsync">
@@ -271,14 +266,9 @@
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel"/> class.
             </summary>
         </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.salesOrder">
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.SalesOrder">
             <summary>
             Gets or sets the sales order application model used for binding and processing sales order data.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Parms">
-            <summary>
-            Gets or sets the parameters associated with the EditModel.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.Selected_SalesOrder_Types">
@@ -313,11 +303,6 @@
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel._logger">
             <summary>
             Initializes a new instance of the <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel"/> class.
-            </summary>
-        </member>
-        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Parms">
-            <summary>
-            Gets or sets the list of parameters associated with the operation.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel.Selected_SalesOrder_Types">
@@ -4316,6 +4301,252 @@
             <summary>
             Handles GET requests to the Terms page.
             </summary>
+        </member>
+        <member name="T:RevisionTwoApp.RestApi.Settings.Globals">
+            <summary>
+            Provides a container for global properties and methods to manage their initialization and reset.
+            </summary>
+            <remarks>This class is intended for internal use only and serves as a centralized location for managing global
+            properties. It includes methods to initialize and reset the properties, ensuring proper setup and maintenance of the
+            global state.</remarks>
+        </member>
+        <member name="F:RevisionTwoApp.RestApi.Settings.Globals._globalProperties">
+            <summary>
+            Represents a two-dimensional array of global properties.
+            </summary>
+            <remarks>This field is intended for internal use only and stores a two-dimensional array of objects. It is
+            initialized to its default value.</remarks>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Settings.Globals.FromDate">
+            <summary>
+            Gets or sets the starting date for the operation or data range.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Settings.Globals.ToDate">
+            <summary>
+            Gets or sets the date value representing the latest date in a date range.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Settings.Globals.NumRecords">
+            <summary>
+            Gets or sets the total number of records processed or available.
+            </summary>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.InitializeProperties">
+            <summary>
+            Initializes a collection of global properties with their default values.
+            </summary>
+            <remarks>This method creates and returns a list of key-value pairs representing global properties. Each
+            property is initialized with a default value, which can be used to configure application-wide settings.</remarks>
+            <returns>A list of <see cref="T:System.Tuple`2"/> objects, where each tuple contains a property name (as an <see
+            cref="T:System.Object"/>)  and its corresponding default value (as an <see cref="T:System.Object"/>).</returns>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Settings.Globals.GlobalProperties">
+            <summary>
+            Gets a list of global properties represented as key-value pairs.
+            </summary>
+            <remarks>The global properties are lazily initialized when accessed. If the list is empty or
+            uninitialized, it will be populated by the <c>InitializeProperties</c> method.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.GetGlobalProperties">
+            <summary>
+            Retrieves a list of global properties as key-value pairs.
+            </summary>
+            <remarks>This method returns a list of tuples representing global properties, where each tuple
+            contains a key and its associated value. If the global properties have not been initialized or are empty, they
+            are initialized before being returned.</remarks>
+            <returns>A list of <see cref="T:System.Tuple`2"/> objects, where each tuple contains a key and its associated value. The
+            list will be empty if no global properties are available.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.GetGlobalProperty(System.String)">
+            <summary>
+            Retrieves the value of a global property by its name.
+            </summary>
+            <remarks>This method searches for a global property by name and returns its value if found. If the
+            property does not exist, an <see cref="T:System.ArgumentException"/> is thrown.</remarks>
+            <param name="propertyName">The name of the global property to retrieve. This parameter is case-sensitive and cannot be null or empty.</param>
+            <returns>The value of the global property associated with the specified name.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if the specified <paramref name="propertyName"/> does not exist in the global properties.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.GetGlobalProperty(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Retrieves the value of a global property by its name.
+            </summary>
+            <remarks>If the specified property name does not exist in the global properties collection, a warning
+            is logged using the provided <paramref name="logger"/>.</remarks>
+            <param name="propertyName">The name of the global property to retrieve. This parameter cannot be null or empty.</param>
+            <param name="logger">An <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance used to log warnings if the specified property is not found.</param>
+            <returns>The value of the global property if found; otherwise, <see langword="null"/>.</returns>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.LogGlobalProperties(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Logs all global properties to the specified logger.
+            </summary>
+            <remarks>This method formats the global properties as a comma-separated list and logs them as an
+            informational message.</remarks>
+            <param name="logger">The logger instance used to log the global properties. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.LogGlobalProperty(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Logs the value of a global property with the specified name using the provided logger.
+            </summary>
+            <remarks>If the specified global property is found, its name and value are logged as informational
+            messages. If the property is not found, a warning message is logged instead.</remarks>
+            <param name="propertyName">The name of the global property to log. This value is case-sensitive.</param>
+            <param name="logger">The logger instance used to log the property information. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.SetGlobalProperties(System.Collections.Generic.List{System.Tuple{System.Object,System.Object}})">
+            <summary>
+            Sets the global properties for the application.
+            </summary>
+            <remarks>This method updates the global properties with the provided list of key-value pairs. Ensure
+            that the list contains valid entries, as the method does not perform additional validation on the individual
+            keys or values.</remarks>
+            <param name="properties">A list of key-value pairs representing the global properties to set.  Each tuple contains an object as the key
+            and an object as the value.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="properties"/> is null or empty.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.SetGlobalProperties(System.Collections.Generic.List{System.Tuple{System.Object,System.Object}},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Sets global properties for the application.
+            </summary>
+            <remarks>This method updates the global properties for the application and logs the operation. Ensure
+            that the <paramref name="properties"/> list contains valid key-value pairs.</remarks>
+            <param name="properties">A list of key-value pairs representing the global properties to set.  Each tuple contains an object key and an
+            object value. The list cannot be null or empty.</param>
+            <param name="logger">The logger instance used to log information about the operation.  Cannot be null.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="properties"/> is null or empty.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.SetGlobalProperty(System.String,System.Object)">
+            <summary>
+            Updates the value of an existing global property.
+            </summary>
+            <remarks>This method searches for a global property by its name and updates its value if found.  If
+            the property does not exist, an <see cref="T:System.ArgumentException"/> is thrown.</remarks>
+            <param name="propertyName">The name of the global property to update. This must match the name of an existing property.</param>
+            <param name="value">The new value to assign to the specified global property.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="propertyName"/> does not match any existing global property.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.SetGlobalProperty(System.String,System.Object,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Updates the value of an existing global property.
+            </summary>
+            <remarks>This method searches for a global property by name and updates its value. If the property is found, 
+            the update is logged using the provided <paramref name="logger"/>. If the property does not exist,  an exception is
+            thrown.</remarks>
+            <param name="propertyName">The name of the global property to update. Must match an existing property.</param>
+            <param name="value">The new value to assign to the specified global property.</param>
+            <param name="logger">An <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance used to log the update operation. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="propertyName"/> does not match any existing global property.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.ResetGlobalProperties">
+            <summary>
+            Resets the global properties to their default values.
+            </summary>
+            <remarks>This method initializes global properties to their default state.  The default values include
+            a date range spanning the last 90 days,  a default number of records set to 10, and other properties initialized
+            as required.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.ResetGlobalPropertyFlags">
+            <summary>
+            Resets global property flags to their default values.
+            </summary>
+            <remarks>This method sets the global properties "RefreshFlag", "EditFlag", and "DeleteFlag" to <see
+            langword="false"/>. It is intended to restore the default state of these flags.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.ResetGlobalPropertyFlags(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Resets global property flags to their default values and logs the updated state.    
+            </summary>
+            <param name="logger">The logger used to record the updated state of the global property flags. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.ClearGlobalProperties">
+            <summary>
+            Clears all global properties and resets them to their default state.
+            </summary>
+            <remarks>This method removes all entries from the global properties collection and reinitializes  them
+            to their default values. It is typically used to ensure a clean state for global properties.</remarks>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.AddGlobalProperty(System.String,System.Object)">
+            <summary>
+            Adds a global property to the internal collection.
+            </summary>
+            <remarks>This method stores the specified property name and value in an internal collection. The
+            collection is initialized if it has not been created yet.</remarks>
+            <param name="propertyName">The name of the property to add. Cannot be <see langword="null"/> or empty.</param>
+            <param name="value">The value associated with the property. Can be <see langword="null"/>.</param>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.AddGlobalProperty(System.String,System.Object,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Adds a global property to the internal collection.
+            </summary>
+            <remarks>This method adds the specified property name and value to an internal collection of global
+            properties. The addition is logged using the provided <paramref name="logger"/>.</remarks>
+            <param name="propertyName">The name of the property to add. Cannot be <see langword="null"/> or empty.</param>
+            <param name="value">The value associated with the property. Can be <see langword="null"/>.</param>
+            <param name="logger">The logger used to record the addition of the property. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.RemoveGlobalProperty(System.String)">
+            <summary>
+            Removes a global property with the specified name.
+            </summary>
+            <remarks>This method searches for a global property by name and removes it if found. If no matching
+            property exists, an exception is thrown.</remarks>
+            <param name="propertyName">The name of the global property to remove. This value is case-sensitive and must match the name of an existing
+            property.</param>
+            <exception cref="T:System.ArgumentException">Thrown if a global property with the specified <paramref name="propertyName"/> does not exist.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.RemoveGlobalProperty(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes a global property with the specified name from the collection of global properties.
+            </summary>
+            <remarks>If the specified property is found, it is removed from the collection, and an informational
+            log entry is created. If the property is not found, a warning log entry is created instead.</remarks>
+            <param name="propertyName">The name of the global property to remove. This value is case-sensitive.</param>
+            <param name="logger">The logger used to record information or warnings about the operation. Cannot be <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.RemoveGlobalProperty(System.String,Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            Removes a global property with the specified name.
+            </summary>
+            <remarks>If the specified property is found, it is removed and an informational message is logged. If
+            the property is not found and <paramref name="logWarningIfNotFound"/> is <see langword="true"/>, a warning
+            message is logged.</remarks>
+            <param name="propertyName">The name of the global property to remove. This parameter is case-sensitive.</param>
+            <param name="logger">The logger instance used to log informational or warning messages. Cannot be <see langword="null"/>.</param>
+            <param name="logWarningIfNotFound">Indicates whether a warning should be logged if the specified property is not found. Defaults to <see
+            langword="true"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.RemoveGlobalProperty(System.Tuple{System.Object,System.Object},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes a specified global property from the collection of global properties.
+            </summary>
+            <remarks>If the specified global property exists in the collection, it is removed and an informational
+            log entry is created. If the property does not exist, a warning log entry is created.</remarks>
+            <param name="property">A tuple representing the global property to remove. The first item is the property key, and the second item is
+            the property value.</param>
+            <param name="logger">An <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance used to log information or warnings about the removal operation. Cannot be
+            <see langword="null"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:RevisionTwoApp.RestApi.Settings.Globals.GetTupleByName(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Logs information about a global property based on its name.
+            </summary>
+            <remarks>If a global property matching <paramref name="propertyName"/> is found, its name and value
+            are logged as  informational messages. If no matching property is found, a warning message is logged
+            instead.</remarks>
+            <param name="propertyName">The name of the global property to search for. This parameter cannot be null or empty.</param>
+            <param name="logger">The logger used to record information or warnings about the global property. This parameter cannot be null.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger"/> is null.</exception>
         </member>
     </members>
 </doc>

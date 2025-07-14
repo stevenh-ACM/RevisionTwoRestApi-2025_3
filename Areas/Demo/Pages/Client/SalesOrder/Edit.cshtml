@@ -22,15 +22,15 @@
 
 <div class="container pagemiddle p-3 m-1" >
     <form method="post">
-        <input type="hidden" asp-for="salesOrder.Id" class="form-control" />
-        <input type="hidden" asp-for="salesOrder.CurrencyID" class="form-control" />
+        <input type="hidden" asp-for="SalesOrder.Id" class="form-control" />
+        <input type="hidden" asp-for="SalesOrder.CurrencyID" class="form-control" />
 
 @*Top Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.Status" class="control-label"></label>
+                <label asp-for="SalesOrder.Status" class="control-label"></label>
                 <div class="input-group">
-                    <select name="salesOrder.Status" asp-for="salesOrder.Status" asp-items=@Model.Selected_SalesOrder_Statuses class="form-select select"></select>
+                    <select name="SalesOrder.Status" asp-for="SalesOrder.Status" asp-items=@Model.Selected_SalesOrder_Statuses class="form-select select"></select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-list-check"></i>
@@ -39,9 +39,9 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderType" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderType" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="salesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"></select>
+                    <select asp-for="SalesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"></select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>
@@ -53,9 +53,9 @@
 @*Second Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.Date" class="control-label"></label>
+                <label asp-for="SalesOrder.Date" class="control-label"></label>
                 <div class="input-group date" id="datepicker">
-                    <input type="text" asp-for="salesOrder.Date" class="form-control" readonly />
+                    <input type="text" asp-for="SalesOrder.Date" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-calendar3"></i>
@@ -64,9 +64,9 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderNbr" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderNbr" class="control-label"></label>
                 <div class="input-group">
-                    <input asp-for="salesOrder.OrderNbr" class="form-control" readonly />
+                    <input asp-for="SalesOrder.OrderNbr" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-bag"></i>
@@ -78,9 +78,9 @@
 @*Third Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.CustomerID" class="control-label"></label>
+                <label asp-for="SalesOrder.CustomerID" class="control-label"></label>
                 <div class="input-group">
-                    <input asp-for="salesOrder.CustomerID" class="form-control" readonly />
+                    <input asp-for="SalesOrder.CustomerID" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-card-list"></i>
@@ -89,9 +89,9 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.CustomerName" class="control-label"></label>
+                <label asp-for="SalesOrder.CustomerName" class="control-label"></label>
                 <div class="input-group">
-                    <input asp-for="salesOrder.CustomerName" class="form-control" readonly />
+                    <input asp-for="SalesOrder.CustomerName" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-card-list"></i>
@@ -103,9 +103,9 @@
 @*Fourth Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderedQty" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderedQty" class="control-label"></label>
                 <div class="input-group">
-                    <input asp-for="salesOrder.OrderedQty" asp-format="{0:N0}" class="form-control" readonly />
+                    <input asp-for="SalesOrder.OrderedQty" asp-format="{0:N0}" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-cart4"></i>
@@ -114,12 +114,12 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.OrderTotal" class="control-label"></label>
+                <label asp-for="SalesOrder.OrderTotal" class="control-label"></label>
                 <div class="input-group">
                       <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">$</span>
                        </div>
-                    <input asp-for="salesOrder.OrderTotal" asp-format="{0:N2}" class="form-control" readonly />
+                    <input asp-for="SalesOrder.OrderTotal" asp-format="{0:N2}" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-credit-card"></i>
@@ -131,9 +131,9 @@
     @*Fifth Row*@
         <div class="row p-1">
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.ShipmentDate" class="control-label"></label>
+                <label asp-for="SalesOrder.ShipmentDate" class="control-label"></label>
                 <div class="input-group date" id="datepicker">
-                    <input type="text" asp-for="salesOrder.ShipmentDate" class="form-control" />
+                    <input type="text" asp-for="SalesOrder.ShipmentDate" class="form-control" />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-truck"></i>
@@ -142,9 +142,9 @@
                 </div>
             </div>
             <div class="col-auto col-md-4">
-                <label asp-for="salesOrder.LastModified" class="control-label"></label>
+                <label asp-for="SalesOrder.LastModified" class="control-label"></label>
                 <div class="input-group date">
-                    <input type="text" asp-for="salesOrder.LastModified" class="form-control" readonly />
+                    <input type="text" asp-for="SalesOrder.LastModified" class="form-control" readonly />
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-calendar3"></i>

@@ -156,6 +156,7 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\css\site.c
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\favicon.ico
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\img\AcumaticaRESTClientLogo.ico
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\js\datepicker.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\js\qr.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\js\site.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\bootstrap\dist\css\bootstrap(Conflicted copy 2025-06-10 by P1g7).css
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\bootstrap\dist\css\bootstrap-grid(Conflicted copy 2025-06-10 by P1g7).css
@@ -249,12 +250,6 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min(Conflicted copy 2025-06-10 by P1g7).js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.js
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.min(Conflicted copy 2025-06-10 by P1g7).js
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.min(Conflicted copy 2025-06-10 by P1g7).js
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\LICENSE.md
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.min(Conflicted copy 2025-06-10 by P1g7).js
@@ -262,6 +257,11 @@ C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\js\qr.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\qrcode.js
 C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\qrcode.min.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.min(Conflicted copy 2025-06-10 by P1g7).js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.min(Conflicted copy 2025-06-10 by P1g7).js
+C:\Users\stevenh\source\RevisionTwo\RevisionTwoRestApi-2025_3\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
