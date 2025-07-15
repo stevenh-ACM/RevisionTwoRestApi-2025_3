@@ -1,8 +1,5 @@
 ﻿#nullable disable
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1587 // XML comment is not placed on a valid language element
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 #region DetailsModel
@@ -21,6 +18,7 @@ public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):Pa
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<DetailsModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(DetailsModel);
     #endregion ctor
 
     #region properties
@@ -40,7 +38,7 @@ public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):Pa
     {
         if (id is null)
         {
-            var errorMessage = $"Details: id is null {id}.";
+            var errorMessage = $"{_className}: id is null {id}.";
             _logger.LogError(errorMessage);
 
             throw new ArgumentNullException(nameof(id));
@@ -49,7 +47,7 @@ public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):Pa
         var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
         if (credential is null)
         {
-            var errorMessage = $"Details: there are no credentials with id {id} to display!";
+            var errorMessage = $"{_className}: there are no credentials with id {id} to display!";
             _logger.LogError(errorMessage);
 
             return NotFound();

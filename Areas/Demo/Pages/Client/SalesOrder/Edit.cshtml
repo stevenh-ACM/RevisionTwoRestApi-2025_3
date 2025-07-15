@@ -30,7 +30,10 @@
             <div class="col-auto col-md-4">
                 <label asp-for="SalesOrder.Status" class="control-label"></label>
                 <div class="input-group">
-                    <select name="SalesOrder.Status" asp-for="SalesOrder.Status" asp-items=@Model.Selected_SalesOrder_Statuses class="form-select select"></select>
+                    <select name="SalesOrder.Status"
+                            asp-for="SalesOrder.Status" asp-items=@Model.Selected_SalesOrder_Statuses class="form-select select">
+                                <option value=@Model.SalesOrder.Status">@Model.Selected_SalesOrder_Statuses</option>
+                    </select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-list-check"></i>

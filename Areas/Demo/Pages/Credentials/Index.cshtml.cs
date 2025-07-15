@@ -18,7 +18,6 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// <param name="context">The database context.</param>
 /// <param name="logger">The logger instance.</param>
 public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
-#pragma warning restore CS1587 // XML comment is not placed on a valid language element
 {
     #region ctor
     /// <summary>
@@ -26,6 +25,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(IndexModel);
     #endregion ctor
 
     #region methods
@@ -43,14 +43,14 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
         credentials = await _context.Credentials.ToListAsync();
         if (credentials is null)
         {
-            var errorMessage = $@"Index: No Credentials found - create a credential";
+            var errorMessage = $@"{_className}: No Credentials found - create a credential";
             _logger.LogError(errorMessage);
 
             RedirectToPage("./Create");
         }
         else 
         {
-            var infoMessage = $@"Index: Display Page";
+            var infoMessage = $"{_className}: Display Page";
             _logger.LogInformation(infoMessage);
         }
     }

@@ -106,7 +106,7 @@ builder.Services.Configure<PasswordHasherOptions>(option =>
     option.IterationCount = 12000;
 });
  
-Globals.InitializeProperties();
+Globals.InitializeProperties(); //Global flags and properties
 
 builder.Services.AddRazorPages();
 

@@ -21,6 +21,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<EditModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(EditModel);
     #endregion ctor
 
     #region properties
@@ -41,7 +42,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
     {
         if (id is null)
         {
-            var errorMessage = $@"Edit: No ID provided, {id} was passed in.";
+            var errorMessage = $"{_className}:: No ID provided, {id} was passed in.";
             _logger.LogError(errorMessage);
 
             throw new ArgumentNullException(nameof(id));
@@ -50,7 +51,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
         var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
         if (credential is null)
         {
-            var errorMessage = $@"Edit: No credential with the Id {id} found.";
+            var errorMessage = $"{_className}: No credential with the Id {id} found.";
             _logger.LogError(errorMessage);
 
             return NotFound();
@@ -69,7 +70,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
 
         if (!ModelState.IsValid)
         {
-            var errorMessage = $"Create: No credential exists. Please create at least one!";
+            var errorMessage = $"{_className}: No credential exists. Please create at least one!";
             _logger.LogError(errorMessage);
 
             return NotFound();
@@ -77,7 +78,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
         
         await _context.SaveChangesAsync();
 
-        var infoMessage = $"Edit: Credential {credential} updated successfully!";
+        var infoMessage = $@"{_className}: Credential {credential} updated successfully!";
         _logger.LogInformation(infoMessage);
 
         return RedirectToPage("./Index");
@@ -86,12 +87,3 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger):PageMode
 }
 #endregion
 
-    ///// <summary>
-    ///// Checks if a credential with the specified ID exists.
-    ///// </summary>
-    ///// <param name="id">The ID of the credential.</param>
-    ///// <returns>True if the credential exists; otherwise, false.</returns>
-    //private bool CredentialExists(int id)
-    //{
-    //    return _context.Credentials.Any(e => e.Id == id);
-    //}

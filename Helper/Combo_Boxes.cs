@@ -1,11 +1,16 @@
 ﻿#nullable disable
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RevisionTwoApp.RestApi.Helper;
-
+/// <summary>
+/// Represents a collection of combo box data used for various entities such as bills, cases, contacts, opportunities,
+/// sales orders, and shipments.
+/// </summary>
+/// <remarks>This class provides predefined lists of items for combo boxes, categorized by entity type and
+/// purpose.  Each property contains a collection of strings or <see cref="SelectListItem"/> objects that represent the
+/// available options for a specific entity. Use this class to populate UI elements like dropdowns or combo boxes with
+/// consistent and standardized data.</remarks>
 public class Combo_Boxes
 {
     /// <summary>

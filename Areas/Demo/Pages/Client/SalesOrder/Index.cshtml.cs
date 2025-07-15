@@ -33,6 +33,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
     /// </summary>
     private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly string _className = nameof(IndexModel);
     #endregion
 
     #region properties
@@ -69,10 +70,16 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
     {
         if (!ModelState.IsValid)
         {
-            var errorMessage = "Index: ModelState is invalid.";
+            var errorMessage = $"{_className}: ModelState is invalid.";
             _logger.LogError(errorMessage);
+
             return Page();
         }
+
+        Globals.SetGlobalProperty("FromDate", FromDate, _logger);
+        Globals.SetGlobalProperty("ToDate", ToDate, _logger);
+        Globals.SetGlobalProperty("NumRecords", NumRecords, _logger);
+        Globals.SetGlobalProperty("Selected_SalesOrder_Type", Selected_SalesOrder_Type, _logger);
 
         Globals.LogGlobalProperties(_logger);
 

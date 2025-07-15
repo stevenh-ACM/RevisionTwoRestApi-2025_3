@@ -48,7 +48,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// <summary>
     /// Gets a list of customers available for selection in a sales order.
     /// </summary>
-    public List<SelectListItem> Selected_SalesOrder_Customers { get; } = [];
+    [BindProperty]
+    public List<SelectListItem> Selected_SalesOrder_Customers { get; set; } = [];
     /// <summary>
     /// Gets or sets the collection of sales orders associated with the application.
     /// </summary>
@@ -60,43 +61,37 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     [BindProperty]
     public SalesOrder_App SalesOrder { get; set; } = new();
 
-    /// <summary>
-    /// Gets or sets the <see cref="Combo_Boxes"/> instance used to manage the state and data of combo box controls.
-    /// </summary>
-    [BindProperty]
-    public Combo_Boxes Combo_Boxes { get; set; } = new();
+    ///// <summary>
+    ///// Gets or sets the <see cref="Combo_Boxes"/> instance used to manage the state and data of combo box controls.
+    ///// </summary>
+    //[BindProperty]
+    //public Combo_Boxes Combo_Boxes { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the date value associated with the current operation.
     /// </summary>
     [BindProperty]
-    public DateTime Date { get; set; }
+    public DateTime Date { get; set; } = DateTime.Now;
 
     /// <summary>
     /// Gets or sets the unique identifier for the inventory item.
     /// </summary>
     [BindProperty]
-    public string InventoryID { get; set; } = "AACOMPUT01";
-    /// <summary>
-    /// Gets or sets the date and time when the entity was last modified.
-    /// </summary>
-    [BindProperty]
-    public DateTime lastModified { get; set; }
-
+    public string InventoryID { get; } = (string)Globals.GetGlobalProperty(nameof(InventoryID));
     #endregion
 
-    #region methods
-    /// <summary>
-    /// Handles GET requests for the page and initializes data required for rendering.
-    /// </summary>
-    /// <remarks>This method retrieves the current list of sales orders from the database and populates the 
-    /// <see cref="Selected_SalesOrder_Customers"/> collection with customer information for use in the UI. If no sales
-    /// orders exist, an error is logged and the page is returned without additional data.</remarks>
-    /// <returns>An <see cref="IActionResult"/> representing the result of the operation. Typically, this will return the page 
-    /// to the caller.</returns>
+    #region methods  
+    /// <summary>  
+    /// Handles GET requests for the page and initializes data required for rendering.  
+    /// </summary>  
+    /// <remarks>This method retrieves the current list of sales orders from the database and populates the   
+    /// <see cref="Selected_SalesOrder_Customers"/> collection with customer information for use in the UI. If no sales  
+    /// orders exist, an error is logged and the page is returned without additional data.</remarks>  
+    /// <returns>An <see cref="IActionResult"/> representing the result of the operation. Typically, this will return the page   
+    /// to the caller.</returns>  
     public async Task<IActionResult> OnGetAsync()
     {
-        // Get current SalesOrders from local store
+        // Get current SalesOrders from local store  
         var Customers = await _context.Customers.ToListAsync();
         if (Customers is null)
         {
@@ -106,7 +101,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             throw new NullReferenceException(nameof(Customers));
         }
 
-        // Populate Selected_SalesOrder_Customers
+        // Populate Selected_SalesOrder_Customers  
         Selected_SalesOrder_Customers.Clear();
         foreach (var Customer in Customers)
         {
@@ -114,9 +109,16 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             {
                 Selected_SalesOrder_Customers.Add(new SelectListItem
                 {
+                    Text = Customer.CustomerName,
                     Value = Customer.CustomerID,
+                    Selected = false
                 });
             }
+        }
+
+        for (int i = 0; i < Selected_SalesOrder_Customers.Count - 1; i++)
+        {
+            _logger.LogInformation($"{_className}: Selected_SalesOrder_Customers {i}\nis Text = {Selected_SalesOrder_Customers[ i].Text}, Value = {Selected_SalesOrder_Customers[ i ].Value}. Selected = {Selected_SalesOrder_Customers[ i ].Selected}.\n");
         }
 
         SalesOrder.Date = Date.AddDays(-1);
@@ -151,24 +153,24 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             return Page();
         }
 
+        var infoMessage = $"{_className}: CustomerID is {SalesOrder.CustomerID}.";
+        _logger.LogInformation(infoMessage);
+
         // Find the CustomerID by CustomerName from the Customers table
-        Customer_App Customer = await _context.Customers.FirstOrDefaultAsync(x => x.CustomerID == SalesOrder.CustomerName);
+        Customer_App Customer = await _context.Customers.FirstOrDefaultAsync(x => x.CustomerID == SalesOrder.CustomerID);
         if (Customer == null)
         {
-            var message = $@"{_className}: No customer found with name {SalesOrder.CustomerName}.";
+            var message = $"{_className}: No customer found with name {SalesOrder.CustomerID}.";
             _logger.LogError(message);
             ModelState.AddModelError(string.Empty,message);
+
             return Page();
         }
 
-        SalesOrder.CustomerID = Customer.CustomerID;
-        SalesOrder.CustomerName = Customer.CustomerName;
-      
         // get current Acumatica ERP credentials to login
         Site_Credential SiteCredential = new(_context,_logger);
 
         Credential credential = SiteCredential.GetSiteCredential().Result;
-
         if(credential == null)
         {
             var Message = "{_className}: No credentials found. Please create at least one credential.";
@@ -218,14 +220,14 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                     ]
                 },expand: "Details");
 
-                var Message = $@"{_className}: New Sales Order added to {credential.SiteUrl}. The Order placed is {so}."; 
+                var Message = $@"{_className}: New Sales Order added to {credential.SiteUrl}." + $"\nThe Order placed is {so}."; 
                 _logger.LogInformation(Message);
 
                var shipment = new Shipment { 
                     ShipmentDate = SalesOrder.ShipmentDate
                }; 
 
-                Message = $@"{_className}: New Shipment is added to {credential.SiteUrl}. The Shipment Created is {shipment}.";
+                Message = $"{_className}: New Shipment is added to {credential.SiteUrl}. \nThe Shipment Created is {shipment}.";
                 _logger.LogInformation(Message);
 
                 var baAccount = client.GetByKeys<BusinessAccount>([ SalesOrder.CustomerID ]);
@@ -241,7 +243,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 var _so = new ConvertToSO(so, baAccount, shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
-                Message= $@"{_className}: Convert Sales Order to SalesOrder_App {_so}.";
+                Message= $@"{_className}: Convert Sales Order to SalesOrder_App.";
                 _logger.LogInformation(Message);
 
                 // adjusted SalesOrder added to the SalesOrder_App cache

@@ -24,6 +24,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger):Page
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<CreateModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(CreateModel);
     #endregion
 
     #region properties
@@ -41,6 +42,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger):Page
     /// <returns>An <see cref="IActionResult"/> that renders the current page.</returns>
     public IActionResult OnGet( )
     {
+        var infoMessage = $"{_className}: OnGet";
+        _logger.LogInformation(infoMessage);
         return Page();
     }
 
@@ -58,13 +61,13 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger):Page
 
         if (!ModelState.IsValid)
         {
-            var errorMessage = $"Create: No credential exists. Please create at least one!";
+            var errorMessage = $"{_className}: No credential exists. Please create at least one!";
             _logger.LogError(errorMessage);
 
             return NotFound();
         }
 
-        var infoMessage = $"Create: Creating credential {credential}!";
+        var infoMessage = $@"{_className}: Creating credential {credential}!";
         _logger.LogInformation(infoMessage);    
 
         _context.Credentials.Add(credential);

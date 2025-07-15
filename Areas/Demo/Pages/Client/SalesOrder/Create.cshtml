@@ -23,9 +23,7 @@
 <div class="container pagemiddle p-3 m-1">
     <span asp-validation-Summary="All" class="text-danger"></span>
     <form method="post">
-        <input type="hidden" asp-for="SalesOrder.Date" />
         <input type="hidden" asp-for="SalesOrder.CurrencyID" />
-        <input type="hidden" asp-for="SalesOrder.CustomerID" />
         <input type="hidden" asp-for="SalesOrder.ShipmentDate" />
         <input type="hidden" asp-for="SalesOrder.LastModified" />
 @*Top Row*@
@@ -53,13 +51,12 @@
                             <i class="bi bi-list-check"></i>
                         </span>
                     </span>
-                </div>
-            </div>
+                </div></div>
             <div class="col-auto col-md-4">
                 <label asp-for="SalesOrder.CustomerName" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="SalesOrder.CustomerName"
-                            asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"></select>
+                    <select asp-for="SalesOrder.CustomerID"
+                            asp-items=@Model.Selected_SalesOrder_Customers class="form-select select"><option selected="">Select the Customer</option></select>
                     <span class="input-group-append">   
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>
@@ -99,7 +96,8 @@
             <div class="col-auto col-md-4">
                 <label asp-for="SalesOrder.OrderType" class="control-label"></label>
                 <div class="input-group">
-                    <select asp-for="SalesOrder.OrderType" asp-items=@Model.Selected_SalesOrder_Types class="form-select select"><option selected="">Select a Type</option></select>
+                    <select asp-for="SalesOrder.OrderType" 
+                            asp-items=@Model.Selected_SalesOrder_Types class="form-select select"><option selected="">Select a Type</option></select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="bi bi-clipboard2-check"></i>

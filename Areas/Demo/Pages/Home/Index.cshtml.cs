@@ -1,8 +1,5 @@
 #nullable disable
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1587 // XML comment is not placed on a valid language element
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Home;
 
 #region IndexModel
@@ -23,6 +20,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(IndexModel);
     #endregion
 
     #region properties
@@ -57,14 +55,14 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
 
         if (credential is null)
         {
-            var errorMessage = "Home/Index: No Credentials exist. Please create at least one Credential!";
+            var errorMessage = $"{_className}: No Credentials exist. Please create at least one Credential!";
             _logger.LogError(errorMessage);
 
             return RedirectToPage("Credentials/Create");
         }
         else
         {
-            var infoMessage = $@"Home/Index: Credentials retrieved successfully. SiteURL is {credential.SiteUrl}";
+            var infoMessage = $@"{_className}: Credentials retrieved successfully. SiteURL is {credential.SiteUrl}";
             _logger.LogInformation(infoMessage);
         }
 
@@ -77,7 +75,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
                                            );
         if (client is null)
         {
-            var errorMessage = $"Index: Failure to create an client context. SiteURL is {credential.SiteUrl}";
+            var errorMessage = $@"{_className}: Failure to create an client context. SiteURL is {credential.SiteUrl}";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(client));
@@ -89,33 +87,33 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
             client.Login(credential.UserName, credential.Password, "", "", "");
             if (client.RequestInterceptor is null)
             {
-                var errormessage = $"Home/IndexDetails: Failure to create an configuration context. client login has UserName of " +
+                var errorMessage = $"{_className}: Failure to create an configuration context. client login has UserName of " +
                                          $"{credential.UserName} and Password of {credential.Password}";
-                _logger.LogError(errormessage);
+                _logger.LogError(errorMessage);
 
                 throw new NullReferenceException(nameof(client));
             }
             else
             {
-                var infoMessage = "Index: Reading Customers for local store";
+                var infoMessage = $"{_className}: Reading Customers for local store";
                 _logger.LogInformation(infoMessage);
             }
 
             //Rest parameters for API methods
 
-            //Invoke GetList (of Customers per parameters) on Customer Api
+            // Get list (of Customers per parameters) on Customer Api
             var select = "CustomerID,CustomerName";
             var customers = client.GetList<Acumatica.Default_24_200_001.Model.Customer>(null, select, top:50);
 
             //add customers to local store
             for (int i = 0; i < customers.Count; i++)
             {
-                var message = $"Home/Index: Customer {i + 1} of {customers.Count} is {customers[i].CustomerID} - {customers[i].CustomerName}";
-                _logger.LogInformation(message);
+                var infoMessage = $"{_className}: Customer {i + 1} of {customers.Count} is {customers[i].CustomerID} - {customers[i].CustomerName}";
+                _logger.LogInformation(infoMessage);
                 
                 var _cu = new ConvertToCU(customers[i]);
 
-                //Add Customer_App to local store
+                // Add customers to local store
                 _context.Customers.Add(_cu);
             }
 
@@ -124,7 +122,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
         }
         catch (Exception e)
         {
-            var Message = $"Home/Index: Exception caught {e.Message}";
+            var Message = $"{_className}: Exception caught {e.Message}";
             _logger.LogError(Message);
         }
         finally
@@ -132,12 +130,12 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
             //we use logout in finally block because we need to always log out, even if the request failed for some reason
             if (client.TryLogout())
             {
-                var Message = $"Home/Index: Logged out Successfully {client.RequestInterceptor}";
+                var Message = $"{_className}: Logged out Successfully {client.RequestInterceptor}";
                 _logger.LogInformation(message: Message);
             }
             else
             {
-                var Message = $"Home/Index: Error {client.RequestInterceptor} while logging out";
+                var Message = $"{_className}: Error {client.RequestInterceptor} while logging out";
                 _logger.LogError(Message);
             }
         }

@@ -16,6 +16,7 @@ public class GettingStartedModel(ILogger<GettingStartedModel> logger) : PageMode
     /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly ILogger<GettingStartedModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(GettingStartedModel);
     #endregion ctor
 
     #region methods
@@ -24,7 +25,8 @@ public class GettingStartedModel(ILogger<GettingStartedModel> logger) : PageMode
     /// </summary>
     public void OnGet()
     {
-        _logger.LogInformation("Home/Get Started Page");
+        var infoMessage = $"{_className} - OnGet()";
+        _logger.LogInformation(infoMessage);
     }
     #endregion
 }

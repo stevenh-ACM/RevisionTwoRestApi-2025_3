@@ -15,6 +15,7 @@ public class BackgroundModel(ILogger<BackgroundModel> logger): PageModel
     /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly ILogger<BackgroundModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(BackgroundModel);
     #endregion ctor
 
     #region methods
@@ -23,7 +24,8 @@ public class BackgroundModel(ILogger<BackgroundModel> logger): PageModel
     /// </summary>
     public void OnGet()
     {
-        _logger.LogInformation("Home/Background Page");
+        var infoMessage = $"{_className} - OnGet()";
+        _logger.LogInformation(infoMessage);
     }
     #endregion
 }

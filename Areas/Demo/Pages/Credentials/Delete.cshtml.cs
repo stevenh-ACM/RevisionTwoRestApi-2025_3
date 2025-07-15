@@ -1,8 +1,5 @@
 ﻿#nullable disable
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1587 // XML comment is not placed on a valid language element
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
 #region DeleteModel
@@ -23,6 +20,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<DeleteModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(DeleteModel);
     #endregion
 
     #region properties
@@ -43,7 +41,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
     {
         if (id is null)
         {
-            var errorMessage = $@"Delete: id is null {id}.";
+            var errorMessage = $"{_className}: id is null {id}.";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(id));
@@ -52,14 +50,14 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
         var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
         if (credential is null)
         {
-            var errorMessage = $"Delete: there are no credentials to delete!";
+            var errorMessage = $"{_className}: there are no credentials to delete!";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(credential));
         }
         else
         {
-            var infoMessage = $"Delete: credentials to delete {credential}!";
+            var infoMessage = $"{_className}: credentials to delete {credential}!";
             _logger.LogInformation(infoMessage);
         }
         return Page();
@@ -74,7 +72,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
     {
         if (id is null)
         {
-            var Message = $"Credentials/Delete - id is null";
+            var Message = $"{_className}: id is null!";
             _logger.LogError(Message);
 
             throw new NullReferenceException(nameof(id));
@@ -83,7 +81,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
         var credential = await _context.Credentials.FindAsync(id);
         if (credential is null)
         {
-            var Message = $"Delete: credential is null";
+            var Message = $"{_className}: credential is null!";
             _logger.LogError(Message);
 
             throw new NullReferenceException(nameof(credential)); 
@@ -93,7 +91,7 @@ public class DeleteModel(AppDbContext context, ILogger<DeleteModel> logger) : Pa
             _context.Credentials.Remove(credential);
             await _context.SaveChangesAsync();
 
-            var infoMessage = $"Delete: credential {credential} removed from local store";
+            var infoMessage = $@"{_className}: credential {credential} removed from local store";
             _logger.LogInformation(infoMessage);
         }
 

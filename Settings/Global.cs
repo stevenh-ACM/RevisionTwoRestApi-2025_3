@@ -30,7 +30,7 @@ internal static class Globals
     /// <summary>
     /// Gets or sets the total number of records processed or available.
     /// </summary>
-    private static int NumRecords { get; set; } = 10; // Default number of records
+    private static int NumRecords { get; set; } = 10; // Default number of records to retrieve
 
     /// <summary>
     /// Initializes a collection of global properties with their default values.
@@ -43,13 +43,14 @@ internal static class Globals
     {
         _globalProperties = new List<Tuple<object, object>>
         {
-            new Tuple<object, object>("RefreshFlag", false),
-            new Tuple<object, object>("EditFlag", false),   
-            new Tuple<object, object>("DeleteFlag", false),
-            new Tuple<object, object>("FromDate", FromDate),
-            new Tuple<object, object>("ToDate", ToDate),
-            new Tuple<object, object>("NumRecords", NumRecords),
+            new Tuple<object, object>("RefreshFlag" , false),
+            new Tuple<object, object>("EditFlag"    , false),
+            new Tuple<object, object>("DeleteFlag"  , false),
+            new Tuple<object, object>("FromDate"    , FromDate),
+            new Tuple<object, object>("ToDate"      , ToDate),
+            new Tuple<object, object>("NumRecords"  , NumRecords),
             new Tuple<object, object>("Selected_SalesOrder_Type", "SO"), // Default Sales Order Type
+            new Tuple<object, object>("InventoryID" , "AACOMPUT01") // Default Inventory ID for Sales Orders
         };
         return _globalProperties;
     }    

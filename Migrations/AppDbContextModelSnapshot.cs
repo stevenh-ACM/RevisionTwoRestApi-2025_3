@@ -151,15 +151,15 @@ namespace RevisionTwoApp.RestApi.Migrations
                         {
                             Id = "74462461-2f95-46cf-b4c9-feda3cd43d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "214a1194-0e2e-4fbb-bc00-e1f901173e2a",
+                            ConcurrencyStamp = "c7090855-415f-4554-9a67-3eaffa50d374",
                             Email = "demo@r.c",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "DEMO@R.C",
                             NormalizedUserName = "DEMO@R.C",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJYq26/keGnwZGCKVq4969yrGg3/YrCvU9gJGjqh6p5J4BOQ6pTbBeNQj3nF7359eA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH0zwDr0ZAo/NATbIEuM4EkHUDnTMZva5eLTLsbnERXFavYPCT2CHuJdd5t1OSCBBA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "42c217f3-7f46-4a27-b3e8-48ac825e352e",
+                            SecurityStamp = "d2aa956a-41e1-4f5a-9e1e-57de017f7356",
                             TwoFactorEnabled = false,
                             UserName = "demo@r.c"
                         });

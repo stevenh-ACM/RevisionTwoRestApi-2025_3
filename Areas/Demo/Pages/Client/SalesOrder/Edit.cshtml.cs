@@ -1,10 +1,9 @@
 #nullable disable
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1572 // XML comment has badly formed XML
+//#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+//#pragma warning disable CS1572 // XML comment has badly formed XML
 
 using Microsoft.AspNetCore.Mvc.Rendering;
-
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
@@ -13,12 +12,12 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// <summary>
 /// Represents the model for editing sales orders in the application.
 /// </summary>
-/// <remarks>The <see cref="EditModel"/> class provides functionality for handling HTTP GET and POST requests 
-/// related to editing sales orders. It includes properties for binding sales order data, managing  selectable options,
-/// and tracking parameters for filtering and processing sales orders.  This model is designed to interact with the
-/// application's database context and logging system.</remarks>
+/// <remarks>The <see cref="EditModel"/> class provides properties and methods for handling sales order data,
+/// including retrieving, updating, and validating sales orders. It is designed to work with ASP.NET Core Razor Pages
+/// and integrates with the application's database context and logging system.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param>
+[BindProperties]
 public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageModel
 {
     #region ctor
@@ -34,16 +33,35 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
     /// <summary>
     /// Gets or sets the sales order application model used for binding and processing sales order data.
     /// </summary>
-    [BindProperty]
     public SalesOrder_App SalesOrder { get; set; }
 
+    /// <summary>
+    /// Gets or sets the Credentials used to authenticate with the site.
+    /// </summary>
     Site_Credential SiteCredential { get; set; }
 
-    Credential credential { get; set; }
+    /// <summary>
+    /// Gets or sets the Credential used for authentication or authorization.
+    /// </summary>
+    Credential Credential { get; set; }
 
+    /// <summary>
+    /// Gets or sets the starting date for the specified time range.
+    /// </summary>
     public DateTime FromDate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the date and time value representing the target date.
+    /// </summary>
     public DateTime ToDate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the number of records currently stored or processed.
+    /// </summary>
     public int NumRecords { get; set; }
+    /// <summary>
+    /// Gets or sets the type of the selected sales order.
+    /// </summary>
     public string Selected_SalesOrder_Type { get; set; }
 
     /// <summary>
@@ -116,26 +134,26 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
         var infoMessage = $@"{_className}: Edited SalesOrder is {SalesOrder}";
         _logger.LogInformation(infoMessage);
 
-        // get current Acumatica ERP credentials to login
+        // get current Acumatica ERP Credentials to login
         SiteCredential = new(_context, _logger);
 
-        credential = SiteCredential.GetSiteCredential().Result;
-        if (credential is null)
+        Credential = SiteCredential.GetSiteCredential().Result;
+        if (Credential is null)
         {
-            var errorMessage = $@"{_className}: No credentials found. Please create at least one credential.";
+            var errorMessage = $@"{_className}: No Credentials found. Please create at least one Credential.";
             _logger.LogError(errorMessage);
 
             return RedirectToPage("Demo/Credentials");
         }
 
         var client = new ApiClient(
-                                    credential.SiteUrl,
+                                    Credential.SiteUrl,
                                             requestInterceptor: RequestLogger.LogRequest,
                                             responseInterceptor: RequestLogger.LogResponse,
                                             ignoreSslErrors: true); // this is here to allow testing with self-signed certificates
         if (client.RequestInterceptor is null)
         {
-            var errorMessage = $@"{_className}: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
+            var errorMessage = $@"{_className}: Failure to create a RestAPI client to Site {Credential.SiteUrl} ";
             _logger.LogError(errorMessage);
 
             throw new NullReferenceException(nameof(client));
@@ -145,11 +163,11 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
         try
         {
             //RestClient Log In (on) using Credentials retrieved
-            client.Login(credential.UserName, credential.Password, "", "", "");
+            client.Login(Credential.UserName, Credential.Password, "", "", "");
             if (client.RequestInterceptor is null)
             {
                 var errorMessage = $@"{_className}: Failure to create a context for client login: UserName of " +
-                                         $"{credential.UserName} and Password of {credential.Password}";
+                                         $"{Credential.UserName} and Password of {Credential.Password}";
                 _logger.LogError(errorMessage);
 
                 throw new NullReferenceException(nameof(client));
@@ -161,7 +179,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
 
                 var keys = new List<string> { SalesOrder.OrderType, SalesOrder.OrderNbr };
 
-                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, select: "OrderType, OrderNbr, Status");
+                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, null, "OrderType, OrderNbr, Status");
                 if (so is null)
                 {
                     var errorMessage = $@"{_className}: Sales Order with keys {keys} doesn't exist.";
@@ -185,13 +203,28 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                     }
                 }
 
-                var _so = new ConvertToSalesOrder(SalesOrder);
+                //Acumatica.Default_24_200_001.Model.SalesOrder _so = new ConvertToSalesOrder(SalesOrder);
 
                 //Update the Sales Order using the updated record
-                var result = client.Put<Acumatica.Default_24_200_001.Model.SalesOrder>((_so));
+                var result = await client.PutAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(new Acumatica.Default_24_200_001.Model.SalesOrder
+                {
+                    OrderNbr = so.OrderNbr,
+                    OrderType = so.OrderType,
+                    Status = SalesOrder.Status
+                });
+                //    Details = new List<SalesOrderDetail>()
+                //    {
+                //        new SalesOrderDetail()
+                //        {
+                //            InventoryID = (string)Globals.GetGlobalProperty("InventoryID"),
+                //            ShipOn = so.ShipOn
+                //        }
+                //    }
+                //}, expand: "Details");
+
                 if (result is not null)
                 {
-                    infoMessage = $"{_className}: Sales Order {_so.OrderNbr} edit status is {result}.";
+                    infoMessage = $"{_className}: Sales Order {SalesOrder.OrderNbr} edit status is {result}.";
                     _logger.LogInformation(infoMessage);
                 }
 
@@ -201,13 +234,11 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
 
                 // sales order is edited, set the EditFlag to true
                 Globals.SetGlobalProperty("EditFlag", true, _logger);
-
-                return RedirectToPage("./Details");
             }
         }
         catch (Exception ex)
         {
-            var errorMessage = $"{_className}: Failed to delete Sales Order exception {ex}.";
+            var errorMessage = $"{_className}: Failed to Edit Sales Order exception {ex}.";
             _logger.LogError(errorMessage);
 
             return RedirectToPage("./Details");
@@ -226,6 +257,8 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                 _logger.LogError(errorMessage);
             }
         }
+
+        return RedirectToPage("./Details");
     }
     #endregion
 }

@@ -14,6 +14,7 @@ public class AboutModel(ILogger<AboutModel> logger): PageModel
     /// Initializes a new instance of the class with the specified database context.
     /// </summary>
     private readonly ILogger<AboutModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    private readonly string _className = nameof(AboutModel);
     #endregion ctor
 
     #region properties
@@ -39,7 +40,8 @@ public class AboutModel(ILogger<AboutModel> logger): PageModel
     /// </summary>
     public void OnGet()
     {
-        _logger.LogInformation("Home/About Page");
+        var infoMessage = $"{_className}: OnGet()";
+        _logger.LogInformation(infoMessage);
         YearValue();
         EmpValue();
         RevValue();
