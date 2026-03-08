@@ -4,7 +4,7 @@
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // Non-nullable field is uninitialized. Consider declaring as nullable.
 
-global using Acumatica.Default_24_200_001.Model;
+global using Acumatica.Default_25_200_001.Model;
 global using Acumatica.RESTClient.AuthApi;
 global using Acumatica.RESTClient.Client;
 global using Acumatica.RESTClient.ContractBasedApi;
@@ -23,7 +23,6 @@ global using RevisionTwoApp.RestApi.Models;
 global using RevisionTwoApp.RestApi.Models.App;
 global using RevisionTwoApp.RestApi.Settings;
 
-using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
 
 /// <summary>
@@ -105,7 +104,7 @@ builder.Services.Configure<PasswordHasherOptions>(option =>
 {
     option.IterationCount = 12000;
 });
- 
+
 Globals.InitializeProperties(); //Global flags and properties
 
 builder.Services.AddRazorPages();
@@ -126,17 +125,17 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if(!app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.Logger.LogInformation("Production Environment");
-    app.UseExceptionHandler("/Error");
+    _ = app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    _ = app.UseHsts();
 }
 else
 {
     app.Logger.LogInformation("Development Environment");
-    app.UseMigrationsEndPoint();
+    _ = app.UseMigrationsEndPoint();
 }
 /// <summary> HTTP request pipeline </summary>
 app.UseHttpsRedirection();

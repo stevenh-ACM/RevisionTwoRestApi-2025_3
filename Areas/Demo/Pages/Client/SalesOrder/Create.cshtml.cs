@@ -6,10 +6,6 @@
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-using Microsoft.EntityFrameworkCore;
-
-using RevisionTwoApp.RestApi.Models;
-
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
 #region CreateModel
@@ -21,7 +17,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// operations for initializing and submitting sales order data.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param>
-public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : PageModel
+public class CreateModel(AppDbContext context, ILogger<CreateModel> logger): PageModel
 {
     #region ctor
     /// <summary>
@@ -49,7 +45,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// Gets a list of customers available for selection in a sales order.
     /// </summary>
     [BindProperty]
-    public List<SelectListItem> Selected_SalesOrder_Customers { get; set; } = [];
+    public List<SelectListItem> Selected_SalesOrder_Customers { get; set; } = [ ];
     /// <summary>
     /// Gets or sets the collection of sales orders associated with the application.
     /// </summary>
@@ -89,7 +85,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// orders exist, an error is logged and the page is returned without additional data.</remarks>  
     /// <returns>An <see cref="IActionResult"/> representing the result of the operation. Typically, this will return the page   
     /// to the caller.</returns>  
-    public async Task<IActionResult> OnGetAsync()
+    public async Task<IActionResult> OnGetAsync( )
     {
         // Get current SalesOrders from local store  
         var Customers = await _context.Customers.ToListAsync();
@@ -118,7 +114,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
         for (int i = 0; i < Selected_SalesOrder_Customers.Count - 1; i++)
         {
-            _logger.LogInformation($"{_className}: Selected_SalesOrder_Customers {i}\nis Text = {Selected_SalesOrder_Customers[ i].Text}, Value = {Selected_SalesOrder_Customers[ i ].Value}. Selected = {Selected_SalesOrder_Customers[ i ].Selected}.\n");
+            _logger.LogInformation($"{_className}: Selected_SalesOrder_Customers {i}\nis Text = {Selected_SalesOrder_Customers[ i ].Text}, Value = {Selected_SalesOrder_Customers[ i ].Value}. Selected = {Selected_SalesOrder_Customers[ i ].Selected}.\n");
         }
 
         SalesOrder.Date = Date.AddDays(-1);
@@ -141,10 +137,11 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     /// cref="RedirectToPageResult"/> if the sales order is successfully created and posted;  otherwise, returns a <see
     /// cref="PageResult"/> indicating an error or invalid state.</returns>
     /// <exception cref="NullReferenceException">Thrown if required objects, such as the API client or business account, are null during the operation.</exception>
-    public async Task<IActionResult> OnPostAsync()
-    {        
+    [Obsolete]
+    public async Task<IActionResult> OnPostAsync( )
+    {
         _context.Attach(SalesOrder).State = EntityState.Added;
-        
+
         if (!ModelState.IsValid)
         {
             var Message = $"{_className}: No Sales Orders exist. Please create at least one Sales Order!";
@@ -162,16 +159,16 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         {
             var message = $"{_className}: No customer found with name {SalesOrder.CustomerID}.";
             _logger.LogError(message);
-            ModelState.AddModelError(string.Empty,message);
+            ModelState.AddModelError(string.Empty, message);
 
             return Page();
         }
 
         // get current Acumatica ERP credentials to login
-        Site_Credential SiteCredential = new(_context,_logger);
+        Site_Credential SiteCredential = new(_context, _logger);
 
         Credential credential = SiteCredential.GetSiteCredential().Result;
-        if(credential == null)
+        if (credential == null)
         {
             var Message = "{_className}: No credentials found. Please create at least one credential.";
             _logger.LogError(Message);
@@ -185,7 +182,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                                   ignoreSslErrors: true // this is here to allow testing with self-signed certificates
                                  );
 
-        if(client.RequestInterceptor is null)
+        if (client.RequestInterceptor is null)
         {
             var Message = $@"{_className}: Failure to create a RestAPI client to Site {credential.SiteUrl} ";
             _logger.LogError(Message);
@@ -195,8 +192,8 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
         try
         {
             //RestClient Log In (on) using Credentials retrieved
-            client.Login(credential.UserName,credential.Password,"","","");
-            if(client.RequestInterceptor is null)
+            client.Login(credential.UserName, credential.Password, "", "", "");
+            if (client.RequestInterceptor is null)
             {
                 var Message = $@"{_className}: Failure to create a context for client login: UserName of " +
                                     $"{credential.UserName} and Password of {credential.Password}";
@@ -205,7 +202,7 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
             }
             else
             {
-                var so = client.Put(new Acumatica.Default_24_200_001.Model.SalesOrder()
+                var so = client.Put(new Acumatica.Default_25_200_001.Model.SalesOrder()
                 {
                     CustomerID = SalesOrder.CustomerID,
                     Date = SalesOrder.Date,
@@ -218,14 +215,15 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                         }
                     ]
-                },expand: "Details");
+                }, expand: "Details");
 
-                var Message = $@"{_className}: New Sales Order added to {credential.SiteUrl}." + $"\nThe Order placed is {so}."; 
+                var Message = $@"{_className}: New Sales Order added to {credential.SiteUrl}." + $"\nThe Order placed is {so}.";
                 _logger.LogInformation(Message);
 
-               var shipment = new Shipment { 
+                var shipment = new Shipment
+                {
                     ShipmentDate = SalesOrder.ShipmentDate
-               }; 
+                };
 
                 Message = $"{_className}: New Shipment is added to {credential.SiteUrl}. \nThe Shipment Created is {shipment}.";
                 _logger.LogInformation(Message);
@@ -243,13 +241,13 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
 
                 var _so = new ConvertToSO(so, baAccount, shipment.ShipmentDate); // Create App Sales Order from Acumatica Sales Order
 
-                Message= $@"{_className}: Convert Sales Order to SalesOrder_App.";
+                Message = $@"{_className}: Convert Sales Order to SalesOrder_App.";
                 _logger.LogInformation(Message);
 
                 // adjusted SalesOrder added to the SalesOrder_App cache
                 var SalesOrders = await _context.SalesOrders.ToListAsync();
-                await _context.SalesOrders.AddAsync(_so);
-                await _context.SaveChangesAsync();
+                _ = await _context.SalesOrders.AddAsync(_so);
+                _ = await _context.SaveChangesAsync();
 
                 Message = $"{_className}: Sales Order Created and posted and added to SalesOrder_App cache.";
                 _logger.LogInformation(Message);
@@ -257,10 +255,10 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
                 return RedirectToPage("./Index");
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             var Message = $"{_className}: Error creating Sales Order: {ex.Message}";
-            _logger.LogError(ex,Message);
+            _logger.LogError(ex, Message);
 
             return Page();
         }
@@ -281,4 +279,4 @@ public class CreateModel(AppDbContext context, ILogger<CreateModel> logger) : Pa
     }
     #endregion
 }
-#endregion  
+#endregion

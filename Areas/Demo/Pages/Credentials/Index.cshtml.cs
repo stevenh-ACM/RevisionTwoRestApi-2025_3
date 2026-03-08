@@ -3,13 +3,11 @@
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
-using Microsoft.AspNetCore.Authorization;
-
 using Task = System.Threading.Tasks.Task;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 
-[Authorize]
+//[Authorize]
 
 #region IndexModel
 /// <summary>
@@ -17,7 +15,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// </summary>
 /// <param name="context">The database context.</param>
 /// <param name="logger">The logger instance.</param>
-public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageModel
+public class IndexModel(AppDbContext context, ILogger<IndexModel> logger): PageModel
 {
     #region ctor
     /// <summary>
@@ -38,7 +36,7 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
     /// Handles the GET request for the Credentials Index page.
     /// </summary>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    public async Task OnGetAsync()
+    public async Task OnGetAsync( )
     {
         credentials = await _context.Credentials.ToListAsync();
         if (credentials is null)
@@ -46,9 +44,9 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger):PageMo
             var errorMessage = $@"{_className}: No Credentials found - create a credential";
             _logger.LogError(errorMessage);
 
-            RedirectToPage("./Create");
+            _ = RedirectToPage("./Create");
         }
-        else 
+        else
         {
             var infoMessage = $"{_className}: Display Page";
             _logger.LogInformation(infoMessage);

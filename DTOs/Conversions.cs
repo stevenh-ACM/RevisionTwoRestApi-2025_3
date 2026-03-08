@@ -2,13 +2,15 @@
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
+using Acumatica.Default_25_200_001.Model;
+
 namespace RevisionTwoApp.RestApi.DTOs.Conversions;
 
 #region ConvertToAddr
 /// <summary>
 /// Converts an Address object to an Addr object.
 /// </summary>
-public class ConvertToAddr:Addr
+public class ConvertToAddr: Addr
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToAddr"/> class.
@@ -30,7 +32,7 @@ public class ConvertToAddr:Addr
 /// <summary>
 /// Converts an Addr object to an Address object.
 /// </summary>
-public class ConvertToAddress:Address
+public class ConvertToAddress: Address
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToAddress"/> class.
@@ -52,7 +54,7 @@ public class ConvertToAddress:Address
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToAR_Bill:Bill_App
+public class ConvertToAR_Bill: Bill_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToAR_Bill"/> class.
@@ -79,7 +81,7 @@ public class ConvertToAR_Bill:Bill_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToBill:Bill
+public class ConvertToBill: Bill
 {
     public ConvertToBill(Bill_App bill)
     {
@@ -102,7 +104,7 @@ public class ConvertToBill:Bill
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToAR_BillDetail:BillDetail_App
+public class ConvertToAR_BillDetail: BillDetail_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToAR_BillDetail"/> class.
@@ -128,7 +130,7 @@ public class ConvertToAR_BillDetail:BillDetail_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToBillDetail:BillDetail_App
+public class ConvertToBillDetail: BillDetail_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToBillDetail"/> class.
@@ -154,7 +156,7 @@ public class ConvertToBillDetail:BillDetail_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToCase_App:Case_App
+public class ConvertToCase_App: Case_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToCase_App"/> class.
@@ -184,7 +186,7 @@ public class ConvertToCase_App:Case_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToCase:Case
+public class ConvertToCase: Case
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToCase"/> class.
@@ -214,7 +216,7 @@ public class ConvertToCase:Case
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToCO:Contact_App
+public class ConvertToCO: Contact_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToCO"/> class.
@@ -239,7 +241,7 @@ public class ConvertToCO:Contact_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToContact:Contact
+public class ConvertToContact: Contact
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToContact"/> class.
@@ -276,7 +278,7 @@ public class ConvertToCU: Customer_App
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToOP:Opportunity_App
+public class ConvertToOP: Opportunity_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToOP"/> class.
@@ -303,7 +305,7 @@ public class ConvertToOP:Opportunity_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToOpportunity:Opportunity
+public class ConvertToOpportunity: Opportunity
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToOpportunity"/> class.
@@ -330,7 +332,7 @@ public class ConvertToOpportunity:Opportunity
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToSO:SalesOrder_App
+public class ConvertToSO: SalesOrder_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToSO"/> class.
@@ -338,7 +340,7 @@ public class ConvertToSO:SalesOrder_App
     /// <param name="so">The SalesOrder object to convert.</param>
     /// <param name="ba">The BusinessAccount object to use for customer name.</param>
     /// <param name="sp">The DateTimeValue object representing the shipment date.</param>
-    public ConvertToSO(SalesOrder so,BusinessAccount ba,DateTimeValue sp)
+    public ConvertToSO(SalesOrder so, BusinessAccount ba, DateTimeValue sp)
     {
         OrderType = so.OrderType.Value;
         OrderNbr = so.OrderNbr.Value;
@@ -359,7 +361,7 @@ public class ConvertToSO:SalesOrder_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToSalesOrder:SalesOrder
+public class ConvertToSalesOrder: SalesOrder
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToSalesOrder"/> class.
@@ -385,7 +387,7 @@ public class ConvertToSalesOrder:SalesOrder
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToSP:Shipment_App
+public class ConvertToSP: Shipment_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToSP"/> class.
@@ -411,7 +413,7 @@ public class ConvertToSP:Shipment_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToShipment:Shipment
+public class ConvertToShipment: Shipment
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToShipment"/> class.
@@ -437,7 +439,7 @@ public class ConvertToShipment:Shipment
 /// <summary>
 /// Conversion to App model from Default model using inheritance 
 /// </summary>
-public class ConvertToSPDetail:ShipmentDetail_App
+public class ConvertToSPDetail: ShipmentDetail_App
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToSPDetail"/> class.
@@ -460,7 +462,7 @@ public class ConvertToSPDetail:ShipmentDetail_App
 /// <summary>
 /// Conversion to Default model from App model using inheritance
 /// </summary>
-public class ConvertToShipmentDetail:ShipmentDetail
+public class ConvertToShipmentDetail: ShipmentDetail
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConvertToShipmentDetail"/> class.

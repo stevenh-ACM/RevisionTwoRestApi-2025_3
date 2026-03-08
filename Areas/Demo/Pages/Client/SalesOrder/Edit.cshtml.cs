@@ -4,6 +4,7 @@
 //#pragma warning disable CS1572 // XML comment has badly formed XML
 
 using Microsoft.AspNetCore.Mvc.Rendering;
+
 using Credential = RevisionTwoApp.RestApi.Models.Credential;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
@@ -18,7 +19,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// <param name="context"></param>
 /// <param name="logger"></param>
 [BindProperties]
-public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageModel
+public class EditModel(AppDbContext context, ILogger<EditModel> logger): PageModel
 {
     #region ctor
     /// <summary>
@@ -119,6 +120,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
     /// <returns>An <see cref="IActionResult"/> indicating the result of the operation.  Returns the current page if the model state
     /// is invalid, a "Not Found" result if the sales order does not exist,  or redirects to the details page upon
     /// successful update.</returns>
+    [Obsolete]
     public async Task<IActionResult> OnPostAsync(int? id)
     {
         if (!ModelState.IsValid)
@@ -179,7 +181,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
 
                 var keys = new List<string> { SalesOrder.OrderType, SalesOrder.OrderNbr };
 
-                var so = await client.GetByKeysAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(keys, null, "OrderType, OrderNbr, Status");
+                var so = await client.GetByKeysAsync<Acumatica.Default_25_200_001.Model.SalesOrder>(keys, (IEnumerable<string>?)null, "OrderType, OrderNbr, Status");
                 if (so is null)
                 {
                     var errorMessage = $@"{_className}: Sales Order with keys {keys} doesn't exist.";
@@ -206,7 +208,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
                 //Acumatica.Default_24_200_001.Model.SalesOrder _so = new ConvertToSalesOrder(SalesOrder);
 
                 //Update the Sales Order using the updated record
-                var result = await client.PutAsync<Acumatica.Default_24_200_001.Model.SalesOrder>(new Acumatica.Default_24_200_001.Model.SalesOrder
+                var result = await client.PutAsync<Acumatica.Default_25_200_001.Model.SalesOrder>(new Acumatica.Default_25_200_001.Model.SalesOrder
                 {
                     OrderNbr = so.OrderNbr,
                     OrderType = so.OrderType,
@@ -230,7 +232,7 @@ public class EditModel(AppDbContext context, ILogger<EditModel> logger) : PageMo
 
                 // Update the SalesOrder property
                 _context.Attach(SalesOrder).State = EntityState.Modified;
-                await _context.SaveChangesAsync(); //Save Modified Record to local store
+                _ = await _context.SaveChangesAsync(); //Save Modified Record to local store
 
                 // sales order is edited, set the EditFlag to true
                 Globals.SetGlobalProperty("EditFlag", true, _logger);

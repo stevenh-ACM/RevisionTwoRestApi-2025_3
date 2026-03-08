@@ -4,15 +4,13 @@
 #pragma warning disable CS1572 // XML comment has badly formed XML
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
 
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.Scripting.Hosting;
-
 using System.ComponentModel.DataAnnotations;
+
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 
-[Authorize]
+//[Authorize]
 
 #region IndexModel
 [BindProperties]
@@ -25,8 +23,8 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
 /// application's database context and logging system.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param> 
-    public class IndexModel(AppDbContext context, ILogger<IndexModel> logger) : PageModel
-    {
+public class IndexModel(AppDbContext context, ILogger<IndexModel> logger): PageModel
+{
     #region ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="IndexModel"/> class.
@@ -41,7 +39,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
     public DateTime FromDate { get; set; } = (DateTime)(Globals.GetGlobalProperty("FromDate", logger) ?? DateTime.Now.AddDays(-30));
 
     [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-    public DateTime ToDate { get; set; } = (DateTime)(Globals.GetGlobalProperty("ToDate", logger) ?? DateTime.Now); 
+    public DateTime ToDate { get; set; } = (DateTime)(Globals.GetGlobalProperty("ToDate", logger) ?? DateTime.Now);
 
     public int NumRecords { get; set; } = (int)Globals.GetGlobalProperty("NumRecords", logger);
 
@@ -66,7 +64,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder;
     /// Handles POST requests for the Index page.
     /// </summary>
     /// <returns>A redirection to the Details page.</returns>
-    public IActionResult OnPost()
+    public IActionResult OnPost( )
     {
         if (!ModelState.IsValid)
         {
