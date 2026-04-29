@@ -252,21 +252,23 @@
             <summary>
             Represents the model for editing sales orders in the application.
             </summary>
-            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel"/> class provides properties and methods for handling sales order data,
-            including retrieving, updating, and validating sales orders. It is designed to work with ASP.NET Core Razor Pages
-            and integrates with the application's database context and logging system.</remarks>
-            <param name="context"></param>
-            <param name="logger"></param>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel"/> class provides properties and methods
+            for handling sales order data, including retrieving, updating, and
+            validating sales orders. It is designed to work with ASP.NET Core Razor
+            Pages and integrates with the application's database context and logging
+            system.</remarks> <param name="context"></param> <param
+            name="logger"></param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel})">
             <summary>
             Represents the model for editing sales orders in the application.
             </summary>
-            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel"/> class provides properties and methods for handling sales order data,
-            including retrieving, updating, and validating sales orders. It is designed to work with ASP.NET Core Razor Pages
-            and integrates with the application's database context and logging system.</remarks>
-            <param name="context"></param>
-            <param name="logger"></param>
+            <remarks>The <see cref="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel"/> class provides properties and methods
+            for handling sales order data, including retrieving, updating, and
+            validating sales orders. It is designed to work with ASP.NET Core Razor
+            Pages and integrates with the application's database context and logging
+            system.</remarks> <param name="context"></param> <param
+            name="logger"></param>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel._logger">
             <summary>
@@ -275,7 +277,8 @@
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.SalesOrder">
             <summary>
-            Gets or sets the sales order application model used for binding and processing sales order data.
+            Gets or sets the sales order application model used for binding and
+            processing sales order data.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.SiteCredential">
@@ -323,18 +326,22 @@
             Handles the GET request for editing a sales order.
             </summary>
             <param name="id">The ID of the sales order to edit.</param>
-            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the operation.</returns>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> representing the result of the
+            operation.</returns>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.EditModel.OnPostAsync(System.Nullable{System.Int32})">
             <summary>
             Handles the HTTP POST request to update a sales order.
             </summary>
-            <remarks>This method validates the model state, updates the sales order's status, and saves the changes to the
-            database. If a concurrency conflict occurs during the update, the method checks whether the sales order still exists
-            and throws an exception if the conflict cannot be resolved.</remarks>
-            <param name="id">The identifier of the sales order to update. Must be a valid sales order ID.</param>
-            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> indicating the result of the operation.  Returns the current page if the model state
-            is invalid, a "Not Found" result if the sales order does not exist,  or redirects to the details page upon
+            <remarks>This method validates the model state, updates the sales order's
+            status, and saves the changes to the database. If a concurrency conflict
+            occurs during the update, the method checks whether the sales order still
+            exists and throws an exception if the conflict cannot be
+            resolved.</remarks> <param name="id">The identifier of the sales order to
+            update. Must be a valid sales order ID.</param> <returns>An <see
+            cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> indicating the result of the operation.  Returns
+            the current page if the model state is invalid, a "Not Found" result if
+            the sales order does not exist,  or redirects to the details page upon
             successful update.</returns>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Client.SalesOrder.IndexModel._logger">
@@ -489,28 +496,34 @@
             <summary>
             Represents the page model for editing credentials.
             </summary>
-            <remarks>This class provides functionality to handle GET and POST requests for editing credentials. It
-            interacts with the database context to retrieve and update credential data.</remarks>
-            <param name="context"></param>
-            <param name="logger"></param>
+            <remarks>This class provides functionality to handle GET and POST requests
+            for editing credentials. It interacts with the database context to retrieve
+            and update credential data.</remarks> <param name="context"></param> <param
+            name="logger"></param>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.#ctor(RevisionTwoApp.RestApi.Data.AppDbContext,Microsoft.Extensions.Logging.ILogger{RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel})">
             <summary>
             Represents the page model for editing credentials.
             </summary>
-            <remarks>This class provides functionality to handle GET and POST requests for editing credentials. It
-            interacts with the database context to retrieve and update credential data.</remarks>
-            <param name="context"></param>
-            <param name="logger"></param>
+            <remarks>This class provides functionality to handle GET and POST requests
+            for editing credentials. It interacts with the database context to retrieve
+            and update credential data.</remarks> <param name="context"></param> <param
+            name="logger"></param>
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel._context">
             <summary>
-            Initializes a new instance of the class with the specified database context.
+            Initializes a new instance of the class with the specified database
+            context.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.credential">
             <summary>
             Gets or sets the credential being edited.
+            </summary>
+        </member>
+        <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.id">
+            <summary>
+            id passed in the query string to identify the credential to edit.
             </summary>
         </member>
         <member name="M:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.EditModel.OnGetAsync(System.Nullable{System.Int32})">
@@ -524,7 +537,8 @@
             <summary>
             Handles the POST request to update the credential.
             </summary>
-            <returns>A redirect to the index page or the current page if validation fails.</returns>
+            <returns>A redirect to the index page or the current page if validation
+            fails.</returns>
         </member>
         <member name="T:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel">
             <summary>
@@ -542,7 +556,8 @@
         </member>
         <member name="F:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel._context">
             <summary>
-            Initializes a new instance of the class with the specified database context.
+            Initializes a new instance of the class with the specified database
+            context.
             </summary>
         </member>
         <member name="P:RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials.IndexModel.credentials">
@@ -2387,8 +2402,9 @@
             <summary>
             Initializes the database with seed data.
             </summary>
-            <param name="serviceProvider">The service provider to resolve dependencies.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown when the AppDbContext or its properties are null.</exception>
+            <param name="serviceProvider">The service provider to resolve
+            dependencies.</param> <exception cref="T:System.ArgumentNullException">Thrown when
+            the AppDbContext or its properties are null.</exception>
         </member>
         <member name="T:RevisionTwoApp.RestApi.DTOs.Conversions.ConvertToAddr">
             <summary>

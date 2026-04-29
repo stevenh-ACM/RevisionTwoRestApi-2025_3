@@ -10,7 +10,7 @@ namespace RevisionTwoApp.RestApi.Areas.Demo.Pages.Credentials;
 /// details. It provides functionality to handle GET requests for fetching credential information by ID.</remarks>
 /// <param name="context"></param>
 /// <param name="logger"></param>
-public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):PageModel
+public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger): PageModel
 {
     #region ctor
     /// <summary>
@@ -44,7 +44,7 @@ public class DetailsModel(AppDbContext context, ILogger<DetailsModel> logger):Pa
             throw new ArgumentNullException(nameof(id));
         }
 
-        var credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
+        credential = await _context.Credentials.FirstOrDefaultAsync(m => m.Id == id);
         if (credential is null)
         {
             var errorMessage = $"{_className}: there are no credentials with id {id} to display!";

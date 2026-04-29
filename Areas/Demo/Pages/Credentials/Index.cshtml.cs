@@ -19,7 +19,8 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger): PageM
 {
     #region ctor
     /// <summary>
-    /// Initializes a new instance of the class with the specified database context.
+    /// Initializes a new instance of the class with the specified database
+    /// context.
     /// </summary>
     private readonly AppDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<IndexModel> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -41,7 +42,8 @@ public class IndexModel(AppDbContext context, ILogger<IndexModel> logger): PageM
         credentials = await _context.Credentials.ToListAsync();
         if (credentials is null)
         {
-            var errorMessage = $@"{_className}: No Credentials found - create a credential";
+            var errorMessage =
+                $@"{_className}: No Credentials found - create a credential";
             _logger.LogError(errorMessage);
 
             _ = RedirectToPage("./Create");

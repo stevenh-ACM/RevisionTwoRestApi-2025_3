@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\pages\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:pages\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\models\\credential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:models\\credential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\credentials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\credentials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\home\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\home\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|c:\\users\\stevenh\\source\\github\\revisiontworestapi-2025_3\\areas\\demo\\pages\\client\\salesorder\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E64EDA6-4774-4BB4-B97C-DCD6634E1EF2}|RevisionTwoApp.RestApi.csproj|solutionrelative:areas\\demo\\pages\\client\\salesorder\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,110 +26,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0849e941-4665-42e5-8dd0-e4c8da15dbd0}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Pages\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Pages\\Privacy.cshtml",
-              "RelativeToolTip": "Pages\\Privacy.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-08T22:47:25.501Z",
+              "Title": "Credential.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Models\\Credential.cs",
+              "RelativeDocumentMoniker": "Models\\Credential.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Models\\Credential.cs*",
+              "RelativeToolTip": "Models\\Credential.cs*",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwDAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T04:06:04.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADMAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-08T22:45:19.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Index.cshtml.cs",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Index.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAACAAAAAAAAAA==",
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwEwAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T22:42:41.149Z",
+              "WhenOpened": "2026-04-29T03:14:26.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Home\\Index.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T22:41:59.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Home\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Edit.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-08T22:41:54.027Z",
+              "WhenOpened": "2026-04-29T03:09:20.657Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Delete.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Delete.cshtml.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAtwLkAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T22:38:17.459Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
-              "RelativeToolTip": "Areas\\Demo\\Pages\\Client\\SalesOrder\\Create.cshtml.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAtwMwAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T22:38:09.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T22:38:03.901Z",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\stevenh\\source\\github\\RevisionTwoRestApi-2025_3\\Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Demo\\Pages\\Credentials\\Edit.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-29T03:07:22.951Z",
               "EditorCaption": ""
             }
           ]
